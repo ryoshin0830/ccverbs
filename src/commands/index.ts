@@ -5,6 +5,7 @@ import { runConfig } from "./config.js";
 import { runCurrent } from "./current.js";
 import { fail, type CommandDeps, type Io } from "./io.js";
 import { runList, runSearch, runShow } from "./list.js";
+import { runNew } from "./new.js";
 
 export type { CommandDeps, Io };
 
@@ -35,6 +36,8 @@ export async function runCommand(options: Options, deps: CommandDeps): Promise<n
       return runCurrent(options, deps);
     case "config":
       return runConfig(options, deps);
+    case "new":
+      return runNew(options, deps);
     default:
       return fail(
         io,

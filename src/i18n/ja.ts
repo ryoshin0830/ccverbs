@@ -148,6 +148,7 @@ export const ja: Catalog = {
       current: "現在適用されている内容を表示する",
       reset: `spinnerVerbs を削除して標準${DEFAULT_VERB_COUNT}語に戻す`,
       config: "設定（言語・適用方法・保存先）を表示・変更する",
+      new: "セットJSONを検証し、必要ならPull Requestを開く",
     },
     options: {
       mode: "この実行だけ適用方法を上書きする",
@@ -160,6 +161,9 @@ export const ja: Catalog = {
       refresh: "指定しても何も変わらない（毎回取得が既定）",
       offline: "前回取得したものを使い、通信しない",
       "no-group": "一覧を言語でまとめない",
+      input: "セットJSONをファイルまたは標準入力（-）から読む",
+      pr: "検証後にPull Requestを開く",
+      branch: "Pull Requestに使うブランチ名",
       help: "このヘルプを表示する",
       version: "バージョンを表示する",
     },

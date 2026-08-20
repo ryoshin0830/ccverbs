@@ -8,6 +8,7 @@ import { EXIT } from "./constants.js";
 import { renderHelp } from "./help/render.js";
 import { getCatalog } from "./i18n/index.js";
 import { resolveLocale } from "./i18n/resolve.js";
+import { runNew } from "./commands/new.js";
 import { RegistryError, loadRegistry } from "./registry/index.js";
 import { readCache } from "./registry/cache.js";
 
@@ -46,6 +47,12 @@ if (options.command === "help") {
 if (options.command === "version") {
   io.out(__CCVERBS_VERSION__);
   process.exit(EXIT.OK);
+}
+
+// Creating a set is local validation plus an optional explicit PR workflow; it
+// does not need the live registry and should still work while the index is down.
+if (options.command === "new") {
+  process.exit(runNew(options, { io, t }));
 }
 
 const cacheFile = cachePath();

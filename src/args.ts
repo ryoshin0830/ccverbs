@@ -11,12 +11,16 @@ export type Command =
   | "current"
   | "reset"
   | "config"
+  | "new"
   | "help"
   | "version";
 
 export interface Options {
   command: Command;
   arg?: string;
+  input?: string;
+  pr: boolean;
+  branch?: string;
   /** undefined means "use the configured value". */
   mode?: "replace" | "append";
   /** undefined means "use the configured value". */
@@ -46,6 +50,7 @@ const COMMANDS = new Set<string>([
   "current",
   "reset",
   "config",
+  "new",
 ]);
 const NEEDS_ARG = new Set<Command>(["show", "search", "set"]);
 
@@ -64,6 +69,7 @@ const list = (values: readonly string[]) => values.join(", ");
 export function parseArgs(argv: string[]): ParseResult {
   const options: Options = {
     command: "tui",
+    pr: false,
     json: false,
     yes: false,
     dryRun: false,
@@ -126,6 +132,25 @@ export function parseArgs(argv: string[]): ParseResult {
       case "--no-group":
         options.group = false;
         break;
+      case "--input": {
+        const value = takeValue();
+        if (value === undefined || value === "") {
+          return { ok: false, message: "--input needs a path or -" };
+        }
+        options.input = value;
+        break;
+      }
+      case "--pr":
+        options.pr = true;
+        break;
+      case "--branch": {
+        const value = takeValue();
+        if (!value || !/^[A-Za-z0-9][A-Za-z0-9._/-]*$/.test(value) || value.includes("..")) {
+          return { ok: false, message: `--branch must be a safe branch name, got ${value ?? "nothing"}` };
+        }
+        options.branch = value;
+        break;
+      }
       case "-m":
       case "--mode": {
         const value = takeValue();
@@ -177,8 +202,8 @@ export function parseArgs(argv: string[]): ParseResult {
     }
     options.command = command as Command;
 
-    // `config` takes two extra words (key and value); everything else takes one.
-    const maxExtra = command === "config" ? 2 : 1;
+    // `config` takes two extra words, ordinary commands one, and `new` none.
+    const maxExtra = command === "config" ? 2 : command === "new" ? 0 : 1;
     if (bare.length > 1 + maxExtra) {
       return { ok: false, message: `unexpected argument ${bare[1 + maxExtra]}` };
     }
@@ -212,7 +237,7 @@ export function parseArgs(argv: string[]): ParseResult {
           options.configValue = value;
         }
       }
-    } else if (bare[1] !== undefined) {
+    } else if (command !== "new" && bare[1] !== undefined) {
       options.arg = bare[1];
     }
   }
@@ -224,6 +249,16 @@ export function parseArgs(argv: string[]): ParseResult {
 
   if (options.offline && options.refresh) {
     return { ok: false, message: "--offline and --refresh cannot be combined" };
+  }
+
+  if (options.command === "new" && options.input === undefined) {
+    return { ok: false, message: "new requires --input <path|->" };
+  }
+  if (
+    options.command !== "new" &&
+    (options.input !== undefined || options.pr || options.branch !== undefined)
+  ) {
+    return { ok: false, message: "--input, --pr, and --branch are only valid with new" };
   }
 
   return { ok: true, options };

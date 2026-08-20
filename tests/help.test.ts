@@ -8,13 +8,15 @@ import { layoutWidth } from "../src/registry/schema.js";
 describe("help model", () => {
   it("lists every command the CLI accepts", () => {
     expect(COMMANDS.map((c) => c.name)).toEqual([
-      "list", "show", "search", "set", "random", "current", "reset", "config",
+      "list", "show", "search", "set", "random", "current", "reset", "config", "new",
     ]);
   });
 
   it("lists every option including the new ones", () => {
     const longs = OPTIONS.map((o) => o.long);
-    for (const flag of ["mode", "scope", "lang", "json", "no-group", "help", "version"]) {
+    for (const flag of [
+      "mode", "scope", "lang", "json", "no-group", "input", "pr", "branch", "help", "version",
+    ]) {
       expect(longs).toContain(flag);
     }
   });

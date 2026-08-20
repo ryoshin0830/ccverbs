@@ -7,6 +7,7 @@ export const COMMANDS = [
   { name: "current" },
   { name: "reset" },
   { name: "config", arg: "key value" },
+  { name: "new" },
 ] as const;
 
 export const OPTIONS = [
@@ -20,6 +21,9 @@ export const OPTIONS = [
   { long: "refresh" },
   { long: "offline" },
   { long: "no-group" },
+  { long: "input", value: "path|-" },
+  { long: "pr" },
+  { long: "branch", value: "name" },
   { short: "h", long: "help" },
   { short: "v", long: "version" },
 ] as const;

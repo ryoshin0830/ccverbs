@@ -25,6 +25,7 @@ describe("parseArgs", () => {
     for (const c of ["list", "random", "current", "reset", "config"] as const) {
       expect(ok([c]).command).toBe(c);
     }
+    expect(ok(["new", "--input", "-"]).command).toBe("new");
     expect(ok(["show", "sql"]).arg).toBe("sql");
     expect(ok(["search", "git"]).arg).toBe("git");
     expect(ok(["set", "sql"]).arg).toBe("sql");
@@ -106,5 +107,28 @@ describe("parseArgs", () => {
   it("maps -h and -v", () => {
     expect(ok(["--help"]).command).toBe("help");
     expect(ok(["-v"]).command).toBe("version");
+  });
+
+  it("parses new with a file input", () => {
+    expect(ok(["new", "--input", "set.json"])).toMatchObject({
+      command: "new",
+      input: "set.json",
+      pr: false,
+    });
+  });
+
+  it("parses stdin input, PR mode, and branch", () => {
+    expect(ok(["new", "--input=-", "--pr", "--branch", "add-gym", "--json"])).toMatchObject({
+      command: "new",
+      input: "-",
+      pr: true,
+      branch: "add-gym",
+      json: true,
+    });
+  });
+
+  it("requires input and rejects new-only flags on other commands", () => {
+    expect(bad(["new"])).toContain("--input");
+    expect(bad(["list", "--pr"])).toContain("new");
   });
 });

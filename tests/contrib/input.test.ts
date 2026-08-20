@@ -56,4 +56,17 @@ describe("parseSetInput", () => {
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.issues[0]?.path).toBe("prompt");
   });
+
+  it("maps schema refinements to repairable contribution codes", () => {
+    const result = parseSetInput({ ...valid, verbs: ["first…", "first…"] });
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.issues.map((issue) => issue.code)).toEqual([
+        "trailing-ellipsis",
+        "trailing-ellipsis",
+        "duplicate",
+      ]);
+    }
+  });
 });

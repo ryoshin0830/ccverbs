@@ -145,6 +145,7 @@ export const zhHant: Catalog = {
       current: "顯示目前已套用的設定",
       reset: `移除 spinnerVerbs，恢復內建的 ${DEFAULT_VERB_COUNT} 個詞`,
       config: "檢視或修改設定（語言、套用方式、儲存位置）",
+      new: "驗證詞集 JSON，並可選擇建立 Pull Request",
     },
     options: {
       mode: "僅本次覆寫套用方式",
@@ -157,6 +158,9 @@ export const zhHant: Catalog = {
       refresh: "無效果 — 預設每次都重新取得",
       offline: "使用上次取得的內容，不連網",
       "no-group": "不依語言分組顯示",
+      input: "從檔案或標準輸入（-）讀取詞集 JSON",
+      pr: "驗證後建立 Pull Request",
+      branch: "Pull Request 使用的分支名稱",
       help: "顯示說明",
       version: "顯示版本",
     },

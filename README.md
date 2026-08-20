@@ -88,6 +88,20 @@ $ npm run sets:index && npm run sets:validate && npm test
 
 Open a pull request. Once it's merged, every `ccverbs` user has it — no release required.
 
+**For an LLM or coding agent:** pass the same JSON through the validation-first
+CLI. `--input -` reads stdin and `--pr` is an explicit opt-in for the external
+GitHub operation:
+
+```console
+$ cat set.json | ccverbs new --input - --json
+$ cat set.json | ccverbs new --input - --pr --json
+```
+
+The first command is local-only and returns canonical JSON plus structured
+issues. The second uses a temporary clone and reports the PR URL; it never
+modifies the caller's working tree. See the full [AI agent contribution
+contract](docs/ai-agents.md).
+
 Full rules, formatting conventions, and the "don't end with `…`" gotcha are in **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
 ---
@@ -107,6 +121,7 @@ Commands:
   current             Show the currently applied configuration
   reset               Remove spinnerVerbs (restore the 186 defaults)
   config <key value>  Show or change settings (language, mode, scope)
+  new                 Validate an agent-created set and optionally open a PR
 
 Options:
   -m, --mode <replace|append>       Override the configured mode for this run
@@ -119,6 +134,9 @@ Options:
       --refresh                     No effect — fetching fresh is the default
       --offline                     Use the last fetched copy, never hit the network
       --no-group                    Do not group the list by language
+      --input <path|->              Read a set JSON file, or stdin with - (new)
+      --pr                          Open a pull request after validation (new)
+      --branch <name>               Use this branch name for the PR (new)
   -h, --help                        Show this help
   -v, --version                     Show the version
 ```
@@ -219,7 +237,7 @@ Verb *content* is never translated — a Japanese set is Japanese. Sets in your 
 ## Verb sets
 
 
-21 sets, 496 verbs.
+22 sets, 500 verbs.
 
 ### Just for fun
 
@@ -261,9 +279,26 @@ Run `ccverbs list` for the live list — it's always ahead of this README.
 
 Every command takes `--json` and prints a **single-line JSON object** whose first key is `ok`. Pair it with `--yes` to skip the prompt. No TUI is ever launched by a subcommand, and running bare `ccverbs` without a TTY exits `2` with the help text rather than hanging.
 
+To create a set, read existing sets first, prepare one JSON object, and run:
+
+```console
+$ cat set.json | ccverbs new --input - --json
+{"ok":true,"validated":true,"set":{"id":"my-set",…,"verbCount":24},"json":"{\n  …\n}\n"}
+
+# Only after the user authorizes the external GitHub action:
+$ cat set.json | ccverbs new --input - --pr --json
+{"ok":true,"validated":true,"set":{"id":"my-set",…,"verbCount":24},"pr":{"url":"https://github.com/ryoshin0830/ccverbs/pull/123","branch":"add-my-set","forked":false}}
+```
+
+Validation failures return `error.issues` with paths and stable codes. PR
+failures return `error.code: "pr-failed"` and a `manual` recovery path. The
+command operates in a temporary clone, does not rebuild `sets/index.json`, and
+does not touch the agent's current worktree. Follow the detailed [AI agent
+guide](docs/ai-agents.md) and the [contribution skill](.claude/skills/ccverbs-contribute/SKILL.md).
+
 ```console
 $ ccverbs list --json
-{"ok":true,"totalSets":21,"totalVerbs":496,"registryTotalSets":21,"sets":[{"id":"bigo","name":"Big-O and Algorithms","emoji":"📈","description":"…","language":"mixed","category":"study","tags":["algorithm","complexity","study"],"count":24}, …]}
+{"ok":true,"totalSets":22,"totalVerbs":500,"registryTotalSets":22,"sets":[{"id":"bigo","name":"Big-O and Algorithms","emoji":"📈","description":"…","language":"mixed","category":"study","tags":["algorithm","complexity","study"],"count":24}, …]}
 
 $ ccverbs show sisyphus --json
 {"ok":true,"set":{"id":"sisyphus","name":"Sisyphus", …,"verbs":["岩を押し上げています", …]}}

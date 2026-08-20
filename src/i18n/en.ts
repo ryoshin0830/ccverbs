@@ -163,6 +163,7 @@ export const en = {
       current: "Show the currently applied configuration",
       reset: `Remove spinnerVerbs (restore the ${DEFAULT_VERB_COUNT} defaults)`,
       config: "Show or change settings (language, mode, scope)",
+      new: "Validate a set JSON and optionally open a pull request",
     } satisfies Record<CommandName, string>,
     options: {
       mode: "Override the configured mode for this run",
@@ -175,6 +176,9 @@ export const en = {
       refresh: "No effect — fetching fresh is the default",
       offline: "Use the last fetched copy, never hit the network",
       "no-group": "Do not group the list by language",
+      input: "Read set JSON from a file or stdin (-)",
+      pr: "Open a pull request after validation",
+      branch: "Branch name for the pull request",
       help: "Show this help",
       version: "Show the version",
     } satisfies Record<OptionName, string>,

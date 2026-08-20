@@ -145,6 +145,7 @@ export const zhHans: Catalog = {
       current: "显示当前已应用的配置",
       reset: `删除 spinnerVerbs，恢复自带的 ${DEFAULT_VERB_COUNT} 个词`,
       config: "查看或修改设置（语言、应用方式、保存位置）",
+      new: "验证词集 JSON，并可选择创建 Pull Request",
     },
     options: {
       mode: "仅本次覆盖应用方式",
@@ -157,6 +158,9 @@ export const zhHans: Catalog = {
       refresh: "无效果 — 默认每次都重新获取",
       offline: "使用上次获取的内容，不联网",
       "no-group": "不按语言分组显示",
+      input: "从文件或标准输入（-）读取词集 JSON",
+      pr: "验证后创建 Pull Request",
+      branch: "Pull Request 使用的分支名",
       help: "显示帮助",
       version: "显示版本",
     },

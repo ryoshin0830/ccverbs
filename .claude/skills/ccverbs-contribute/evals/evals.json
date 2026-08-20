@@ -1,0 +1,41 @@
+{
+  "skill_name": "ccverbs-contribute",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a new ccverbs verb set about incident-response commands for a Japanese-speaking infrastructure team. Inspect existing sets for overlap, draft 12 useful entries with term-plus-meaning wording, validate it with the CLI, and tell me what you would submit. Do not push or open a PR in this evaluation; stop before any external write and ask for authorization.",
+      "expected_output": "A coherent draft, validation-first CLI usage, no external PR action, and an explicit authorization checkpoint.",
+      "files": [],
+      "expectations": [
+        "The response inspects or accounts for existing ccverbs sets before choosing the theme.",
+        "The response uses ccverbs new with --input and --json for validation.",
+        "The response stops before --pr or any external write and asks for explicit authorization.",
+        "The proposed set is coherent and has roughly 10–40 entries."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Make a study set for Japanese learners of Git, with 10–20 verbs. Include the Japanese explanation on the same line, keep each line short enough for a terminal, and preserve author/source metadata if appropriate. Run ccverbs validation and repair any issues; this is a draft-only request, not a PR request.",
+      "expected_output": "A schema-shaped draft that is validated, width-conscious, and does not alter the repository or open a PR.",
+      "files": [],
+      "expectations": [
+        "The response keeps one verb per array element and includes Japanese explanations on the same line.",
+        "The response considers terminal display width and the no-trailing-ellipsis rule.",
+        "The response uses local validation and repairs issues instead of bypassing the CLI.",
+        "The response does not open a PR or modify unrelated repository files."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I want to contribute a playful verb set to ccverbs. Prepare the JSON and the exact ccverbs command sequence, but treat GitHub authentication as unavailable and do not actually clone, fork, push, or create a PR. Explain the manual recovery path an agent should report after a pr-failed result.",
+      "expected_output": "A safe dry-run plan with the machine-readable PR command, explicit no-network behavior, and useful manual recovery guidance.",
+      "files": [],
+      "expectations": [
+        "The response prepares canonical input JSON and shows the --input - --json command.",
+        "The response does not clone, fork, push, or create a PR during the evaluation.",
+        "The response explains pr-failed and provides manual recovery steps or asks the user to run them.",
+        "The response makes the authorization and authentication boundary clear."
+      ]
+    }
+  ]
+}

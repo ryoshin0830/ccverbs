@@ -6,6 +6,29 @@ Because `ccverbs` fetches `sets/index.json` from `main` at runtime, **a merged P
 
 ---
 
+## AI-generated contributions
+
+An LLM may draft a set, but every AI-generated contribution still needs human review
+before merge. The safe, repeatable path is:
+
+```console
+$ cat set.json | ccverbs new --input - --json
+# inspect and repair the structured issues, if any
+$ cat set.json | ccverbs new --input - --pr --json
+```
+
+The second command requires explicit authorization from the person responsible
+for the repository because it clones, pushes, and opens a GitHub PR. It writes
+in a temporary clone and must not be used to bypass review. The command creates
+only `sets/<id>.json`; CI regenerates `sets/index.json` after the PR is merged.
+
+Agents should read [docs/ai-agents.md](docs/ai-agents.md), inspect existing
+sets, keep a single coherent theme, preserve attribution, and report the PR
+URL or the manual recovery steps. A generated list is a proposal, not proof
+that the content is original, accurate, safe, or ready to merge.
+
+---
+
 ## Adding a verb set
 
 ### 1. Create `sets/<your-id>.json`

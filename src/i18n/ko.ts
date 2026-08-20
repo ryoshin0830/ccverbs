@@ -146,6 +146,7 @@ export const ko: Catalog = {
       current: "현재 적용된 설정을 표시합니다",
       reset: `spinnerVerbs를 삭제하고 기본 ${DEFAULT_VERB_COUNT}개로 되돌립니다`,
       config: "설정（언어·적용 방식·저장 위치）을 보거나 바꿉니다",
+      new: "세트 JSON을 검사하고 필요하면 Pull Request를 엽니다",
     },
     options: {
       mode: "이번 실행만 적용 방식을 덮어씁니다",
@@ -158,6 +159,9 @@ export const ko: Catalog = {
       refresh: "효과 없음 — 매번 새로 가져오는 것이 기본입니다",
       offline: "지난번에 가져온 것을 쓰고 통신하지 않습니다",
       "no-group": "목록을 언어별로 묶지 않습니다",
+      input: "파일 또는 표준 입력(-)에서 세트 JSON을 읽습니다",
+      pr: "검사 후 Pull Request를 엽니다",
+      branch: "Pull Request에 사용할 브랜치 이름",
       help: "도움말을 표시합니다",
       version: "버전을 표시합니다",
     },

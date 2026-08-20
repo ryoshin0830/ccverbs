@@ -88,6 +88,18 @@ $ npm run sets:index && npm run sets:validate && npm test
 
 あとは PR を出すだけ。マージされた時点で全ユーザーに届きます。リリース作業は不要です。
 
+**LLM やコーディングエージェントから:** 同じ JSON を検証優先の CLI に渡せます。
+`--input -` は標準入力を読み、`--pr` は外部の GitHub 操作を明示的に許可するスイッチです。
+
+```console
+$ cat set.json | ccverbs new --input - --json
+$ cat set.json | ccverbs new --input - --pr --json
+```
+
+最初のコマンドはローカル検証だけを行い、正規化した JSON と構造化された問題を返します。
+2つ目は一時 clone で PR を作り、呼び出し元の作業ツリーは変更しません。詳しくは
+**[AI エージェント向けコントラクト](docs/ai-agents.md)** を参照してください。
+
 詳しいルール・書式の慣習・「`…` で終わらせない」という落とし穴は **[CONTRIBUTING.md](CONTRIBUTING.md)** にあります。
 
 ---
@@ -107,6 +119,7 @@ ccverbs                        対話画面を開く（既定）
   current             現在適用されている内容を表示する
   reset               spinnerVerbs を削除して標準186語に戻す
   config <key value>  設定（言語・適用方法・保存先）を表示・変更する
+  new                 エージェントが作ったセットを検証し、必要なら PR を開く
 
 オプション:
   -m, --mode <replace|append>       この実行だけ適用方法を上書きする
@@ -119,6 +132,9 @@ ccverbs                        対話画面を開く（既定）
       --refresh                     指定しても何も変わらない（毎回取得が既定）
       --offline                     前回取得したものを使い、通信しない
       --no-group                    一覧を言語でまとめない
+      --input <path|->              セット JSON を読む（- は標準入力、new 用）
+      --pr                          検証後に PR を開く（new 用）
+      --branch <name>               PR のブランチ名（new 用）
   -h, --help                        ヘルプ
   -v, --version                     バージョン
 ```
@@ -219,7 +235,7 @@ UI は **English・日本語・简体中文・繁體中文・한국어** の 5 �
 ## 単語セット一覧
 
 
-21 セット、496 語。
+22 セット、500 語。
 
 ### ネタ系
 
@@ -261,9 +277,26 @@ UI は **English・日本語・简体中文・繁體中文・한국어** の 5 �
 
 全コマンドが `--json` に対応し、`ok` を先頭キーに持つ**1 行の JSON オブジェクト**を出力します。`--yes` と組み合わせれば確認も出ません。サブコマンドが TUI を開くことはなく、TTY のない環境で引数なし起動した場合はハングせずヘルプを出して `2` で終了します。
 
+セットを作るときは、まず既存セットを確認してから JSON を 1 つ作り、次を実行します。
+
+```console
+$ cat set.json | ccverbs new --input - --json
+{"ok":true,"validated":true,"set":{"id":"my-set",…,"verbCount":24},"json":"{\n  …\n}\n"}
+
+# ユーザーが外部の GitHub 操作を許可した後だけ実行する
+$ cat set.json | ccverbs new --input - --pr --json
+{"ok":true,"validated":true,"set":{"id":"my-set",…,"verbCount":24},"pr":{"url":"https://github.com/ryoshin0830/ccverbs/pull/123","branch":"add-my-set","forked":false}}
+```
+
+検証エラーはパスと安定したコードを持つ `error.issues` に入り、PR の失敗は
+`error.code: "pr-failed"` と手動復旧用の `manual` を返します。一時 clone だけを使い、
+`sets/index.json` は生成せず、呼び出し元の作業ツリーにも触れません。詳しい仕様は
+**[AI エージェント向けガイド](docs/ai-agents.md)** と
+**[コントリビューションスキル](.claude/skills/ccverbs-contribute/SKILL.md)** を参照してください。
+
 ```console
 $ ccverbs list --json
-{"ok":true,"totalSets":21,"totalVerbs":496,"registryTotalSets":21,"sets":[…]}
+{"ok":true,"totalSets":22,"totalVerbs":500,"registryTotalSets":22,"sets":[…]}
 
 $ ccverbs set git-commands --yes --json
 {"ok":true,"applied":{"id":"git-commands","mode":"replace","count":24},"settingsPath":"…","backupPath":"…","previous":null,"effectiveVerbCount":24}

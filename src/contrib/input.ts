@@ -24,6 +24,15 @@ function pathOf(path: (string | number)[]): string {
   }, "");
 }
 
+function stableSchemaCode(issue: { code: string; message: string }): string {
+  if (issue.code !== "custom") return issue.code;
+  if (issue.message.includes("end with an ellipsis")) return "trailing-ellipsis";
+  if (issue.message.includes("leading or trailing whitespace")) return "whitespace";
+  if (issue.message.includes("control characters")) return "control-char";
+  if (issue.message.includes("unique within a set")) return "duplicate";
+  return issue.code;
+}
+
 function schemaIssues(error: { issues: readonly { code: string; path: (string | number)[]; message: string; keys?: string[] }[] }): InputIssue[] {
   return error.issues.flatMap((issue) => {
     if (issue.code === "unrecognized_keys" && issue.keys) {
@@ -35,7 +44,7 @@ function schemaIssues(error: { issues: readonly { code: string; path: (string | 
     }
     return [{
       path: pathOf(issue.path) || "$",
-      code: issue.code,
+      code: stableSchemaCode(issue),
       message: issue.message,
     }];
   });

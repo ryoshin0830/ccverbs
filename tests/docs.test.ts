@@ -4,11 +4,13 @@ import { describe, expect, it } from "vitest";
 const readme = readFileSync("README.md", "utf8");
 const readmeJa = readFileSync("README.ja.md", "utf8");
 const contributing = readFileSync("CONTRIBUTING.md", "utf8");
+const aiAgents = readFileSync("docs/ai-agents.md", "utf8");
+const contributionSkill = readFileSync(".claude/skills/ccverbs-contribute/SKILL.md", "utf8");
 const pkg = JSON.parse(readFileSync("package.json", "utf8"));
 
 describe("version", () => {
-  it("is 0.2.1", () => {
-    expect(pkg.version).toBe("0.2.1");
+  it("is 0.3.0", () => {
+    expect(pkg.version).toBe("0.3.0");
   });
 });
 
@@ -20,13 +22,23 @@ describe("README", () => {
   });
 
   it("documents every command", () => {
-    for (const c of ["list", "show", "search", "set", "random", "current", "reset", "config"]) {
+    for (const c of [
+      "list",
+      "show",
+      "search",
+      "set",
+      "random",
+      "current",
+      "reset",
+      "config",
+      "new",
+    ]) {
       expect(readme).toContain(`ccverbs ${c}`);
     }
   });
 
   it("documents the new options", () => {
-    for (const flag of ["--lang", "--no-group", "--json", "--dry-run"]) {
+    for (const flag of ["--lang", "--no-group", "--json", "--dry-run", "--input", "--pr", "--branch"]) {
       expect(readme).toContain(flag);
     }
   });
@@ -72,6 +84,31 @@ describe("README", () => {
   it("links to the Japanese translation and contributing guide", () => {
     expect(readme).toContain("README.ja.md");
     expect(readme).toContain("CONTRIBUTING.md");
+    expect(readme).toContain("docs/ai-agents.md");
+  });
+});
+
+describe("AI contribution documentation", () => {
+  it("documents the validation-first stdin and PR workflow", () => {
+    for (const token of [
+      "ccverbs new --input <path|-> --json",
+      "ccverbs new --input - --pr --json",
+      "--pr",
+      "--branch",
+      "ok",
+      "validated",
+      "manual",
+      "sets/index.json",
+    ]) {
+      expect(aiAgents).toContain(token);
+    }
+  });
+
+  it("makes the skill discoverable and authorization-aware", () => {
+    expect(aiAgents).toContain(".claude/skills/ccverbs-contribute/SKILL.md");
+    expect(contributionSkill).toContain("explicit authorization");
+    expect(contributionSkill).toContain("ccverbs new");
+    expect(contributionSkill).toContain("--pr");
   });
 });
 
@@ -114,6 +151,11 @@ describe("CONTRIBUTING", () => {
   });
   it("lists every set language", () => {
     for (const l of ["zh-Hans", "zh-Hant", "ko", "mixed"]) expect(contributing).toContain(l);
+  });
+  it("explains the AI-generated set path", () => {
+    for (const token of ["AI-generated", "ccverbs new", "--input", "--pr", "human review"]) {
+      expect(contributing).toContain(token);
+    }
   });
 });
 
