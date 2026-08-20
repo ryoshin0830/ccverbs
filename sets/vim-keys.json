@@ -2,7 +2,7 @@
   "$schema": "../schema/verb-set.schema.json",
   "id": "vim-keys",
   "name": "Vim Keybindings",
-  "emoji": "⌨",
+  "emoji": "📝",
   "description": "Learn Vim motions and operators while Claude works",
   "language": "mixed",
   "category": "study",

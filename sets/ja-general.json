@@ -2,7 +2,7 @@
   "$schema": "../schema/verb-set.schema.json",
   "id": "ja-general",
   "name": "Japanese Everyday",
-  "emoji": "🇯🇵",
+  "emoji": "🗾",
   "description": "A general-purpose Japanese replacement for the 186 built-in verbs",
   "language": "ja",
   "category": "classic",

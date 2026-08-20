@@ -2,7 +2,7 @@
   "$schema": "../schema/verb-set.schema.json",
   "id": "sql",
   "name": "SQL",
-  "emoji": "🗄",
+  "emoji": "🧮",
   "description": "SQL clauses and query plan vocabulary",
   "language": "mixed",
   "category": "study",

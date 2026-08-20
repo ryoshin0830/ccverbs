@@ -63,3 +63,20 @@ export const registryIndexSchema = z.object({
 });
 
 export type RegistryIndex = z.infer<typeof registryIndexSchema>;
+
+const EMOJI_GRAPHEME = /\p{Extended_Pictographic}|\p{Regional_Indicator}/u;
+const segmenter = new Intl.Segmenter("en", { granularity: "grapheme" });
+
+/**
+ * Layout width in terminal columns, measured per grapheme cluster so that
+ * multi-codepoint emoji (flags, ZWJ sequences) count as two columns rather
+ * than once per codepoint. Use this for aligning columns; use displayWidth
+ * for the verb-length rule.
+ */
+export function layoutWidth(text: string): number {
+  let width = 0;
+  for (const { segment } of segmenter.segment(text)) {
+    width += EMOJI_GRAPHEME.test(segment) ? 2 : displayWidth(segment);
+  }
+  return width;
+}

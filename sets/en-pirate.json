@@ -2,7 +2,7 @@
   "$schema": "../schema/verb-set.schema.json",
   "id": "en-pirate",
   "name": "Pirate",
-  "emoji": "🏴‍☠️",
+  "emoji": "🦜",
   "description": "Arrr, Claude be workin'",
   "language": "en",
   "category": "meme",

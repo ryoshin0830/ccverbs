@@ -2,7 +2,7 @@
   "$schema": "../schema/verb-set.schema.json",
   "id": "kubectl-commands",
   "name": "kubectl Commands",
-  "emoji": "☸",
+  "emoji": "🎡",
   "description": "Learn kubectl while Claude works",
   "language": "mixed",
   "category": "study",
