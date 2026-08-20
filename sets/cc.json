@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "cc",
+  "name": "CCの生活",
+  "emoji": "💤",
+  "description": "よくする行動",
+  "language": "ja",
+  "category": "meme",
+  "tags": [],
+  "verbs": [
+    "遊んでいます",
+    "寝ています",
+    "転んでいます",
+    "怠けています"
+  ]
+}
