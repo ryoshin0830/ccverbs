@@ -1,5 +1,6 @@
 import { z } from "zod";
-import { CACHE_FILE, CACHE_TTL_MS, REGISTRY_URL } from "../constants.js";
+import { CACHE_TTL_MS, REGISTRY_URL } from "../constants.js";
+import { cachePath } from "../config/paths.js";
 import { isFresh, readCache, writeCache } from "./cache.js";
 import { fetchIndex } from "./fetch.js";
 import {
@@ -59,7 +60,7 @@ export interface LoadOptions {
 export async function loadRegistry(
   opts: LoadOptions = {},
 ): Promise<{ index: RegistryIndex; source: "network" | "cache"; skipped: string[] }> {
-  const file = opts.cacheFile ?? CACHE_FILE;
+  const file = opts.cacheFile ?? cachePath();
   const cached = readCache(file);
 
   if (!opts.refresh && cached && isFresh(cached.ageMs, CACHE_TTL_MS)) {

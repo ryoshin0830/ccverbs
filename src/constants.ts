@@ -1,11 +1,6 @@
-import { homedir } from "node:os";
-import { join } from "node:path";
-
 export const REGISTRY_URL =
   "https://raw.githubusercontent.com/ryoshin0830/ccverbs/main/sets/index.json";
 
-export const CACHE_DIR = join(homedir(), ".cache", "ccverbs");
-export const CACHE_FILE = join(CACHE_DIR, "index.json");
 export const CACHE_TTL_MS = 3_600_000;
 
 export const BACKUP_SUFFIX = ".ccverbs.bak";
