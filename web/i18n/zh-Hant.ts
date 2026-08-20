@@ -112,6 +112,6 @@ export const zhHant: Catalog = {
 
   footer: {
     cli: "已經想好要用哪個詞集？用 CLI 直接套用:",
-    repo: "原始碼，以及內建的 21 個詞集",
+    repo: "原始碼，以及內建的 22 個詞集",
   },
 };
