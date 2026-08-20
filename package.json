@@ -1,6 +1,6 @@
 {
   "name": "ccverbs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Swap Claude Code's spinner verbs from community verb sets",
   "keywords": [
     "claude-code",

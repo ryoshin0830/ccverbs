@@ -7,8 +7,8 @@ const contributing = readFileSync("CONTRIBUTING.md", "utf8");
 const pkg = JSON.parse(readFileSync("package.json", "utf8"));
 
 describe("version", () => {
-  it("is 0.2.0", () => {
-    expect(pkg.version).toBe("0.2.0");
+  it("is 0.2.1", () => {
+    expect(pkg.version).toBe("0.2.1");
   });
 });
 
@@ -114,5 +114,55 @@ describe("CONTRIBUTING", () => {
   });
   it("lists every set language", () => {
     for (const l of ["zh-Hans", "zh-Hant", "ko", "mixed"]) expect(contributing).toContain(l);
+  });
+});
+
+describe("README ordering", () => {
+  const at = (text: string, heading: string) => text.indexOf(heading);
+
+  it("puts contributing above the reference material", () => {
+    expect(at(readme, "## Add a verb set")).toBeGreaterThan(0);
+    expect(at(readme, "## Add a verb set")).toBeLessThan(at(readme, "## Usage"));
+    expect(at(readme, "## Add a verb set")).toBeLessThan(at(readme, "## For AI agents"));
+  });
+
+  it("offers both an easy path and a by-hand path", () => {
+    const section = readme.slice(at(readme, "## Add a verb set"), at(readme, "## Usage"));
+    expect(section).toContain("sets/");
+    expect(section).toContain("npm run sets:index");
+    expect(section).toMatch(/https:\/\/\S+/);
+  });
+
+  it("folds the research into a details block near the end", () => {
+    expect(readme).toContain("<details>");
+    expect(readme).toContain("</details>");
+    expect(at(readme, "<details>")).toBeGreaterThan(at(readme, "## For AI agents"));
+  });
+
+  it("keeps every researched fact", () => {
+    for (const token of [
+      "186",
+      "No limit",
+      "`replace`",
+      "`append`",
+      "2.1.235",
+      "Flibbertigibbeting",
+      "Whatchamacalliting",
+      "Expected object, but received array",
+    ]) {
+      expect(readme, token).toContain(token);
+    }
+  });
+});
+
+describe("README.ja.md ordering", () => {
+  it("matches the English order", () => {
+    expect(readmeJa.indexOf("## 単語セットを追加する")).toBeLessThan(
+      readmeJa.indexOf("## 使い方"),
+    );
+    expect(readmeJa).toContain("<details>");
+    expect(readmeJa.indexOf("<details>")).toBeGreaterThan(
+      readmeJa.indexOf("## AI エージェント向け"),
+    );
   });
 });

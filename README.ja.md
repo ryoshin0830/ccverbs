@@ -14,7 +14,10 @@ $ npx ccverbs
 
 ---
 
+---
+
 ## どう変わるか
+
 
 `sisyphus` を選ぶと、Claude Code が岩を押し始めます。
 
@@ -36,6 +39,7 @@ $ npx ccverbs
 
 ## インストール
 
+
 不要です。`npx` が毎回最新の CLI を取ってきます。
 
 ```console
@@ -53,7 +57,43 @@ Node.js 18 以降が必要です。
 
 ---
 
+## 単語セットを追加する
+
+**簡単な方法 — clone も JSON も不要。** ビルダーを開いて単語を入れると、Claude Code
+で実際にどう見えるかがその場でアニメーションで確認できます。ボタンを押すと、ファイルが
+入力済みの Pull Request まで連れて行ってくれます。
+
+> **[単語セットビルダーを開く](https://github.com/ryoshin0830/ccverbs#add-a-verb-set)**
+
+**手で書く場合:** JSON ファイルを 1 つ足すだけです。
+
+```jsonc
+// sets/my-set.json
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "my-set",
+  "name": "My Set",
+  "emoji": "✨",
+  "description": "一行の説明",
+  "language": "ja",
+  "category": "meme",
+  "tags": ["fun"],
+  "verbs": ["やっています", "まだやっています"]
+}
+```
+
+```console
+$ npm run sets:index && npm run sets:validate && npm test
+```
+
+あとは PR を出すだけ。マージされた時点で全ユーザーに届きます。リリース作業は不要です。
+
+詳しいルール・書式の慣習・「`…` で終わらせない」という落とし穴は **[CONTRIBUTING.md](CONTRIBUTING.md)** にあります。
+
+---
+
 ## 使い方
+
 
 ```
 ccverbs                        対話画面を開く（既定）
@@ -111,7 +151,156 @@ $ npx ccverbs reset --yes           # Claude Code 標準に戻す
 
 ---
 
-## 仕組み（事前調査の結果）
+## 設定
+
+
+`ccverbs` が覚えているものは 1 箇所にまとまっています。
+
+```
+~/.ccverbs/
+  config.json          言語・適用方法・保存先
+  cache/index.json     単語セット（1時間で再取得）
+```
+
+`ccverbs config` で設定画面が開きます。1 画面 1 問、上下キーと Enter だけです。
+
+```
+  ccverbs 設定
+
+  ❯ 言語        日本語      OSの言語設定から
+    適用方法     置き換える   既定値
+    保存先       全体        既定値
+    ───────────────────────────────
+    既定値に戻す
+```
+
+コマンド 1 発でも設定できます。
+
+```console
+$ ccverbs config                          # 設定画面（TTYがなければ表を出力）
+$ ccverbs config language ja
+$ ccverbs config mode append
+$ ccverbs config scope project
+$ ccverbs config reset
+$ ccverbs config --json
+```
+
+既定値は `mode: replace` と `scope: user` です。0.1.0 から上げた場合、キャッシュは `~/.cache/ccverbs/` から自動で移動します。
+
+`config.json` が壊れていても致命的にはなりません。不正な値はキー単位で既定値に戻し、警告を stderr に出したうえでコマンドは動きます。
+
+---
+
+## 言語
+
+
+UI は **English・日本語・简体中文・繁體中文・한국어** の 5 言語です。自動で判別し、`ccverbs config language` で固定でき、`--lang <code>` で 1 回だけ上書きできます。
+
+判別は上から順に、最初に当たったものを使います。
+
+| 順 | 判別元 |
+| --- | --- |
+| 1 | `--lang <code>` |
+| 2 | `CCVERBS_LANG` |
+| 3 | `~/.ccverbs/config.json` の `language`（`auto` のときは飛ばす） |
+| 4 | `LC_ALL`・`LC_MESSAGES`・`LANG`・`LANGUAGE` |
+| 5 | OS — macOS は `AppleLanguages`、Windows は `Get-UICulture` |
+| 6 | 実行環境の `Intl` ロケール |
+| 7 | 英語 |
+
+**5 段目がある理由。** システム言語が日本語の Mac でも、`Intl` は `en-US` を返し、`LANG` は `C.UTF-8` であることが多く、どちらも英語を指します。そこで `C`・`POSIX`・空文字は「英語」ではなく**「指定なし」**として扱い、OS に問い合わせます。`ccverbs config` はどの段で決まったかを常に表示するので、「なぜ英語で出るのか」は自分で分かります。OS への問い合わせを止めたいときは `CCVERBS_NO_OS_LOCALE=1` を設定してください。
+
+`en` と `ja` は母語話者がレビューしています。**`zh-Hans`・`zh-Hant`・`ko` は未レビュー**です。`ccverbs config` にその旨を表示しており、修正の提案を歓迎します（[CONTRIBUTING.md](CONTRIBUTING.md)）。
+
+単語そのものは翻訳しません（日本語のセットは日本語です）。一覧では自分の言語のセットが上に来ます。`--no-group` で無効化でき、`--json` は常に id 順なのでエージェントの出力が環境で変わることはありません。
+
+---
+
+## 単語セット一覧
+
+
+21 セット、496 語。
+
+### ネタ系
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🪨 `sisyphus` | 10 | シーシュポスの神話。このプロジェクトの原点 |
+| 🗾 `ja-general` | 40 | 標準 186 語の日本語版に相当する汎用セット |
+| 🐈 `ja-cat` | 25 | Claude が働いている間、猫がしていること |
+| 🍜 `ja-ramen` | 25 | 一杯のラーメンが組み上がっていく工程 |
+| 🐙 `ja-kansai` | 20 | 関西弁の Claude |
+| 🦜 `en-pirate` | 24 | 海賊 |
+| 🌃 `en-cyberpunk` | 22 | ネオンと雨と ICE |
+
+### 学習系 — スピナーを単語帳にする
+
+| セット | 語数 | 覚えられるもの |
+| --- | --- | --- |
+| 🌿 `git-commands` | 24 | `git bisect`、`git reflog`、`git rebase --onto` |
+| 🎡 `kubectl-commands` | 24 | `kubectl drain`、`kubectl debug`、`kubectl auth can-i` |
+| 🐳 `docker-commands` | 22 | `docker buildx`、`docker history`、`docker system prune` |
+| 🐧 `linux-commands` | 24 | `strace`、`lsof -i`、`flock`、`ncdu` |
+| 📝 `vim-keys` | 24 | `ciw`、`:g/pat/d`、`:norm`、`C-v I` |
+| 📘 `en-toeic` | 24 | ビジネス英語: `reimburse`、`in lieu of`、`contingent on` |
+| 🎓 `en-gre` | 24 | 本気の難単語: `ephemeral`、`recalcitrant`、`perfunctory` |
+| 💬 `en-tech-phrases` | 22 | `yak shaving`、`load-bearing`、`bus factor` |
+| 🔷 `ts-types` | 24 | `Awaited<T>`、`satisfies`、`infer`、共変と反変 |
+| 🦀 `rust-ownership` | 22 | 借用、ライフタイム、`Cow<T>`、`Pin`、NLL |
+| 🧮 `sql` | 24 | ウィンドウ関数、`DISTINCT ON`、結合戦略 |
+| 🔍 `regex` | 24 | 先読み後読み、atomic group、破滅的後戻り |
+| 🌐 `http-status` | 24 | `303` と `307` の違い、`409`、`422`、`502` と `504` |
+| 📈 `bigo` | 24 | 計算量のクラスと、それに当たるアルゴリズム |
+
+最新の一覧は `ccverbs list` で見られます（この README より常に新しい）。
+
+---
+
+## AI エージェント向け
+
+
+全コマンドが `--json` に対応し、`ok` を先頭キーに持つ**1 行の JSON オブジェクト**を出力します。`--yes` と組み合わせれば確認も出ません。サブコマンドが TUI を開くことはなく、TTY のない環境で引数なし起動した場合はハングせずヘルプを出して `2` で終了します。
+
+```console
+$ ccverbs list --json
+{"ok":true,"totalSets":21,"totalVerbs":496,"registryTotalSets":21,"sets":[…]}
+
+$ ccverbs set git-commands --yes --json
+{"ok":true,"applied":{"id":"git-commands","mode":"replace","count":24},"settingsPath":"…","backupPath":"…","previous":null,"effectiveVerbCount":24}
+
+$ ccverbs current --json
+{"ok":true,"configured":true,"matchedSet":{"id":"git-commands",…},"effectiveVerbCount":24,"defaultVerbCount":186}
+
+$ ccverbs config --json
+{"ok":true,"language":{"value":"ja","source":"os","explicit":false},"mode":{"value":"replace","source":"default"},"scope":{"value":"user","source":"default"},"supportedLocales":["en","ja","zh-Hans","zh-Hant","ko"],"unreviewedLocales":["zh-Hans","zh-Hant","ko"],"configPath":"…","cachePath":"…","cacheAgeMs":240000,"warnings":[]}
+```
+
+`ccverbs config` は `--json` 指定時・鍵を渡したとき・TTY が無いときには画面を開かず、出力して終了します。
+
+失敗時も同じ封筒に入るので、文章を解析する必要はありません。
+
+```console
+$ ccverbs show nope --json
+{"ok":false,"error":{"code":"set-not-found","message":"no verb set \"nope\""}}
+```
+
+`--dry-run --json` なら、書き込まずに `diff` 文字列と `pending` な変更内容だけ取得できます。
+
+### 終了コード
+
+| コード | 意味 |
+| --- | --- |
+| 0 | 成功 |
+| 1 | 実行時エラー（設定ファイルの書き込み失敗など） |
+| 2 | 引数エラー（未知のコマンド・フラグ、TUI に TTY がない） |
+| 3 | 指定のセットが見つからない |
+| 4 | レジストリ取得失敗かつキャッシュなし |
+
+---
+
+<details>
+<summary><strong>仕組み — バイナリから復元した spinnerVerbs の仕様</strong></summary>
+
 
 `spinnerVerbs` は Claude Code の**未文書**の設定です。公式ドキュメントにも [schemastore](https://www.schemastore.org/claude-code-settings.json) のスキーマにも載っていません。以下は Claude Code **2.1.235** のバイナリから復元した実際の仕様で、`ccverbs` が書き込むのもこの形です。
 
@@ -174,178 +363,11 @@ npx ccverbs
 
 そのため、PR がマージされた時点で全ユーザーに反映されます。npm への publish は不要です。初回実行後は完全にオフラインで動き、`--offline` でキャッシュのみを強制できます。
 
----
-
-## 設定
-
-`ccverbs` が覚えているものは 1 箇所にまとまっています。
-
-```
-~/.ccverbs/
-  config.json          言語・適用方法・保存先
-  cache/index.json     単語セット（1時間で再取得）
-```
-
-`ccverbs config` で設定画面が開きます。1 画面 1 問、上下キーと Enter だけです。
-
-```
-  ccverbs 設定
-
-  ❯ 言語        日本語      OSの言語設定から
-    適用方法     置き換える   既定値
-    保存先       全体        既定値
-    ───────────────────────────────
-    既定値に戻す
-```
-
-コマンド 1 発でも設定できます。
-
-```console
-$ ccverbs config                          # 設定画面（TTYがなければ表を出力）
-$ ccverbs config language ja
-$ ccverbs config mode append
-$ ccverbs config scope project
-$ ccverbs config reset
-$ ccverbs config --json
-```
-
-既定値は `mode: replace` と `scope: user` です。0.1.0 から上げた場合、キャッシュは `~/.cache/ccverbs/` から自動で移動します。
-
-`config.json` が壊れていても致命的にはなりません。不正な値はキー単位で既定値に戻し、警告を stderr に出したうえでコマンドは動きます。
-
-## 言語
-
-UI は **English・日本語・简体中文・繁體中文・한국어** の 5 言語です。自動で判別し、`ccverbs config language` で固定でき、`--lang <code>` で 1 回だけ上書きできます。
-
-判別は上から順に、最初に当たったものを使います。
-
-| 順 | 判別元 |
-| --- | --- |
-| 1 | `--lang <code>` |
-| 2 | `CCVERBS_LANG` |
-| 3 | `~/.ccverbs/config.json` の `language`（`auto` のときは飛ばす） |
-| 4 | `LC_ALL`・`LC_MESSAGES`・`LANG`・`LANGUAGE` |
-| 5 | OS — macOS は `AppleLanguages`、Windows は `Get-UICulture` |
-| 6 | 実行環境の `Intl` ロケール |
-| 7 | 英語 |
-
-**5 段目がある理由。** システム言語が日本語の Mac でも、`Intl` は `en-US` を返し、`LANG` は `C.UTF-8` であることが多く、どちらも英語を指します。そこで `C`・`POSIX`・空文字は「英語」ではなく**「指定なし」**として扱い、OS に問い合わせます。`ccverbs config` はどの段で決まったかを常に表示するので、「なぜ英語で出るのか」は自分で分かります。OS への問い合わせを止めたいときは `CCVERBS_NO_OS_LOCALE=1` を設定してください。
-
-`en` と `ja` は母語話者がレビューしています。**`zh-Hans`・`zh-Hant`・`ko` は未レビュー**です。`ccverbs config` にその旨を表示しており、修正の提案を歓迎します（[CONTRIBUTING.md](CONTRIBUTING.md)）。
-
-単語そのものは翻訳しません（日本語のセットは日本語です）。一覧では自分の言語のセットが上に来ます。`--no-group` で無効化でき、`--json` は常に id 順なのでエージェントの出力が環境で変わることはありません。
-
----
-
-## AI エージェント向け
-
-全コマンドが `--json` に対応し、`ok` を先頭キーに持つ**1 行の JSON オブジェクト**を出力します。`--yes` と組み合わせれば確認も出ません。サブコマンドが TUI を開くことはなく、TTY のない環境で引数なし起動した場合はハングせずヘルプを出して `2` で終了します。
-
-```console
-$ ccverbs list --json
-{"ok":true,"totalSets":21,"totalVerbs":496,"registryTotalSets":21,"sets":[…]}
-
-$ ccverbs set git-commands --yes --json
-{"ok":true,"applied":{"id":"git-commands","mode":"replace","count":24},"settingsPath":"…","backupPath":"…","previous":null,"effectiveVerbCount":24}
-
-$ ccverbs current --json
-{"ok":true,"configured":true,"matchedSet":{"id":"git-commands",…},"effectiveVerbCount":24,"defaultVerbCount":186}
-
-$ ccverbs config --json
-{"ok":true,"language":{"value":"ja","source":"os","explicit":false},"mode":{"value":"replace","source":"default"},"scope":{"value":"user","source":"default"},"supportedLocales":["en","ja","zh-Hans","zh-Hant","ko"],"unreviewedLocales":["zh-Hans","zh-Hant","ko"],"configPath":"…","cachePath":"…","cacheAgeMs":240000,"warnings":[]}
-```
-
-`ccverbs config` は `--json` 指定時・鍵を渡したとき・TTY が無いときには画面を開かず、出力して終了します。
-
-失敗時も同じ封筒に入るので、文章を解析する必要はありません。
-
-```console
-$ ccverbs show nope --json
-{"ok":false,"error":{"code":"set-not-found","message":"no verb set \"nope\""}}
-```
-
-`--dry-run --json` なら、書き込まずに `diff` 文字列と `pending` な変更内容だけ取得できます。
-
-### 終了コード
-
-| コード | 意味 |
-| --- | --- |
-| 0 | 成功 |
-| 1 | 実行時エラー（設定ファイルの書き込み失敗など） |
-| 2 | 引数エラー（未知のコマンド・フラグ、TUI に TTY がない） |
-| 3 | 指定のセットが見つからない |
-| 4 | レジストリ取得失敗かつキャッシュなし |
-
----
-
-## 単語セット一覧
-
-21 セット、496 語。
-
-### ネタ系
-
-| セット | 語数 | 内容 |
-| --- | --- | --- |
-| 🪨 `sisyphus` | 10 | シーシュポスの神話。このプロジェクトの原点 |
-| 🗾 `ja-general` | 40 | 標準 186 語の日本語版に相当する汎用セット |
-| 🐈 `ja-cat` | 25 | Claude が働いている間、猫がしていること |
-| 🍜 `ja-ramen` | 25 | 一杯のラーメンが組み上がっていく工程 |
-| 🐙 `ja-kansai` | 20 | 関西弁の Claude |
-| 🦜 `en-pirate` | 24 | 海賊 |
-| 🌃 `en-cyberpunk` | 22 | ネオンと雨と ICE |
-
-### 学習系 — スピナーを単語帳にする
-
-| セット | 語数 | 覚えられるもの |
-| --- | --- | --- |
-| 🌿 `git-commands` | 24 | `git bisect`、`git reflog`、`git rebase --onto` |
-| 🎡 `kubectl-commands` | 24 | `kubectl drain`、`kubectl debug`、`kubectl auth can-i` |
-| 🐳 `docker-commands` | 22 | `docker buildx`、`docker history`、`docker system prune` |
-| 🐧 `linux-commands` | 24 | `strace`、`lsof -i`、`flock`、`ncdu` |
-| 📝 `vim-keys` | 24 | `ciw`、`:g/pat/d`、`:norm`、`C-v I` |
-| 📘 `en-toeic` | 24 | ビジネス英語: `reimburse`、`in lieu of`、`contingent on` |
-| 🎓 `en-gre` | 24 | 本気の難単語: `ephemeral`、`recalcitrant`、`perfunctory` |
-| 💬 `en-tech-phrases` | 22 | `yak shaving`、`load-bearing`、`bus factor` |
-| 🔷 `ts-types` | 24 | `Awaited<T>`、`satisfies`、`infer`、共変と反変 |
-| 🦀 `rust-ownership` | 22 | 借用、ライフタイム、`Cow<T>`、`Pin`、NLL |
-| 🧮 `sql` | 24 | ウィンドウ関数、`DISTINCT ON`、結合戦略 |
-| 🔍 `regex` | 24 | 先読み後読み、atomic group、破滅的後戻り |
-| 🌐 `http-status` | 24 | `303` と `307` の違い、`409`、`422`、`502` と `504` |
-| 📈 `bigo` | 24 | 計算量のクラスと、それに当たるアルゴリズム |
-
-最新の一覧は `ccverbs list` で見られます（この README より常に新しい）。
-
----
-
-## 単語セットを追加する
-
-JSON ファイルを 1 つ足すだけです。
-
-```jsonc
-// sets/my-set.json
-{
-  "$schema": "../schema/verb-set.schema.json",
-  "id": "my-set",
-  "name": "My Set",
-  "emoji": "✨",
-  "description": "一行の説明",
-  "language": "ja",
-  "category": "meme",
-  "tags": ["fun"],
-  "verbs": ["やっています", "まだやっています"]
-}
-```
-
-```console
-$ npm run sets:index && npm run sets:validate && npm test
-```
-
-あとは PR を出すだけ。マージされた時点で全ユーザーに届きます。リリース作業は不要です。
-
-詳しいルール・書式の慣習・「`…` で終わらせない」という落とし穴は **[CONTRIBUTING.md](CONTRIBUTING.md)** にあります。
+</details>
 
 ---
 
 ## ライセンス
+
 
 MIT。`sisyphus` セットは kok1eeeee 氏の[この記事](https://zenn.dev/kok1eeeee/articles/claude-code-spinner-verbs-sisyphus)が出典で、このプロジェクト自体もそこから生まれました。
