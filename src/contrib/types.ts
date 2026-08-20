@@ -1,5 +1,13 @@
 export type SetLanguage = "ja" | "en" | "zh-Hans" | "zh-Hant" | "ko" | "mixed";
 export type SetCategory = "meme" | "study" | "classic";
+export type SetLocale = Exclude<SetLanguage, "mixed">;
+
+export interface LocalizedSetText {
+  name?: string;
+  description?: string;
+}
+
+export type SetI18n = Partial<Record<SetLocale, LocalizedSetText>>;
 
 export interface SetDraft {
   id: string;
@@ -9,6 +17,7 @@ export interface SetDraft {
   language: SetLanguage;
   category: SetCategory;
   tags: string[];
+  i18n?: SetI18n;
   authorName?: string;
   authorGithub?: string;
   source?: string;

@@ -34,6 +34,7 @@ export function buildSetObject(draft: SetDraft): Record<string, unknown> {
       : { name: draft.authorName };
   }
   if (draft.source) set.source = draft.source;
+  if (draft.i18n && Object.keys(draft.i18n).length > 0) set.i18n = draft.i18n;
 
   set.verbs = splitVerbs(draft.verbsText);
   return set;

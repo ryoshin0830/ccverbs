@@ -93,6 +93,23 @@ describe("buildSetJson", () => {
   it("round-trips through the schema", () => {
     expect(verbSetSchema.safeParse(JSON.parse(buildSetJson(draft()))).success).toBe(true);
   });
+
+  it("preserves localized names and descriptions before verbs", () => {
+    const json = buildSetJson(
+      draft({
+        i18n: {
+          ja: { name: "筋トレ", description: "日本語の説明" },
+          "zh-Hans": { name: "健身" },
+        },
+      }),
+    );
+    const parsed = JSON.parse(json);
+    expect(Object.keys(parsed).slice(-2)).toEqual(["i18n", "verbs"]);
+    expect(parsed.i18n).toEqual({
+      ja: { name: "筋トレ", description: "日本語の説明" },
+      "zh-Hans": { name: "健身" },
+    });
+  });
 });
 
 describe("newFileUrl", () => {
