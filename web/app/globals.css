@@ -1,26 +1,30 @@
 /*
   Two places: the paper you write on, and the screen the words appear on.
-  The page is a notebook page — cool stock, blue-grey rules, blue-black ink.
-  Exactly one thing is dark: the preview, a window onto the terminal.
+  Exactly one thing is dark — the preview, a window onto the terminal.
 
-  Vermilion is the teacher's correction mark. It means "fix this" and nothing
-  else — never a button, never a heading. The action colour is the ink.
+  Vermilion is the correction mark. It means "fix this" and nothing else:
+  never a button, never a heading. The action colour is the ink.
+
+  There was a ruled-notebook background here. It encoded nothing, and its
+  lines were the same colour and weight as every input underline, so a field
+  and a decoration looked identical. Removed. Fields now sit on their own
+  white surface, which is the only signal that says "type here".
 */
 
 :root {
-  --paper: #f7f7f4;
-  --paper-edge: #eeeeea;
-  --rule: #c9d2da;
+  --paper: #f4f4f1;
+  --card: #ffffff;
+  --edge: #e2e5e2;
+  --edge-strong: #c6cbc8;
   --ink: #1b2430;
-  --ink-soft: #5a6672;
-  --ink-faint: #8b95a1;
-  --shu: #d93a2b;
+  --ink-soft: #5c6670;
+  --ink-faint: #8d959c;
+  --shu: #cf3a2a;
   --terminal: #10151c;
-  --phosphor: #a8b8c8;
-  --phosphor-dim: #56656f;
+  --phosphor: #aebdc9;
+  --phosphor-dim: #5b6a75;
 
   --measure: 40ch;
-  --gap: 1.5rem;
 
   --serif: var(--font-display), "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   --sans: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
@@ -42,67 +46,58 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.7;
-  /* The ruled page. Faint enough to sit under text, present enough to feel. */
-  background-image: linear-gradient(var(--rule) 1px, transparent 1px);
-  background-size: 100% 2.4rem;
-  background-position: 0 -1px;
-  background-attachment: local;
 }
 
 /* ---------- shell ---------- */
 
 .page {
-  max-width: 46rem;
+  max-width: 44rem;
   margin: 0 auto;
-  padding: 3rem 1.25rem 6rem;
+  padding: 3.5rem 1.25rem 6rem;
 }
 
 .masthead {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--gap);
+  gap: 1.5rem;
   flex-wrap: wrap;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 0.5rem;
 }
 
 .wordmark {
   font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.75rem;
+  font-weight: 600;
+  font-size: 1.7rem;
   letter-spacing: 0.01em;
   margin: 0;
 }
 
 .tagline {
   font-family: var(--serif);
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: var(--ink);
-  margin: 1.75rem 0 2.5rem;
-  max-width: 30ch;
+  font-size: 1.2rem;
+  line-height: 1.65;
+  margin: 1.25rem 0 2.25rem;
+  max-width: 32ch;
 }
 
 /* ---------- the screen ---------- */
 
 .screen {
-  margin: 0 0 3rem;
+  margin: 0 0 2.5rem;
 }
 
 .screen-glass {
   background: var(--terminal);
   color: var(--phosphor);
-  border-radius: 3px;
-  padding: 1.1rem 1.25rem 0.9rem;
+  border-radius: 4px;
+  padding: 1.15rem 1.3rem 1rem;
   overflow-x: auto;
-  box-shadow: 0 1px 0 var(--paper-edge), 0 10px 24px -18px rgb(16 21 28 / 55%);
 }
 
 .line {
   font-family: var(--mono);
   font-size: 0.95rem;
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.7rem;
   white-space: nowrap;
 }
 
@@ -115,13 +110,13 @@ body {
 }
 
 .line-over .line-verb {
-  color: #ff8b7e;
+  color: #ff9184;
 }
 
 /* The signature: a real 40-column measure under the line. */
 .ruler {
   position: relative;
-  height: 0.85rem;
+  height: 0.9rem;
   font-family: var(--mono);
   font-size: 0.7rem;
 }
@@ -156,11 +151,11 @@ body {
   position: absolute;
   left: var(--measure);
   top: 0;
-  margin-left: 0.45rem;
+  margin-left: 0.5rem;
   color: var(--phosphor-dim);
 }
 
-/* Overflow is drawn as crossing the line, not as a badge somewhere else. */
+/* Overflow is drawn as crossing the measure, not as a badge elsewhere. */
 .ruler-over {
   position: absolute;
   left: var(--measure);
@@ -169,81 +164,133 @@ body {
   max-width: 12ch;
 }
 
+/* A grid, not space-between: the right column is sized by the controls, so a
+   changing reading on the left cannot push them around. No wrapping either —
+   wrapping was what made the row jump between one and two lines. */
 .screen-meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--gap);
-  flex-wrap: wrap;
-  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.7rem;
+  min-height: 1.9rem;
+}
+
+.readout {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0;
+  /* Tabular figures and a reserved width so 9 -> 10 columns does not nudge. */
+  font-variant-numeric: tabular-nums;
+  min-width: 14ch;
+}
+
+.readout-bad {
+  color: var(--shu);
 }
 
 .screen-controls {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  justify-self: end;
+}
+
+/* The label swaps between two words of unequal length; reserve the wider. */
+.screen-toggle {
+  min-width: 5.5rem;
+  text-align: center;
+}
+
+/* Reserved height whether or not there is a hint, so the form below never
+   moves as the preview changes. */
+.screen-aside {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0.35rem 0 0;
+  min-height: 1.25rem;
+}
+
+.counter {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  min-width: 4.5ch;
+  text-align: right;
 }
 
 .screen-controls button {
   font: inherit;
   font-size: 0.8rem;
   color: var(--ink-soft);
-  background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 0.05rem 0.5rem;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+  padding: 0.1rem 0.55rem;
   cursor: pointer;
 }
 
 .screen-controls button:hover {
-  border-color: var(--ink);
+  border-color: var(--edge-strong);
   color: var(--ink);
 }
 
 /* ---------- steps ---------- */
 
 .step {
-  margin: 0 0 3rem;
+  margin: 0 0 2.75rem;
 }
 
+/* No rule under the heading: the serif face and the space below it already
+   separate one step from the next, and another hairline would not. */
 .step-heading {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 1.2rem;
-  margin: 0 0 0.35rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--rule);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0 0 0.4rem;
 }
 
 .field {
-  margin: 1.1rem 0;
+  margin: 1.4rem 0;
 }
 
 .label {
   display: block;
   font-size: 0.8rem;
-  letter-spacing: 0.02em;
   color: var(--ink-soft);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
 }
 
+/* A field is a surface, not a line. This is the whole fix for
+   "the background and the inputs run together". */
 input,
 select,
 textarea {
   width: 100%;
   font: inherit;
   color: var(--ink);
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--rule);
-  border-radius: 0;
-  padding: 0.35rem 0.1rem;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+  padding: 0.5rem 0.65rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--ink-faint);
 }
 
 input:hover,
 select:hover,
 textarea:hover {
-  border-bottom-color: var(--ink-faint);
+  border-color: var(--edge-strong);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--ink);
+  outline: none;
 }
 
 input:focus-visible,
@@ -260,27 +307,26 @@ select {
   appearance: none;
   background-image: linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%),
     linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%);
-  background-position: right 0.7rem center, right 0.4rem center;
+  background-position: right 0.85rem center, right 0.55rem center;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
-  padding-right: 1.6rem;
+  padding-right: 1.9rem;
 }
 
 .words {
   font-family: var(--mono);
   font-size: 0.9rem;
-  line-height: 2.4rem;
-  border: 1px solid var(--rule);
-  padding: 0.2rem 0.75rem;
+  line-height: 1.9;
+  padding: 0.7rem 0.8rem;
   resize: vertical;
-  background: rgb(255 255 255 / 45%);
+  min-height: 9rem;
 }
 
 .tally {
   display: flex;
-  gap: 0.9rem;
+  gap: 1rem;
   font-size: 0.85rem;
-  margin: 0.5rem 0 0;
+  margin: 0.6rem 0 0;
 }
 
 .tally-ok {
@@ -295,16 +341,16 @@ select {
   color: var(--shu);
 }
 
-/* Correction marks, the way a marked-up worksheet looks. */
+/* Correction marks. The one place a vermilion line belongs. */
 .marks {
   list-style: none;
-  padding: 0;
-  margin: 0.9rem 0 0;
+  padding: 0.15rem 0 0.15rem 0.8rem;
+  margin: 1rem 0 0;
   border-left: 2px solid var(--shu);
 }
 
 .marks li {
-  padding: 0.15rem 0 0.15rem 0.75rem;
+  padding: 0.1rem 0;
   font-size: 0.85rem;
 }
 
@@ -323,43 +369,43 @@ select {
 .emoji-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 0.35rem;
   align-items: center;
 }
 
 .emoji {
   font-size: 1.15rem;
   line-height: 1;
-  background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 0.3rem 0.4rem;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+  padding: 0.35rem 0.45rem;
   cursor: pointer;
 }
 
 .emoji:hover {
-  border-color: var(--ink-faint);
+  border-color: var(--edge-strong);
 }
 
 .emoji-on {
   border-color: var(--ink);
-  background: rgb(255 255 255 / 70%);
   box-shadow: inset 0 0 0 1px var(--ink);
 }
 
 .emoji-own {
-  width: 8rem;
+  width: 9rem;
   font-size: 0.85rem;
-  margin-left: 0.3rem;
+  margin-left: 0.4rem;
 }
 
-/* ---------- inferred ---------- */
+/* ---------- what the words said ---------- */
 
 .inferred {
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: 0.8rem 0;
-  margin: 2rem 0 3rem;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+  padding: 0.85rem 1rem;
+  margin: 0 0 2.75rem;
 }
 
 .inferred-line {
@@ -382,12 +428,10 @@ select {
 }
 
 .inferred-open {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .extras {
-  border-left: 1px solid var(--rule);
-  padding-left: 1rem;
   margin-top: 0.5rem;
 }
 
@@ -396,14 +440,14 @@ select {
 .send {
   display: inline-block;
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 1.05rem;
   text-decoration: none;
   color: var(--paper);
   background: var(--ink);
-  padding: 0.6rem 1.4rem;
-  border-radius: 2px;
-  margin: 0.6rem 0;
+  padding: 0.65rem 1.5rem;
+  border-radius: 3px;
+  margin: 0.7rem 0;
 }
 
 .send:hover {
@@ -415,27 +459,27 @@ select {
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 1.1rem;
 }
 
 .quiet {
   font: inherit;
   font-size: 0.85rem;
   color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  padding: 0.2rem 0.7rem;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+  padding: 0.25rem 0.75rem;
   cursor: pointer;
   text-decoration: none;
 }
 
 .quiet:hover {
-  border-color: var(--ink);
+  border-color: var(--edge-strong);
 }
 
 .reveal {
-  margin-top: 1.25rem;
+  margin-top: 1.4rem;
 }
 
 .reveal summary {
@@ -451,16 +495,17 @@ select {
   background: var(--terminal);
   color: var(--phosphor);
   padding: 0.9rem 1rem;
-  border-radius: 3px;
+  border-radius: 4px;
   overflow-x: auto;
   max-height: 22rem;
+  margin-top: 0.6rem;
 }
 
 /* ---------- odds and ends ---------- */
 
 .note {
   font-size: 0.85rem;
-  margin: 0.3rem 0;
+  margin: 0.35rem 0;
 }
 
 .note-quiet {
@@ -469,15 +514,6 @@ select {
 
 .note-bad {
   color: var(--shu);
-}
-
-.screen-meta .note-bad,
-.screen-meta .note-quiet {
-  color: var(--phosphor-dim);
-}
-
-.screen-meta .note-bad {
-  color: #ff8b7e;
 }
 
 .link {
@@ -495,12 +531,12 @@ select {
 
 .link-block {
   display: block;
-  margin-top: 1.25rem;
+  margin-top: 1.4rem;
 }
 
 .locale {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -512,13 +548,17 @@ select {
 .locale select {
   width: auto;
   font-size: 0.85rem;
+  padding: 0.3rem 1.9rem 0.3rem 0.6rem;
 }
 
 .colophon {
-  border-top: 1px solid var(--rule);
-  padding-top: 1rem;
+  margin-top: 1rem;
   font-size: 0.85rem;
   color: var(--ink-soft);
+}
+
+.colophon p {
+  margin: 0.3rem 0;
 }
 
 .colophon code {
@@ -526,13 +566,19 @@ select {
   color: var(--ink);
 }
 
-.colophon a {
-  color: var(--ink);
-}
-
 a {
   color: var(--ink);
   text-underline-offset: 3px;
+}
+
+@media (max-width: 30rem) {
+  .page {
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

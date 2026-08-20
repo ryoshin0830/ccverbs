@@ -10,6 +10,8 @@ interface InferredPanelProps {
   category: SetCategory;
   id: string;
   idError?: string;
+  /** False when the name step is already showing the file name field. */
+  showId: boolean;
   t: Catalog;
   onChange: (patch: { language?: SetLanguage; category?: SetCategory; id?: string }) => void;
 }
@@ -24,6 +26,7 @@ export function InferredPanel({
   category,
   id,
   idError,
+  showId,
   t,
   onChange,
 }: InferredPanelProps) {
@@ -78,19 +81,21 @@ export function InferredPanel({
             </select>
           </div>
 
-          <div className="field">
-            <label className="label" htmlFor="id">
-              {t.name.idLabel}
-            </label>
-            <input
-              id="id"
-              value={id}
-              spellCheck={false}
-              onChange={(event) => onChange({ id: event.target.value })}
-            />
-            {idError && <p className="note note-bad">{idError}</p>}
-            <p className="note note-quiet">{t.inferred.idNote}</p>
-          </div>
+          {showId && (
+            <div className="field">
+              <label className="label" htmlFor="inferred-id">
+                {t.name.idLabel}
+              </label>
+              <input
+                id="inferred-id"
+                value={id}
+                spellCheck={false}
+                onChange={(event) => onChange({ id: event.target.value })}
+              />
+              {idError && <p className="note note-bad">{idError}</p>}
+              <p className="note note-quiet">{t.inferred.idNote}</p>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -25,7 +25,7 @@ export function WordsStep({ value, verbs, issues, error, t, onChange }: WordsSte
 
       <textarea
         className="words"
-        rows={12}
+        rows={8}
         spellCheck={false}
         value={value}
         placeholder={t.words.placeholder}

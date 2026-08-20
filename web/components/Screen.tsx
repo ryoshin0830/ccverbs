@@ -15,6 +15,13 @@ const DEMO = ["岩を押し上げています", "また麓から登っていま�
  * paper. Below the line runs a 40-column rule — the constraint the contributor
  * has to respect, made into the page's own measure. A verb that is too long
  * visibly crosses it.
+ *
+ * Only the verb line is allowed to change. Everything around it holds still.
+ * The controls sit in their own grid column so a changing reading cannot push
+ * them, figures are tabular so 9 -> 10 does not nudge, and there is no
+ * appearing-and-disappearing warning text: an over-long verb is already said
+ * three times over by the red verb, the red reading and the crossed measure,
+ * and a sentence that came and went with each verb moved the whole page.
  */
 export function Screen({ verbs, t }: { verbs: string[]; t: Catalog }) {
   const live = verbs.length > 0;
@@ -22,13 +29,11 @@ export function Screen({ verbs, t }: { verbs: string[]; t: Catalog }) {
 
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const userPaused = useRef(false);
+  const reduced = useRef(false);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      userPaused.current = true;
-      setPaused(true);
-    }
+    reduced.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced.current) setPaused(true);
   }, []);
 
   useEffect(() => {
@@ -66,11 +71,12 @@ export function Screen({ verbs, t }: { verbs: string[]; t: Catalog }) {
       </div>
 
       <div className="screen-meta">
-        <p className={over ? "note note-bad" : "note"}>
-          {over ? t.preview.tooWide : t.preview.columns(width, MAX_COLUMNS)}
+        <p
+          className={`readout${over ? " readout-bad" : ""}`}
+          {...(over ? { "aria-label": t.preview.tooWide } : {})}
+        >
+          {t.preview.columns(width, MAX_COLUMNS)}
         </p>
-
-        {!live && <p className="note note-quiet">{t.preview.empty}</p>}
 
         {list.length > 1 && (
           <div className="screen-controls">
@@ -81,13 +87,7 @@ export function Screen({ verbs, t }: { verbs: string[]; t: Catalog }) {
             >
               ‹
             </button>
-            <button
-              type="button"
-              onClick={() => {
-                userPaused.current = !paused;
-                setPaused((p) => !p);
-              }}
-            >
+            <button type="button" className="screen-toggle" onClick={() => setPaused((p) => !p)}>
               {paused ? t.preview.play : t.preview.pause}
             </button>
             <button
@@ -97,12 +97,15 @@ export function Screen({ verbs, t }: { verbs: string[]; t: Catalog }) {
             >
               ›
             </button>
-            <span className="note note-quiet">
+            <span className="counter">
               {index + 1} / {list.length}
             </span>
           </div>
         )}
       </div>
+
+      {/* Always rendered, so appearing or vanishing cannot shift the page. */}
+      <p className="screen-aside">{live ? "" : t.preview.empty}</p>
     </section>
   );
 }

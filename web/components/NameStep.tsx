@@ -9,11 +9,20 @@ interface NameStepProps {
   draft: SetDraft;
   errors: Record<string, string>;
   emojiOptions: string[];
+  /** True when the name gave us no usable file name — a Japanese name, say. */
+  showIdField: boolean;
   t: Catalog;
   onChange: (patch: Partial<SetDraft>) => void;
 }
 
-export function NameStep({ draft, errors, emojiOptions, t, onChange }: NameStepProps) {
+export function NameStep({
+  draft,
+  errors,
+  emojiOptions,
+  showIdField,
+  t,
+  onChange,
+}: NameStepProps) {
   const [extrasOpen, setExtrasOpen] = useState(false);
 
   return (
@@ -32,6 +41,22 @@ export function NameStep({ draft, errors, emojiOptions, t, onChange }: NameStepP
         />
         {errors.name && <p className="note note-bad">{errors.name}</p>}
       </div>
+
+      {showIdField && (
+        <div className="field">
+          <label className="label" htmlFor="id">
+            {t.name.idLabel} <span className="note-quiet">sets/&lt;name&gt;.json</span>
+          </label>
+          <input
+            id="id"
+            value={draft.id}
+            placeholder="ja-gym"
+            spellCheck={false}
+            onChange={(event) => onChange({ id: event.target.value })}
+          />
+          {errors.id && <p className="note note-bad">{errors.id}</p>}
+        </div>
+      )}
 
       <EmojiPicker
         value={draft.emoji}
