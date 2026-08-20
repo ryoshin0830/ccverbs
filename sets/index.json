@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedAt": "1970-01-01T00:00:00.000Z",
-  "totalSets": 22,
-  "totalVerbs": 500,
+  "totalSets": 23,
+  "totalVerbs": 502,
   "sets": [
     {
       "$schema": "../schema/verb-set.schema.json",
@@ -876,6 +876,20 @@
         "Merge Join — 整列済みを噛み合わせ",
         "N+1 — 一件ずつ問い合わせる罠",
         "ACID — 原子性一貫性隔離永続性"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "tougekou",
+      "name": "登下校",
+      "emoji": "🌸",
+      "description": "登下校",
+      "language": "ja",
+      "category": "meme",
+      "tags": [],
+      "verbs": [
+        "登校しています",
+        "下校しています"
       ]
     },
     {
