@@ -12,13 +12,13 @@
    不可視の「フォーカス中フィールド」状態で持ち、上下でフィールド切替・左右で値変更という
    二層の操作を要求している。左右キーが何かをすることが画面から読み取れない。
 2. **英語のみ。** 日本語話者が主要な想定利用者なのに UI 文言が英語で固定されている。
-3. **状態を覚えない。** 毎回 `replace` / `user` から選び直す。
+3. **毎回同じことを聞かれる。** mode と scope はほぼ固定なのに、適用のたびに選ばされる。
 
 本設計はこの 3 点を、次の 3 つの変更で解決する。
 
 - **ウィザード化**: 1 画面 1 問、上下と Enter だけの選択式にする。
 - **多言語対応**: 5 ロケール（en / ja / zh-Hans / zh-Hant / ko）。端末・OS から自動判別し、手動でも変更できる。
-- **設定の永続化**: `~/.ccverbs/` に言語と前回の mode / scope を保存する。
+- **設定の永続化**: `~/.ccverbs/` に言語・mode・scope を保存し、`ccverbs config` で変更する。
 
 ### 1.1 事前調査：素朴な言語判別は失敗する
 
@@ -210,30 +210,41 @@ export function resolveLocale(deps?: ResolveLocaleDeps): {
 
 すべての判別元を注入可能にする。実環境の値に依存するテストを書かないため。
 
-## 5. ウィザード
+## 5. ウィザードと設定画面
 
-### 5.1 状態機械
+### 5.1 設計判断：毎回聞くものと、一度決めるもの
+
+0.1.0 は mode と scope を適用のたびに聞いていた。これは選択式にしても手間は手間である。
+利用者が実際に毎回変えるのはセットだけで、mode と scope はほぼ固定である。
+
+したがって設定を 2 種類に分ける。
+
+| 種別 | 対象 | 置き場所 |
+| --- | --- | --- |
+| 毎回選ぶ | どのセットを適用するか | 本流のウィザード |
+| 一度決めて忘れる | 言語、mode、scope | `ccverbs config`（設定画面） |
+
+本流は **2 問**（セット選択と可否）になる。
+
+### 5.2 本流の状態機械
 
 ```
-language ←┐
-          │ (set 画面の「言語」行から)
-set ──────┴──→ mode ──→ scope ──→ confirm ──→ done
- ↑             │         │          │
- │  Esc        │ Esc     │ Esc      │ Esc / n
- └─────────────┴─────────┴──────────┘
+set ──→ confirm ──→ done
+ ↑        │
+ │ Esc    │ Esc / n
+ └────────┘
 ```
 
-- 各画面は**1 問のみ**を提示する。操作は `↑` `↓` と `Enter`、戻るのは `Esc`。
-  左右キーと不可視のフォーカス状態は廃止する。
 - `set` 画面での `Esc` は終了（終了コード 0）。
 - `Ctrl+C` はどの画面でも終了（終了コード 0）。
-- `mode` と `scope` の初期選択位置は `~/.ccverbs/config.json` に保存された前回値に合わせる。
-  そのため 2 回目以降は `Enter` を 3 回で適用まで到達する。
-- 適用が成功した時点で `lastMode` と `lastScope` を保存する。失敗時は保存しない。
+- mode と scope は `~/.ccverbs/config.json` から読む。既定は `replace` と `user`。
+- ウィザードは mode と scope を**変更しない**。したがって本流の完了時に
+  `lastMode` / `lastScope` を書き戻す処理は存在しない（0.1.0 案から削除）。
 
-### 5.2 各画面
+### 5.3 セット選択画面
 
-セット選択（検索は従来どおりインクリメンタル）。検索文字列が空のときだけ 2 行を固定表示する。
+検索はインクリメンタル。検索文字列が空のときだけ「おまかせ」行を固定表示する。
+言語の行は置かない（設定画面に移した）。
 
 ```
   ccverbs                              21セット · 496語
@@ -241,7 +252,6 @@ set ──────┴──→ mode ──→ scope ──→ confirm ──
   検索: ▮
 
   ❯ 🎲 おまかせ            ランダムに1セット選ぶ
-    🌐 言語                日本語
     🪨 sisyphus       10  ネタ     シーシュポスの神話
     🗾 ja-general     40  汎用     標準186語の日本語版
     ...
@@ -249,35 +259,82 @@ set ──────┴──→ mode ──→ scope ──→ confirm ──
   ↑↓ 選択 · Enter 決定 · 文字入力で検索 · Esc 終了
 ```
 
-適用方法。**選択肢のラベルではなく帰結を並べる**ことが要点である。「置き換える」だけでは
-何も伝わらないので、その行で何が起きるかを併記する。
+### 5.4 確認画面
+
+**mode と scope を聞かないので、ここで必ず見せる。** 聞かない設定は、
+適用前に明示されていなければならない。
 
 ```
-  [2/3] 適用方法を選んでください
+  🪨 Sisyphus を適用します
 
-  ❯ 置き換える      このセットの10語だけを使う
-    追加する        標準186語 ＋ この10語 = 196語
+  適用方法   置き換える     このセットの10語だけを使う
+  保存先     ~/.claude/settings.json
+
+      "spinnerVerbs": {
+  +     "mode": "replace",
+  +     "verbs": [
+  +       "岩を押し上げています",
+  +       ... 全10語
+  +     ]
+      }
+
+  適用しますか？ (Y/n)              変更は ccverbs config
+```
+
+末尾の案内が、設定画面への唯一の導線である。
+
+### 5.5 確認画面に隠しキーを置かない理由
+
+「`m` で適用方法を変更」のような 1 文字キーは付けない。画面から読み取れない操作は
+本改修が解消しようとしている問題そのものであり、それを別の場所に再導入することになる。
+
+1 回だけ変えたい場合は one-shot のフラグで足りる。
+
+```
+ccverbs set sisyphus -S project
+ccverbs set sisyphus --mode append
+```
+
+### 5.6 設定画面（`ccverbs config`）
+
+TTY があるとき `ccverbs config` はこの画面を出す。
+
+```
+  ccverbs 設定
+
+  ❯ 言語        日本語         macOSの言語設定から判別
+    適用方法     置き換える      このセットの語だけを使う
+    保存先       全体           ~/.claude/settings.json
+    ───────────────────────────────────────
+    既定値に戻す
+
+  ~/.ccverbs/config.json
+
+  ↑↓ 選択 · Enter 変更 · Esc 終了
+```
+
+- 各行は「項目名・現在値・補足」の 3 列。補足は判別根拠（言語）または帰結（mode / scope）。
+- `Enter` で値の選択画面へ入る。選んだ時点で `config.json` に保存し、一覧へ戻る。
+- 「既定値に戻す」は確認を挟まず即座に既定値へ戻す（失われるのは 3 つの設定値のみで、
+  復旧は再選択で足りるため）。
+- `Esc` で終了（終了コード 0）。
+- 保存に失敗した場合は一覧の下に警告を 1 行出し、画面は維持する。
+
+### 5.7 値の選択画面
+
+3 項目すべてが「見出し 1 行 ＋ 選択肢（ラベルと補足の 2 列）」という同一形状である。
+
+```
+  適用方法
+
+  ❯ 置き換える     セットの語だけを使う
+    追加する       標準186語 ＋ セットの語
 
   ↑↓ 選択 · Enter 決定 · Esc 戻る
 ```
 
-保存先。選択肢ごとに解決後の実パスを見せる。
-
 ```
-  [3/3] どこに保存しますか
-
-  ❯ 全体              ~/.claude/settings.json
-    このプロジェクト     ./.claude/settings.json
-    ローカルのみ        ./.claude/settings.local.json   Git管理外
-
-  ↑↓ 選択 · Enter 決定 · Esc 戻る
-```
-
-言語選択。`set` 画面の「言語」行から入る。選択した時点で即座に `config.json` に保存し、
-`set` 画面へ戻る。「自動」を選ぶと `language: "auto"` を保存し、判別結果を括弧内に示す。
-
-```
-  言語を選んでください
+  言語
 
   ❯ 自動              判別結果: 日本語（macOSの設定から）
     English
@@ -285,35 +342,36 @@ set ──────┴──→ mode ──→ scope ──→ confirm ──
     简体中文           母語話者のレビュー募集中
     繁體中文           母語話者のレビュー募集中
     한국어             母語話者のレビュー募集中
-
-  ↑↓ 選択 · Enter 決定 · Esc 戻る
 ```
 
-`confirm` 画面は 0.1.0 の差分表示をそのまま用い、文言のみ翻訳する。
+```
+  保存先
 
-### 5.3 言語切替にキーを割り当てない理由
+  ❯ 全体              ~/.claude/settings.json
+    このプロジェクト     ./.claude/settings.json
+    ローカルのみ        ./.claude/settings.local.json   Git管理外
+```
 
-`l` のような裸のキーは `set` 画面の検索入力と衝突する。`Ctrl+L` は発見されにくい。
-そのため一覧に固定行として置く。`🎲 おまかせ` と同じ仕組みで、追加の操作体系を導入しない。
+初期カーソルは現在値に合わせる。
 
-### 5.4 コンポーネント分割
+### 5.8 コンポーネント分割
 
-`src/ui/App.tsx` は 0.1.0 で 1 ファイルに状態機械と全画面を抱えており、画面が増えると
-維持できない。次のように分ける。
+`src/ui/App.tsx` は 0.1.0 で 310 行に状態機械と全画面を抱えている。画面が増えると
+維持できないため分割する。
 
 | ファイル | 責務 |
 | --- | --- |
-| `src/ui/App.tsx` | 状態機械と遷移のみ。画面の中身は持たない |
+| `src/ui/App.tsx` | 本流の状態機械（`set` → `confirm` → `done`）のみ |
+| `src/ui/ConfigApp.tsx` | 設定画面の状態機械（一覧 ↔ 値選択） |
 | `src/ui/screens/SetScreen.tsx` | セット選択（検索 + 一覧 + プレビュー） |
-| `src/ui/screens/ChoiceScreen.tsx` | 「1 問 1 答」の汎用画面。mode / scope / language が共有する |
-| `src/ui/screens/ConfirmScreen.tsx` | 差分表示と可否 |
+| `src/ui/screens/ConfirmScreen.tsx` | 適用方法・保存先の表示、差分、可否 |
 | `src/ui/screens/DoneScreen.tsx` | 結果表示 |
+| `src/ui/screens/ChoiceScreen.tsx` | 「見出し + 選択肢」の汎用画面。設定画面が 3 回使う |
+| `src/ui/screens/SettingsListScreen.tsx` | 設定の一覧 |
 | `src/ui/SetList.tsx` | 一覧（既存、`t` を受け取る） |
 | `src/ui/PreviewPane.tsx` | プレビュー（既存、`t` を受け取る） |
 
-`ChoiceScreen` の共通化が本設計の要である。mode / scope / language は
-「見出し 1 行 + 選択肢（ラベルと補足の 2 列）」という同一形状であり、
-1 つのコンポーネントで足りる。
+`ChoiceScreen` は本流では使わず、設定画面が言語・mode・scope の 3 か所で使う。
 
 ```ts
 interface Choice<T> {
@@ -325,7 +383,6 @@ interface Choice<T> {
 
 interface ChoiceScreenProps<T> {
   title: string;
-  step?: { current: number; total: number };
   choices: Choice<T>[];
   initialValue: T;
   footer: string;
@@ -333,6 +390,7 @@ interface ChoiceScreenProps<T> {
   onBack: () => void;
 }
 ```
+
 
 ## 6. 設定の永続化
 
@@ -353,8 +411,8 @@ interface ChoiceScreenProps<T> {
 {
   "version": 1,
   "language": "auto",
-  "lastMode": "replace",
-  "lastScope": "user"
+  "mode": "replace",
+  "scope": "user"
 }
 ```
 
@@ -362,15 +420,15 @@ interface ChoiceScreenProps<T> {
 | --- | --- | --- |
 | `version` | `1` | `1` |
 | `language` | `"auto"` \| ロケール 5 値 | `"auto"` |
-| `lastMode` | `"replace"` \| `"append"` | `"replace"` |
-| `lastScope` | `"user"` \| `"project"` \| `"local"` | `"user"` |
+| `mode` | `"replace"` \| `"append"` | `"replace"` |
+| `scope` | `"user"` \| `"project"` \| `"local"` | `"user"` |
 
 ### 6.3 読み書きの規則
 
 - **読み込みは決して例外を投げない。** ファイルが無い、JSON が壊れている、値が
   想定外、`version` が未知——いずれの場合も既定値を返し、警告文を添えて返す。
   スピナーの動詞を変えるツールが設定ファイルの破損で起動しないのは不合理である。
-- 個々の鍵ごとに検証する。`language` だけが不正なら、`lastMode` は生かす。
+- 個々の鍵ごとに検証する。`language` だけが不正なら、`mode` は生かす。
 - 書き込みは 0.1.0 の `settings.json` と同じ原子的手順（一時ファイル → `rename`）を使う。
   ただし `~/.ccverbs/config.json` は本ツールが所有するファイルなのでバックアップは作らない。
 - 書き込み失敗は警告のみで、コマンド自体は成功させる（設定を覚えられないことは
@@ -380,8 +438,8 @@ interface ChoiceScreenProps<T> {
 export interface CcverbsConfig {
   version: 1;
   language: "auto" | SupportedLocale;
-  lastMode: "replace" | "append";
-  lastScope: Scope;
+  mode: "replace" | "append";
+  scope: Scope;
 }
 
 export function configDir(home?: string): string;
@@ -529,25 +587,37 @@ export function groupByLocale(sets: VerbSet[], locale: SupportedLocale): VerbSet
 ### 10.2 `config` コマンド
 
 ```
-ccverbs config                          解決後の設定と判別根拠を表示
+ccverbs config                          設定画面（TTY あり）／設定表（TTY なし）
 ccverbs config language <code|auto>     言語を設定
-ccverbs config mode <replace|append>    既定の mode を設定
-ccverbs config scope <user|project|local>  既定の scope を設定
-ccverbs config reset                    設定ファイルを既定値に戻す
+ccverbs config mode <replace|append>    mode を設定
+ccverbs config scope <user|project|local>  scope を設定
+ccverbs config reset                    既定値に戻す
 ccverbs config --json                   機械可読出力
 ```
 
-人間向け出力は、判別根拠を必ず併記する。「なぜ英語で出るのか」を利用者が
+対話と非対話の切り分け:
+
+| 呼び出し | 挙動 |
+| --- | --- |
+| `ccverbs config`、TTY あり | 5.6 の設定画面 |
+| `ccverbs config`、TTY なし | 設定表を出力して終了コード 0。**ハングしない** |
+| `ccverbs config --json` | JSON を出力。TTY があっても画面は出さない |
+| `ccverbs config <key> <value>` | 一発設定。画面は出さない |
+
+非対話時の表は、判別根拠を必ず併記する。「なぜ英語で出るのか」を利用者が
 自力で診断できることが目的である。
 
 ```
 language   ja        macOSの言語設定から判別
-mode       replace   前回の選択
-scope      user      前回の選択
+mode       replace   設定ファイルから
+scope      user      既定値
 
 設定       ~/.ccverbs/config.json
 キャッシュ  ~/.ccverbs/cache/index.json   4分前に取得
 ```
+
+`mode` と `scope` の根拠は「設定ファイルから」か「既定値」の 2 値で示す。
+これにより、設定したつもりで保存に失敗していた場合に気付ける。
 
 `--json`:
 
@@ -555,8 +625,8 @@ scope      user      前回の選択
 {
   "ok": true,
   "language": { "value": "ja", "source": "os", "explicit": false },
-  "mode": { "value": "replace" },
-  "scope": { "value": "user" },
+  "mode": { "value": "replace", "source": "default" },
+  "scope": { "value": "user", "source": "default" },
   "supportedLocales": ["en", "ja", "zh-Hans", "zh-Hant", "ko"],
   "unreviewedLocales": ["zh-Hans", "zh-Hant", "ko"],
   "configPath": "/Users/x/.ccverbs/config.json",
@@ -566,8 +636,9 @@ scope      user      前回の選択
 }
 ```
 
-`config` は引数の第 2 語を鍵、第 3 語を値として取る。鍵が未知なら終了コード 2。
-値が不正なら終了コード 2 で、許容値を列挙する。
+`config` は第 2 語を鍵、第 3 語を値として取る。鍵が未知なら終了コード 2。
+値が不正なら終了コード 2 で、許容値を列挙する。`reset` は値を取らない。
+
 
 ## 11. ファイル構成の変更
 
@@ -594,9 +665,12 @@ src/
   commands/
     index.ts              t を受け取る。config コマンドを追加
   ui/
-    App.tsx               状態機械のみ
+    App.tsx               本流の状態機械（set → confirm → done）
+    ConfigApp.tsx         設定画面の状態機械（一覧 ↔ 値選択）
+    start.tsx             startTui, startConfigTui
     screens/
-      SetScreen.tsx  ChoiceScreen.tsx  ConfirmScreen.tsx  DoneScreen.tsx
+      SetScreen.tsx  ConfirmScreen.tsx  DoneScreen.tsx
+      SettingsListScreen.tsx  ChoiceScreen.tsx
     SetList.tsx  PreviewPane.tsx
 ```
 
@@ -632,9 +706,13 @@ src/commands/
 | `renderHelp` | 全ロケールで桁が揃うこと。`COMMANDS` / `OPTIONS` の全項目に説明があること |
 | `args` | `--lang`、`--no-group`、`config` の各形。不正値が終了コード 2 になること |
 | `ChoiceScreen` | 1 問のみ表示。`initialValue` にカーソルが当たること。上下で移動、Enter で `onSelect`、Esc で `onBack` |
-| ウィザード遷移 | `set → mode → scope → confirm` の前進、各段からの `Esc` の後退、`set` での `Esc` が終了、言語行から言語画面へ |
-| `config` コマンド | `--json` の形、判別根拠の表示、鍵と値の検証 |
-| 適用後の永続化 | 適用成功で `lastMode` / `lastScope` が保存され、失敗では保存されないこと |
+| 本流の遷移 | `set → confirm → done` の前進。`confirm` での `Esc` / `n` が `set` へ戻ること。`set` での `Esc` が終了すること。**mode / scope を尋ねる画面が存在しないこと** |
+| 確認画面 | 設定された mode と scope が画面に表示されること（聞かない設定は明示される、という要件の検証）。`scope` に応じて解決後のパスが表示されること |
+| `SettingsListScreen` | 3 項目と現在値の表示、判別根拠の表示、「既定値に戻す」行の存在 |
+| 設定画面の遷移 | 一覧 → 値選択 → 保存 → 一覧に戻ることを 3 項目それぞれで。`Esc` で一覧へ戻ること。一覧での `Esc` が終了すること |
+| 設定画面の保存 | 言語・mode・scope を選ぶと `config.json` に即座に書かれること。保存失敗時に警告が出て画面が維持されること |
+| `config` コマンド | TTY なしで表を出力して終了コード 0（ハングしないこと）。`--json` は TTY があっても画面を出さないこと。`--json` の形。鍵と値の検証。`reset` |
+| mode / scope の出所 | 設定ファイルに値があれば `source: "config"`、無ければ `"default"` を報告すること |
 
 `resolveLocale` のテストは実環境の環境変数・プラットフォームに依存してはならない。
 すべて注入する。
