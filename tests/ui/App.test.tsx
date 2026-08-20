@@ -164,11 +164,35 @@ describe("App — set screen", () => {
 });
 
 describe("App — confirm screen", () => {
-  it("goes straight from the set screen to confirm", async () => {
+  it("shows a human-readable change summary instead of a raw JSON diff", async () => {
     const { lastFrame, stdin } = mount();
     await tick();
     await openFirstSet(stdin);
-    expect(lastFrame()).toContain("Apply?");
+    const frame = lastFrame() ?? "";
+
+    expect(frame).toContain("Apply this change?");
+    expect(frame).toContain("Target");
+    expect(frame).toContain("Change");
+    expect(frame).toContain("Current");
+    expect(frame).toContain("After");
+    expect(frame).toContain("Effect");
+    expect(frame).toContain(join(home, ".claude", "settings.json"));
+    expect(frame).toContain("not configured");
+    expect(frame).toContain("Alpha's 2 verbs");
+    expect(frame).not.toContain('    "spinnerVerbs": {');
+    expect(frame).not.toContain('+   "verbs": [');
+  });
+
+  it("explains the built-in verbs and resulting total in append mode", async () => {
+    const { lastFrame, stdin } = mount({ config: { mode: "append" } });
+    await tick();
+    await openFirstSet(stdin);
+    const frame = lastFrame() ?? "";
+
+    expect(frame).toContain("Append Alpha's 2 verbs to Claude Code's 186 built-in verbs");
+    expect(frame).toContain("not configured (Claude Code's 186 built-in verbs)");
+    expect(frame).toContain("Alpha's 2 verbs added (188 total)");
+    expect(frame).toContain("Claude Code will pick loading verbs from 188 verbs.");
   });
 
   it("states the mode and scope it did not ask about", async () => {
@@ -250,7 +274,7 @@ describe("App — applying", () => {
     await tick();
     stdin.write(ENTER);
     await tick();
-    expect(lastFrame()).toContain("Apply?");
+    expect(lastFrame()).toContain("Apply this change?");
     stdin.write("y");
     await tick();
     expect(settings().spinnerVerbs.verbs).toEqual(["a1", "a2"]);
@@ -288,7 +312,13 @@ describe("App — localization", () => {
     await tick();
     await openFirstSet(stdin);
     const frame = lastFrame() ?? "";
-    expect(frame).toContain("適用しますか？");
+    expect(frame).toContain("この変更を適用しますか？");
+    expect(frame).toContain("変更対象");
+    expect(frame).toContain("変更内容");
+    expect(frame).toContain("現在");
+    expect(frame).toContain("適用後");
+    expect(frame).toContain("反映後");
+    expect(frame).toContain("未設定");
     expect(frame).toContain("置き換える");
     expect(frame).toContain("全体");
   });

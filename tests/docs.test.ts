@@ -9,8 +9,8 @@ const contributionSkill = readFileSync(".claude/skills/ccverbs-contribute/SKILL.
 const pkg = JSON.parse(readFileSync("package.json", "utf8"));
 
 describe("version", () => {
-  it("is 0.4.0", () => {
-    expect(pkg.version).toBe("0.4.0");
+  it("is 0.4.1", () => {
+    expect(pkg.version).toBe("0.4.1");
   });
 });
 

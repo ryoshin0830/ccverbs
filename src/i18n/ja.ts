@@ -39,8 +39,26 @@ export const ja: Catalog = {
     applyTitle: (name) => `${name} を適用します`,
     modeLabel: "適用方法",
     scopeLabel: "保存先",
-    applyQuestion: "適用しますか？",
-    changeSettings: "変更は ccverbs config",
+    targetLabel: "変更対象",
+    changeLabel: "変更内容",
+    currentLabel: "現在",
+    afterLabel: "適用後",
+    effectLabel: "反映後",
+    changeSummary: (name, n, mode) =>
+      mode === "replace"
+        ? `spinnerVerbs を${name}の${n}語に置き換えます`
+        : `spinnerVerbs に${name}の${n}語を追加します（Claude Code 標準の${DEFAULT_VERB_COUNT}語に追加）`,
+    currentSummary: (mode, n) =>
+      mode === null
+        ? `未設定（Claude Code 標準の${DEFAULT_VERB_COUNT}語）`
+        : mode === "replace"
+          ? `カスタム${n}語（置き換え）`
+          : `Claude Code 標準の${DEFAULT_VERB_COUNT}語 + 追加${n}語`,
+    afterSummary: (name, n, mode, total) =>
+      mode === "replace" ? `${name}の${n}語だけ` : `${name}の${n}語を追加（合計${total}語）`,
+    effectSummary: (n) => `Claude Code は${n}語から進行表示を選びます`,
+    applyQuestion: "この変更を適用しますか？",
+    changeSettings: "適用方法や保存先を変える: ccverbs config",
     willPickFrom: (n) => `適用後は${n}語から選ばれます。`,
     appliedTitle: (name, n, mode) => `${name} を適用しました — ${n}語、${mode}`,
     settingsPath: "設定:",

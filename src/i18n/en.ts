@@ -50,8 +50,28 @@ export const en = {
     applyTitle: (name: string) => `Applying ${name}`,
     modeLabel: "Mode",
     scopeLabel: "Saves to",
-    applyQuestion: "Apply?",
-    changeSettings: "change these with: ccverbs config",
+    targetLabel: "Target",
+    changeLabel: "Change",
+    currentLabel: "Current",
+    afterLabel: "After",
+    effectLabel: "Effect",
+    changeSummary: (name: string, n: number, mode: "replace" | "append") =>
+      mode === "replace"
+        ? `Set spinnerVerbs to ${name}'s ${n} verbs (replace the current list)`
+        : `Append ${name}'s ${n} verbs to Claude Code's ${DEFAULT_VERB_COUNT} built-in verbs`,
+    currentSummary: (mode: "replace" | "append" | null, n: number) =>
+      mode === null
+        ? `not configured (Claude Code's ${DEFAULT_VERB_COUNT} built-in verbs)`
+        : mode === "replace"
+          ? `${n} custom verbs (replace)`
+          : `Claude Code's ${DEFAULT_VERB_COUNT} built-in + ${n} custom verbs`,
+    afterSummary: (name: string, n: number, mode: "replace" | "append", total: number) =>
+      mode === "replace"
+        ? `${name}'s ${n} verbs only`
+        : `${name}'s ${n} verbs added (${total} total)`,
+    effectSummary: (n: number) => `Claude Code will pick loading verbs from ${n} verbs.`,
+    applyQuestion: "Apply this change?",
+    changeSettings: "Change mode or target with: ccverbs config",
     willPickFrom: (n: number) => `Claude Code will pick from ${n} verbs.`,
     appliedTitle: (name: string, n: number, mode: string) =>
       `Applied ${name} — ${n} verbs, ${mode}`,

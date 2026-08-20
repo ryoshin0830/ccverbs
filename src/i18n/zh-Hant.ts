@@ -39,8 +39,26 @@ export const zhHant: Catalog = {
     applyTitle: (name) => `準備套用 ${name}`,
     modeLabel: "套用方式",
     scopeLabel: "儲存位置",
-    applyQuestion: "要套用嗎？",
-    changeSettings: "用 ccverbs config 修改",
+    targetLabel: "變更目標",
+    changeLabel: "變更內容",
+    currentLabel: "目前",
+    afterLabel: "套用後",
+    effectLabel: "效果",
+    changeSummary: (name, n, mode) =>
+      mode === "replace"
+        ? `將 spinnerVerbs 取代為 ${name} 的 ${n} 個詞`
+        : `將 ${name} 的 ${n} 個詞附加到 Claude Code 內建的 ${DEFAULT_VERB_COUNT} 個詞`,
+    currentSummary: (mode, n) =>
+      mode === null
+        ? `未設定（Claude Code 內建 ${DEFAULT_VERB_COUNT} 個詞）`
+        : mode === "replace"
+          ? `${n} 個自訂詞（取代）`
+          : `Claude Code 內建 ${DEFAULT_VERB_COUNT} 個詞 + ${n} 個自訂詞`,
+    afterSummary: (name, n, mode, total) =>
+      mode === "replace" ? `只使用 ${name} 的 ${n} 個詞` : `附加 ${name} 的 ${n} 個詞（共 ${total} 個）`,
+    effectSummary: (n) => `Claude Code 會從 ${n} 個詞中隨機選取進度提示。`,
+    applyQuestion: "要套用這項變更嗎？",
+    changeSettings: "修改套用方式或儲存位置：ccverbs config",
     willPickFrom: (n) => `套用後會從 ${n} 個詞中隨機選取。`,
     appliedTitle: (name, n, mode) => `已套用 ${name} — ${n} 個詞，${mode}`,
     settingsPath: "設定檔:",

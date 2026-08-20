@@ -39,8 +39,26 @@ export const zhHans: Catalog = {
     applyTitle: (name) => `准备应用 ${name}`,
     modeLabel: "应用方式",
     scopeLabel: "保存位置",
-    applyQuestion: "要应用吗？",
-    changeSettings: "用 ccverbs config 修改",
+    targetLabel: "修改目标",
+    changeLabel: "修改内容",
+    currentLabel: "当前",
+    afterLabel: "应用后",
+    effectLabel: "效果",
+    changeSummary: (name, n, mode) =>
+      mode === "replace"
+        ? `将 spinnerVerbs 替换为 ${name} 的 ${n} 个词`
+        : `将 ${name} 的 ${n} 个词追加到 Claude Code 自带的 ${DEFAULT_VERB_COUNT} 个词中`,
+    currentSummary: (mode, n) =>
+      mode === null
+        ? `未设置（Claude Code 自带 ${DEFAULT_VERB_COUNT} 个词）`
+        : mode === "replace"
+          ? `${n} 个自定义词（替换）`
+          : `Claude Code 自带 ${DEFAULT_VERB_COUNT} 个词 + ${n} 个自定义词`,
+    afterSummary: (name, n, mode, total) =>
+      mode === "replace" ? `仅使用 ${name} 的 ${n} 个词` : `追加 ${name} 的 ${n} 个词（共 ${total} 个）`,
+    effectSummary: (n) => `Claude Code 将从 ${n} 个词中随机选择进度提示。`,
+    applyQuestion: "要应用这项修改吗？",
+    changeSettings: "修改应用方式或保存位置：ccverbs config",
     willPickFrom: (n) => `应用后将从 ${n} 个词中随机选取。`,
     appliedTitle: (name, n, mode) => `已应用 ${name} — ${n} 个词，${mode}`,
     settingsPath: "设置文件:",

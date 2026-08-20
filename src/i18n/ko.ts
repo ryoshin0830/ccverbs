@@ -39,8 +39,26 @@ export const ko: Catalog = {
     applyTitle: (name) => `${name} 적용`,
     modeLabel: "적용 방식",
     scopeLabel: "저장 위치",
-    applyQuestion: "적용할까요?",
-    changeSettings: "변경은 ccverbs config",
+    targetLabel: "변경 대상",
+    changeLabel: "변경 내용",
+    currentLabel: "현재",
+    afterLabel: "적용 후",
+    effectLabel: "효과",
+    changeSummary: (name, n, mode) =>
+      mode === "replace"
+        ? `spinnerVerbs를 ${name}의 ${n}개 단어로 교체합니다`
+        : `${name}의 ${n}개 단어를 Claude Code 기본 ${DEFAULT_VERB_COUNT}개 단어에 추가합니다`,
+    currentSummary: (mode, n) =>
+      mode === null
+        ? `설정되지 않음（Claude Code 기본 ${DEFAULT_VERB_COUNT}개 단어）`
+        : mode === "replace"
+          ? `사용자 지정 ${n}개 단어（교체）`
+          : `Claude Code 기본 ${DEFAULT_VERB_COUNT}개 + 사용자 지정 ${n}개 단어`,
+    afterSummary: (name, n, mode, total) =>
+      mode === "replace" ? `${name}의 ${n}개 단어만 사용` : `${name}의 ${n}개 단어 추가（총 ${total}개）`,
+    effectSummary: (n) => `Claude Code가 ${n}개 단어에서 진행 표시를 선택합니다.`,
+    applyQuestion: "이 변경을 적용할까요?",
+    changeSettings: "적용 방식이나 저장 위치 변경: ccverbs config",
     willPickFrom: (n) => `적용 후 ${n}개 단어에서 골라 표시됩니다.`,
     appliedTitle: (name, n, mode) => `${name} 적용 완료 — ${n}개 단어, ${mode}`,
     settingsPath: "설정 파일:",

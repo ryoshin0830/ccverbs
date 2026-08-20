@@ -3,7 +3,6 @@ import type { Catalog } from "../../i18n/en.js";
 import type { SupportedLocale } from "../../i18n/locales.js";
 import { localizedName, type VerbSet } from "../../registry/schema.js";
 import { effectiveVerbCount, type SpinnerVerbs } from "../../settings/apply.js";
-import { renderDiff } from "../../settings/diff.js";
 import type { Scope } from "../../settings/paths.js";
 
 interface ConfirmScreenProps {
@@ -48,6 +47,10 @@ export function ConfirmScreen({
       : t.modes.appendHint(186, set.verbs.length);
   const scopeText =
     scope === "user" ? t.scopes.user : scope === "project" ? t.scopes.project : t.scopes.local;
+  const setName = localizedName(set, locale);
+  const effectiveCount = effectiveVerbCount(after);
+  const currentMode = before?.mode ?? null;
+  const currentCount = before?.verbs.length ?? 0;
 
   return (
     <Box flexDirection="column">
@@ -73,20 +76,34 @@ export function ConfirmScreen({
       </Box>
 
       <Box marginTop={1} flexDirection="column">
-        {renderDiff(before, after)
-          .split("\n")
-          .map((line, i) => (
-            <Text
-              key={`${i}-${line}`}
-              color={line.startsWith("+") ? "green" : line.startsWith("-") ? "red" : undefined}
-            >
-              {line}
-            </Text>
-          ))}
+        <Text>
+          <Text dimColor>{t.wizard.targetLabel}</Text>
+          {"   "}
+          {settingsPath}
+        </Text>
+        <Text>
+          <Text dimColor>{t.wizard.changeLabel}</Text>
+          {"   "}
+          {t.wizard.changeSummary(setName, set.verbs.length, mode)}
+        </Text>
+        <Text>
+          <Text dimColor>{t.wizard.currentLabel}</Text>
+          {"   "}
+          {t.wizard.currentSummary(currentMode, currentCount)}
+        </Text>
+        <Text>
+          <Text dimColor>{t.wizard.afterLabel}</Text>
+          {"   "}
+          {t.wizard.afterSummary(setName, set.verbs.length, mode, effectiveCount)}
+        </Text>
       </Box>
 
       <Box marginTop={1}>
-        <Text dimColor>{t.wizard.willPickFrom(effectiveVerbCount(after))}</Text>
+        <Text>
+          <Text dimColor>{t.wizard.effectLabel}</Text>
+          {"   "}
+          {t.wizard.effectSummary(effectiveCount)}
+        </Text>
       </Box>
 
       <Box marginTop={1}>
