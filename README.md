@@ -63,7 +63,7 @@ Requires Node.js 18 or newer.
 animate the way Claude Code will actually show them, and press the button. It hands
 you a pull request with the file already filled in.
 
-> **[Open the verb set builder](https://github.com/ryoshin0830/ccverbs#add-a-verb-set)**
+> **[Open the verb set builder](https://ccverbs.lolipop-now.app)**
 
 **By hand:** add one JSON file. That's the whole process.
 

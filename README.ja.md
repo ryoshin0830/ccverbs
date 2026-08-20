@@ -63,7 +63,7 @@ Node.js 18 以降が必要です。
 で実際にどう見えるかがその場でアニメーションで確認できます。ボタンを押すと、ファイルが
 入力済みの Pull Request まで連れて行ってくれます。
 
-> **[単語セットビルダーを開く](https://github.com/ryoshin0830/ccverbs#add-a-verb-set)**
+> **[単語セットビルダーを開く](https://ccverbs.lolipop-now.app)**
 
 **手で書く場合:** JSON ファイルを 1 つ足すだけです。
 

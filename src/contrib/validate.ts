@@ -1,4 +1,4 @@
-import { displayWidth } from "../registry/schema.js";
+import { displayWidth } from "../registry/width.js";
 import {
   MAX_VERB_WIDTH,
   MAX_VERBS,
