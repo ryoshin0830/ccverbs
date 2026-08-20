@@ -16,6 +16,7 @@ interface SetScreenProps {
   locale: SupportedLocale;
   random?: () => number;
   onSelect: (set: VerbSet) => void;
+  onCreate: () => void;
   onQuit: () => void;
 }
 
@@ -26,6 +27,7 @@ export function SetScreen({
   locale,
   random,
   onSelect,
+  onCreate,
   onQuit,
 }: SetScreenProps) {
   const [query, setQuery] = useState("");
@@ -37,7 +39,7 @@ export function SetScreen({
   );
   const rows: Row[] = useMemo(
     () => [
-      ...(query.trim() === "" ? [{ kind: "random" } as Row] : []),
+      ...(query.trim() === "" ? ([{ kind: "random" }, { kind: "create" }] as Row[]) : []),
       ...matches.map((set) => ({ kind: "set", set }) as Row),
     ],
     [matches, query],
@@ -46,6 +48,7 @@ export function SetScreen({
   const clamped = Math.min(selected, Math.max(0, rows.length - 1));
   const activeRow = rows[clamped];
   const previewSet = activeRow?.kind === "set" ? activeRow.set : (matches[0] ?? null);
+  const isCreateRow = activeRow?.kind === "create";
 
   useInput((input, key) => {
     if (key.escape) return onQuit();
@@ -53,6 +56,7 @@ export function SetScreen({
     if (key.downArrow) return setSelected((s) => Math.min(rows.length - 1, s + 1));
     if (key.return) {
       if (!activeRow) return;
+      if (activeRow.kind === "create") return onCreate();
       onSelect(activeRow.kind === "random" ? pickRandom(registry.sets, random) : activeRow.set);
       return;
     }
@@ -88,7 +92,14 @@ export function SetScreen({
       </Box>
       <Box marginTop={1}>
         <SetList rows={rows} selected={clamped} height={LIST_HEIGHT} t={t} locale={locale} />
-        <PreviewPane set={previewSet} t={t} locale={locale} />
+        {isCreateRow ? (
+          <Box flexDirection="column" width="50%">
+            <Text bold>{t.wizard.createTitle}</Text>
+            <Text dimColor>{t.wizard.createPreview}</Text>
+          </Box>
+        ) : (
+          <PreviewPane set={previewSet} t={t} locale={locale} />
+        )}
       </Box>
       <Box marginTop={1}>
         <Text dimColor>{t.wizard.footerSet}</Text>

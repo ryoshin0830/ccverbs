@@ -109,6 +109,17 @@ describe("parseArgs", () => {
     expect(ok(["-v"]).command).toBe("version");
   });
 
+  it("targets command-specific help before validating command arguments", () => {
+    expect(ok(["new", "--help"])).toMatchObject({
+      command: "help",
+      helpCommand: "new",
+    });
+  });
+
+  it("keeps bare help on the general help page", () => {
+    expect(ok(["--help"]).helpCommand).toBeUndefined();
+  });
+
   it("parses new with a file input", () => {
     expect(ok(["new", "--input", "set.json"])).toMatchObject({
       command: "new",
@@ -130,5 +141,9 @@ describe("parseArgs", () => {
   it("requires input and rejects new-only flags on other commands", () => {
     expect(bad(["new"])).toContain("--input");
     expect(bad(["list", "--pr"])).toContain("new");
+  });
+
+  it("requires --pr when a branch is supplied", () => {
+    expect(bad(["new", "--input", "set.json", "--branch", "add-set"])).toContain("--pr");
   });
 });

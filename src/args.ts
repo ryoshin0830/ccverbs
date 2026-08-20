@@ -1,4 +1,5 @@
 import { SUPPORTED_LOCALES } from "./i18n/locales.js";
+import type { HelpCommand } from "./help/model.js";
 import type { Scope } from "./settings/paths.js";
 
 export type Command =
@@ -17,6 +18,8 @@ export type Command =
 
 export interface Options {
   command: Command;
+  /** Present when --help was attached to a known command, e.g. new --help. */
+  helpCommand?: HelpCommand;
   arg?: string;
   input?: string;
   pr: boolean;
@@ -192,7 +195,17 @@ export function parseArgs(argv: string[]): ParseResult {
     }
   }
 
-  if (wantHelp) return { ok: true, options: { ...options, command: "help" } };
+  if (wantHelp) {
+    const helpCommand = bare[0] === "new" ? ("new" as HelpCommand) : undefined;
+    return {
+      ok: true,
+      options: {
+        ...options,
+        command: "help",
+        ...(helpCommand ? { helpCommand } : {}),
+      },
+    };
+  }
   if (wantVersion) return { ok: true, options: { ...options, command: "version" } };
 
   if (bare.length > 0) {
@@ -253,6 +266,9 @@ export function parseArgs(argv: string[]): ParseResult {
 
   if (options.command === "new" && options.input === undefined) {
     return { ok: false, message: "new requires --input <path|->" };
+  }
+  if (options.command === "new" && options.branch !== undefined && !options.pr) {
+    return { ok: false, message: "--branch requires --pr" };
   }
   if (
     options.command !== "new" &&

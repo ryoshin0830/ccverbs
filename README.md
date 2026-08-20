@@ -8,7 +8,7 @@ Claude Code shows a random verb while it works: `Cogitating…`, `Percolating…
 $ npx ccverbs
 ```
 
-That opens a searchable picker. Choose a set, see the diff, apply it — two questions, then done. Nothing else in your `settings.json` is touched.
+That opens a searchable picker. Choose a set, see the diff, apply it — two questions, then done. Nothing else in your `settings.json` is touched. The picker also includes **Create a new set**; select it to open the contribution web app.
 
 > 日本語版: **[README.ja.md](README.ja.md)**
 
@@ -62,6 +62,10 @@ Requires Node.js 18 or newer.
 **The easy way — no clone, no JSON.** Open the builder, type your words, watch them
 animate the way Claude Code will actually show them, and press the button. It hands
 you a pull request with the file already filled in.
+
+You can reach the same builder from `npx ccverbs`: choose **Create a new set** in
+the first picker. If your terminal cannot open a browser, the CLI prints the URL
+so you can open it manually.
 
 > **[Open the verb set builder](https://ccverbs.lolipop-now.app)**
 
@@ -166,6 +170,16 @@ $ npx ccverbs reset --yes           # back to Claude Code's own verbs
 ```
 
 Restart Claude Code, or start a new session, to see the change.
+
+### Agent help for `new`
+
+`ccverbs new --help` is a command-specific guide for agents. It includes the
+input contract, a minimal JSON example, the validation/repair loop, structured
+`error.issues` output, and the explicit authorization boundary before `--pr`:
+
+```console
+$ npx ccverbs new --help
+```
 
 ---
 

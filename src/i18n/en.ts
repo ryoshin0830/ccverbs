@@ -35,6 +35,13 @@ export const en = {
     searchLabel: "Search:",
     randomRow: "Random",
     randomHint: "pick one set at random",
+    createRow: "Create a new set",
+    createHint: "open the contribution web app",
+    createTitle: "Create your own verb set",
+    createPreview: "Build a list, preview it like Claude Code, and open a GitHub PR.",
+    createOpened: "The contribution web app is open in your browser.",
+    createFailed: (message: string) => `Could not open the browser: ${message}`,
+    createManual: "Open this URL manually:",
     noMatches: "No sets matched.",
     footerSet: "up/down move · enter select · type to search · esc quit",
     footerChoice: "up/down move · enter select · esc back",
@@ -191,6 +198,55 @@ export const en = {
       { cmd: "ccverbs current --json", text: "What is applied right now" },
       { cmd: "ccverbs reset --yes", text: "Back to Claude Code's own verbs" },
     ],
+    new: {
+      title: "ccverbs new — create a verb set",
+      usage: "Usage: ccverbs new --input <path|-> [--json] [--pr] [--branch <name>]",
+      description:
+        "Use this command when an agent or a script has a set JSON to validate. It never edits your current worktree during validation.",
+      inputHeading: "Input:",
+      input:
+        "Pass one JSON object with id, name, emoji, description, language, category, tags, and verbs. Use a file path or - for stdin. Optional fields are author, source, and i18n.",
+      inputExample: `Minimal example:
+{
+  "id": "ja-gym",
+  "name": "Gym",
+  "emoji": "🏋",
+  "description": "Words for a workout",
+  "language": "en",
+  "category": "meme",
+  "tags": ["gym"],
+  "verbs": ["Lifting with purpose", "Drinking protein"]
+}`,
+      workflowHeading: "Agent workflow:",
+      workflow: [
+        "1. Inspect first: ccverbs list --json and ccverbs show <similar-id> --json.",
+        "2. Draft one coherent set, normally 10–40 useful verbs.",
+        "3. Validate: cat set.json | ccverbs new --input - --json.",
+        "4. If ok is false, repair every error.issues item by its path and code, then validate again.",
+        "5. Show the summary and canonical json to the user before any external action.",
+      ],
+      outputHeading: "Output and repair:",
+      output: [
+        "With --json, stdout is exactly one JSON object whose first key is ok.",
+        "Success has validated:true, set, and canonical json. PR success adds pr.url, pr.branch, and pr.forked.",
+        "Validation errors exit 2 and expose stable error.issues paths/codes. PR/tool errors exit 1 and expose manual recovery steps.",
+        "The command does not check live ID collisions; CI and human review do that.",
+      ],
+      safetyHeading: "PR safety:",
+      safety: [
+        "--pr clones a temporary copy, may fork/push, and opens a GitHub pull request.",
+        "Only use --pr after the user explicitly authorizes submitting the contribution.",
+        "It never merges the PR and never writes sets/index.json.",
+      ],
+      examplesHeading: "Examples:",
+      examples: [
+        { cmd: "cat set.json | ccverbs new --input - --json", text: "Validate without network or mutation" },
+        { cmd: "ccverbs new --input set.json --json", text: "Validate a file and print canonical JSON" },
+        { cmd: "cat set.json | ccverbs new --input - --pr --json", text: "Submit only after explicit authorization" },
+        { cmd: "ccverbs new --input set.json --pr --branch add-my-set --json", text: "Submit with a chosen branch name" },
+      ],
+      footer: "Read docs/ai-agents.md for the full provider-neutral contract and recovery rules.",
+    },
   },
 };
 

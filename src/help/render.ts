@@ -1,6 +1,6 @@
 import type { Catalog } from "../i18n/en.js";
 import { layoutWidth } from "../registry/schema.js";
-import { COMMANDS, OPTIONS } from "./model.js";
+import { COMMANDS, OPTIONS, type HelpCommand } from "./model.js";
 
 const INDENT = "  ";
 const GAP = 2;
@@ -25,7 +25,9 @@ function optionLeft(o: (typeof OPTIONS)[number]): string {
   return `${short}--${o.long}${value}`;
 }
 
-export function renderHelp(t: Catalog): string {
+export function renderHelp(t: Catalog, command?: HelpCommand): string {
+  if (command === "new") return renderNewHelp(t);
+
   return [
     `${t.common.appName} - ${t.help.tagline}`,
     "",
@@ -45,6 +47,39 @@ export function renderHelp(t: Catalog): string {
     t.help.exitCodes,
     "",
     t.help.footer,
+    "",
+  ].join("\n");
+}
+
+function renderNewHelp(t: Catalog): string {
+  const help = t.help.new;
+  const examples = help.examples.map((e) => `  ${e.cmd}\n      ${e.text}`);
+
+  return [
+    help.title,
+    "",
+    help.usage,
+    "",
+    help.description,
+    "",
+    help.inputHeading,
+    help.input,
+    "",
+    help.inputExample,
+    "",
+    help.workflowHeading,
+    ...help.workflow.map((line) => `  ${line}`),
+    "",
+    help.outputHeading,
+    ...help.output.map((line) => `  ${line}`),
+    "",
+    help.safetyHeading,
+    ...help.safety.map((line) => `  ${line}`),
+    "",
+    help.examplesHeading,
+    ...examples,
+    "",
+    help.footer,
     "",
   ].join("\n");
 }

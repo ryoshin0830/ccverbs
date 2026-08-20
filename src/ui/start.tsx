@@ -1,9 +1,13 @@
 import { render } from "ink";
 import type { CommandDeps } from "../commands/io.js";
+import { openContributionPage, type OpenContributionResult } from "../browser.js";
 import { App } from "./App.js";
 import { ConfigApp } from "./ConfigApp.js";
 
-type MainDeps = Omit<CommandDeps, "random"> & { random?: () => number };
+type MainDeps = Omit<CommandDeps, "random"> & {
+  random?: () => number;
+  openContribution?: () => OpenContributionResult;
+};
 
 function run(element: React.ReactElement, resolveWith: (code: number) => void) {
   return element;
@@ -30,6 +34,7 @@ export async function startTui(deps: MainDeps): Promise<number> {
         cwd={deps.cwd}
         home={deps.home}
         random={deps.random}
+        onCreate={deps.openContribution ?? (() => openContributionPage())}
       />,
       { exitOnCtrlC: false },
     );

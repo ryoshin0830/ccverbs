@@ -30,3 +30,4 @@ export const OPTIONS = [
 
 export type CommandName = (typeof COMMANDS)[number]["name"];
 export type OptionName = (typeof OPTIONS)[number]["long"];
+export type HelpCommand = "new";

@@ -24,6 +24,13 @@ export const ja: Catalog = {
     searchLabel: "検索:",
     randomRow: "おまかせ",
     randomHint: "ランダムに1セット選ぶ",
+    createRow: "新しい単語セットを作る",
+    createHint: "投稿用Webアプリを開く",
+    createTitle: "自分の単語セットを作る",
+    createPreview: "単語を作成・プレビューして、GitHubでPull Requestを出せます。",
+    createOpened: "投稿用Webアプリをブラウザで開きました。",
+    createFailed: (message) => `ブラウザを開けませんでした: ${message}`,
+    createManual: "次のURLを手動で開いてください:",
     noMatches: "該当するセットがありません。",
     footerSet: "↑↓ 選択 · Enter 決定 · 文字入力で検索 · Esc 終了",
     footerChoice: "↑↓ 選択 · Enter 決定 · Esc 戻る",
@@ -176,5 +183,54 @@ export const ja: Catalog = {
       { cmd: "ccverbs current --json", text: "今入っている内容を見る" },
       { cmd: "ccverbs reset --yes", text: "標準の動詞に戻す" },
     ],
+    new: {
+      title: "ccverbs new — 単語セットを作る",
+      usage: "使い方: ccverbs new --input <path|-> [--json] [--pr] [--branch <name>]",
+      description:
+        "エージェントやスクリプトが作ったセットJSONを検証します。検証だけなら現在の作業ツリーを変更しません。",
+      inputHeading: "入力:",
+      input:
+        "id・name・emoji・description・language・category・tags・verbsを持つJSONオブジェクトを1つ渡します。ファイルパスまたは標準入力の - を使えます。author・source・i18nは任意です。",
+      inputExample: `最小の例:
+{
+  "id": "ja-gym",
+  "name": "筋トレ",
+  "emoji": "🏋",
+  "description": "運動中に見る言葉",
+  "language": "ja",
+  "category": "meme",
+  "tags": ["gym"],
+  "verbs": ["筋トレしています", "プロテインを飲んでいます"]
+}`,
+      workflowHeading: "エージェントの手順:",
+      workflow: [
+        "1. まず ccverbs list --json と ccverbs show <似たid> --json で既存セットを調べる。",
+        "2. 一貫したテーマで、通常10〜40個の役立つ語を作る。",
+        "3. cat set.json | ccverbs new --input - --json で検証する。",
+        "4. ok が false なら error.issues の各 path と code に従って修正し、再検証する。",
+        "5. 外部操作の前に、要約と canonical json をユーザーに見せる。",
+      ],
+      outputHeading: "出力と修正:",
+      output: [
+        "--json を付けると、stdoutには先頭キーが ok のJSONオブジェクトを1行だけ出します。",
+        "成功時は validated:true・set・canonical jsonを返し、PR成功時は pr.url・pr.branch・pr.forkedも返します。",
+        "検証エラーは終了コード2で安定した error.issues の path/codeを返します。PRやツールのエラーは終了コード1で手動復旧手順を返します。",
+        "既存idとの衝突はライブ確認しません。CIと人間のレビューで確認します。",
+      ],
+      safetyHeading: "PRの安全条件:",
+      safety: [
+        "--pr は一時cloneを使い、必要ならfork・pushしてGitHub Pull Requestを開きます。",
+        "投稿を実行することをユーザーが明示的に許可した後だけ --pr を使います。",
+        "PRをmergeせず、sets/index.jsonも書き換えません。",
+      ],
+      examplesHeading: "例:",
+      examples: [
+        { cmd: "cat set.json | ccverbs new --input - --json", text: "通信や変更なしで検証する" },
+        { cmd: "ccverbs new --input set.json --json", text: "ファイルを検証してcanonical JSONを出す" },
+        { cmd: "cat set.json | ccverbs new --input - --pr --json", text: "明示的な許可の後だけ投稿する" },
+        { cmd: "ccverbs new --input set.json --pr --branch add-my-set --json", text: "ブランチ名を指定して投稿する" },
+      ],
+      footer: "詳細な契約と復旧方法は docs/ai-agents.md を読んでください。",
+    },
   },
 };

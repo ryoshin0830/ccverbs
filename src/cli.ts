@@ -40,7 +40,7 @@ if (!parsed.ok) {
 const options = parsed.options;
 
 if (options.command === "help") {
-  io.out(renderHelp(t));
+  io.out(renderHelp(t, options.helpCommand));
   process.exit(EXIT.OK);
 }
 

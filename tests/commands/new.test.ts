@@ -70,6 +70,9 @@ describe("runNew", () => {
       ok: false,
       error: { code: "invalid-input" },
     });
+    expect(JSON.parse(lines[0] as string).error.issues).toEqual([
+      expect.objectContaining({ path: "verbs[0]", code: "trailing-ellipsis" }),
+    ]);
   });
 
   it("passes canonical JSON to the PR helper after validation", () => {

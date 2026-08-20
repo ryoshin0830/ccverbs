@@ -1,6 +1,7 @@
 import { Box, Text } from "ink";
 import { useState } from "react";
 import type { CcverbsConfig } from "../config/io.js";
+import type { OpenContributionResult } from "../browser.js";
 import { EXIT } from "../constants.js";
 import type { Catalog } from "../i18n/en.js";
 import type { SupportedLocale } from "../i18n/locales.js";
@@ -13,10 +14,11 @@ import {
 import { readSettings, writeSettings } from "../settings/io.js";
 import { resolveSettingsPath } from "../settings/paths.js";
 import { ConfirmScreen } from "./screens/ConfirmScreen.js";
+import { ContributionScreen } from "./screens/ContributionScreen.js";
 import { DoneScreen } from "./screens/DoneScreen.js";
 import { SetScreen } from "./screens/SetScreen.js";
 
-type Stage = "set" | "confirm" | "done" | "error";
+type Stage = "set" | "confirm" | "done" | "contribute" | "error";
 
 export interface AppProps {
   registry: RegistryIndex;
@@ -25,6 +27,7 @@ export interface AppProps {
   locale: SupportedLocale;
   config: CcverbsConfig;
   onExit: (code: number) => void;
+  onCreate: () => OpenContributionResult;
   cwd?: string;
   home?: string;
   random?: () => number;
@@ -41,6 +44,7 @@ export function App({
   locale,
   config,
   onExit,
+  onCreate,
   cwd,
   home,
   random,
@@ -49,6 +53,7 @@ export function App({
   const [chosen, setChosen] = useState<VerbSet | null>(null);
   const [before, setBefore] = useState<SpinnerVerbs | null>(null);
   const [backupPath, setBackupPath] = useState<string | null>(null);
+  const [contribution, setContribution] = useState<OpenContributionResult | null>(null);
   const [message, setMessage] = useState("");
 
   const settingsPath = resolveSettingsPath(config.scope, cwd, home);
@@ -83,6 +88,11 @@ export function App({
     }
   }
 
+  function createSet() {
+    setContribution(onCreate());
+    setStage("contribute");
+  }
+
   if (stage === "set") {
     return (
       <SetScreen
@@ -92,6 +102,7 @@ export function App({
         locale={locale}
         random={random}
         onSelect={choose}
+        onCreate={createSet}
         onQuit={() => onExit(EXIT.OK)}
       />
     );
@@ -124,6 +135,16 @@ export function App({
         t={t}
         locale={locale}
         onExit={() => onExit(EXIT.OK)}
+      />
+    );
+  }
+
+  if (stage === "contribute" && contribution) {
+    return (
+      <ContributionScreen
+        result={contribution}
+        t={t}
+        onExit={() => onExit(contribution.ok ? EXIT.OK : EXIT.ERROR)}
       />
     );
   }

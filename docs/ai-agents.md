@@ -14,6 +14,18 @@ ccverbs new --input <path|-> --json
 ccverbs new --input <path|-> --pr [--branch <name>] --json
 ```
 
+For the complete command-local contract, start with:
+
+```console
+ccverbs new --help
+```
+
+If a human wants to build the set interactively, `npx ccverbs` opens the picker.
+Select **Create a new set** to launch the hosted builder at
+`https://ccverbs.lolipop-now.app/`. The builder previews the real spinner and
+opens GitHub's new-file/PR flow. This is an alternative to the JSON/CLI path,
+not an agent requirement.
+
 1. Read the existing sets with `ccverbs list --json` and, when useful,
    `ccverbs show <id> --json`. Choose a theme that is coherent and not already
    covered.
@@ -42,6 +54,10 @@ ccverbs new --input <path|-> --pr [--branch <name>] --json
 PR. The command writes to a temporary clone and never stages or commits the
 agent's current working tree. It does not regenerate `sets/index.json`; the
 main-branch workflow does that after merge.
+
+When the user has not asked for a PR, stop after step 5 and ask whether they
+want the external submission. Never infer authorization from a successful
+validation or from the presence of a complete JSON document.
 
 ## Input contract
 
@@ -111,10 +127,13 @@ codes:
 ```json
 {
   "ok": false,
-  "error": { "code": "invalid-input", "message": "input has 1 validation issue" },
-  "issues": [
-    { "path": "verbs[0]", "code": "trailing-ellipsis", "message": "..." }
-  ]
+  "error": {
+    "code": "invalid-input",
+    "message": "input has 1 validation issue",
+    "issues": [
+      { "path": "verbs[0]", "code": "trailing-ellipsis", "message": "..." }
+    ]
+  }
 }
 ```
 

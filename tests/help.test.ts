@@ -57,4 +57,20 @@ describe("renderHelp", () => {
   it("includes the exit code line", () => {
     expect(renderHelp(getCatalog("en"))).toContain("Exit codes:");
   });
+
+  it("renders an agent-friendly page for ccverbs new --help", () => {
+    const out = renderHelp(getCatalog("en"), "new");
+    expect(out).toContain("Usage: ccverbs new --input <path|->");
+    expect(out).toContain("error.issues");
+    expect(out).toContain("--pr");
+    expect(out).toContain("explicitly authorize");
+    expect(out).toContain("cat set.json | ccverbs new --input - --json");
+  });
+
+  it("renders the command-specific page in Japanese", () => {
+    const out = renderHelp(getCatalog("ja"), "new");
+    expect(out).toContain("ccverbs new");
+    expect(out).toContain("--input");
+    expect(out).toContain("明示的");
+  });
 });

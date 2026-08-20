@@ -32,7 +32,12 @@ function writeFailure(
   extra: Record<string, unknown> = {},
 ): number {
   if (json) {
-    writeJson(io, { ok: false, error: { code, message }, ...extra });
+    const { issues, ...topLevel } = extra;
+    writeJson(io, {
+      ok: false,
+      error: { code, message, ...(issues ? { issues } : {}) },
+      ...topLevel,
+    });
   } else {
     io.err(`ccverbs: ${message}`);
     const manual = extra.manual;

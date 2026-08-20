@@ -3,7 +3,7 @@ import type { Catalog } from "../i18n/en.js";
 import type { SupportedLocale } from "../i18n/locales.js";
 import { layoutWidth, localizedName, type VerbSet } from "../registry/schema.js";
 
-export type Row = { kind: "random" } | { kind: "set"; set: VerbSet };
+export type Row = { kind: "random" } | { kind: "create" } | { kind: "set"; set: VerbSet };
 
 function pad(text: string, width: number): string {
   return text + " ".repeat(Math.max(0, width - layoutWidth(text)));
@@ -24,6 +24,7 @@ export function SetList({ rows, selected, height, t, locale }: SetListProps) {
 
   const nameWidth = Math.max(
     layoutWidth(t.wizard.randomRow),
+    layoutWidth(t.wizard.createRow),
     ...rows.map((r) => (r.kind === "set" ? layoutWidth(localizedName(r.set, locale)) : 0)),
   );
 
@@ -40,6 +41,15 @@ export function SetList({ rows, selected, height, t, locale }: SetListProps) {
             <Text key="__random__" inverse={active} color="magenta">
               {marker} {pad(t.wizard.randomRow, nameWidth + 6)}
               <Text dimColor={!active}>{t.wizard.randomHint}</Text>
+            </Text>
+          );
+        }
+
+        if (row.kind === "create") {
+          return (
+            <Text key="__create__" inverse={active} color="green">
+              {marker} {pad(t.wizard.createRow, nameWidth + 6)}
+              <Text dimColor={!active}>{t.wizard.createHint}</Text>
             </Text>
           );
         }

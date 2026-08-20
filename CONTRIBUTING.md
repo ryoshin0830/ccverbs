@@ -13,7 +13,13 @@ before merge. The safe, repeatable path is:
 
 ```console
 $ cat set.json | ccverbs new --input - --json
-# inspect and repair the structured issues, if any
+```
+
+Inspect and repair the structured `error.issues`, if any. Stop here for a
+draft-only contribution. After the responsible person explicitly authorizes
+the external submission, run the separate PR command:
+
+```console
 $ cat set.json | ccverbs new --input - --pr --json
 ```
 
@@ -26,6 +32,11 @@ Agents should read [docs/ai-agents.md](docs/ai-agents.md), inspect existing
 sets, keep a single coherent theme, preserve attribution, and report the PR
 URL or the manual recovery steps. A generated list is a proposal, not proof
 that the content is original, accurate, safe, or ready to merge.
+
+For a human starting from the CLI, run `npx ccverbs` and choose **Create a new
+set** in the picker. It opens the hosted builder; if automatic browser launch is
+unavailable, the CLI prints the same URL. Agents should use `ccverbs new --help`
+as the concise command contract before preparing JSON.
 
 ---
 

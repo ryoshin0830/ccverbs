@@ -9,8 +9,8 @@ const contributionSkill = readFileSync(".claude/skills/ccverbs-contribute/SKILL.
 const pkg = JSON.parse(readFileSync("package.json", "utf8"));
 
 describe("version", () => {
-  it("is 0.3.0", () => {
-    expect(pkg.version).toBe("0.3.0");
+  it("is 0.4.0", () => {
+    expect(pkg.version).toBe("0.4.0");
   });
 });
 
@@ -86,6 +86,12 @@ describe("README", () => {
     expect(readme).toContain("CONTRIBUTING.md");
     expect(readme).toContain("docs/ai-agents.md");
   });
+
+  it("documents the interactive contribution entry point and command help", () => {
+    expect(readme).toContain("Create a new set");
+    expect(readme).toContain("npx ccverbs new --help");
+    expect(readme).toContain("https://ccverbs.lolipop-now.app");
+  });
 });
 
 describe("AI contribution documentation", () => {
@@ -99,6 +105,8 @@ describe("AI contribution documentation", () => {
       "validated",
       "manual",
       "sets/index.json",
+      "ccverbs new --help",
+      "Create a new set",
     ]) {
       expect(aiAgents).toContain(token);
     }
@@ -109,6 +117,8 @@ describe("AI contribution documentation", () => {
     expect(contributionSkill).toContain("explicit authorization");
     expect(contributionSkill).toContain("ccverbs new");
     expect(contributionSkill).toContain("--pr");
+    expect(contributionSkill).toContain("new --help");
+    expect(contributionSkill).toContain("Create a new set");
   });
 });
 

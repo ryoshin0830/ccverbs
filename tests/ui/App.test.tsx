@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { render } from "ink-testing-library";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { DEFAULT_CONFIG, type CcverbsConfig } from "../../src/config/io.js";
+import type { OpenContributionResult } from "../../src/browser.js";
 import { getCatalog } from "../../src/i18n/index.js";
 import type { RegistryIndex } from "../../src/registry/schema.js";
 import { App } from "../../src/ui/App.js";
@@ -39,7 +40,12 @@ beforeEach(() => {
 });
 
 const mount = (
-  over: { onExit?: (code: number) => void; config?: Partial<CcverbsConfig>; skipped?: string[] } = {},
+  over: {
+    onExit?: (code: number) => void;
+    onCreate?: () => OpenContributionResult;
+    config?: Partial<CcverbsConfig>;
+    skipped?: string[];
+  } = {},
 ) =>
   render(
     <App
@@ -49,6 +55,7 @@ const mount = (
       locale="en"
       config={{ ...DEFAULT_CONFIG, ...over.config }}
       onExit={over.onExit ?? (() => {})}
+      onCreate={over.onCreate ?? (() => ({ ok: true as const, url: "https://ccverbs.example/new" }))}
       home={home}
       cwd={home}
       random={() => 0}
@@ -62,6 +69,8 @@ const settings = (file = "settings.json") =>
 const openFirstSet = async (stdin: { write: (s: string) => void }) => {
   stdin.write(DOWN);
   await tick();
+  stdin.write(DOWN);
+  await tick();
   stdin.write(ENTER);
   await tick();
 };
@@ -73,6 +82,44 @@ describe("App — set screen", () => {
     expect(lastFrame()).toContain("Alpha");
     expect(lastFrame()).toContain("Beta");
     expect(lastFrame()).toContain("Random");
+  });
+
+  it("offers a create row and opens the contribution web app", async () => {
+    const onCreate = vi.fn(() => ({ ok: true as const, url: "https://ccverbs.example/new" }));
+    const { lastFrame, stdin } = mount({ onCreate });
+    await tick();
+    expect(lastFrame()).toContain("Create a new set");
+
+    stdin.write(DOWN);
+    await tick();
+    stdin.write(ENTER);
+    await tick();
+
+    expect(onCreate).toHaveBeenCalledOnce();
+    expect(lastFrame()).toContain("https://ccverbs.example/new");
+  });
+
+  it("shows a manual URL when browser launch fails", async () => {
+    const onExit = vi.fn();
+    const { lastFrame, stdin } = mount({
+      onExit,
+      onCreate: () => ({
+        ok: false as const,
+        url: "https://ccverbs.example/new",
+        error: "xdg-open is unavailable",
+      }),
+    });
+    await tick();
+    stdin.write(DOWN);
+    await tick();
+    stdin.write(ENTER);
+    await tick();
+
+    expect(lastFrame()).toContain("Could not open the browser");
+    expect(lastFrame()).toContain("https://ccverbs.example/new");
+    stdin.write("q");
+    await tick();
+    expect(onExit).toHaveBeenCalledWith(1);
   });
 
   it("does not offer a language row — that lives in ccverbs config", async () => {
@@ -92,6 +139,8 @@ describe("App — set screen", () => {
 
   it("previews the highlighted set's verbs", async () => {
     const { lastFrame, stdin } = mount();
+    await tick();
+    stdin.write(DOWN);
     await tick();
     stdin.write(DOWN);
     await tick();
@@ -230,6 +279,7 @@ describe("App — localization", () => {
         locale="ja"
         config={DEFAULT_CONFIG}
         onExit={() => {}}
+        onCreate={() => ({ ok: true as const, url: "https://ccverbs.example/new" })}
         home={home}
         cwd={home}
         random={() => 0}

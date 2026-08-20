@@ -24,6 +24,13 @@ export const ko: Catalog = {
     searchLabel: "검색:",
     randomRow: "무작위",
     randomHint: "세트를 하나 무작위로 고릅니다",
+    createRow: "새 단어 세트 만들기",
+    createHint: "제출 웹 앱 열기",
+    createTitle: "나만의 단어 세트 만들기",
+    createPreview: "단어를 만들고 미리 본 뒤 GitHub Pull Request를 열 수 있습니다.",
+    createOpened: "제출 웹 앱을 브라우저에서 열었습니다.",
+    createFailed: (message) => `브라우저를 열 수 없습니다: ${message}`,
+    createManual: "다음 URL을 수동으로 여세요:",
     noMatches: "일치하는 세트가 없습니다.",
     footerSet: "↑↓ 이동 · Enter 선택 · 입력하면 검색 · Esc 종료",
     footerChoice: "↑↓ 이동 · Enter 선택 · Esc 뒤로",
@@ -174,5 +181,54 @@ export const ko: Catalog = {
       { cmd: "ccverbs current --json", text: "지금 적용된 내용을 봅니다" },
       { cmd: "ccverbs reset --yes", text: "기본 동사로 되돌립니다" },
     ],
+    new: {
+      title: "ccverbs new — 단어 세트 만들기",
+      usage: "사용법: ccverbs new --input <path|-> [--json] [--pr] [--branch <name>]",
+      description:
+        "에이전트나 스크립트가 만든 세트 JSON을 검사합니다. 검사만 할 때는 현재 작업 트리를 바꾸지 않습니다.",
+      inputHeading: "입력:",
+      input:
+        "id, name, emoji, description, language, category, tags, verbs를 가진 JSON 객체 하나를 파일 또는 표준 입력(-)으로 전달합니다. author, source, i18n은 선택 사항입니다.",
+      inputExample: `최소 예:
+{
+  "id": "ja-gym",
+  "name": "Gym",
+  "emoji": "🏋",
+  "description": "Words for a workout",
+  "language": "en",
+  "category": "meme",
+  "tags": ["gym"],
+  "verbs": ["Lifting with purpose", "Drinking protein"]
+}`,
+      workflowHeading: "에이전트 작업 순서:",
+      workflow: [
+        "1. 먼저 ccverbs list --json 및 ccverbs show <similar-id> --json으로 기존 세트를 확인합니다.",
+        "2. 일관된 주제로 보통 10–40개의 유용한 동사를 작성합니다.",
+        "3. cat set.json | ccverbs new --input - --json으로 검사합니다.",
+        "4. ok가 false면 error.issues의 path와 code마다 수정한 뒤 다시 검사합니다.",
+        "5. 외부 작업 전에 요약과 canonical json을 사용자에게 보여줍니다.",
+      ],
+      outputHeading: "출력 및 수정:",
+      output: [
+        "--json을 사용하면 stdout에 첫 키가 ok인 JSON 객체 하나만 출력합니다.",
+        "성공 시 validated:true, set, canonical json을 반환하고 PR 성공 시 pr.url, pr.branch, pr.forked를 추가합니다.",
+        "검사 오류는 종료 코드 2와 안정적인 error.issues path/code를 반환합니다. PR/도구 오류는 종료 코드 1과 수동 복구 절차를 반환합니다.",
+        "실시간 id 중복은 검사하지 않습니다. CI와 사람이 확인합니다.",
+      ],
+      safetyHeading: "PR 안전 조건:",
+      safety: [
+        "--pr은 임시 clone을 사용하고 필요하면 fork/push 후 GitHub Pull Request를 엽니다.",
+        "사용자가 제출을 명시적으로 승인한 뒤에만 --pr을 사용합니다.",
+        "PR을 merge하지 않으며 sets/index.json도 수정하지 않습니다.",
+      ],
+      examplesHeading: "예:",
+      examples: [
+        { cmd: "cat set.json | ccverbs new --input - --json", text: "네트워크나 변경 없이 검사" },
+        { cmd: "ccverbs new --input set.json --json", text: "파일을 검사하고 canonical JSON 출력" },
+        { cmd: "cat set.json | ccverbs new --input - --pr --json", text: "명시적인 승인 후 제출" },
+        { cmd: "ccverbs new --input set.json --pr --branch add-my-set --json", text: "브랜치 이름을 지정해 제출" },
+      ],
+      footer: "전체 계약과 복구 방법은 docs/ai-agents.md를 참고하세요.",
+    },
   },
 };
