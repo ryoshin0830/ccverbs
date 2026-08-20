@@ -72,7 +72,7 @@ Options:
   -S, --scope <user|project|local>  Default: user
       --json                        Machine-readable output
   -y, --yes                         Skip the confirmation prompt
-  -n, --dry-run                      Print the diff, write nothing
+  -n, --dry-run                     Print the diff, write nothing
       --no-backup                   Do not create a .ccverbs.bak file
       --refresh                     Ignore the cache and refetch
       --offline                     Use the cache only, never hit the network
