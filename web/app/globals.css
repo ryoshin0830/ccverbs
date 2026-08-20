@@ -1,69 +1,543 @@
+/*
+  Two places: the paper you write on, and the screen the words appear on.
+  The page is a notebook page — cool stock, blue-grey rules, blue-black ink.
+  Exactly one thing is dark: the preview, a window onto the terminal.
+
+  Vermilion is the teacher's correction mark. It means "fix this" and nothing
+  else — never a button, never a heading. The action colour is the ink.
+*/
+
 :root {
-  --bg: #0d1117;
-  --panel: #161b22;
-  --border: #30363d;
-  --text: #e6edf3;
-  --dim: #8b949e;
-  --accent: #d2a8ff;
-  --ok: #3fb950;
-  --bad: #f85149;
-  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  --paper: #f7f7f4;
+  --paper-edge: #eeeeea;
+  --rule: #c9d2da;
+  --ink: #1b2430;
+  --ink-soft: #5a6672;
+  --ink-faint: #8b95a1;
+  --shu: #d93a2b;
+  --terminal: #10151c;
+  --phosphor: #a8b8c8;
+  --phosphor-dim: #56656f;
+
+  --measure: 40ch;
+  --gap: 1.5rem;
+
+  --serif: var(--font-display), "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  --sans: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, "Hiragino Sans", "Noto Sans Mono CJK JP", monospace;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  /* The ruled page. Faint enough to sit under text, present enough to feel. */
+  background-image: linear-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 100% 2.4rem;
+  background-position: 0 -1px;
+  background-attachment: local;
+}
+
+/* ---------- shell ---------- */
+
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 6rem;
+}
+
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.5rem;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.tagline {
+  font-family: var(--serif);
+  font-size: 1.15rem;
   line-height: 1.6;
+  color: var(--ink);
+  margin: 1.75rem 0 2.5rem;
+  max-width: 30ch;
 }
 
-.page { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
-h1 { margin: 0; font-size: 1.6rem; }
-h2 { font-size: 1rem; margin: 1.5rem 0 .5rem; }
-.lead { color: var(--dim); max-width: 60ch; }
+/* ---------- the screen ---------- */
 
-.columns { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-@media (min-width: 900px) { .columns { grid-template-columns: 1fr 1fr; } }
-
-.field { margin-bottom: 1rem; }
-.field label { display: block; font-size: .85rem; margin-bottom: .25rem; }
-input, select, textarea {
-  width: 100%; background: var(--panel); color: var(--text);
-  border: 1px solid var(--border); border-radius: 6px; padding: .5rem; font: inherit;
+.screen {
+  margin: 0 0 3rem;
 }
-textarea { font-family: var(--mono); resize: vertical; }
-input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-.preview { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: var(--panel); }
-.spinner { font-family: var(--mono); margin: 0 0 .5rem; white-space: pre-wrap; word-break: break-word; }
-.spinner .glyph { color: var(--accent); }
-.spinner.over { color: var(--bad); }
-
-.dim { color: var(--dim); font-size: .85rem; margin: .25rem 0; }
-.bad { color: var(--bad); font-size: .85rem; margin: .25rem 0; }
-
-.controls { display: flex; gap: .5rem; align-items: center; margin-top: .75rem; flex-wrap: wrap; }
-.controls button {
-  background: transparent; color: var(--text); border: 1px solid var(--border);
-  border-radius: 6px; padding: .2rem .6rem; cursor: pointer; font: inherit;
+.screen-glass {
+  background: var(--terminal);
+  color: var(--phosphor);
+  border-radius: 3px;
+  padding: 1.1rem 1.25rem 0.9rem;
+  overflow-x: auto;
+  box-shadow: 0 1px 0 var(--paper-edge), 0 10px 24px -18px rgb(16 21 28 / 55%);
 }
-.controls button:hover { border-color: var(--accent); }
 
-.issues { list-style: none; padding: 0; margin: .5rem 0; font-size: .85rem; }
-.issues li { margin-bottom: .35rem; }
-.issues code { background: var(--bg); padding: .1rem .3rem; border-radius: 4px; font-family: var(--mono); }
-
-.output { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: var(--panel); }
-.output ol { padding-left: 1.2rem; }
-.primary, .button {
-  display: inline-block; background: var(--accent); color: #10121a; font-weight: 600;
-  text-decoration: none; padding: .5rem 1rem; border-radius: 6px; border: 0; cursor: pointer; font: inherit;
+.line {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  margin: 0 0 0.6rem;
+  white-space: nowrap;
 }
-.button { background: transparent; color: var(--text); border: 1px solid var(--border); font-weight: 400; }
+
+.line-glyph {
+  color: #c8a2ff;
+}
+
+.line-tail {
+  color: var(--phosphor-dim);
+}
+
+.line-over .line-verb {
+  color: #ff8b7e;
+}
+
+/* The signature: a real 40-column measure under the line. */
+.ruler {
+  position: relative;
+  height: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+}
+
+.ruler-track {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: var(--measure);
+  border-top: 1px solid var(--phosphor-dim);
+}
+
+.ruler-track::before,
+.ruler-track::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 1px;
+  height: 7px;
+  background: var(--phosphor-dim);
+}
+
+.ruler-track::before {
+  left: 0;
+}
+
+.ruler-track::after {
+  right: 0;
+}
+
+.ruler-mark {
+  position: absolute;
+  left: var(--measure);
+  top: 0;
+  margin-left: 0.45rem;
+  color: var(--phosphor-dim);
+}
+
+/* Overflow is drawn as crossing the line, not as a badge somewhere else. */
+.ruler-over {
+  position: absolute;
+  left: var(--measure);
+  top: 0.35rem;
+  border-top: 1px solid var(--shu);
+  max-width: 12ch;
+}
+
+.screen-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  margin-top: 0.6rem;
+}
+
+.screen-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.screen-controls button {
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.05rem 0.5rem;
+  cursor: pointer;
+}
+
+.screen-controls button:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* ---------- steps ---------- */
+
+.step {
+  margin: 0 0 3rem;
+}
+
+.step-heading {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 0 0 0.35rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.field {
+  margin: 1.1rem 0;
+}
+
+.label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  margin-bottom: 0.3rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 0.35rem 0.1rem;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-bottom-color: var(--ink-faint);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%),
+    linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%);
+  background-position: right 0.7rem center, right 0.4rem center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 1.6rem;
+}
+
+.words {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  line-height: 2.4rem;
+  border: 1px solid var(--rule);
+  padding: 0.2rem 0.75rem;
+  resize: vertical;
+  background: rgb(255 255 255 / 45%);
+}
+
+.tally {
+  display: flex;
+  gap: 0.9rem;
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0;
+}
+
+.tally-ok {
+  color: var(--ink-soft);
+}
+
+.tally-ok::before {
+  content: "✓ ";
+}
+
+.tally-bad {
+  color: var(--shu);
+}
+
+/* Correction marks, the way a marked-up worksheet looks. */
+.marks {
+  list-style: none;
+  padding: 0;
+  margin: 0.9rem 0 0;
+  border-left: 2px solid var(--shu);
+}
+
+.marks li {
+  padding: 0.15rem 0 0.15rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.marks code {
+  font-family: var(--mono);
+  color: var(--ink);
+}
+
+.mark-note {
+  color: var(--shu);
+  margin-left: 0.6rem;
+}
+
+/* ---------- emoji ---------- */
+
+.emoji-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.emoji {
+  font-size: 1.15rem;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.3rem 0.4rem;
+  cursor: pointer;
+}
+
+.emoji:hover {
+  border-color: var(--ink-faint);
+}
+
+.emoji-on {
+  border-color: var(--ink);
+  background: rgb(255 255 255 / 70%);
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.emoji-own {
+  width: 8rem;
+  font-size: 0.85rem;
+  margin-left: 0.3rem;
+}
+
+/* ---------- inferred ---------- */
+
+.inferred {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.8rem 0;
+  margin: 2rem 0 3rem;
+}
+
+.inferred-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.inferred-label {
+  font-family: var(--serif);
+  color: var(--ink-soft);
+}
+
+.inferred-values code {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.inferred-open {
+  margin-top: 0.75rem;
+}
+
+.extras {
+  border-left: 1px solid var(--rule);
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- send ---------- */
+
+.send {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 0.6rem 1.4rem;
+  border-radius: 2px;
+  margin: 0.6rem 0;
+}
+
+.send:hover {
+  background: #000;
+}
+
+.send-extras {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.quiet {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.2rem 0.7rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.quiet:hover {
+  border-color: var(--ink);
+}
+
+.reveal {
+  margin-top: 1.25rem;
+}
+
+.reveal summary {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
 .json {
-  font-family: var(--mono); font-size: .8rem; overflow-x: auto;
-  background: var(--bg); padding: .75rem; border-radius: 6px; max-height: 20rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  background: var(--terminal);
+  color: var(--phosphor);
+  padding: 0.9rem 1rem;
+  border-radius: 3px;
+  overflow-x: auto;
+  max-height: 22rem;
+}
+
+/* ---------- odds and ends ---------- */
+
+.note {
+  font-size: 0.85rem;
+  margin: 0.3rem 0;
+}
+
+.note-quiet {
+  color: var(--ink-soft);
+}
+
+.note-bad {
+  color: var(--shu);
+}
+
+.screen-meta .note-bad,
+.screen-meta .note-quiet {
+  color: var(--phosphor-dim);
+}
+
+.screen-meta .note-bad {
+  color: #ff8b7e;
+}
+
+.link {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.link-block {
+  display: block;
+  margin-top: 1.25rem;
+}
+
+.locale {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.locale .label {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.locale select {
+  width: auto;
+  font-size: 0.85rem;
+}
+
+.colophon {
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.colophon code {
+  font-family: var(--mono);
+  color: var(--ink);
+}
+
+.colophon a {
+  color: var(--ink);
+}
+
+a {
+  color: var(--ink);
+  text-underline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }

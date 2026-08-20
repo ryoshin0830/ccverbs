@@ -32,11 +32,33 @@ export interface VerbIssue {
   width?: number;
 }
 
+/**
+ * Field problems are reported as codes, not prose. The CLI and the web app
+ * render them in the reader's own language, so the validator must not decide
+ * the wording.
+ */
+export type FieldErrorCode =
+  | "id.empty"
+  | "id.shape"
+  | "name.empty"
+  | "name.long"
+  | "emoji.empty"
+  | "emoji.many"
+  | "description.empty"
+  | "description.long"
+  | "language.invalid"
+  | "category.invalid"
+  | "tags.many"
+  | "tags.shape"
+  | "source.shape"
+  | "verbs.empty"
+  | "verbs.many";
+
 export interface DraftDiagnostics {
   /** Trimmed, with blank lines removed. */
   verbs: string[];
   verbIssues: VerbIssue[];
-  fieldErrors: Record<string, string>;
+  fieldErrors: Partial<Record<string, FieldErrorCode>>;
   ok: boolean;
 }
 
