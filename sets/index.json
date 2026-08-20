@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedAt": "1970-01-01T00:00:00.000Z",
-  "totalSets": 21,
-  "totalVerbs": 496,
+  "totalSets": 22,
+  "totalVerbs": 500,
   "sets": [
     {
       "$schema": "../schema/verb-set.schema.json",
@@ -47,6 +47,22 @@
         "memoization — 一度解いたら覚える",
         "DP — 部分問題を積み上げる",
         "greedy — 局所最適を信じる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "cc",
+      "name": "CCの生活",
+      "emoji": "💤",
+      "description": "よくする行動",
+      "language": "ja",
+      "category": "meme",
+      "tags": [],
+      "verbs": [
+        "遊んでいます",
+        "寝ています",
+        "転んでいます",
+        "怠けています"
       ]
     },
     {
