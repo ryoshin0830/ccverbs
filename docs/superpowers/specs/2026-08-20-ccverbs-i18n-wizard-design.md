@@ -238,8 +238,8 @@ set ──→ confirm ──→ done
 - `set` 画面での `Esc` は終了（終了コード 0）。
 - `Ctrl+C` はどの画面でも終了（終了コード 0）。
 - mode と scope は `~/.ccverbs/config.json` から読む。既定は `replace` と `user`。
-- ウィザードは mode と scope を**変更しない**。したがって本流の完了時に
-  `lastMode` / `lastScope` を書き戻す処理は存在しない（0.1.0 案から削除）。
+- ウィザードは mode と scope を**変更しない**。したがって本流の完了時に設定を
+  書き戻す処理は存在しない。設定を書くのは `ccverbs config` だけである。
 
 ### 5.3 セット選択画面
 
