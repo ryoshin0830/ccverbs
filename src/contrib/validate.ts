@@ -5,6 +5,7 @@ import {
   SET_CATEGORIES,
   SET_LANGUAGES,
   type DraftDiagnostics,
+  type FieldErrorCode,
   type SetDraft,
   type VerbIssue,
 } from "./types.js";
@@ -87,39 +88,30 @@ function checkVerbs(verbs: string[]): VerbIssue[] {
 export function validateDraft(draft: SetDraft): DraftDiagnostics {
   const verbs = splitVerbs(draft.verbsText);
   const verbIssues = checkVerbs(verbs);
-  const fieldErrors: Record<string, string> = {};
+  const fieldErrors: Partial<Record<string, FieldErrorCode>> = {};
 
-  if (!draft.id) {
-    fieldErrors.id = "An id is required.";
-  } else if (!KEBAB.test(draft.id)) {
-    fieldErrors.id = "Lowercase letters, numbers and single hyphens only, e.g. ja-gym.";
-  }
+  if (!draft.id) fieldErrors.id = "id.empty";
+  else if (!KEBAB.test(draft.id)) fieldErrors.id = "id.shape";
 
-  if (!draft.name) fieldErrors.name = "A name is required.";
-  else if (draft.name.length > 40) fieldErrors.name = "Keep the name under 41 characters.";
+  if (!draft.name) fieldErrors.name = "name.empty";
+  else if (draft.name.length > 40) fieldErrors.name = "name.long";
 
-  if (!draft.emoji) fieldErrors.emoji = "Pick one emoji.";
-  else if ([...draft.emoji].length > 4) fieldErrors.emoji = "One emoji, not several.";
+  if (!draft.emoji) fieldErrors.emoji = "emoji.empty";
+  else if ([...draft.emoji].length > 4) fieldErrors.emoji = "emoji.many";
 
-  if (!draft.description) fieldErrors.description = "One line describing the set.";
-  else if (draft.description.length > 120) {
-    fieldErrors.description = "Keep the description under 121 characters.";
-  }
+  if (!draft.description) fieldErrors.description = "description.empty";
+  else if (draft.description.length > 120) fieldErrors.description = "description.long";
 
-  if (!SET_LANGUAGES.includes(draft.language)) fieldErrors.language = "Pick a language.";
-  if (!SET_CATEGORIES.includes(draft.category)) fieldErrors.category = "Pick a category.";
+  if (!SET_LANGUAGES.includes(draft.language)) fieldErrors.language = "language.invalid";
+  if (!SET_CATEGORIES.includes(draft.category)) fieldErrors.category = "category.invalid";
 
-  if (draft.tags.length > 8) fieldErrors.tags = "Up to 8 tags.";
-  else if (draft.tags.some((tag) => !KEBAB.test(tag))) {
-    fieldErrors.tags = "Tags are lowercase words, optionally hyphenated.";
-  }
+  if (draft.tags.length > 8) fieldErrors.tags = "tags.many";
+  else if (draft.tags.some((tag) => !KEBAB.test(tag))) fieldErrors.tags = "tags.shape";
 
-  if (draft.source && !HTTP_URL.test(draft.source)) {
-    fieldErrors.source = "Must be a full http(s) URL, or left empty.";
-  }
+  if (draft.source && !HTTP_URL.test(draft.source)) fieldErrors.source = "source.shape";
 
-  if (verbs.length === 0) fieldErrors.verbsText = "Add at least one verb, one per line.";
-  else if (verbs.length > MAX_VERBS) fieldErrors.verbsText = `At most ${MAX_VERBS} verbs.`;
+  if (verbs.length === 0) fieldErrors.verbsText = "verbs.empty";
+  else if (verbs.length > MAX_VERBS) fieldErrors.verbsText = "verbs.many";
 
   return {
     verbs,
