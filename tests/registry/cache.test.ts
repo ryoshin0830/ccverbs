@@ -2,7 +2,7 @@ import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { isFresh, readCache, writeCache } from "../../src/registry/cache.js";
+import { readCache, writeCache } from "../../src/registry/cache.js";
 
 const index = {
   schemaVersion: 1,
@@ -35,10 +35,5 @@ describe("cache", () => {
     const file = tmpFile();
     writeFileSync(file, "{ not json");
     expect(readCache(file)).toBeNull();
-  });
-
-  it("treats an age under the TTL as fresh", () => {
-    expect(isFresh(10, 100)).toBe(true);
-    expect(isFresh(500, 100)).toBe(false);
   });
 });

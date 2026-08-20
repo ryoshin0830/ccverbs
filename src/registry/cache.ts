@@ -20,7 +20,3 @@ export function writeCache(file: string, index: RegistryIndex): void {
     // A read-only cache directory must never break the command.
   }
 }
-
-export function isFresh(ageMs: number, ttlMs: number): boolean {
-  return ageMs < ttlMs;
-}

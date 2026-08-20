@@ -1,8 +1,6 @@
 export const REGISTRY_URL =
   "https://raw.githubusercontent.com/ryoshin0830/ccverbs/main/sets/index.json";
 
-export const CACHE_TTL_MS = 3_600_000;
-
 export const BACKUP_SUFFIX = ".ccverbs.bak";
 export const TMP_SUFFIX = ".ccverbs.tmp";
 

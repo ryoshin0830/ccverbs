@@ -116,8 +116,8 @@ ccverbs                        対話画面を開く（既定）
   -y, --yes                         確認を省略する
   -n, --dry-run                     差分だけ出して書き込まない
       --no-backup                   .ccverbs.bak を作らない
-      --refresh                     キャッシュを無視して取得し直す
-      --offline                     キャッシュのみ使い、通信しない
+      --refresh                     指定しても何も変わらない（毎回取得が既定）
+      --offline                     前回取得したものを使い、通信しない
       --no-group                    一覧を言語でまとめない
   -h, --help                        ヘルプ
   -v, --version                     バージョン
@@ -352,16 +352,16 @@ function resolveVerbs() {
 
 ### 単語セットの配布方法
 
-単語セットは npm パッケージに**同梱していません**。`ccverbs` は実行時に `main` の [`sets/index.json`](sets/index.json) を取得し、`~/.ccverbs/cache/` に 1 時間キャッシュします。
+単語セットは npm パッケージに**同梱していません**。`ccverbs` は**実行するたび** `main` の [`sets/index.json`](sets/index.json) を取得します。
 
 ```
 npx ccverbs
   └─ GET raw.githubusercontent.com/ryoshin0830/ccverbs/main/sets/index.json
-       ├─ 成功 → キャッシュして使用
-       └─ 失敗 → キャッシュにフォールバック（期限切れでも使う）
+       ├─ 成功 → それを使い、控えを残す
+       └─ 失敗 → その控えにフォールバック
 ```
 
-そのため、PR がマージされた時点で全ユーザーに反映されます。npm への publish は不要です。初回実行後は完全にオフラインで動き、`--offline` でキャッシュのみを強制できます。
+そのため、PR がマージされれば次の実行で全ユーザーに反映されます。npm への publish も待ち時間もありません。取得は 34KB・約 80ms で、`npx` が CLI をダウンロードする時間に比べれば無視できるので、**キャッシュ優先のモードは用意していません**。`~/.ccverbs/cache/` の控えは、GitHub が落ちているときに動き続けるためだけに存在します。`--offline` はその控えを明示的に使い、通信を一切しません。
 
 </details>
 

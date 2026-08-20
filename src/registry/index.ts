@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { CACHE_TTL_MS, REGISTRY_URL } from "../constants.js";
+import { REGISTRY_URL } from "../constants.js";
 import { cachePath } from "../config/paths.js";
-import { isFresh, readCache, writeCache } from "./cache.js";
+import { readCache, writeCache } from "./cache.js";
 import { fetchIndex } from "./fetch.js";
 import {
   registryIndexSchema,
@@ -50,6 +50,7 @@ function coerce(raw: unknown): { index: RegistryIndex; skipped: string[] } {
 }
 
 export interface LoadOptions {
+  /** Accepted for compatibility. Fetching fresh is now the default. */
   refresh?: boolean;
   offline?: boolean;
   url?: string;
@@ -61,13 +62,9 @@ export async function loadRegistry(
   opts: LoadOptions = {},
 ): Promise<{ index: RegistryIndex; source: "network" | "cache"; skipped: string[] }> {
   const file = opts.cacheFile ?? cachePath();
-  const cached = readCache(file);
-
-  if (!opts.refresh && cached && isFresh(cached.ageMs, CACHE_TTL_MS)) {
-    return { ...coerce(cached.index), source: "cache" };
-  }
 
   if (opts.offline) {
+    const cached = readCache(file);
     if (!cached) throw new RegistryError("no cached registry available", "registry-unavailable");
     return { ...coerce(cached.index), source: "cache" };
   }
@@ -78,8 +75,18 @@ export async function loadRegistry(
     writeCache(file, result.index);
     return { ...result, source: "network" };
   } catch (error) {
-    if (error instanceof RegistryError && !cached) throw error;
-    if (cached) return { ...coerce(cached.index), source: "cache" };
+    // The cache exists to survive a failure, never to be preferred over a live
+    // read. Serving it while the network was fine is what made a merged set
+    // take up to an hour to appear, which defeats fetching at runtime at all.
+    const cached = readCache(file);
+    if (cached) {
+      try {
+        return { ...coerce(cached.index), source: "cache" };
+      } catch {
+        // A corrupt cache is no better than none; report the original failure.
+      }
+    }
+    if (error instanceof RegistryError) throw error;
     throw new RegistryError(
       `could not reach the verb set registry: ${(error as Error).message}`,
       "registry-unavailable",

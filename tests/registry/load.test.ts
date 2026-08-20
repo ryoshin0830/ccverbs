@@ -37,13 +37,38 @@ describe("loadRegistry", () => {
     expect(fetchImpl).toHaveBeenCalledOnce();
   });
 
-  it("serves a fresh cache without touching the network", async () => {
+  // The behaviour this replaces: a cache younger than an hour used to win, which
+  // meant a merged set could take an hour to appear even though the whole point
+  // of fetching at runtime is that it appears at once.
+  it("fetches even when a cache was written a moment ago", async () => {
     const file = cacheFile();
     writeCache(file, index(["a"]));
-    const fetchImpl = vi.fn();
+    const fetchImpl = vi.fn().mockResolvedValue(index(["a", "b"]));
     const result = await loadRegistry({ cacheFile: file, fetchImpl });
-    expect(result.source).toBe("cache");
-    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(fetchImpl).toHaveBeenCalledOnce();
+    expect(result.source).toBe("network");
+    expect(result.index.sets).toHaveLength(2);
+  });
+
+  it("never reads the cache while the network works", async () => {
+    const file = cacheFile();
+    writeCache(file, index(["stale"]));
+    const result = await loadRegistry({
+      cacheFile: file,
+      fetchImpl: vi.fn().mockResolvedValue(index(["fresh"])),
+    });
+    expect(result.index.sets.map((s) => s.id)).toEqual(["fresh"]);
+  });
+
+  it("writes what it fetched back to the cache for the next failure", async () => {
+    const file = cacheFile();
+    await loadRegistry({ cacheFile: file, fetchImpl: vi.fn().mockResolvedValue(index(["a"])) });
+    const offline = await loadRegistry({
+      cacheFile: file,
+      fetchImpl: vi.fn().mockRejectedValue(new Error("down")),
+    });
+    expect(offline.source).toBe("cache");
+    expect(offline.index.sets.map((s) => s.id)).toEqual(["a"]);
   });
 
   it("refetches when refresh is set", async () => {

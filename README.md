@@ -116,8 +116,8 @@ Options:
   -y, --yes                         Skip the confirmation prompt
   -n, --dry-run                     Print the diff, write nothing
       --no-backup                   Do not create a .ccverbs.bak file
-      --refresh                     Ignore the cache and refetch
-      --offline                     Use the cache only, never hit the network
+      --refresh                     No effect — fetching fresh is the default
+      --offline                     Use the last fetched copy, never hit the network
       --no-group                    Do not group the list by language
   -h, --help                        Show this help
   -v, --version                     Show the version
@@ -356,16 +356,16 @@ Because there's no count limit, `ccverbs` imposes only editorial ones: sets carr
 ### Where the sets come from
 
 Verb sets are **not** bundled into the npm package. `ccverbs` fetches
-[`sets/index.json`](sets/index.json) from `main` at runtime and caches it in `~/.ccverbs/cache/` for an hour.
+[`sets/index.json`](sets/index.json) from `main` **every time it runs**.
 
 ```
 npx ccverbs
   └─ GET raw.githubusercontent.com/ryoshin0830/ccverbs/main/sets/index.json
-       ├─ ok      → cache it, use it
-       └─ failed  → fall back to the cache, even a stale one
+       ├─ ok      → use it, and keep a copy
+       └─ failed  → fall back to that copy
 ```
 
-So a merged pull request reaches every user immediately — no npm release needed. After the first run everything works offline, and `--offline` forces cache-only.
+So a merged pull request reaches every user on their next run — no npm release, no waiting. The fetch is 34 KB and costs about 80 ms, which is nothing next to what `npx` already spends downloading the CLI, so there is no cache-first mode to opt into: the copy in `~/.ccverbs/cache/` exists only to keep the tool working when GitHub does not. `--offline` uses that copy deliberately and never touches the network.
 
 </details>
 
