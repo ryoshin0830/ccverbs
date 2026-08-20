@@ -112,6 +112,6 @@ export const zhHans: Catalog = {
 
   footer: {
     cli: "已经想好要用哪个词集？用 CLI 直接应用:",
-    repo: "源码，以及内置的 22 个词集",
+    repo: "源码，以及内置的 23 个词集",
   },
 };
