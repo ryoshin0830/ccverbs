@@ -19,3 +19,51 @@ body {
   font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
   line-height: 1.6;
 }
+
+.page { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+h1 { margin: 0; font-size: 1.6rem; }
+h2 { font-size: 1rem; margin: 1.5rem 0 .5rem; }
+.lead { color: var(--dim); max-width: 60ch; }
+
+.columns { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 900px) { .columns { grid-template-columns: 1fr 1fr; } }
+
+.field { margin-bottom: 1rem; }
+.field label { display: block; font-size: .85rem; margin-bottom: .25rem; }
+input, select, textarea {
+  width: 100%; background: var(--panel); color: var(--text);
+  border: 1px solid var(--border); border-radius: 6px; padding: .5rem; font: inherit;
+}
+textarea { font-family: var(--mono); resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.preview { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: var(--panel); }
+.spinner { font-family: var(--mono); margin: 0 0 .5rem; white-space: pre-wrap; word-break: break-word; }
+.spinner .glyph { color: var(--accent); }
+.spinner.over { color: var(--bad); }
+
+.dim { color: var(--dim); font-size: .85rem; margin: .25rem 0; }
+.bad { color: var(--bad); font-size: .85rem; margin: .25rem 0; }
+
+.controls { display: flex; gap: .5rem; align-items: center; margin-top: .75rem; flex-wrap: wrap; }
+.controls button {
+  background: transparent; color: var(--text); border: 1px solid var(--border);
+  border-radius: 6px; padding: .2rem .6rem; cursor: pointer; font: inherit;
+}
+.controls button:hover { border-color: var(--accent); }
+
+.issues { list-style: none; padding: 0; margin: .5rem 0; font-size: .85rem; }
+.issues li { margin-bottom: .35rem; }
+.issues code { background: var(--bg); padding: .1rem .3rem; border-radius: 4px; font-family: var(--mono); }
+
+.output { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: var(--panel); }
+.output ol { padding-left: 1.2rem; }
+.primary, .button {
+  display: inline-block; background: var(--accent); color: #10121a; font-weight: 600;
+  text-decoration: none; padding: .5rem 1rem; border-radius: 6px; border: 0; cursor: pointer; font: inherit;
+}
+.button { background: transparent; color: var(--text); border: 1px solid var(--border); font-weight: 400; }
+.json {
+  font-family: var(--mono); font-size: .8rem; overflow-x: auto;
+  background: var(--bg); padding: .75rem; border-radius: 6px; max-height: 20rem;
+}
