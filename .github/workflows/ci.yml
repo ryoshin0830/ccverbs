@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Validate verb sets
+        run: node scripts/validate-sets.mjs
+
+      - name: Check sets/index.json is up to date
+        run: |
+          node scripts/build-index.mjs
+          git diff --exit-code sets/index.json \
+            || { echo "::error::sets/index.json is stale - run 'npm run sets:index' and commit the result"; exit 1; }
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify the CLI runs
+        run: |
+          TESTHOME=$(mktemp -d)
+          mkdir -p "$TESTHOME/.cache/ccverbs"
+          cp sets/index.json "$TESTHOME/.cache/ccverbs/index.json"
+          HOME=$TESTHOME node dist/cli.js --version
+          HOME=$TESTHOME node dist/cli.js list --offline --json > /dev/null
+          HOME=$TESTHOME node dist/cli.js set sisyphus --yes --offline --json
+          HOME=$TESTHOME node dist/cli.js current --offline --json
+          HOME=$TESTHOME node dist/cli.js reset --yes --offline --json
