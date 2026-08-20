@@ -11,6 +11,11 @@
     "scifi",
     "english"
   ],
+  "i18n": {
+    "ja": {
+      "description": "ネオンと雨とICEのサイバーパンク"
+    }
+  },
   "verbs": [
     "Jacking in",
     "Breaching ICE",

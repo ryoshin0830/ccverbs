@@ -12,6 +12,11 @@
     "vocabulary",
     "study"
   ],
+  "i18n": {
+    "ja": {
+      "description": "GRE・SAT水準の本気の難単語"
+    }
+  },
   "verbs": [
     "ephemeral — 儚い、短命の",
     "obfuscate — 分かりにくくする",

@@ -14,6 +14,11 @@
     "name": "kok1eeeee"
   },
   "source": "https://zenn.dev/kok1eeeee/articles/claude-code-spinner-verbs-sisyphus",
+  "i18n": {
+    "ja": {
+      "description": "シーシュポスの神話。永遠に岩を押し上げる"
+    }
+  },
   "verbs": [
     "岩を押し上げています",
     "山頂を目指しています",

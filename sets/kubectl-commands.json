@@ -13,6 +13,11 @@
     "study"
   ],
   "source": "https://kubernetes.io/docs/reference/kubectl/",
+  "i18n": {
+    "ja": {
+      "description": "Claudeが働く間にkubectlを覚える"
+    }
+  },
   "verbs": [
     "kubectl drain — Nodeから退避させる",
     "kubectl cordon — Nodeを配置対象外に",

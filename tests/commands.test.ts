@@ -4,6 +4,9 @@ import { join } from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
 import { parseArgs } from "../src/args.js";
 import { runCommand } from "../src/commands/index.js";
+import { DEFAULT_CONFIG, type CcverbsConfig } from "../src/config/io.js";
+import { configPath } from "../src/config/paths.js";
+import { getCatalog } from "../src/i18n/index.js";
 import type { RegistryIndex } from "../src/registry/schema.js";
 
 const set = (id: string, verbs: string[]) => ({
@@ -29,18 +32,29 @@ let home: string;
 let lines: string[];
 const io = { out: (l: string) => lines.push(l), err: (l: string) => lines.push(l) };
 
-const run = (argv: string[]) => {
+const runWith = (config: Partial<CcverbsConfig>, argv: string[]) => {
   const parsed = parseArgs(argv);
   if (!parsed.ok) throw new Error(parsed.message);
   return runCommand(parsed.options, {
     registry,
     skipped: [],
     io,
+    t: getCatalog("en"),
+    locale: "en",
+    localeSource: "default",
+    config: { ...DEFAULT_CONFIG, ...config },
+    fromFile: { language: false, mode: false, scope: false },
+    configPath: configPath(home),
+    cachePath: join(home, ".ccverbs", "cache", "index.json"),
+    cacheAgeMs: null,
+    warnings: [],
     home,
     cwd: home,
     random: () => 0,
   });
 };
+
+const run = (argv: string[]) => runWith({}, argv);
 
 const json = () => JSON.parse(lines.join("\n"));
 const settingsPath = () => join(home, ".claude", "settings.json");
@@ -67,6 +81,11 @@ describe("list", () => {
   it("prints a human table without --json", async () => {
     await run(["list"]);
     expect(lines.join("\n")).toContain("alpha");
+  });
+
+  it("keeps --json ordered by id regardless of locale", async () => {
+    await run(["list", "--json"]);
+    expect(json().sets.map((s: { id: string }) => s.id)).toEqual(["alpha", "beta"]);
   });
 });
 
@@ -156,5 +175,30 @@ describe("reset", () => {
     await run(["set", "alpha", "--yes"]);
     expect(await run(["reset", "--yes", "--json"])).toBe(0);
     expect(settings().spinnerVerbs).toBeUndefined();
+  });
+});
+
+describe("configured mode and scope", () => {
+  it("uses the configured mode when --mode is absent", async () => {
+    await runWith({ mode: "append" }, ["set", "alpha", "--yes"]);
+    expect(settings().spinnerVerbs.mode).toBe("append");
+  });
+
+  it("lets --mode override the configured mode", async () => {
+    await runWith({ mode: "append" }, ["set", "alpha", "--yes", "--mode", "replace"]);
+    expect(settings().spinnerVerbs.mode).toBe("replace");
+  });
+
+  it("uses the configured scope when --scope is absent", async () => {
+    await runWith({ scope: "local" }, ["set", "alpha", "--yes"]);
+    const local = JSON.parse(
+      readFileSync(join(home, ".claude", "settings.local.json"), "utf8"),
+    );
+    expect(local.spinnerVerbs.verbs).toEqual(["a1", "a2"]);
+  });
+
+  it("reports the configured mode in the applied payload", async () => {
+    await runWith({ mode: "append" }, ["set", "alpha", "--yes", "--json"]);
+    expect(json().applied.mode).toBe("append");
   });
 });

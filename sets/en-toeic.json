@@ -12,6 +12,11 @@
     "vocabulary",
     "study"
   ],
+  "i18n": {
+    "ja": {
+      "description": "TOEICに出るビジネス英語の語彙"
+    }
+  },
   "verbs": [
     "reimburse — 払い戻す、精算する",
     "itinerary — 旅程表",

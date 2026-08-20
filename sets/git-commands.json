@@ -12,6 +12,11 @@
     "study"
   ],
   "source": "https://git-scm.com/docs",
+  "i18n": {
+    "ja": {
+      "description": "Claudeが働く間にgitのサブコマンドを覚える"
+    }
+  },
   "verbs": [
     "git rebase -i — 対話的に履歴を書き換え",
     "git bisect — 二分探索でバグ混入を特定",

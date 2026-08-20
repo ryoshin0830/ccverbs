@@ -11,6 +11,11 @@
     "database",
     "study"
   ],
+  "i18n": {
+    "ja": {
+      "description": "SQLの句と実行計画の語彙"
+    }
+  },
   "verbs": [
     "INNER JOIN — 両方にある行だけ",
     "LEFT JOIN — 左は必ず残す",

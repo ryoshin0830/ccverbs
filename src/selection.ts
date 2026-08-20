@@ -1,3 +1,4 @@
+import type { SupportedLocale } from "./i18n/locales.js";
 import type { VerbSet } from "./registry/schema.js";
 
 export function searchSets(sets: VerbSet[], query: string): VerbSet[] {
@@ -17,4 +18,15 @@ export function pickRandom(sets: VerbSet[], random: () => number = Math.random):
   const set = sets[Math.min(sets.length - 1, Math.floor(random() * sets.length))];
   if (!set) throw new Error("no verb sets available");
   return set;
+}
+
+/**
+ * Sets in the reader's own language first, then the mixed term-and-translation
+ * sets, then everything else; alphabetical within each band. Nothing is hidden
+ * and search still spans every set. JSON output deliberately does not use this,
+ * so an agent's view does not change with the user's locale.
+ */
+export function groupByLocale(sets: VerbSet[], locale: SupportedLocale): VerbSet[] {
+  const band = (s: VerbSet) => (s.language === locale ? 0 : s.language === "mixed" ? 1 : 2);
+  return [...sets].sort((a, b) => band(a) - band(b) || a.id.localeCompare(b.id));
 }

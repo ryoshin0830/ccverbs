@@ -12,6 +12,11 @@
     "study"
   ],
   "source": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+  "i18n": {
+    "ja": {
+      "description": "借用チェッカの語彙を体で覚える"
+    }
+  },
   "verbs": [
     "ownership — 値の持ち主は常に一人",
     "move — 代入で所有権が移る",

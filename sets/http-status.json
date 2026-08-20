@@ -12,6 +12,11 @@
     "study"
   ],
   "source": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+  "i18n": {
+    "ja": {
+      "description": "もう調べなくて済むようにするステータスコード"
+    }
+  },
   "verbs": [
     "201 Created — 作成した、Location付き",
     "202 Accepted — 受理したが未完了",

@@ -11,6 +11,11 @@
     "dialect",
     "kansai"
   ],
+  "i18n": {
+    "ja": {
+      "description": "関西弁で喋るClaude"
+    }
+  },
   "verbs": [
     "考えとるわ",
     "ちょっと待っとってな",

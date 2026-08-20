@@ -1,7 +1,7 @@
 import { Box, Text } from "ink";
-import { layoutWidth, type VerbSet } from "../registry/schema.js";
-
-export const RANDOM_ROW = "__random__";
+import type { Catalog } from "../i18n/en.js";
+import type { SupportedLocale } from "../i18n/locales.js";
+import { layoutWidth, localizedName, type VerbSet } from "../registry/schema.js";
 
 export type Row = { kind: "random" } | { kind: "set"; set: VerbSet };
 
@@ -13,21 +13,23 @@ interface SetListProps {
   rows: Row[];
   selected: number;
   height: number;
+  t: Catalog;
+  locale: SupportedLocale;
 }
 
-export function SetList({ rows, selected, height }: SetListProps) {
+export function SetList({ rows, selected, height, t, locale }: SetListProps) {
   const start = Math.max(0, Math.min(selected - Math.floor(height / 2), rows.length - height));
-  const window = rows.slice(Math.max(0, start), Math.max(0, start) + height);
   const offset = Math.max(0, start);
+  const window = rows.slice(offset, offset + height);
 
   const nameWidth = Math.max(
-    11,
-    ...rows.map((r) => (r.kind === "set" ? layoutWidth(r.set.name) : 0)),
+    layoutWidth(t.wizard.randomRow),
+    ...rows.map((r) => (r.kind === "set" ? layoutWidth(localizedName(r.set, locale)) : 0)),
   );
 
   return (
     <Box flexDirection="column" width="50%" paddingRight={1}>
-      {window.length === 0 && <Text dimColor>No sets matched.</Text>}
+      {window.length === 0 && <Text dimColor>{t.wizard.noMatches}</Text>}
       {window.map((row, i) => {
         const index = offset + i;
         const active = index === selected;
@@ -35,8 +37,9 @@ export function SetList({ rows, selected, height }: SetListProps) {
 
         if (row.kind === "random") {
           return (
-            <Text key={RANDOM_ROW} inverse={active} color="magenta">
-              {marker} {pad("Random set", nameWidth)}      surprise me
+            <Text key="__random__" inverse={active} color="magenta">
+              {marker} {pad(t.wizard.randomRow, nameWidth + 6)}
+              <Text dimColor={!active}>{t.wizard.randomHint}</Text>
             </Text>
           );
         }
@@ -44,7 +47,7 @@ export function SetList({ rows, selected, height }: SetListProps) {
         const { set } = row;
         return (
           <Text key={set.id} inverse={active}>
-            {marker} {set.emoji} {pad(set.name, nameWidth)}{" "}
+            {marker} {set.emoji} {pad(localizedName(set, locale), nameWidth)}{" "}
             <Text dimColor={!active}>
               {String(set.verbs.length).padStart(3)} {set.category}
             </Text>

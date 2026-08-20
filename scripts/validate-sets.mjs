@@ -8,7 +8,7 @@ import { join } from "node:path";
 const KEBAB = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const CONTROL_CHARS = /[\u0000-\u001f\u007f]/;
 const TRAILING_ELLIPSIS = /(…|\.\.\.|。)$/;
-const LANGUAGES = new Set(["ja", "en", "mixed"]);
+const LANGUAGES = new Set(["ja", "en", "zh-Hans", "zh-Hant", "ko", "mixed"]);
 const CATEGORIES = new Set(["meme", "study", "classic"]);
 const MAX_WIDTH = 40;
 const MAX_INDEX_BYTES = 500_000;
@@ -70,6 +70,31 @@ for (const file of files.sort()) {
   }
   if (!Array.isArray(set.tags) || set.tags.some((t) => typeof t !== "string" || !KEBAB.test(t))) {
     errors.push(`${where}: tags must be an array of kebab-case strings`);
+  }
+
+  if (set.i18n !== undefined) {
+    const locales = new Set(["en", "ja", "zh-Hans", "zh-Hant", "ko"]);
+    if (typeof set.i18n !== "object" || set.i18n === null || Array.isArray(set.i18n)) {
+      errors.push(`${where}: i18n must be an object keyed by locale`);
+    } else {
+      for (const [locale, block] of Object.entries(set.i18n)) {
+        if (!locales.has(locale)) {
+          errors.push(`${where}: i18n has an unknown locale "${locale}"`);
+          continue;
+        }
+        if (typeof block !== "object" || block === null || Array.isArray(block)) {
+          errors.push(`${where}: i18n.${locale} must be an object`);
+          continue;
+        }
+        for (const [field, value] of Object.entries(block)) {
+          if (field !== "name" && field !== "description") {
+            errors.push(`${where}: i18n.${locale} has an unknown field "${field}"`);
+          } else if (typeof value !== "string" || value.length === 0) {
+            errors.push(`${where}: i18n.${locale}.${field} must be a non-empty string`);
+          }
+        }
+      }
+    }
   }
 
   if (!Array.isArray(set.verbs) || set.verbs.length === 0) {

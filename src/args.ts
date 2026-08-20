@@ -1,3 +1,4 @@
+import { SUPPORTED_LOCALES } from "./i18n/locales.js";
 import type { Scope } from "./settings/paths.js";
 
 export type Command =
@@ -9,67 +10,32 @@ export type Command =
   | "random"
   | "current"
   | "reset"
+  | "config"
   | "help"
   | "version";
 
 export interface Options {
   command: Command;
   arg?: string;
-  mode: "replace" | "append";
-  scope: Scope;
+  /** undefined means "use the configured value". */
+  mode?: "replace" | "append";
+  /** undefined means "use the configured value". */
+  scope?: Scope;
+  lang?: string;
   json: boolean;
   yes: boolean;
   dryRun: boolean;
   backup: boolean;
   refresh: boolean;
   offline: boolean;
+  group: boolean;
+  configKey?: string;
+  configValue?: string;
 }
 
-export const HELP = `ccverbs - swap Claude Code's spinner verbs
-
-Usage: ccverbs [command] [options]
-
-  ccverbs                        Launch the interactive TUI (default)
-
-Commands:
-  list                           List all verb sets
-  show <id>                      Print every verb in a set
-  search <query>                 Search sets by id, name, description, tags
-  set <id>                       Apply a set to Claude Code settings
-  random                         Pick one random set and apply it
-  current                        Show the currently applied configuration
-  reset                          Remove spinnerVerbs (restore the 186 defaults)
-
-Options:
-  -m, --mode <replace|append>       Default: replace
-  -S, --scope <user|project|local>  Default: user
-      --json                        Machine-readable output
-  -y, --yes                         Skip the confirmation prompt
-  -n, --dry-run                     Print the diff, write nothing
-      --no-backup                   Do not create a .ccverbs.bak file
-      --refresh                     Ignore the cache and refetch
-      --offline                     Use the cache only, never hit the network
-  -h, --help                        Show this help
-  -v, --version                     Show the version
-
-Examples:
-  ccverbs                                  Browse and pick a set interactively
-  ccverbs list --json                      Every set with its verb count
-  ccverbs set git-commands --yes           Apply a set without confirmation
-  ccverbs random --yes                     Surprise me
-  ccverbs current --json                   What is applied right now
-  ccverbs reset --yes                      Back to Claude Code's own verbs
-
-Scopes:
-  user      ~/.claude/settings.json            (default)
-  project   ./.claude/settings.json
-  local     ./.claude/settings.local.json
-
-Exit codes: 0 ok, 1 runtime error, 2 usage error, 3 set not found,
-            4 registry unavailable
-
-Verb sets live at https://github.com/ryoshin0830/ccverbs - PRs welcome.
-`;
+export type ParseResult =
+  | { ok: true; options: Options }
+  | { ok: false; message: string };
 
 const COMMANDS = new Set<string>([
   "list",
@@ -79,26 +45,32 @@ const COMMANDS = new Set<string>([
   "random",
   "current",
   "reset",
+  "config",
 ]);
 const NEEDS_ARG = new Set<Command>(["show", "search", "set"]);
-const MODES = new Set(["replace", "append"]);
-const SCOPES = new Set(["user", "project", "local"]);
 
-export type ParseResult =
-  | { ok: true; options: Options }
-  | { ok: false; message: string };
+const MODES = ["replace", "append"] as const;
+const SCOPES = ["user", "project", "local"] as const;
+
+const CONFIG_KEYS = ["language", "mode", "scope", "reset"] as const;
+const CONFIG_VALUES: Record<string, readonly string[]> = {
+  language: ["auto", ...SUPPORTED_LOCALES],
+  mode: MODES,
+  scope: SCOPES,
+};
+
+const list = (values: readonly string[]) => values.join(", ");
 
 export function parseArgs(argv: string[]): ParseResult {
   const options: Options = {
     command: "tui",
-    mode: "replace",
-    scope: "user",
     json: false,
     yes: false,
     dryRun: false,
     backup: true,
     refresh: false,
     offline: false,
+    group: true,
   };
 
   const bare: string[] = [];
@@ -151,13 +123,16 @@ export function parseArgs(argv: string[]): ParseResult {
       case "--offline":
         options.offline = true;
         break;
+      case "--no-group":
+        options.group = false;
+        break;
       case "-m":
       case "--mode": {
         const value = takeValue();
-        if (!value || !MODES.has(value)) {
+        if (!value || !(MODES as readonly string[]).includes(value)) {
           return {
             ok: false,
-            message: `--mode must be replace or append, got ${value ?? "nothing"}`,
+            message: `--mode must be one of ${list(MODES)}, got ${value ?? "nothing"}`,
           };
         }
         options.mode = value as Options["mode"];
@@ -166,13 +141,25 @@ export function parseArgs(argv: string[]): ParseResult {
       case "-S":
       case "--scope": {
         const value = takeValue();
-        if (!value || !SCOPES.has(value)) {
+        if (!value || !(SCOPES as readonly string[]).includes(value)) {
           return {
             ok: false,
-            message: `--scope must be user, project, or local, got ${value ?? "nothing"}`,
+            message: `--scope must be one of ${list(SCOPES)}, got ${value ?? "nothing"}`,
           };
         }
         options.scope = value as Scope;
+        break;
+      }
+      case "--lang": {
+        const value = takeValue();
+        const allowed = SUPPORTED_LOCALES as readonly string[];
+        if (!value || !allowed.includes(value)) {
+          return {
+            ok: false,
+            message: `--lang must be one of ${list(allowed)}, got ${value ?? "nothing"}`,
+          };
+        }
+        options.lang = value;
         break;
       }
       default:
@@ -184,15 +171,50 @@ export function parseArgs(argv: string[]): ParseResult {
   if (wantVersion) return { ok: true, options: { ...options, command: "version" } };
 
   if (bare.length > 0) {
-    const [command, arg, ...extra] = bare as [string, string | undefined, ...string[]];
+    const command = bare[0] as string;
     if (!COMMANDS.has(command)) {
       return { ok: false, message: `unknown command ${command}` };
     }
-    if (extra.length > 0) {
-      return { ok: false, message: `unexpected argument ${extra[0]}` };
-    }
     options.command = command as Command;
-    if (arg !== undefined) options.arg = arg;
+
+    // `config` takes two extra words (key and value); everything else takes one.
+    const maxExtra = command === "config" ? 2 : 1;
+    if (bare.length > 1 + maxExtra) {
+      return { ok: false, message: `unexpected argument ${bare[1 + maxExtra]}` };
+    }
+
+    if (command === "config") {
+      const key = bare[1];
+      const value = bare[2];
+      if (key !== undefined) {
+        if (!(CONFIG_KEYS as readonly string[]).includes(key)) {
+          return {
+            ok: false,
+            message: `unknown setting "${key}"; expected one of ${list(CONFIG_KEYS)}`,
+          };
+        }
+        options.configKey = key;
+        if (key === "reset") {
+          if (value !== undefined) {
+            return { ok: false, message: `unexpected argument ${value}` };
+          }
+        } else {
+          const allowed = CONFIG_VALUES[key] as readonly string[];
+          if (value === undefined) {
+            return { ok: false, message: `${key} needs a value: one of ${list(allowed)}` };
+          }
+          if (!allowed.includes(value)) {
+            return {
+              ok: false,
+              message: `${key} must be one of ${list(allowed)}, got ${value}`,
+            };
+          }
+          options.configValue = value;
+        }
+      }
+    } else if (bare[1] !== undefined) {
+      options.arg = bare[1];
+    }
   }
 
   if (NEEDS_ARG.has(options.command) && !options.arg) {

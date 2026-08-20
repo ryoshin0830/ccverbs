@@ -1,15 +1,33 @@
 {
   "name": "ccverbs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Swap Claude Code's spinner verbs from community verb sets",
-  "keywords": ["claude-code", "claude", "spinner", "cli", "tui", "spinnerverbs"],
+  "keywords": [
+    "claude-code",
+    "claude",
+    "spinner",
+    "cli",
+    "tui",
+    "spinnerverbs"
+  ],
   "homepage": "https://github.com/ryoshin0830/ccverbs#readme",
-  "bugs": { "url": "https://github.com/ryoshin0830/ccverbs/issues" },
-  "repository": { "type": "git", "url": "git+https://github.com/ryoshin0830/ccverbs.git" },
+  "bugs": {
+    "url": "https://github.com/ryoshin0830/ccverbs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryoshin0830/ccverbs.git"
+  },
   "type": "module",
-  "bin": { "ccverbs": "dist/cli.js" },
-  "files": ["dist"],
-  "engines": { "node": ">=18.0.0" },
+  "bin": {
+    "ccverbs": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsup",

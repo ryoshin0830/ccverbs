@@ -10,6 +10,11 @@
     "pirate",
     "english"
   ],
+  "i18n": {
+    "ja": {
+      "description": "海賊の口調。アホイ"
+    }
+  },
   "verbs": [
     "Plunderin'",
     "Hoistin' the mainsail",

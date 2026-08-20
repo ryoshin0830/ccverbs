@@ -1,98 +1,110 @@
 import { describe, expect, it } from "vitest";
-import { HELP, parseArgs } from "../src/args.js";
+import { parseArgs } from "../src/args.js";
 
 const ok = (argv: string[]) => {
   const r = parseArgs(argv);
   if (!r.ok) throw new Error(r.message);
   return r.options;
 };
+const bad = (argv: string[]) => {
+  const r = parseArgs(argv);
+  expect(r.ok, `expected ${argv.join(" ")} to be rejected`).toBe(false);
+  return r.ok ? "" : r.message;
+};
 
 describe("parseArgs", () => {
-  it("defaults to the TUI with no arguments", () => {
-    expect(ok([])).toMatchObject({
-      command: "tui",
-      mode: "replace",
-      scope: "user",
-      backup: true,
-      json: false,
-    });
+  it("defaults to the TUI and leaves mode and scope unset", () => {
+    const o = ok([]);
+    expect(o).toMatchObject({ command: "tui", json: false, backup: true, group: true });
+    // Absent, not merely falsy: the config file supplies these.
+    expect(o.mode).toBeUndefined();
+    expect(o.scope).toBeUndefined();
   });
 
   it("parses every command", () => {
-    for (const c of ["list", "search", "set", "random", "current", "reset"] as const) {
-      expect(ok([c, "x"]).command).toBe(c);
+    for (const c of ["list", "random", "current", "reset", "config"] as const) {
+      expect(ok([c]).command).toBe(c);
     }
     expect(ok(["show", "sql"]).arg).toBe("sql");
+    expect(ok(["search", "git"]).arg).toBe("git");
+    expect(ok(["set", "sql"]).arg).toBe("sql");
   });
 
-  it("parses long and short flags", () => {
-    expect(
-      ok(["set", "sql", "--mode", "append", "-S", "project", "--json", "-y", "-n"]),
-    ).toMatchObject({ mode: "append", scope: "project", json: true, yes: true, dryRun: true });
+  it("parses --lang", () => {
+    expect(ok(["list", "--lang", "ja"]).lang).toBe("ja");
+    expect(ok(["list", "--lang=ko"]).lang).toBe("ko");
   });
 
-  it("supports the flag=value form", () => {
-    expect(ok(["set", "sql", "--mode=append"]).mode).toBe("append");
+  it("rejects a --lang value we do not ship", () => {
+    expect(bad(["list", "--lang", "fr"])).toContain("fr");
   });
 
-  it("turns off backups with --no-backup", () => {
-    expect(ok(["set", "sql", "--no-backup"]).backup).toBe(false);
+  it("parses --no-group", () => {
+    expect(ok(["list", "--no-group"]).group).toBe(false);
   });
 
-  it("maps -h and -v to help and version", () => {
-    expect(ok(["--help"]).command).toBe("help");
-    expect(ok(["-v"]).command).toBe("version");
+  it("records mode and scope only when given", () => {
+    expect(ok(["set", "sql", "-m", "append", "-S", "local"])).toMatchObject({
+      mode: "append",
+      scope: "local",
+    });
   });
 
-  it("rejects an unknown command", () => {
-    expect(parseArgs(["frobnicate"]).ok).toBe(false);
+  it("accepts config with no key for the settings screen", () => {
+    const o = ok(["config"]);
+    expect(o.command).toBe("config");
+    expect(o.configKey).toBeUndefined();
   });
 
-  it("rejects an unknown flag", () => {
-    expect(parseArgs(["list", "--wat"]).ok).toBe(false);
+  it("parses a config key and value", () => {
+    expect(ok(["config", "language", "ja"])).toMatchObject({
+      command: "config",
+      configKey: "language",
+      configValue: "ja",
+    });
   });
 
-  it("rejects an invalid mode", () => {
-    expect(parseArgs(["set", "sql", "--mode", "merge"]).ok).toBe(false);
+  it("parses config reset with no value", () => {
+    const o = ok(["config", "reset"]);
+    expect(o.configKey).toBe("reset");
+    expect(o.configValue).toBeUndefined();
   });
 
-  it("rejects an invalid scope", () => {
-    expect(parseArgs(["set", "sql", "-S", "global"]).ok).toBe(false);
+  it("rejects a config key that needs a value but has none", () => {
+    expect(bad(["config", "language"])).toContain("language");
   });
 
-  it("requires an id for set, show, and search", () => {
-    expect(parseArgs(["set"]).ok).toBe(false);
-    expect(parseArgs(["show"]).ok).toBe(false);
-    expect(parseArgs(["search"]).ok).toBe(false);
+  it("rejects an unknown config key", () => {
+    expect(bad(["config", "colour", "blue"])).toContain("colour");
+  });
+
+  it("rejects an invalid config value and names the allowed set", () => {
+    const message = bad(["config", "mode", "merge"]);
+    expect(message).toContain("merge");
+    expect(message).toContain("replace");
+  });
+
+  it("rejects an unknown command, option, mode and scope", () => {
+    expect(bad(["frobnicate"])).toContain("frobnicate");
+    expect(bad(["list", "--wat"])).toContain("--wat");
+    expect(bad(["set", "sql", "--mode", "merge"])).toContain("merge");
+    expect(bad(["set", "sql", "-S", "global"])).toContain("global");
+  });
+
+  it("requires an argument for show, search and set", () => {
+    for (const c of ["show", "search", "set"]) expect(bad([c])).toContain(c);
+  });
+
+  it("rejects a stray third argument", () => {
+    expect(bad(["show", "sql", "extra"])).toContain("extra");
   });
 
   it("rejects --offline together with --refresh", () => {
-    expect(parseArgs(["list", "--offline", "--refresh"]).ok).toBe(false);
+    expect(bad(["list", "--offline", "--refresh"])).toContain("--refresh");
   });
-});
 
-describe("HELP", () => {
-  it("documents every command and option", () => {
-    for (const token of [
-      "list",
-      "show",
-      "search",
-      "set",
-      "random",
-      "current",
-      "reset",
-      "--mode",
-      "--scope",
-      "--json",
-      "--yes",
-      "--dry-run",
-      "--no-backup",
-      "--refresh",
-      "--offline",
-      "--help",
-      "--version",
-    ]) {
-      expect(HELP).toContain(token);
-    }
+  it("maps -h and -v", () => {
+    expect(ok(["--help"]).command).toBe("help");
+    expect(ok(["-v"]).command).toBe("version");
   });
 });

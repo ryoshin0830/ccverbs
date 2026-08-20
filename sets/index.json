@@ -17,6 +17,11 @@
         "complexity",
         "study"
       ],
+      "i18n": {
+        "ja": {
+          "description": "計算量のクラスと該当するアルゴリズム"
+        }
+      },
       "verbs": [
         "O(1) — 入力に依らず一定",
         "O(log n) — 二分探索、平衡木",
@@ -59,6 +64,11 @@
         "study"
       ],
       "source": "https://docs.docker.com/reference/cli/docker/",
+      "i18n": {
+        "ja": {
+          "description": "Claudeが働く間にDockerを覚える"
+        }
+      },
       "verbs": [
         "docker build --no-cache — 素から作る",
         "docker buildx — 複数archを一括ビルド",
@@ -97,6 +107,11 @@
         "scifi",
         "english"
       ],
+      "i18n": {
+        "ja": {
+          "description": "ネオンと雨とICEのサイバーパンク"
+        }
+      },
       "verbs": [
         "Jacking in",
         "Breaching ICE",
@@ -136,6 +151,11 @@
         "vocabulary",
         "study"
       ],
+      "i18n": {
+        "ja": {
+          "description": "GRE・SAT水準の本気の難単語"
+        }
+      },
       "verbs": [
         "ephemeral — 儚い、短命の",
         "obfuscate — 分かりにくくする",
@@ -175,6 +195,11 @@
         "pirate",
         "english"
       ],
+      "i18n": {
+        "ja": {
+          "description": "海賊の口調。アホイ"
+        }
+      },
       "verbs": [
         "Plunderin'",
         "Hoistin' the mainsail",
@@ -216,6 +241,11 @@
         "review",
         "study"
       ],
+      "i18n": {
+        "ja": {
+          "description": "コードレビューや朝会で出てくる言い回し"
+        }
+      },
       "verbs": [
         "nit: — 些細な指摘です",
         "LGTM — 良さそうです",
@@ -255,6 +285,11 @@
         "vocabulary",
         "study"
       ],
+      "i18n": {
+        "ja": {
+          "description": "TOEICに出るビジネス英語の語彙"
+        }
+      },
       "verbs": [
         "reimburse — 払い戻す、精算する",
         "itinerary — 旅程表",
@@ -296,6 +331,11 @@
         "study"
       ],
       "source": "https://git-scm.com/docs",
+      "i18n": {
+        "ja": {
+          "description": "Claudeが働く間にgitのサブコマンドを覚える"
+        }
+      },
       "verbs": [
         "git rebase -i — 対話的に履歴を書き換え",
         "git bisect — 二分探索でバグ混入を特定",
@@ -337,6 +377,11 @@
         "study"
       ],
       "source": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+      "i18n": {
+        "ja": {
+          "description": "もう調べなくて済むようにするステータスコード"
+        }
+      },
       "verbs": [
         "201 Created — 作成した、Location付き",
         "202 Accepted — 受理したが未完了",
@@ -377,6 +422,11 @@
         "animal",
         "japanese"
       ],
+      "i18n": {
+        "ja": {
+          "description": "Claudeが働いている間、猫がしていること"
+        }
+      },
       "verbs": [
         "にゃーんと鳴いています",
         "毛づくろいしています",
@@ -417,6 +467,11 @@
         "japanese",
         "general"
       ],
+      "i18n": {
+        "ja": {
+          "description": "標準186語の日本語版にあたる汎用セット"
+        }
+      },
       "verbs": [
         "考えています",
         "組み立てています",
@@ -473,6 +528,11 @@
         "dialect",
         "kansai"
       ],
+      "i18n": {
+        "ja": {
+          "description": "関西弁で喋るClaude"
+        }
+      },
       "verbs": [
         "考えとるわ",
         "ちょっと待っとってな",
@@ -509,6 +569,11 @@
         "ramen",
         "japanese"
       ],
+      "i18n": {
+        "ja": {
+          "description": "一杯のラーメンが組み上がっていく工程"
+        }
+      },
       "verbs": [
         "スープを炊いています",
         "豚骨を炊き出しています",
@@ -552,6 +617,11 @@
         "study"
       ],
       "source": "https://kubernetes.io/docs/reference/kubectl/",
+      "i18n": {
+        "ja": {
+          "description": "Claudeが働く間にkubectlを覚える"
+        }
+      },
       "verbs": [
         "kubectl drain — Nodeから退避させる",
         "kubectl cordon — Nodeを配置対象外に",
@@ -593,6 +663,11 @@
         "cli",
         "study"
       ],
+      "i18n": {
+        "ja": {
+          "description": "Claudeが働く間にUnix系コマンドを覚える"
+        }
+      },
       "verbs": [
         "strace — システムコールを覗く",
         "ltrace — ライブラリ呼出を覗く",
@@ -632,6 +707,11 @@
         "regex",
         "study"
       ],
+      "i18n": {
+        "ja": {
+          "description": "正規表現の構文を眺めながら覚える"
+        }
+      },
       "verbs": [
         "^ — 行頭に錨を打つ",
         "$ — 行末に錨を打つ",
@@ -673,6 +753,11 @@
         "study"
       ],
       "source": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+      "i18n": {
+        "ja": {
+          "description": "借用チェッカの語彙を体で覚える"
+        }
+      },
       "verbs": [
         "ownership — 値の持ち主は常に一人",
         "move — 代入で所有権が移る",
@@ -714,6 +799,11 @@
         "name": "kok1eeeee"
       },
       "source": "https://zenn.dev/kok1eeeee/articles/claude-code-spinner-verbs-sisyphus",
+      "i18n": {
+        "ja": {
+          "description": "シーシュポスの神話。永遠に岩を押し上げる"
+        }
+      },
       "verbs": [
         "岩を押し上げています",
         "山頂を目指しています",
@@ -740,6 +830,11 @@
         "database",
         "study"
       ],
+      "i18n": {
+        "ja": {
+          "description": "SQLの句と実行計画の語彙"
+        }
+      },
       "verbs": [
         "INNER JOIN — 両方にある行だけ",
         "LEFT JOIN — 左は必ず残す",
@@ -781,6 +876,11 @@
         "study"
       ],
       "source": "https://www.typescriptlang.org/docs/handbook/utility-types.html",
+      "i18n": {
+        "ja": {
+          "description": "TypeScriptの型システムをひとつずつ"
+        }
+      },
       "verbs": [
         "Partial<T> — 全てを省略可能にする",
         "Required<T> — 全てを必須にする",
@@ -821,6 +921,11 @@
         "editor",
         "study"
       ],
+      "i18n": {
+        "ja": {
+          "description": "Claudeが働く間にVimの操作を覚える"
+        }
+      },
       "verbs": [
         "ciw — 単語を丸ごと言い換える",
         "ci\" — 引用符の中身を入れ替える",

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findSet, pickRandom, searchSets } from "../src/selection.js";
+import { findSet, groupByLocale, pickRandom, searchSets } from "../src/selection.js";
 import type { VerbSet } from "../src/registry/schema.js";
 
 const sets = [
@@ -45,5 +45,41 @@ describe("pickRandom", () => {
   });
   it("throws on an empty list", () => {
     expect(() => pickRandom([], () => 0)).toThrow();
+  });
+});
+
+describe("groupByLocale", () => {
+  const banded = [
+    { id: "z-en", language: "en" },
+    { id: "a-mixed", language: "mixed" },
+    { id: "m-ja", language: "ja" },
+    { id: "b-ja", language: "ja" },
+    { id: "c-en", language: "en" },
+  ] as unknown as VerbSet[];
+
+  it("puts the UI language first, then mixed, then the rest", () => {
+    expect(groupByLocale(banded, "ja").map((s) => s.id)).toEqual([
+      "b-ja", "m-ja", "a-mixed", "c-en", "z-en",
+    ]);
+  });
+
+  it("sorts alphabetically inside each band", () => {
+    expect(groupByLocale(banded, "en").map((s) => s.id)).toEqual([
+      "c-en", "z-en", "a-mixed", "b-ja", "m-ja",
+    ]);
+  });
+
+  it("treats simplified and traditional Chinese as different languages", () => {
+    const zh = [
+      { id: "hans", language: "zh-Hans" },
+      { id: "hant", language: "zh-Hant" },
+    ] as unknown as VerbSet[];
+    expect(groupByLocale(zh, "zh-Hant").map((s) => s.id)).toEqual(["hant", "hans"]);
+  });
+
+  it("does not mutate its input", () => {
+    const snapshot = banded.map((s) => s.id);
+    groupByLocale(banded, "ja");
+    expect(banded.map((s) => s.id)).toEqual(snapshot);
   });
 });

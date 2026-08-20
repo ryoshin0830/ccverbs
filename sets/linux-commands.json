@@ -12,6 +12,11 @@
     "cli",
     "study"
   ],
+  "i18n": {
+    "ja": {
+      "description": "Claudeが働く間にUnix系コマンドを覚える"
+    }
+  },
   "verbs": [
     "strace — システムコールを覗く",
     "ltrace — ライブラリ呼出を覗く",

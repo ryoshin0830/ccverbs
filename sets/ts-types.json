@@ -12,6 +12,11 @@
     "study"
   ],
   "source": "https://www.typescriptlang.org/docs/handbook/utility-types.html",
+  "i18n": {
+    "ja": {
+      "description": "TypeScriptの型システムをひとつずつ"
+    }
+  },
   "verbs": [
     "Partial<T> — 全てを省略可能にする",
     "Required<T> — 全てを必須にする",

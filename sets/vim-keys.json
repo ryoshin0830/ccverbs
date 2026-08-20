@@ -11,6 +11,11 @@
     "editor",
     "study"
   ],
+  "i18n": {
+    "ja": {
+      "description": "Claudeが働く間にVimの操作を覚える"
+    }
+  },
   "verbs": [
     "ciw — 単語を丸ごと言い換える",
     "ci\" — 引用符の中身を入れ替える",

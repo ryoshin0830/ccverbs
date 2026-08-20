@@ -11,6 +11,11 @@
     "animal",
     "japanese"
   ],
+  "i18n": {
+    "ja": {
+      "description": "Claudeが働いている間、猫がしていること"
+    }
+  },
   "verbs": [
     "にゃーんと鳴いています",
     "毛づくろいしています",

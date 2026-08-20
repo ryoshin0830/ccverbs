@@ -35,7 +35,7 @@
       "description": "One line explaining what the set is."
     },
     "language": {
-      "enum": ["ja", "en", "mixed"],
+      "enum": ["ja", "en", "zh-Hans", "zh-Hant", "ko", "mixed"],
       "description": "Language of the verbs. Use \"mixed\" for term-plus-translation sets."
     },
     "category": {
@@ -63,6 +63,18 @@
       "format": "uri",
       "description": "Where the content came from, if anywhere."
     },
+    "i18n": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional per-locale name and description. Falls back per field to the top-level values.",
+      "properties": {
+        "en": { "$ref": "#/$defs/localizedText" },
+        "ja": { "$ref": "#/$defs/localizedText" },
+        "zh-Hans": { "$ref": "#/$defs/localizedText" },
+        "zh-Hant": { "$ref": "#/$defs/localizedText" },
+        "ko": { "$ref": "#/$defs/localizedText" }
+      }
+    },
     "verbs": {
       "type": "array",
       "minItems": 1,
@@ -76,6 +88,16 @@
         "description": "One spinner verb. Claude Code appends the ellipsis, so do not end with one. Keep it within 40 terminal columns."
       },
       "description": "The verbs themselves. 10-40 is a comfortable size."
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "description": { "type": "string", "minLength": 1, "maxLength": 120 }
+      }
     }
   }
 }
