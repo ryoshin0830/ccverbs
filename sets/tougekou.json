@@ -1,0 +1,14 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "tougekou",
+  "name": "登下校",
+  "emoji": "🌸",
+  "description": "登下校",
+  "language": "ja",
+  "category": "meme",
+  "tags": [],
+  "verbs": [
+    "登校しています",
+    "下校しています"
+  ]
+}
