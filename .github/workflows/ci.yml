@@ -28,11 +28,23 @@ jobs:
       - name: Validate verb sets
         run: node scripts/validate-sets.mjs
 
-      - name: Check sets/index.json is up to date
+      # Deliberately not "is index.json committed and current". A pull request
+      # from the web builder contains one file, the new set, and demanding a
+      # regenerated index would defeat the point of that builder. main
+      # regenerates it after the merge; see .github/workflows/index.yml.
+      - name: Check the index still builds from the set files
         run: |
           node scripts/build-index.mjs
-          git diff --exit-code sets/index.json \
-            || { echo "::error::sets/index.json is stale - run 'npm run sets:index' and commit the result"; exit 1; }
+          node -e '
+            const index = require("./sets/index.json");
+            const { readdirSync } = require("node:fs");
+            const files = readdirSync("sets").filter((f) => f.endsWith(".json") && f !== "index.json");
+            if (index.totalSets !== files.length) {
+              console.error(`::error::the built index has ${index.totalSets} sets but sets/ holds ${files.length}`);
+              process.exit(1);
+            }
+            console.log(`index builds: ${index.totalSets} sets, ${index.totalVerbs} verbs`);
+          '
 
       - name: Build
         run: npm run build

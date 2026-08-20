@@ -1,0 +1,62 @@
+name: Regenerate the set index
+
+# sets/index.json is a build artifact, not something a contributor should have
+# to maintain. The web builder opens a pull request containing exactly one file
+# — the new set — because its whole promise is "no clone, no JSON". Requiring a
+# regenerated index in that pull request would put the barrier straight back.
+#
+# So main regenerates it for them, right after the merge. The runtime fetches
+# sets/index.json from main, so this commit is what actually publishes a new set
+# to every user.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sets/*.json"
+      - "scripts/build-index.mjs"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: set-index
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    # The bot's own commit carries [skip ci], but guard the actor too so a
+    # future change to that message cannot start a loop.
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Rebuild the index
+        run: node scripts/build-index.mjs
+
+      - name: Check it against the same rules CI uses
+        run: node scripts/validate-sets.mjs
+
+      - name: Commit it if it moved
+        run: |
+          if git diff --quiet sets/index.json; then
+            echo "sets/index.json was already current."
+            exit 0
+          fi
+
+          SUMMARY=$(node -e '
+            const i = require("./sets/index.json");
+            process.stdout.write(`${i.totalSets} sets, ${i.totalVerbs} verbs`);
+          ')
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sets/index.json
+          git commit -m "chore: rebuild the set index ($SUMMARY) [skip ci]"
+          git push
+          echo "Published: $SUMMARY"
