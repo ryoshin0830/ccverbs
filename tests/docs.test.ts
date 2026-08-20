@@ -4,23 +4,69 @@ import { describe, expect, it } from "vitest";
 const readme = readFileSync("README.md", "utf8");
 const readmeJa = readFileSync("README.ja.md", "utf8");
 const contributing = readFileSync("CONTRIBUTING.md", "utf8");
+const pkg = JSON.parse(readFileSync("package.json", "utf8"));
+
+describe("version", () => {
+  it("is 0.2.0", () => {
+    expect(pkg.version).toBe("0.2.0");
+  });
+});
 
 describe("README", () => {
-  it("documents the researched Claude Code limits", () => {
+  it("still documents the researched Claude Code limits", () => {
     for (const token of ["186", "No limit", "`mode`", "`replace`", "`append`"]) {
       expect(readme).toContain(token);
     }
   });
 
   it("documents every command", () => {
-    for (const c of ["list", "show", "search", "set", "random", "current", "reset"]) {
+    for (const c of ["list", "show", "search", "set", "random", "current", "reset", "config"]) {
       expect(readme).toContain(`ccverbs ${c}`);
     }
   });
 
-  it("has an agent-facing section with the exit codes", () => {
-    expect(readme).toContain("--json");
+  it("documents the new options", () => {
+    for (const flag of ["--lang", "--no-group", "--json", "--dry-run"]) {
+      expect(readme).toContain(flag);
+    }
+  });
+
+  it("documents ~/.ccverbs as the current home for config and cache", () => {
+    expect(readme).toContain("~/.ccverbs/");
+    expect(readme).toContain("config.json");
+    expect(readme).toContain("~/.ccverbs/cache/");
+    // The 0.1.0 path may only appear while describing the migration away from it.
+    for (const line of readme.split("\n").filter((l) => l.includes("~/.cache/ccverbs/"))) {
+      expect(line.toLowerCase()).toMatch(/upgrad|migrat/);
+    }
+  });
+
+  it("lists all five locales and the detection order", () => {
+    for (const t of ["English", "日本語", "简体中文", "繁體中文", "한국어"]) {
+      expect(readme).toContain(t);
+    }
+    expect(readme).toContain("LC_ALL");
+    expect(readme).toContain("AppleLanguages");
+    expect(readme).toContain("CCVERBS_LANG");
+  });
+
+  it("explains that C and POSIX are not treated as English", () => {
+    expect(readme).toContain("C.UTF-8");
+    expect(readme).toContain("no preference");
+  });
+
+  it("asks for native-speaker review of the unreviewed locales", () => {
+    expect(readme.toLowerCase()).toContain("native");
+    expect(readme).toContain("not yet");
+  });
+
+  it("says mode and scope are settings rather than per-run questions", () => {
+    expect(readme).toContain("settings, not questions");
+  });
+
+  it("keeps the exit code table and the agent section", () => {
     for (const code of ["0", "1", "2", "3", "4"]) expect(readme).toContain(`| ${code} |`);
+    expect(readme).toContain("For AI agents");
   });
 
   it("links to the Japanese translation and contributing guide", () => {
@@ -30,8 +76,20 @@ describe("README", () => {
 });
 
 describe("README.ja.md", () => {
-  it("also records the 186 default verbs", () => {
+  it("documents the config command and ~/.ccverbs", () => {
+    expect(readmeJa).toContain("ccverbs config");
+    expect(readmeJa).toContain("~/.ccverbs/");
+  });
+  it("records the 186 default verbs", () => {
     expect(readmeJa).toContain("186");
+  });
+  it("explains the C.UTF-8 case", () => {
+    expect(readmeJa).toContain("C.UTF-8");
+  });
+  it("only mentions the old cache path while describing the migration", () => {
+    for (const line of readmeJa.split("\n").filter((l) => l.includes("~/.cache/ccverbs/"))) {
+      expect(line).toMatch(/移動|移行/);
+    }
   });
   it("links back to the English README", () => {
     expect(readmeJa).toContain("README.md");
@@ -41,10 +99,20 @@ describe("README.ja.md", () => {
 describe("CONTRIBUTING", () => {
   it("explains the set file workflow", () => {
     expect(contributing).toContain("sets/");
-    expect(contributing).toContain("index.json");
     expect(contributing).toContain("npm run sets:validate");
+    expect(contributing).toContain("index.json");
   });
-  it("warns about the trailing ellipsis", () => {
-    expect(contributing).toContain("…");
+  it("explains how to add or fix a locale", () => {
+    expect(contributing).toContain("src/i18n/");
+    expect(contributing).toContain("Catalog");
+    expect(contributing).toContain("reviewed");
+    expect(contributing).toContain("tsc --noEmit");
+  });
+  it("documents the optional set i18n block", () => {
+    expect(contributing).toContain('"i18n"');
+    expect(contributing).toContain("per field");
+  });
+  it("lists every set language", () => {
+    for (const l of ["zh-Hans", "zh-Hant", "ko", "mixed"]) expect(contributing).toContain(l);
   });
 });

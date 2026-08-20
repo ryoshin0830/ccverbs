@@ -8,7 +8,7 @@ Claude Code は作業中にランダムな動詞を表示します（`Cogitating
 $ npx ccverbs
 ```
 
-検索できるピッカーが開きます。セットを選び、差分を確認して、適用。`settings.json` の他のキーには一切触りません。
+検索できるピッカーが開きます。セットを選び、差分を確認して、適用 — 聞かれるのは2回だけです。`settings.json` の他のキーには一切触りません。
 
 > English: **[README.md](README.md)**
 
@@ -56,31 +56,34 @@ Node.js 18 以降が必要です。
 ## 使い方
 
 ```
-ccverbs                        対話 TUI を起動（既定）
+ccverbs                        対話画面を開く（既定）
 
-Commands:
-  list                         全単語セットを一覧
-  show <id>                    セットの全単語を表示
-  search <query>               id・名前・説明・タグを横断検索
-  set <id>                     セットを適用
-  random                       セットを 1 つ抽選して適用
-  current                      現在適用されている内容を表示
-  reset                        spinnerVerbs を削除（既定 186 語に戻す）
+コマンド:
+  list                単語セットを一覧する
+  show <id>           セットの全単語を表示する
+  search <query>      id・名前・説明・タグで検索する
+  set <id>            セットを Claude Code に適用する
+  random              ランダムに1セット選んで適用する
+  current             現在適用されている内容を表示する
+  reset               spinnerVerbs を削除して標準186語に戻す
+  config <key value>  設定（言語・適用方法・保存先）を表示・変更する
 
-Options:
-  -m, --mode <replace|append>       既定: replace
-  -S, --scope <user|project|local>  既定: user
-      --json                        機械可読出力
-  -y, --yes                         確認をスキップ
+オプション:
+  -m, --mode <replace|append>       この実行だけ適用方法を上書きする
+  -S, --scope <user|project|local>  この実行だけ保存先を上書きする
+      --lang <code>                 この実行だけ表示言語を上書きする
+      --json                        機械可読な出力にする
+  -y, --yes                         確認を省略する
   -n, --dry-run                     差分だけ出して書き込まない
       --no-backup                   .ccverbs.bak を作らない
-      --refresh                     キャッシュを無視して再取得
-      --offline                     キャッシュのみ使用
+      --refresh                     キャッシュを無視して取得し直す
+      --offline                     キャッシュのみ使い、通信しない
+      --no-group                    一覧を言語でまとめない
   -h, --help                        ヘルプ
   -v, --version                     バージョン
 ```
 
-`--mode replace` は自分の単語だけを使います。`--mode append` は Claude Code の 186 語を残したうえで自分の単語を足します。
+`replace` は自分の単語だけを使い、`append` は Claude Code の 186 語を残したうえで足します。適用方法と保存先は**毎回聞かれる質問ではなく設定**です。`ccverbs config` で一度決めれば以降は聞かれません。1回だけ変えたいときは `--mode` / `--scope` を付けます。
 
 ### 書き込み先
 
@@ -160,7 +163,7 @@ function resolveVerbs() {
 
 ### 単語セットの配布方法
 
-単語セットは npm パッケージに**同梱していません**。`ccverbs` は実行時に `main` の [`sets/index.json`](sets/index.json) を取得し、`~/.cache/ccverbs/` に 1 時間キャッシュします。
+単語セットは npm パッケージに**同梱していません**。`ccverbs` は実行時に `main` の [`sets/index.json`](sets/index.json) を取得し、`~/.ccverbs/cache/` に 1 時間キャッシュします。
 
 ```
 npx ccverbs
@@ -170,6 +173,67 @@ npx ccverbs
 ```
 
 そのため、PR がマージされた時点で全ユーザーに反映されます。npm への publish は不要です。初回実行後は完全にオフラインで動き、`--offline` でキャッシュのみを強制できます。
+
+---
+
+## 設定
+
+`ccverbs` が覚えているものは 1 箇所にまとまっています。
+
+```
+~/.ccverbs/
+  config.json          言語・適用方法・保存先
+  cache/index.json     単語セット（1時間で再取得）
+```
+
+`ccverbs config` で設定画面が開きます。1 画面 1 問、上下キーと Enter だけです。
+
+```
+  ccverbs 設定
+
+  ❯ 言語        日本語      OSの言語設定から
+    適用方法     置き換える   既定値
+    保存先       全体        既定値
+    ───────────────────────────────
+    既定値に戻す
+```
+
+コマンド 1 発でも設定できます。
+
+```console
+$ ccverbs config                          # 設定画面（TTYがなければ表を出力）
+$ ccverbs config language ja
+$ ccverbs config mode append
+$ ccverbs config scope project
+$ ccverbs config reset
+$ ccverbs config --json
+```
+
+既定値は `mode: replace` と `scope: user` です。0.1.0 から上げた場合、キャッシュは `~/.cache/ccverbs/` から自動で移動します。
+
+`config.json` が壊れていても致命的にはなりません。不正な値はキー単位で既定値に戻し、警告を stderr に出したうえでコマンドは動きます。
+
+## 言語
+
+UI は **English・日本語・简体中文・繁體中文・한국어** の 5 言語です。自動で判別し、`ccverbs config language` で固定でき、`--lang <code>` で 1 回だけ上書きできます。
+
+判別は上から順に、最初に当たったものを使います。
+
+| 順 | 判別元 |
+| --- | --- |
+| 1 | `--lang <code>` |
+| 2 | `CCVERBS_LANG` |
+| 3 | `~/.ccverbs/config.json` の `language`（`auto` のときは飛ばす） |
+| 4 | `LC_ALL`・`LC_MESSAGES`・`LANG`・`LANGUAGE` |
+| 5 | OS — macOS は `AppleLanguages`、Windows は `Get-UICulture` |
+| 6 | 実行環境の `Intl` ロケール |
+| 7 | 英語 |
+
+**5 段目がある理由。** システム言語が日本語の Mac でも、`Intl` は `en-US` を返し、`LANG` は `C.UTF-8` であることが多く、どちらも英語を指します。そこで `C`・`POSIX`・空文字は「英語」ではなく**「指定なし」**として扱い、OS に問い合わせます。`ccverbs config` はどの段で決まったかを常に表示するので、「なぜ英語で出るのか」は自分で分かります。OS への問い合わせを止めたいときは `CCVERBS_NO_OS_LOCALE=1` を設定してください。
+
+`en` と `ja` は母語話者がレビューしています。**`zh-Hans`・`zh-Hant`・`ko` は未レビュー**です。`ccverbs config` にその旨を表示しており、修正の提案を歓迎します（[CONTRIBUTING.md](CONTRIBUTING.md)）。
+
+単語そのものは翻訳しません（日本語のセットは日本語です）。一覧では自分の言語のセットが上に来ます。`--no-group` で無効化でき、`--json` は常に id 順なのでエージェントの出力が環境で変わることはありません。
 
 ---
 
@@ -186,7 +250,12 @@ $ ccverbs set git-commands --yes --json
 
 $ ccverbs current --json
 {"ok":true,"configured":true,"matchedSet":{"id":"git-commands",…},"effectiveVerbCount":24,"defaultVerbCount":186}
+
+$ ccverbs config --json
+{"ok":true,"language":{"value":"ja","source":"os","explicit":false},"mode":{"value":"replace","source":"default"},"scope":{"value":"user","source":"default"},"supportedLocales":["en","ja","zh-Hans","zh-Hant","ko"],"unreviewedLocales":["zh-Hans","zh-Hant","ko"],"configPath":"…","cachePath":"…","cacheAgeMs":240000,"warnings":[]}
 ```
+
+`ccverbs config` は `--json` 指定時・鍵を渡したとき・TTY が無いときには画面を開かず、出力して終了します。
 
 失敗時も同じ封筒に入るので、文章を解析する必要はありません。
 

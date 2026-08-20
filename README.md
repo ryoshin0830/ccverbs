@@ -8,7 +8,7 @@ Claude Code shows a random verb while it works: `Cogitating…`, `Percolating…
 $ npx ccverbs
 ```
 
-That opens a searchable picker. Choose a set, see the diff, apply it. Nothing else in your `settings.json` is touched.
+That opens a searchable picker. Choose a set, see the diff, apply it — two questions, then done. Nothing else in your `settings.json` is touched.
 
 > 日本語版: **[README.ja.md](README.ja.md)**
 
@@ -56,31 +56,34 @@ Requires Node.js 18 or newer.
 ## Usage
 
 ```
-ccverbs                        Launch the interactive TUI (default)
+ccverbs                        Launch the interactive picker (default)
 
 Commands:
-  list                         List all verb sets
-  show <id>                    Print every verb in a set
-  search <query>               Search sets by id, name, description, tags
-  set <id>                     Apply a set to Claude Code settings
-  random                       Pick one random set and apply it
-  current                      Show the currently applied configuration
-  reset                        Remove spinnerVerbs (restore the 186 defaults)
+  list                List all verb sets
+  show <id>           Print every verb in a set
+  search <query>      Search sets by id, name, description, tags
+  set <id>            Apply a set to Claude Code settings
+  random              Pick one random set and apply it
+  current             Show the currently applied configuration
+  reset               Remove spinnerVerbs (restore the 186 defaults)
+  config <key value>  Show or change settings (language, mode, scope)
 
 Options:
-  -m, --mode <replace|append>       Default: replace
-  -S, --scope <user|project|local>  Default: user
+  -m, --mode <replace|append>       Override the configured mode for this run
+  -S, --scope <user|project|local>  Override the configured scope for this run
+      --lang <code>                 Override the UI language for this run
       --json                        Machine-readable output
   -y, --yes                         Skip the confirmation prompt
   -n, --dry-run                     Print the diff, write nothing
       --no-backup                   Do not create a .ccverbs.bak file
       --refresh                     Ignore the cache and refetch
       --offline                     Use the cache only, never hit the network
+      --no-group                    Do not group the list by language
   -h, --help                        Show this help
   -v, --version                     Show the version
 ```
 
-`--mode replace` uses only your verbs. `--mode append` keeps Claude Code's 186 and adds yours on top.
+`replace` uses only your verbs; `append` keeps Claude Code's 186 and adds yours on top. Both `mode` and `scope` are **settings, not questions** — the picker does not ask on every run. Change them once with `ccverbs config`, or override either for a single run with `--mode` / `--scope`.
 
 ### Where it writes
 
@@ -98,7 +101,7 @@ Before writing, `ccverbs` copies the file to `<file>.ccverbs.bak`, then writes t
 $ npx ccverbs search kubectl        # find it
 $ npx ccverbs show git-commands     # read the whole set first
 $ npx ccverbs set en-toeic --yes    # apply without the prompt
-$ npx ccverbs set ja-cat --mode append
+$ npx ccverbs set ja-cat --mode append   # override the configured mode once
 $ npx ccverbs random --yes          # surprise me
 $ npx ccverbs current               # what's applied right now
 $ npx ccverbs reset --yes           # back to Claude Code's own verbs
@@ -161,7 +164,7 @@ Because there's no count limit, `ccverbs` imposes only editorial ones: sets carr
 ### Where the sets come from
 
 Verb sets are **not** bundled into the npm package. `ccverbs` fetches
-[`sets/index.json`](sets/index.json) from `main` at runtime and caches it in `~/.cache/ccverbs/` for an hour.
+[`sets/index.json`](sets/index.json) from `main` at runtime and caches it in `~/.ccverbs/cache/` for an hour.
 
 ```
 npx ccverbs
@@ -171,6 +174,67 @@ npx ccverbs
 ```
 
 So a merged pull request reaches every user immediately — no npm release needed. After the first run everything works offline, and `--offline` forces cache-only.
+
+---
+
+## Configuration
+
+Everything `ccverbs` remembers lives in one directory:
+
+```
+~/.ccverbs/
+  config.json          language, mode, scope
+  cache/index.json     the verb sets, refetched hourly
+```
+
+Run `ccverbs config` for a settings screen — one question per screen, arrow keys and Enter:
+
+```
+  ccverbs settings
+
+  ❯ Language   English      default
+    Mode       Replace      default
+    Saves to   Everywhere   default
+    ─────────────────────────────────
+    Restore defaults
+```
+
+Or set any of it in one shot:
+
+```console
+$ ccverbs config                          # the settings screen (or a table with no TTY)
+$ ccverbs config language ja
+$ ccverbs config mode append
+$ ccverbs config scope project
+$ ccverbs config reset
+$ ccverbs config --json
+```
+
+Defaults are `mode: replace` and `scope: user`. Upgrading from 0.1.0 moves your cache from `~/.cache/ccverbs/` automatically.
+
+A corrupt `config.json` is never fatal: bad values fall back per key, a warning goes to stderr, and the command still runs.
+
+## Languages
+
+The UI ships in **English, 日本語, 简体中文, 繁體中文 and 한국어**. It picks one for you; `ccverbs config language` overrides it, and `--lang <code>` overrides it for a single run.
+
+Detection tries these in order, first hit wins:
+
+| # | Source |
+| --- | --- |
+| 1 | `--lang <code>` |
+| 2 | `CCVERBS_LANG` |
+| 3 | `language` in `~/.ccverbs/config.json` (skipped when `auto`) |
+| 4 | `LC_ALL`, `LC_MESSAGES`, `LANG`, `LANGUAGE` |
+| 5 | The OS — `AppleLanguages` on macOS, `Get-UICulture` on Windows |
+| 6 | The runtime's `Intl` locale |
+| 7 | English |
+
+**Why rung 5 exists.** On a Japanese Mac, `Intl` reports `en-US` and `LANG` is often `C.UTF-8` — both point at English while the machine's actual UI language is Japanese. So `C`, `POSIX` and empty are treated as *no preference* rather than as English, and the OS gets asked. `ccverbs config` always shows which rung decided, so "why is this in English?" answers itself. Set `CCVERBS_NO_OS_LOCALE=1` to skip the OS query.
+
+`en` and `ja` are reviewed by native speakers. **`zh-Hans`, `zh-Hant` and `ko` are not yet** — they are marked as such in `ccverbs config`, and corrections are very welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Verb *content* is never translated — a Japanese set is Japanese. Sets in your own language sort to the top of the list; `--no-group` turns that off, and `--json` is always ordered by id so agent output never shifts with your locale.
 
 ---
 
@@ -190,7 +254,12 @@ $ ccverbs set git-commands --yes --json
 
 $ ccverbs current --json
 {"ok":true,"settingsPath":"…","settingsExists":true,"configured":true,"spinnerVerbs":{"mode":"replace","verbs":[…]},"matchedSet":{"id":"git-commands", …},"effectiveVerbCount":24,"defaultVerbCount":186}
+
+$ ccverbs config --json
+{"ok":true,"language":{"value":"ja","source":"os","explicit":false},"mode":{"value":"replace","source":"default"},"scope":{"value":"user","source":"default"},"supportedLocales":["en","ja","zh-Hans","zh-Hant","ko"],"unreviewedLocales":["zh-Hans","zh-Hant","ko"],"configPath":"…","cachePath":"…","cacheAgeMs":240000,"warnings":[]}
 ```
+
+`ccverbs config` never opens a screen when `--json` is passed, when a key is given, or when there is no TTY — it prints and exits.
 
 Failures use the same envelope, so you never have to parse prose:
 

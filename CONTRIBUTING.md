@@ -56,12 +56,33 @@ Describe the set in a sentence. That's it.
 | `name` | yes | 1–40 characters. Shown in the picker |
 | `emoji` | yes | One emoji. Prefer a **single-codepoint emoji-presentation** character (`🌿`, `🦜`) over flags or ZWJ sequences (`🇯🇵`, `🏴‍☠️`) and over text-presentation glyphs (`☸`, `⌨`) — those render at inconsistent widths across terminals |
 | `description` | yes | 1–120 characters, one line |
-| `language` | yes | `ja`, `en`, or `mixed`. Use `mixed` for term-plus-translation sets |
+| `language` | yes | `ja`, `en`, `zh-Hans`, `zh-Hant`, `ko`, or `mixed`. Use `mixed` for term-plus-translation sets |
 | `category` | yes | `meme` (for fun), `study` (flashcards), `classic` (general-purpose replacement) |
 | `tags` | yes | Up to 8 kebab-case keywords. These are searchable, so include the obvious ones |
 | `author` | no | `{ "name": "...", "github": "..." }`. Take credit |
 | `source` | no | URL, if the content came from somewhere |
+| `i18n` | no | Per-locale `name` / `description`. See below |
 | `verbs` | yes | 1–500 strings. 10–40 is the comfortable range |
+
+### Localizing your set's blurb
+
+`name` and `description` are what readers see in the picker, so they can be
+translated. The verbs themselves never are.
+
+```json
+{
+  "name": "Git Commands",
+  "description": "Learn git subcommands while Claude works",
+  "i18n": {
+    "ja": { "description": "Claudeが働く間にgitのサブコマンドを覚える" },
+    "zh-Hans": { "name": "Git 命令", "description": "在 Claude 工作时学习 git 子命令" }
+  }
+}
+```
+
+Locale keys are `en`, `ja`, `zh-Hans`, `zh-Hant`, `ko`. Every field is optional and
+falls back **per field**, so translating only the description is fine. `language`
+accepts those same five plus `mixed` for term-and-translation sets.
 
 ---
 
@@ -113,6 +134,59 @@ Adding verbs to someone else's set is fine too. Removing verbs, or changing a se
 
 ---
 
+## Translations
+
+The UI ships in five languages. `src/i18n/en.ts` is both the English catalog and
+the `Catalog` type:
+
+```ts
+export const en = { /* every string the CLI can print */ };
+export type Catalog = typeof en;
+```
+
+Every other locale is annotated with that type:
+
+```ts
+export const ja: Catalog = { /* ... */ };
+```
+
+**So the compiler tells you what a translation is missing.** Run `npx tsc --noEmit`
+and it names each absent key by path. That makes adding a sixth language a
+mechanical task rather than a hunt: create `src/i18n/<code>.ts`, add it to
+`SUPPORTED_LOCALES` and the `CATALOGS` map in `src/i18n/index.ts`, then fill in
+keys until the typechecker is quiet.
+
+Values that interpolate are functions, not templates with placeholders:
+
+```ts
+// en.ts                                  // ja.ts
+verbCount: (n) => `${n} verb${n === 1 ? "" : "s"}`,    verbCount: (n) => `${n}語`,
+```
+
+That removes the need for a plural library and lets each language count in its
+own way. Keep the argument list identical to `en` — a test checks arity.
+
+### Fixing a translation
+
+`en` and `ja` are reviewed by native speakers. **`zh-Hans`, `zh-Hant` and `ko` are
+not**, and corrections are the most useful PR you can send. They are marked
+`meta: { reviewed: false }`, which only affects a notice shown in
+`ccverbs config` — nothing is disabled.
+
+If you are a native speaker of one of those three and the wording is stiff,
+wrong, or unidiomatic, please open a PR. Set `reviewed: true` in that catalog's
+`meta` when you have read the whole file.
+
+Rules that apply to every locale:
+
+- Never translate CLI tokens inside a sentence: `--json`, `spinnerVerbs`,
+  command names, and file paths stay as they are.
+- Keep it short. These strings sit in a terminal beside a spinner.
+- No wordplay. It does not survive translation and it ages badly.
+- Never leave a value empty — a test rejects empty strings.
+
+---
+
 ## Working on the CLI
 
 ```console
@@ -127,12 +201,15 @@ The codebase splits into a pure-function core and two thin shells over it:
 
 | Path | Responsibility |
 | --- | --- |
+| `src/i18n/` | The five catalogs, BCP 47 negotiation, and the detection chain |
+| `src/config/` | `~/.ccverbs/` — config read/write and the 0.1.0 cache migration |
+| `src/help/` | Command and option records, plus the aligned renderer |
 | `src/registry/` | Verb set schema, HTTP fetch, on-disk cache, lenient loader |
 | `src/settings/` | Path resolution, atomic read/write with backup, `spinnerVerbs` merge, diff rendering |
 | `src/selection.ts` | Search and random pick (the RNG is injectable, so tests are deterministic) |
 | `src/args.ts` | Hand-rolled argument parser and the help text |
 | `src/commands/` | One-shot subcommands; all output goes through an injected `Io` |
-| `src/ui/` | Ink TUI |
+| `src/ui/` | Ink TUI: `App` is the two-step apply flow, `ConfigApp` the settings screen, and `screens/ChoiceScreen` the one-question-per-screen primitive both build on |
 
 New behaviour comes with a test. Anything touching `~/.claude/settings.json` gets a test that proves unrelated keys survive — that file belongs to the user, and a tool that eats someone's hooks config to change a spinner has done real damage for no reason.
 
@@ -140,9 +217,15 @@ Testing against your own settings? Point `HOME` somewhere disposable:
 
 ```console
 $ TESTHOME=$(mktemp -d)
-$ mkdir -p "$TESTHOME/.cache/ccverbs" && cp sets/index.json "$TESTHOME/.cache/ccverbs/"
+$ mkdir -p "$TESTHOME/.ccverbs/cache" && cp sets/index.json "$TESTHOME/.ccverbs/cache/index.json"
 $ HOME=$TESTHOME node dist/cli.js set sisyphus --yes
+$ HOME=$TESTHOME node dist/cli.js config --json
+$ HOME=$TESTHOME node dist/cli.js --help --lang ko
 ```
+
+`CCVERBS_LANG=zh-Hant` forces a locale without touching any config, and
+`CCVERBS_NO_OS_LOCALE=1` skips the `defaults`/`powershell` query — both are
+useful when you want a deterministic run.
 
 ---
 
