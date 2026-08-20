@@ -53,7 +53,7 @@ export const zhHant: Catalog = {
         ? `未設定（Claude Code 內建 ${DEFAULT_VERB_COUNT} 個詞）`
         : mode === "replace"
           ? `${n} 個自訂詞（取代）`
-          : `Claude Code 內建 ${DEFAULT_VERB_COUNT} 個詞 + ${n} 個自訂詞`,
+          : `Claude Code 內建 ${DEFAULT_VERB_COUNT} 個詞 + ${n} 個自訂詞（附加）`,
     afterSummary: (name, n, mode, total) =>
       mode === "replace" ? `只使用 ${name} 的 ${n} 個詞` : `附加 ${name} 的 ${n} 個詞（共 ${total} 個）`,
     effectSummary: (n) => `Claude Code 會從 ${n} 個詞中隨機選取進度提示。`,

@@ -64,7 +64,7 @@ export const en = {
         ? `not configured (Claude Code's ${DEFAULT_VERB_COUNT} built-in verbs)`
         : mode === "replace"
           ? `${n} custom verbs (replace)`
-          : `Claude Code's ${DEFAULT_VERB_COUNT} built-in + ${n} custom verbs`,
+          : `Claude Code's ${DEFAULT_VERB_COUNT} built-in + ${n} custom verbs (append)`,
     afterSummary: (name: string, n: number, mode: "replace" | "append", total: number) =>
       mode === "replace"
         ? `${name}'s ${n} verbs only`

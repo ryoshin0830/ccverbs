@@ -1,4 +1,4 @@
-import { mkdtempSync, readFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { render } from "ink-testing-library";
@@ -193,6 +193,20 @@ describe("App — confirm screen", () => {
     expect(frame).toContain("not configured (Claude Code's 186 built-in verbs)");
     expect(frame).toContain("Alpha's 2 verbs added (188 total)");
     expect(frame).toContain("Claude Code will pick loading verbs from 188 verbs.");
+  });
+
+  it("labels an existing append configuration in the current state", async () => {
+    const path = join(home, ".claude", "settings.json");
+    mkdirSync(join(home, ".claude"), { recursive: true });
+    writeFileSync(
+      path,
+      JSON.stringify({ spinnerVerbs: { mode: "append", verbs: ["old-a", "old-b"] } }),
+    );
+
+    const { lastFrame, stdin } = mount({ config: { mode: "replace" } });
+    await tick();
+    await openFirstSet(stdin);
+    expect(lastFrame()).toContain("Claude Code's 186 built-in + 2 custom verbs (append)");
   });
 
   it("states the mode and scope it did not ask about", async () => {

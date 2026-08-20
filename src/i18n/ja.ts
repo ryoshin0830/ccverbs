@@ -53,7 +53,7 @@ export const ja: Catalog = {
         ? `未設定（Claude Code 標準の${DEFAULT_VERB_COUNT}語）`
         : mode === "replace"
           ? `カスタム${n}語（置き換え）`
-          : `Claude Code 標準の${DEFAULT_VERB_COUNT}語 + 追加${n}語`,
+          : `Claude Code 標準の${DEFAULT_VERB_COUNT}語 + 追加${n}語（追加モード）`,
     afterSummary: (name, n, mode, total) =>
       mode === "replace" ? `${name}の${n}語だけ` : `${name}の${n}語を追加（合計${total}語）`,
     effectSummary: (n) => `Claude Code は${n}語から進行表示を選びます`,

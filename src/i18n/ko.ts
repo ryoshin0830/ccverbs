@@ -53,7 +53,7 @@ export const ko: Catalog = {
         ? `설정되지 않음（Claude Code 기본 ${DEFAULT_VERB_COUNT}개 단어）`
         : mode === "replace"
           ? `사용자 지정 ${n}개 단어（교체）`
-          : `Claude Code 기본 ${DEFAULT_VERB_COUNT}개 + 사용자 지정 ${n}개 단어`,
+          : `Claude Code 기본 ${DEFAULT_VERB_COUNT}개 + 사용자 지정 ${n}개 단어（추가）`,
     afterSummary: (name, n, mode, total) =>
       mode === "replace" ? `${name}의 ${n}개 단어만 사용` : `${name}의 ${n}개 단어 추가（총 ${total}개）`,
     effectSummary: (n) => `Claude Code가 ${n}개 단어에서 진행 표시를 선택합니다.`,
