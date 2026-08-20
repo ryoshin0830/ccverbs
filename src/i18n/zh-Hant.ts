@@ -1,0 +1,173 @@
+import { DEFAULT_VERB_COUNT } from "../constants.js";
+import type { Catalog } from "./en.js";
+
+export const zhHant: Catalog = {
+  meta: {
+    name: "Chinese (Traditional)",
+    nativeName: "繁體中文",
+    reviewed: false,
+  },
+
+  common: {
+    appName: "ccverbs",
+    verbCount: (n) => `${n} 個詞`,
+    setCount: (n) => `${n} 個詞集`,
+    registrySummary: (sets, verbs) =>
+      `${sets} 個詞集 · ${verbs} 個詞 · Claude Code 內建 ${DEFAULT_VERB_COUNT} 個`,
+    yesNo: "(Y/n)",
+    minutesAgo: (n) => `${n} 分鐘前`,
+    justNow: "剛剛",
+    never: "尚未取得",
+  },
+
+  wizard: {
+    searchLabel: "搜尋:",
+    randomRow: "隨機",
+    randomHint: "隨機挑一個詞集",
+    noMatches: "沒有符合的詞集。",
+    footerSet: "↑↓ 移動 · Enter 選擇 · 輸入文字搜尋 · Esc 離開",
+    footerChoice: "↑↓ 移動 · Enter 選擇 · Esc 返回",
+    footerConfirm: "y 套用 · n 返回 · Esc 返回",
+    pickHint: "選一個詞集就會顯示預覽。",
+    applyTitle: (name) => `準備套用 ${name}`,
+    modeLabel: "套用方式",
+    scopeLabel: "儲存位置",
+    applyQuestion: "要套用嗎？",
+    changeSettings: "用 ccverbs config 修改",
+    willPickFrom: (n) => `套用後會從 ${n} 個詞中隨機選取。`,
+    appliedTitle: (name, n, mode) => `已套用 ${name} — ${n} 個詞，${mode}`,
+    settingsPath: "設定檔:",
+    backupPath: "備份:",
+    restartHint: "開啟新的 Claude Code 工作階段即可看到效果。",
+    anyKeyToExit: "按任意鍵離開。",
+    skippedSets: (n, ids) => `已略過 ${n} 個格式錯誤的詞集: ${ids}`,
+    andMore: (n) => `... 還有 ${n} 個`,
+  },
+
+  modes: {
+    replace: "取代",
+    replaceHint: (n) => `只使用這個詞集的 ${n} 個詞`,
+    append: "附加",
+    appendHint: (base, add) => `內建 ${base} 個 ＋ 這 ${add} 個 = ${base + add} 個`,
+  },
+
+  scopes: {
+    user: "全域",
+    project: "目前專案",
+    local: "目前專案（僅本機）",
+    localNote: "不會提交到 git",
+  },
+
+  list: {
+    totals: (sets, verbs) =>
+      `${sets} 個詞集，${verbs} 個詞。Claude Code 內建 ${DEFAULT_VERB_COUNT} 個。`,
+    noneMatched: "沒有符合的詞集。",
+    byAuthor: (name) => `作者: ${name}`,
+    verbTotal: (n) => `${n} 個詞`,
+    noTags: "無標籤",
+    otherLanguages: "其他語言",
+  },
+
+  apply: {
+    removed: (n) => `已移除 spinnerVerbs — 回到 Claude Code 內建的 ${n} 個詞`,
+    dryRun: "僅預覽 — 未寫入任何內容。",
+    needsYes: "加上 --yes 即可套用。",
+  },
+
+  current: {
+    notConfigured: (n) => `spinnerVerbs 未設定 — Claude Code 使用內建的 ${n} 個詞。`,
+    customList: "自訂詞表（與詞集庫中的任何詞集都不相符）",
+    modeAndCount: (mode, n) => `套用方式: ${mode}  詞數: ${n}`,
+    willPickFrom: (n) => `會從 ${n} 個詞中隨機選取。`,
+    andMore: (n) => `... 還有 ${n} 個`,
+  },
+
+  config: {
+    title: "ccverbs 設定",
+    language: "語言",
+    mode: "套用方式",
+    scope: "儲存位置",
+    resetRow: "恢復預設",
+    footerList: "↑↓ 移動 · Enter 修改 · Esc 離開",
+    auto: "自動",
+    autoDetected: (name, source) => `辨識結果: ${name}（${source}）`,
+    unreviewed: "徵求母語者校對",
+    configLabel: "設定",
+    cacheLabel: "快取",
+    saveFailed: (message) => `無法儲存設定: ${message}`,
+    sourceFlag: "來自 --lang",
+    sourceEnv: "來自 CCVERBS_LANG",
+    sourceConfig: "來自你的設定",
+    sourcePosixEnv: "來自環境變數 LANG",
+    sourceOs: "來自作業系統的語言設定",
+    sourceIntl: "來自執行環境的地區設定",
+    sourceDefault: "預設值",
+    unreviewedNotice: (name) =>
+      `${name} 尚未經母語者校對，歡迎提交修正: https://github.com/ryoshin0830/ccverbs`,
+  },
+
+  errors: {
+    setNotFound: (id) => `沒有名為 "${id}" 的詞集`,
+    registryUnavailable: (message) => `無法取得詞集庫: ${message}`,
+    registryHint: "詞集從 GitHub 取得，請檢查網路後重試。",
+    noTty: "目前環境沒有可用終端機，請改用單次指令。",
+    unknownCommand: (name) => `沒有 ${name} 這個指令`,
+    unknownOption: (name) => `沒有 ${name} 這個選項`,
+    unexpectedArgument: (name) => `多餘的參數: ${name}`,
+    invalidValue: (flag, allowed, got) =>
+      `${flag} 必須是 ${allowed} 之一，收到的是 ${got}`,
+    requiresArgument: (command, what) => `${command} 需要一個${what}`,
+    exclusiveOptions: (a, b) => `${a} 與 ${b} 不能同時使用`,
+    unknownConfigKey: (key, allowed) => `沒有 "${key}" 這個設定項，應為 ${allowed} 之一`,
+    configNeedsValue: (key, allowed) => `${key} 需要一個值: ${allowed} 之一`,
+    writeFailed: (message) => `寫入失敗: ${message}`,
+    noSets: "沒有可用的詞集",
+    setId: "詞集 id",
+    query: "搜尋詞",
+  },
+
+  help: {
+    tagline: "替換 Claude Code 的載入動詞",
+    usage: "用法: ccverbs [指令] [選項]",
+    defaultLine: "開啟互動介面（預設）",
+    commandsHeading: "指令:",
+    optionsHeading: "選項:",
+    examplesHeading: "範例:",
+    exitCodes:
+      "結束碼: 0 成功 / 1 執行錯誤 / 2 參數錯誤 / 3 找不到詞集 / 4 無法取得詞集庫",
+    footer: "詞集在 https://github.com/ryoshin0830/ccverbs，歡迎提交 PR。",
+    commands: {
+      list: "列出所有詞集",
+      show: "顯示一個詞集的所有詞",
+      search: "依 id、名稱、說明、標籤搜尋",
+      set: "把一個詞集套用到 Claude Code",
+      random: "隨機挑一個詞集並套用",
+      current: "顯示目前已套用的設定",
+      reset: `移除 spinnerVerbs，恢復內建的 ${DEFAULT_VERB_COUNT} 個詞`,
+      config: "檢視或修改設定（語言、套用方式、儲存位置）",
+    },
+    options: {
+      mode: "僅本次覆寫套用方式",
+      scope: "僅本次覆寫儲存位置",
+      lang: "僅本次覆寫介面語言",
+      json: "輸出機器可讀格式",
+      yes: "略過確認",
+      "dry-run": "只顯示差異，不寫入",
+      "no-backup": "不建立 .ccverbs.bak",
+      refresh: "忽略快取，重新取得",
+      offline: "只用快取，不連網",
+      "no-group": "不依語言分組顯示",
+      help: "顯示說明",
+      version: "顯示版本",
+    },
+    examples: [
+      { cmd: "ccverbs", text: "瀏覽並選擇詞集" },
+      { cmd: "ccverbs config", text: "修改語言、套用方式或儲存位置" },
+      { cmd: "ccverbs list --json", text: "列出所有詞集與詞數" },
+      { cmd: "ccverbs set git-commands --yes", text: "不經確認直接套用" },
+      { cmd: "ccverbs random --yes", text: "隨機來一個" },
+      { cmd: "ccverbs current --json", text: "查看目前設定" },
+      { cmd: "ccverbs reset --yes", text: "恢復內建的動詞" },
+    ],
+  },
+};
