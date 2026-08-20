@@ -1,0 +1,40 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "sql",
+  "name": "SQL",
+  "emoji": "🗄",
+  "description": "SQL clauses and query plan vocabulary",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "sql",
+    "database",
+    "study"
+  ],
+  "verbs": [
+    "INNER JOIN — 両方にある行だけ",
+    "LEFT JOIN — 左は必ず残す",
+    "FULL OUTER JOIN — どちらも残す",
+    "CROSS JOIN — 総当たりを作る",
+    "GROUP BY — 束ねて集計する",
+    "HAVING — 集計後に絞り込む",
+    "WINDOW — 行を保ったまま集計する",
+    "ROW_NUMBER() — 連番を振る",
+    "RANK() — 同順位を飛ばして順位付け",
+    "DENSE_RANK() — 同順位を飛ばさない",
+    "LAG / LEAD — 前後の行を覗く",
+    "CTE (WITH) — 名前付き部分問い合わせ",
+    "RECURSIVE — 自分を辿る問い合わせ",
+    "EXISTS — 存在するかだけを問う",
+    "DISTINCT ON — 群ごとに一行選ぶ",
+    "UPSERT — 無ければ入れ有れば更新",
+    "EXPLAIN ANALYZE — 実測の実行計画",
+    "Seq Scan — 全件走査",
+    "Index Only Scan — 索引だけで完結",
+    "Nested Loop — 一件ずつ突き合わせ",
+    "Hash Join — ハッシュで突き合わせ",
+    "Merge Join — 整列済みを噛み合わせ",
+    "N+1 — 一件ずつ問い合わせる罠",
+    "ACID — 原子性一貫性隔離永続性"
+  ]
+}

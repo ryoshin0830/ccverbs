@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-cyberpunk",
+  "name": "Cyberpunk",
+  "emoji": "🌃",
+  "description": "Neon-soaked verbs for a rainy night in Night City",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "cyberpunk",
+    "scifi",
+    "english"
+  ],
+  "verbs": [
+    "Jacking in",
+    "Breaching ICE",
+    "Overclocking",
+    "Flatlining a daemon",
+    "Ghosting the net",
+    "Chrome-plating",
+    "Decrypting the black market",
+    "Spoofing credentials",
+    "Uploading wetware",
+    "Scanning the grid",
+    "Dodging the corpos",
+    "Rerouting through a proxy",
+    "Burning a one-time pad",
+    "Netrunning",
+    "Compiling in the rain",
+    "Trading eddies",
+    "Patching a cyberdeck",
+    "Tracing the signal",
+    "Dropping a logic bomb",
+    "Fading into the crowd",
+    "Reading the neon",
+    "Rebooting the implant"
+  ]
+}

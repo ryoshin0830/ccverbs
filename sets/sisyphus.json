@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "sisyphus",
+  "name": "Sisyphus",
+  "emoji": "🪨",
+  "description": "The myth of Sisyphus - pushing the boulder, forever",
+  "language": "ja",
+  "category": "meme",
+  "tags": [
+    "myth",
+    "japanese"
+  ],
+  "author": {
+    "name": "kok1eeeee"
+  },
+  "source": "https://zenn.dev/kok1eeeee/articles/claude-code-spinner-verbs-sisyphus",
+  "verbs": [
+    "岩を押し上げています",
+    "山頂を目指しています",
+    "また麓から登っています",
+    "永遠に繰り返しています",
+    "岩を転がしています",
+    "頂上まで押し上げています",
+    "神々に抗っています",
+    "不屈の意志で格闘しています",
+    "岩と格闘しています",
+    "運命に立ち向かっています"
+  ]
+}

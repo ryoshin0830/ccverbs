@@ -1,0 +1,39 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-tech-phrases",
+  "name": "Tech English Phrases",
+  "emoji": "💬",
+  "description": "Phrases that show up in code review and standups",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "english",
+    "phrase",
+    "review",
+    "study"
+  ],
+  "verbs": [
+    "nit: — 些細な指摘です",
+    "LGTM — 良さそうです",
+    "PTAL — もう一度見てください",
+    "SGTM — それで良さそうです",
+    "bikeshedding — 些末な議論に終始",
+    "yak shaving — 前提作業の連鎖",
+    "footgun — 自分の足を撃つ設計",
+    "load-bearing — 実は依存されている",
+    "rubber ducking — 説明して気づく",
+    "chesterton's fence — 理由なき撤去",
+    "happy path — 例外のない筋道",
+    "off by one — 1つずれている",
+    "flaky test — 気分で落ちる試験",
+    "tech debt — 後払いの設計負債",
+    "bus factor — 抜けたら止まる人数",
+    "premature optimization — 早すぎ最適化",
+    "leaky abstraction — 中身が漏れる層",
+    "cargo cult — 形だけ真似る",
+    "boil the ocean — 手を広げすぎる",
+    "low-hanging fruit — すぐ取れる成果",
+    "circle back — 後で戻って議論する",
+    "punt on — いったん先送りする"
+  ]
+}

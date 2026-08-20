@@ -1,0 +1,39 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-pirate",
+  "name": "Pirate",
+  "emoji": "🏴‍☠️",
+  "description": "Arrr, Claude be workin'",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "pirate",
+    "english"
+  ],
+  "verbs": [
+    "Plunderin'",
+    "Hoistin' the mainsail",
+    "Swabbin' the deck",
+    "Chartin' the course",
+    "Weighin' anchor",
+    "Battenin' down the hatches",
+    "Scannin' the horizon",
+    "Buryin' the treasure",
+    "Readin' the map upside down",
+    "Parleyin'",
+    "Walkin' the plank",
+    "Splicin' the mainbrace",
+    "Keelhaulin' a bug",
+    "Hornswagglin'",
+    "Maroonin' a stray pointer",
+    "Boardin' the enemy ship",
+    "Countin' doubloons",
+    "Hoistin' the Jolly Roger",
+    "Ridin' the trade winds",
+    "Feedin' the kraken",
+    "Shiverin' me timbers",
+    "Findin' the X",
+    "Yo-ho-hoin'",
+    "Dividin' the spoils"
+  ]
+}

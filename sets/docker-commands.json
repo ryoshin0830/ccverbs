@@ -1,0 +1,40 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "docker-commands",
+  "name": "Docker Commands",
+  "emoji": "🐳",
+  "description": "Learn Docker while Claude works",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "docker",
+    "container",
+    "cli",
+    "study"
+  ],
+  "source": "https://docs.docker.com/reference/cli/docker/",
+  "verbs": [
+    "docker build --no-cache — 素から作る",
+    "docker buildx — 複数archを一括ビルド",
+    "docker exec -it — 動く箱に入る",
+    "docker logs -f — ログを追尾",
+    "docker inspect — 設定をJSONで見る",
+    "docker stats — 実使用量を見る",
+    "docker system prune — 不要物を掃除",
+    "docker volume ls — 永続領域を並べる",
+    "docker network create — 網を作る",
+    "docker compose up -d — 背後で起動",
+    "docker compose logs — まとめて見る",
+    "docker cp — ホストと往復させる",
+    "docker commit — 状態を像に固める",
+    "docker save / load — tarで持ち運ぶ",
+    "docker tag — 別名を付ける",
+    "docker history — 層の由来を辿る",
+    "docker run --rm — 使い捨てで走らす",
+    "docker run -v — ホストを覗かせる",
+    "docker top — 箱の中のプロセス",
+    "docker diff — 起動後の変更を見る",
+    "docker wait — 終了コードを待つ",
+    "docker image prune -a — 像を掃除"
+  ]
+}

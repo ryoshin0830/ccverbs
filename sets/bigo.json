@@ -1,0 +1,40 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "bigo",
+  "name": "Big-O and Algorithms",
+  "emoji": "📈",
+  "description": "Complexity classes and the algorithms that hit them",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "algorithm",
+    "complexity",
+    "study"
+  ],
+  "verbs": [
+    "O(1) — 入力に依らず一定",
+    "O(log n) — 二分探索、平衡木",
+    "O(n) — 線形走査",
+    "O(n log n) — 比較ソートの下限",
+    "O(n^2) — 二重ループ、挿入ソート",
+    "O(2^n) — 部分集合の全列挙",
+    "O(n!) — 順列の全列挙",
+    "amortized O(1) — 均せば一定",
+    "quicksort — 平均n log n、最悪n^2",
+    "mergesort — 常にn log n、要追加領域",
+    "heapsort — その場でn log n",
+    "counting sort — 値域が狭ければO(n)",
+    "binary search — 整列済みが前提",
+    "two pointers — 両端から寄せる",
+    "sliding window — 窓を滑らせる",
+    "union-find — ほぼ定数で集合を統合",
+    "topological sort — 依存順に並べる",
+    "Dijkstra — 非負辺の最短路",
+    "Bellman-Ford — 負辺も扱える最短路",
+    "Floyd-Warshall — 全点間の最短路",
+    "KMP — 前処理して文字列探索",
+    "memoization — 一度解いたら覚える",
+    "DP — 部分問題を積み上げる",
+    "greedy — 局所最適を信じる"
+  ]
+}

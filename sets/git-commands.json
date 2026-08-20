@@ -1,0 +1,41 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "git-commands",
+  "name": "Git Commands",
+  "emoji": "🌿",
+  "description": "Learn git subcommands while Claude works",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "git",
+    "cli",
+    "study"
+  ],
+  "source": "https://git-scm.com/docs",
+  "verbs": [
+    "git rebase -i — 対話的に履歴を書き換え",
+    "git bisect — 二分探索でバグ混入を特定",
+    "git cherry-pick — 特定コミットだけ取込",
+    "git reflog — 消えたコミットを掘り出す",
+    "git stash — 変更を一時退避",
+    "git worktree — 複数ブランチを同時展開",
+    "git blame -L — 行単位で変更者を追う",
+    "git revert — 打ち消しコミットを作る",
+    "git reset --soft — indexは残して巻戻し",
+    "git reset --hard — 作業木ごと巻戻し",
+    "git commit --amend — 直前を作り直す",
+    "git rebase --onto — 土台を差し替える",
+    "git merge --squash — 1コミットに潰す",
+    "git fetch --prune — 消えた枝を掃除",
+    "git switch -c — 新ブランチへ移動",
+    "git restore — ファイルだけ元に戻す",
+    "git tag -a — 注釈付きタグを打つ",
+    "git log --graph — 分岐を図で見る",
+    "git diff --staged — indexとHEADの差",
+    "git clean -fd — 未追跡ごと掃除",
+    "git rev-parse — 参照をSHAに解決",
+    "git submodule — 別リポを入れ子に",
+    "git shortlog -sn — 貢献者を集計",
+    "git apply — patchを当てる"
+  ]
+}

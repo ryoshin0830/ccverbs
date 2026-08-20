@@ -1,0 +1,40 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "vim-keys",
+  "name": "Vim Keybindings",
+  "emoji": "⌨",
+  "description": "Learn Vim motions and operators while Claude works",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "vim",
+    "editor",
+    "study"
+  ],
+  "verbs": [
+    "ciw — 単語を丸ごと言い換える",
+    "ci\" — 引用符の中身を入れ替える",
+    "dap — 段落ごと消す",
+    "yi( — 括弧の中身をコピー",
+    "gv — 直前の選択を復元",
+    "gi — 最後の挿入位置へ戻る",
+    "`. — 最後に変更した場所へ跳ぶ",
+    "'' — 直前の跳躍元へ戻る",
+    "C-o / C-i — 跳躍履歴を行き来",
+    "g; — 変更履歴を遡る",
+    ". — 直前の変更を繰り返す",
+    "q: — コマンド履歴を編集する",
+    ":g/pat/d — 一致行を全て消す",
+    ":v/pat/d — 一致しない行を消す",
+    ":norm — 各行にノーマル操作を流す",
+    "C-a / C-x — 数値を増減する",
+    "zz / zt / zb — 画面内で行を寄せる",
+    "% — 対応する括弧へ跳ぶ",
+    "f / t / ; — 行内を狙って進む",
+    "* / # — カーソル下の語を検索",
+    "C-v I — 矩形選択して一括挿入",
+    "= — 選択範囲を整形する",
+    "gq — 段落を折り返す",
+    "m + ' — 印を打って戻る"
+  ]
+}

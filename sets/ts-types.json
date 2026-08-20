@@ -1,0 +1,41 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "ts-types",
+  "name": "TypeScript Types",
+  "emoji": "🔷",
+  "description": "TypeScript's type system, one utility at a time",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "typescript",
+    "types",
+    "study"
+  ],
+  "source": "https://www.typescriptlang.org/docs/handbook/utility-types.html",
+  "verbs": [
+    "Partial<T> — 全てを省略可能にする",
+    "Required<T> — 全てを必須にする",
+    "Readonly<T> — 全てを読み取り専用に",
+    "Pick<T,K> — 鍵を選び取る",
+    "Omit<T,K> — 鍵を除く",
+    "Record<K,V> — 鍵と値の対応を作る",
+    "Exclude<T,U> — 合併から除く",
+    "Extract<T,U> — 合併から抜き出す",
+    "NonNullable<T> — nullを外す",
+    "ReturnType<F> — 戻り値の型を取る",
+    "Parameters<F> — 引数の型を取る",
+    "Awaited<T> — Promiseを剥がす",
+    "infer — 条件型の中で束縛する",
+    "satisfies — 型を狭めず検証する",
+    "as const — 値そのものを型にする",
+    "keyof — 鍵の合併を取る",
+    "typeof — 値から型を取る",
+    "in — 写像型で鍵を走らせる",
+    "never — 到達しないことを表す",
+    "unknown — 何でも入るが使えない",
+    "discriminated union — 判別可能合併",
+    "template literal type — 文字列の型",
+    "branded type — 名前で区別する型",
+    "variance — 共変と反変の向き"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "rust-ownership",
+  "name": "Rust Ownership",
+  "emoji": "🦀",
+  "description": "Borrow checker vocabulary, learned by osmosis",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "rust",
+    "ownership",
+    "study"
+  ],
+  "source": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+  "verbs": [
+    "ownership — 値の持ち主は常に一人",
+    "move — 代入で所有権が移る",
+    "borrow — 参照で一時的に借りる",
+    "&T — 不変借用は何本でも取れる",
+    "&mut T — 可変借用は一本だけ",
+    "lifetime — 参照が生きている範囲",
+    "'static — プログラム全体の寿命",
+    "drop — 範囲を抜けると解放される",
+    "Copy — ビット複製で済む型",
+    "Clone — 明示的に複製する",
+    "Box<T> — ヒープに置く",
+    "Rc<T> — 参照数で共有する",
+    "Arc<T> — スレッド間で共有する",
+    "RefCell<T> — 実行時に借用を検査",
+    "Cow<T> — 必要になってから複製",
+    "Deref — 参照外しを委譲する",
+    "Send — スレッド間を渡れる",
+    "Sync — 複数スレッドで共有できる",
+    "Pin — 動かないことを約束する",
+    "unsafe — 検査を人間が引き受ける",
+    "NLL — 借用は最後の使用で終わる",
+    "dangling reference — 宛先を失う参照"
+  ]
+}

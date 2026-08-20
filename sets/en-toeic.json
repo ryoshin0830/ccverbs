@@ -1,0 +1,41 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-toeic",
+  "name": "TOEIC Vocabulary",
+  "emoji": "📘",
+  "description": "Business English words that show up on the TOEIC",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "english",
+    "toeic",
+    "vocabulary",
+    "study"
+  ],
+  "verbs": [
+    "reimburse — 払い戻す、精算する",
+    "itinerary — 旅程表",
+    "prerequisite — 前提条件",
+    "tentative — 暫定的な",
+    "in lieu of — の代わりに",
+    "waive — 権利を放棄する",
+    "expedite — 迅速に処理する",
+    "defer — 延期する、先送りする",
+    "mandate — 命じる、義務づける",
+    "audit — 監査する",
+    "quarterly — 四半期ごとの",
+    "invoice — 請求書",
+    "procurement — 調達",
+    "inventory — 在庫、棚卸し",
+    "streamline — 効率化する",
+    "delegate — 委任する",
+    "consolidate — 統合する",
+    "outstanding — 未払いの、未処理の",
+    "provisional — 仮の、暫定の",
+    "subsequent — その後の",
+    "on behalf of — を代表して",
+    "pertaining to — に関する",
+    "contingent on — を条件とする",
+    "at your earliest convenience — 至急"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "kubectl-commands",
+  "name": "kubectl Commands",
+  "emoji": "☸",
+  "description": "Learn kubectl while Claude works",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "kubernetes",
+    "kubectl",
+    "cli",
+    "study"
+  ],
+  "source": "https://kubernetes.io/docs/reference/kubectl/",
+  "verbs": [
+    "kubectl drain — Nodeから退避させる",
+    "kubectl cordon — Nodeを配置対象外に",
+    "kubectl taint — Nodeに忌避条件を付与",
+    "kubectl rollout undo — 直前版に戻す",
+    "kubectl rollout status — 展開を監視",
+    "kubectl port-forward — 手元に転送",
+    "kubectl exec -it — Pod内でシェル",
+    "kubectl logs -f — ログを追尾",
+    "kubectl logs --previous — 前回の分",
+    "kubectl describe — イベント付き詳細",
+    "kubectl get -o wide — Node配置も見る",
+    "kubectl top pod — 実使用量を見る",
+    "kubectl scale — レプリカ数を変える",
+    "kubectl apply -k — kustomizeを適用",
+    "kubectl diff — 適用前の差分を見る",
+    "kubectl explain — スキーマを引く",
+    "kubectl debug — 一時コンテナを挿す",
+    "kubectl cp — Podとファイルを往復",
+    "kubectl auth can-i — 権限を確かめる",
+    "kubectl label — ラベルを付け替える",
+    "kubectl annotate — 注釈を付ける",
+    "kubectl wait — 条件成立まで待つ",
+    "kubectl api-resources — 資源一覧",
+    "kubectl config use-context — 切替"
+  ]
+}

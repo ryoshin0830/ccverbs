@@ -1,0 +1,41 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "linux-commands",
+  "name": "Linux Commands",
+  "emoji": "🐧",
+  "description": "Learn Unix tooling while Claude works",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "linux",
+    "unix",
+    "cli",
+    "study"
+  ],
+  "verbs": [
+    "strace — システムコールを覗く",
+    "ltrace — ライブラリ呼出を覗く",
+    "lsof -i — 誰がポートを掴んでいるか",
+    "ss -tlnp — 待ち受けを一覧",
+    "dig +short — 名前解決を確かめる",
+    "tcpdump -i any — 生の通信を見る",
+    "iostat -x — ディスクの詰まりを見る",
+    "vmstat 1 — 全体の息づかいを見る",
+    "pidstat -p — プロセス単位の消費",
+    "journalctl -u — サービスのログ",
+    "systemctl status — 起動状態を見る",
+    "xargs -P — 並列に流し込む",
+    "awk -F — 区切って列を抜く",
+    "sed -n 'p' — 行を選んで出す",
+    "comm — ソート済み2ファイルを比較",
+    "join — 共通キーで結合する",
+    "tee -a — 流しながら書き足す",
+    "nohup — 切断後も走らせる",
+    "flock — 排他ロックを取る",
+    "rsync -a --delete — 完全に同期",
+    "find -newermt — 更新時刻で絞る",
+    "du -sh * — 太っている場所を探す",
+    "ncdu — 対話的に容量を辿る",
+    "chattr +i — 変更不可にする"
+  ]
+}

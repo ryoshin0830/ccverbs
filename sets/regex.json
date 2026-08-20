@@ -1,0 +1,39 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "regex",
+  "name": "Regular Expressions",
+  "emoji": "🔍",
+  "description": "Regex syntax, absorbed while you wait",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "regex",
+    "study"
+  ],
+  "verbs": [
+    "^ — 行頭に錨を打つ",
+    "$ — 行末に錨を打つ",
+    "\\b — 単語の境界",
+    "\\B — 単語の境界ではない位置",
+    ". — 改行以外の任意の一文字",
+    "* — 0回以上、貪欲に",
+    "+ — 1回以上、貪欲に",
+    "? — 0か1回",
+    "*? — 0回以上、最短一致",
+    "{2,5} — 2回から5回",
+    "[^abc] — a b c 以外",
+    "(?:...) — 捕獲しない group",
+    "(?<name>...) — 名前付き捕獲",
+    "\\1 — 後方参照",
+    "(?=...) — 先読み、続く事を要求",
+    "(?!...) — 否定先読み",
+    "(?<=...) — 後読み",
+    "(?<!...) — 否定後読み",
+    "(?i) — 大文字小文字を無視",
+    "(?s) — . を改行にも当てる",
+    "(?m) — ^ $ を各行に当てる",
+    "\\p{L} — Unicode の文字種で選ぶ",
+    "catastrophic backtracking — 破滅的後戻り",
+    "atomic group — 後戻りを禁じる"
+  ]
+}

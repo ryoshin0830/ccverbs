@@ -1,0 +1,41 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-gre",
+  "name": "GRE Hard Words",
+  "emoji": "🎓",
+  "description": "The genuinely hard English words - GRE and SAT level",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "english",
+    "gre",
+    "vocabulary",
+    "study"
+  ],
+  "verbs": [
+    "ephemeral — 儚い、短命の",
+    "obfuscate — 分かりにくくする",
+    "laconic — 言葉数の少ない",
+    "perfunctory — おざなりの",
+    "recalcitrant — 手に負えない",
+    "sanguine — 楽観的な",
+    "intransigent — 妥協しない",
+    "ostensible — 表向きの",
+    "quixotic — 非現実的な理想家の",
+    "pellucid — 透き通った、明快な",
+    "inchoate — 未完成の、萌芽的な",
+    "salubrious — 健康によい",
+    "truculent — 好戦的な",
+    "abstruse — 難解な",
+    "diffident — 自信のない",
+    "erudite — 博識な",
+    "fastidious — 気難しい、細かい",
+    "garrulous — おしゃべりな",
+    "hackneyed — 使い古された",
+    "ineffable — 言葉にできない",
+    "munificent — 気前のよい",
+    "obdurate — 頑固な",
+    "propitious — 幸先のよい",
+    "trenchant — 辛辣で的を射た"
+  ]
+}

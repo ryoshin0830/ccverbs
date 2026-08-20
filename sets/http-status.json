@@ -1,0 +1,41 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "http-status",
+  "name": "HTTP Status Codes",
+  "emoji": "🌐",
+  "description": "Status codes you should stop looking up",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "http",
+    "web",
+    "study"
+  ],
+  "source": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+  "verbs": [
+    "201 Created — 作成した、Location付き",
+    "202 Accepted — 受理したが未完了",
+    "204 No Content — 成功、本文なし",
+    "206 Partial Content — 部分応答",
+    "301 Moved Permanently — 恒久移転",
+    "302 Found — 一時的にそちらへ",
+    "303 See Other — GETで見に行け",
+    "304 Not Modified — 変わっていない",
+    "307 Temporary Redirect — 手法を保つ",
+    "308 Permanent Redirect — 恒久かつ保持",
+    "400 Bad Request — 要求が壊れている",
+    "401 Unauthorized — 未認証",
+    "403 Forbidden — 認証済みだが不許可",
+    "404 Not Found — 見つからない",
+    "405 Method Not Allowed — 手法違い",
+    "409 Conflict — 状態が衝突している",
+    "410 Gone — かつて有ったが消えた",
+    "412 Precondition Failed — 前提不成立",
+    "422 Unprocessable — 意味的に処理不能",
+    "429 Too Many Requests — 過剰な要求",
+    "500 Internal Server Error — 内部障害",
+    "502 Bad Gateway — 上流が壊れた応答",
+    "503 Service Unavailable — 一時停止",
+    "504 Gateway Timeout — 上流が応答せず"
+  ]
+}
