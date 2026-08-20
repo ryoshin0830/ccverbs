@@ -6,14 +6,15 @@ on:
   pull_request:
 
 jobs:
-  test:
+  cli:
+    name: CLI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
@@ -39,10 +40,87 @@ jobs:
       - name: Verify the CLI runs
         run: |
           TESTHOME=$(mktemp -d)
-          mkdir -p "$TESTHOME/.cache/ccverbs"
-          cp sets/index.json "$TESTHOME/.cache/ccverbs/index.json"
+          mkdir -p "$TESTHOME/.ccverbs/cache"
+          cp sets/index.json "$TESTHOME/.ccverbs/cache/index.json"
           HOME=$TESTHOME node dist/cli.js --version
           HOME=$TESTHOME node dist/cli.js list --offline --json > /dev/null
           HOME=$TESTHOME node dist/cli.js set sisyphus --yes --offline --json
           HOME=$TESTHOME node dist/cli.js current --offline --json
+          HOME=$TESTHOME node dist/cli.js config --offline --json
           HOME=$TESTHOME node dist/cli.js reset --yes --offline --json
+
+      - name: Verify the 0.1.0 cache is migrated
+        run: |
+          OLDHOME=$(mktemp -d)
+          mkdir -p "$OLDHOME/.cache/ccverbs"
+          cp sets/index.json "$OLDHOME/.cache/ccverbs/index.json"
+          HOME=$OLDHOME node dist/cli.js list --offline --json > /dev/null
+          test -f "$OLDHOME/.ccverbs/cache/index.json" \
+            || { echo "::error::the 0.1.0 cache was not moved to ~/.ccverbs/cache"; exit 1; }
+          test ! -d "$OLDHOME/.cache/ccverbs" \
+            || { echo "::error::the old cache directory was left behind"; exit 1; }
+
+      - name: Confirm web/ never reaches npm
+        run: |
+          COUNT=$(npm pack --dry-run 2>&1 | grep -c "web/" || true)
+          test "$COUNT" -eq 0 \
+            || { echo "::error::web/ appeared in the npm tarball ($COUNT entries)"; exit 1; }
+
+  web:
+    name: Web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # Deliberately no `npm ci` at the repository root. Lolipop installs only
+      # inside --root web, so there is no node_modules above web/ at build time.
+      # Two deploys failed on exactly that difference — first because ../src was
+      # not uploaded, then because zod could not resolve from ../src. Installing
+      # root dependencies here would hide both classes of failure again.
+      - name: Install (web only, as the deploy does)
+        working-directory: web
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: web
+        run: npm run lint
+
+      - name: Build the way the deploy builds
+        working-directory: web
+        run: npm run build
+
+      - name: Confirm the standalone server is where a host looks for it
+        working-directory: web
+        run: |
+          test -f .next/standalone/server.js \
+            || { echo "::error::expected .next/standalone/server.js — check outputFileTracingRoot"; exit 1; }
+
+      - name: Confirm the page serves
+        working-directory: web
+        run: |
+          node .next/standalone/server.js &
+          SERVER=$!
+          for _ in $(seq 1 30); do
+            curl -sf http://localhost:3000 > /dev/null && break
+            sleep 1
+          done
+          BODY=$(curl -s http://localhost:3000)
+          kill $SERVER || true
+          for MARKER in "ccverbs" "ruler-track" "readout"; do
+            case "$BODY" in
+              *"$MARKER"*) ;;
+              *) echo "::error::the served page is missing $MARKER"; exit 1 ;;
+            esac
+          done
+
+      - name: Confirm no Node built-in is reachable from the browser bundle
+        run: |
+          HITS=$(grep -rE 'from "node:' src/contrib src/registry/width.ts || true)
+          test -z "$HITS" \
+            || { echo "::error::src/contrib reached a Node built-in, which breaks the web build: $HITS"; exit 1; }
