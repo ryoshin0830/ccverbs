@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-lovecraft",
+  "name": "Eldritch",
+  "emoji": "🌑",
+  "description": "Some code was not meant to be read",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "lovecraft",
+    "horror",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "読んではいけないものを読んでいる"
+    }
+  },
+  "verbs": [
+    "The schema was not meant to be read",
+    "Something recurses far below",
+    "The comments have been changed",
+    "It was already here in 1987",
+    "The names are wrong on purpose",
+    "There are more tables than before",
+    "The migration has no author",
+    "Do not open the vendored folder",
+    "The tests pass. That is the problem",
+    "It answers when nothing is called",
+    "The stack goes deeper than the code",
+    "A file that was not there yesterday",
+    "The cursor moves on its own",
+    "Something in the logs is watching",
+    "The dependency has no version",
+    "It compiled. It should not have",
+    "The old maintainer left a note",
+    "Reading it changes the reader",
+    "There is a seventh nested loop",
+    "The build succeeds too easily",
+    "I have seen the final commit",
+    "Do not read the changelog aloud"
+  ]
+}

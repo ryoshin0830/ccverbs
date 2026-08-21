@@ -1,9 +1,147 @@
 {
   "schemaVersion": 1,
   "generatedAt": "1970-01-01T00:00:00.000Z",
-  "totalSets": 21,
-  "totalVerbs": 496,
+  "totalSets": 121,
+  "totalVerbs": 2860,
   "sets": [
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "age-of-sail",
+      "name": "Age of Sail",
+      "emoji": "⛵",
+      "description": "How the world was crossed before engines",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "history",
+        "navigation",
+        "exploration",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "機関の前、世界はどう渡られたか"
+        }
+      },
+      "verbs": [
+        "トルデシリャス条約 — 世界を線で割る",
+        "貿易風 — 行きは追い風に乗る",
+        "偏西風 — 帰りは高緯度を回る",
+        "ヴォルタ・ド・マール — 大回りで帰る",
+        "喜望峰 — 嵐の岬から希望の岬へ",
+        "マゼラン海峡 — 南の細い抜け道",
+        "ガレオン船 — 大砲と積荷を両立する",
+        "キャラベル船 — 小さく、風に強い",
+        "六分儀 — 太陽の高さで緯度を出す",
+        "経度の問題 — 正確な時計が要った",
+        "クロノメーター — 海上で経度を解く",
+        "壊血病 — ビタミンCの不足で死ぬ",
+        "ライム — 英海軍が積んだ対策",
+        "海図 — 測って、書き足していく",
+        "推測航法 — 速度と時間で位置を推す",
+        "ログライン — 縄を流して速さを測る",
+        "喫水 — どこまで沈むかを示す線",
+        "私掠免許 — 国が海賊を公認する",
+        "三角貿易 — 人と砂糖と工業品",
+        "香辛料諸島 — クローブとナツメグ",
+        "銀の道 — ポトシからマニラへ",
+        "東インド会社 — 国家に近い商社",
+        "単縦陣 — 縦一列に並んで撃ち合う",
+        "フナクイムシ — 木の船を内から食う"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "aws-services",
+      "name": "AWS Services",
+      "emoji": "🌐",
+      "description": "What each service is actually for, in one line",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "aws",
+        "cloud",
+        "infra",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "AWSの各サービスが何のためにあるか"
+        }
+      },
+      "verbs": [
+        "S3 — 容量無制限の物置き場",
+        "EC2 — 仮想サーバを時間で借りる",
+        "Lambda — 関数だけ置いて動かす",
+        "ECS Fargate — 容器だけ動かす",
+        "EKS — managed な Kubernetes",
+        "RDS — 運用込みの関係データベース",
+        "Aurora — 分離設計のMySQL互換",
+        "DynamoDB — キーで引く、結合はしない",
+        "ElastiCache — RedisやMemcached",
+        "SQS — 順不同で確実に届ける",
+        "SNS — 一斉に配信して回る",
+        "EventBridge — 出来事で繋ぐ",
+        "Step Functions — 手順を状態機械に",
+        "Kinesis — 流れ続けるデータを捌く",
+        "API Gateway — 入口と認可を担う",
+        "CloudFront — 端末に近い所で配る",
+        "Route 53 — DNSと重み付き振り分け",
+        "ALB — L7で経路を振り分ける",
+        "NLB — L4のまま高速に流す",
+        "NAT Gateway — 外向きだけを通す",
+        "VPC Endpoint — 外に出ずに繋ぐ",
+        "IAM Role — 鍵を持たず権限を得る",
+        "KMS — 鍵を預けて封をする",
+        "Athena — S3にSQLを投げる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "bakumatsu",
+      "name": "Bakumatsu",
+      "emoji": "🌅",
+      "description": "The people who moved the last years of the shogunate",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "history",
+        "japan",
+        "bakumatsu",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "幕末を動かした面々"
+        }
+      },
+      "verbs": [
+        "勝海舟 — 江戸を戦火の外に置く",
+        "小栗忠順 — 横須賀に造船所を残す",
+        "井伊直弼 — 開国し、桜田門で斃れる",
+        "吉田松陰 — 松下村塾で人を作る",
+        "高杉晋作 — 奇兵隊で長州を返す",
+        "久坂玄瑞 — 禁門の変に散る",
+        "桂小五郎 — 逃げ続けて生き延びる",
+        "西郷隆盛 — 江戸城を無血で開く",
+        "大久保利通 — 廃藩置県を押し通す",
+        "坂本龍馬 — 薩長を繋ぎ、船を出す",
+        "中岡慎太郎 — 陸援隊を率いる",
+        "岩倉具視 — 王政復古の大号令",
+        "三条実美 — 七卿落ちで西へ下る",
+        "徳川慶喜 — 大政奉還で先手を打つ",
+        "松平容保 — 京都守護職を担う",
+        "近藤勇 — 新選組を率いて京を巡る",
+        "土方歳三 — 函館まで退いて果てる",
+        "沖田総司 — 病に伏せ、江戸で死す",
+        "河井継之助 — 長岡で中立を諮る",
+        "山内容堂 — 公議政体論を唱える",
+        "島津久光 — 兄の路線を継いで上洛",
+        "孝明天皇 — 攘夷を望み、急逝する",
+        "ハリス — 通商条約を結ばせる",
+        "パークス — 英公使、薩長に寄る"
+      ]
+    },
     {
       "$schema": "../schema/verb-set.schema.json",
       "id": "bigo",
@@ -47,6 +185,608 @@
         "memoization — 一度解いたら覚える",
         "DP — 部分問題を積み上げる",
         "greedy — 局所最適を信じる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "c-pointers",
+      "name": "C Pointers",
+      "emoji": "📌",
+      "description": "Pointers and the undefined behaviour that follows them",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "c",
+        "pointer",
+        "memory",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ポインタと、その先にある未定義動作"
+        }
+      },
+      "verbs": [
+        "char *p — 指す先は誰のものか",
+        "*p — 参照して中身を取り出す",
+        "&x — 変数の住所を取る",
+        "p + 1 — 型のサイズ分だけ進む",
+        "p[i] — *(p + i) の別表記",
+        "const char *p — 中身は変えない",
+        "char *const p — 指す先を変えない",
+        "void * — 型を忘れた住所",
+        "NULL参照 — 未定義動作、即座に死ぬ",
+        "dangling pointer — 死んだ先を指す",
+        "use after free — 解放後に触る",
+        "double free — 二度解放して壊れる",
+        "malloc — 確保、中身は不定のまま",
+        "calloc — 確保してゼロで埋める",
+        "realloc — 移る事があるので再代入",
+        "sizeof(p) — 配列ではなく住所の幅",
+        "配列の減退 — 渡すと住所に成り下がる",
+        "strncpy — 終端が付かない事がある",
+        "restrict — 別名は無いと約束する",
+        "alignment — 境界を跨ぐと壊れる",
+        "strict aliasing — 型を偽ると壊れる",
+        "関数ポインタ — 呼び先を差し替える",
+        "flexible array member — 末尾に伸ばす",
+        "valgrind — 触れない所を触ると鳴る"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "compiler-phases",
+      "name": "Compilers",
+      "emoji": "🏭",
+      "description": "From characters to machine code, phase by phase",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "compiler",
+        "optimization",
+        "language",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "文字から機械語まで、段ごとに"
+        }
+      },
+      "verbs": [
+        "字句解析 — 文字を語に切り分ける",
+        "構文解析 — 語を木に組み上げる",
+        "AST — 構文の形を残した木",
+        "意味解析 — 型と名前を解決する",
+        "シンボル表 — 名前の住所録",
+        "スコープ解決 — どの宣言を指すか",
+        "型推論 — 書かれていない型を導く",
+        "単一化 — 型の等式を解いていく",
+        "中間表現 — 機械にも人にも近い形",
+        "SSA — 一度だけ代入される形",
+        "φ関数 — 合流点で値を選ぶ",
+        "定数畳み込み — 先に計算しておく",
+        "到達不能除去 — 届かない所を消す",
+        "共通部分式除去 — 二度計算しない",
+        "インライン展開 — 呼び出しを埋める",
+        "ループ不変式移動 — 外に追い出す",
+        "強度低減 — 掛け算を足し算に直す",
+        "レジスタ割当 — 彩色問題として解く",
+        "スピル — 溢れて記憶に落とす",
+        "命令選択 — 木を命令列に落とす",
+        "命令並べ替え — 隙間を埋めて詰める",
+        "末尾呼出最適化 — 積みを伸ばさない",
+        "JIT — 走らせながら最適化する",
+        "リンク時最適化 — 全体を見て削る"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "computing-history",
+      "name": "Computing History",
+      "emoji": "💾",
+      "description": "The milestones your whole stack is standing on",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "history",
+        "computing",
+        "technology",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "今のスタックが立っている土台の歴史"
+        }
+      },
+      "verbs": [
+        "Analytical Engine — 構想だけで終わる",
+        "Ada Lovelace — 最初の算法を書く",
+        "Hollerith — 穿孔カードで国勢調査",
+        "Turing machine — 計算とは何かの定義",
+        "Colossus — 暗号解読のための電子機",
+        "ENIAC — 配線を差し替えて組んだ",
+        "von Neumann型 — 命令もデータも記憶",
+        "トランジスタ — 真空管を置き換える",
+        "IC — 一枚に回路を詰め込む",
+        "COBOL — 事務処理を英語風に書く",
+        "FORTRAN — 数値計算のための最初",
+        "LISP — 括弧と再帰で世界を作る",
+        "IBM System/360 — 互換の系列を作る",
+        "Moore の法則 — 二年で二倍に増える",
+        "ARPANET — 4ノードから始まる",
+        "TCP/IP — 網と網を繋ぐための約束",
+        "Ethernet — 同じ線を皆で使い合う",
+        "Alto — 窓と鼠を先に見せた機械",
+        "Apple II — 家庭に計算機が入る",
+        "IBM PC — 互換機が市場を作る",
+        "WWW — 文書を繋ぐだけの発明",
+        "Mosaic — 絵の出る閲覧器が広める",
+        "Linux 0.01 — 趣味として公開される",
+        "iPhone — 電話が計算機に替わる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "constellations",
+      "name": "Constellations",
+      "emoji": "✨",
+      "description": "Which star to look for, and where it points",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "astronomy",
+        "star",
+        "constellation",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "どの星を探すか、それが何を指すか"
+        }
+      },
+      "verbs": [
+        "Ursa Major — 北斗七星を含む大熊",
+        "Ursa Minor — Polaris が尾の先",
+        "Cassiopeia — W の形で北を指す",
+        "Cygnus — 白鳥、Deneb が尾にある",
+        "Lyra — 琴、Vega が夏の頂点",
+        "Aquila — 鷲、Altair が明るい",
+        "夏の大三角 — Vega, Deneb, Altair",
+        "Orion — Betelgeuse と Rigel",
+        "冬の大三角 — Sirius を含む三つ",
+        "Canis Major — Sirius が最も明るい",
+        "Taurus — Aldebaran と昴の群れ",
+        "Pleiades — 六つ見えれば目は良い",
+        "Gemini — Castor と Pollux が並ぶ",
+        "Leo — Regulus、獅子の心臓",
+        "Virgo — Spica、真珠の白い星",
+        "Scorpius — Antares は赤く脈打つ",
+        "Sagittarius — 銀河の中心を向く",
+        "Crux — 南天の十字、南極を指す",
+        "Centaurus — 最も近い恒星がある",
+        "Andromeda — 隣の銀河が肉眼で見え",
+        "Draco — 昔の北極星はここに居た",
+        "Cepheus — 周期と明るさの関係",
+        "Perseus — 八月に流星が集まる",
+        "Corona Borealis — 半円に並ぶ冠"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "cpu-cache",
+      "name": "CPU and Cache",
+      "emoji": "⚡",
+      "description": "Why the same code runs ten times faster",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "cpu",
+        "cache",
+        "performance",
+        "architecture",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "同じコードが10倍速くなる理由"
+        }
+      },
+      "verbs": [
+        "L1 / L2 / L3 — 近いほど速く小さい",
+        "cache line — 64バイト単位で運ぶ",
+        "空間的局所性 — 隣も一緒に来る",
+        "時間的局所性 — さっき触った物は速い",
+        "cache miss — 主記憶まで取りに行く",
+        "false sharing — 同じ行を取り合う",
+        "prefetch — 先に運んでおく",
+        "分岐予測 — 先に進んでおく",
+        "予測ミス — 巻き戻して数十サイクル",
+        "投機実行 — 確定する前に走らせる",
+        "パイプライン — 段に分けて重ねる",
+        "スーパースカラ — 同時に複数を出す",
+        "順序外実行 — 順を入れ替えて詰める",
+        "SIMD — 一命令で複数を計算する",
+        "NUMA — 遠いメモリは目に見えて遅い",
+        "メモリ帯域 — 運べる量の上限",
+        "遅延と処理量 — 別々に効く指標",
+        "AoS と SoA — 並べ方で速さが変わる",
+        "アライメント — 境界に揃えて置く",
+        "atomic — バス上で不可分に行う",
+        "memory barrier — 順序を強制する",
+        "store buffer — 書きを溜めて流す",
+        "MESI — 行の状態で一貫性を保つ",
+        "IPC — 1サイクルで何命令進むか"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "css-layout",
+      "name": "CSS Layout",
+      "emoji": "🎨",
+      "description": "The Flexbox and Grid values you actually reach for",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "css",
+        "flexbox",
+        "grid",
+        "layout",
+        "study"
+      ],
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "i18n": {
+        "ja": {
+          "description": "実際に手が伸びるFlexboxとGridの値"
+        }
+      },
+      "verbs": [
+        "display: flex — 主軸に一列で並ぶ",
+        "flex: 1 1 0 — 均等に伸び縮みする",
+        "flex-basis — 伸縮前の基準サイズ",
+        "flex-shrink: 0 — 縮ませない",
+        "gap — 隙間だけを与える",
+        "align-items — 交差軸で揃える",
+        "justify-content — 主軸に配る",
+        "align-self — 一つだけ例外にする",
+        "flex-wrap — 溢れたら折り返す",
+        "min-width: 0 — 縮まない事故を直す",
+        "grid-template-columns — 列を決める",
+        "repeat(auto-fill, minmax()) — 自動列",
+        "1fr — 余りを分け合う単位",
+        "grid-template-areas — 名前で配置",
+        "grid-auto-flow: dense — 隙間を埋める",
+        "place-items — 縦横まとめて中央",
+        "aspect-ratio — 比率で高さを決める",
+        "position: sticky — 端で貼り付く",
+        "inset — 上下左右をまとめて指定",
+        "z-index — 重なりは文脈の中だけ",
+        "stacking context — 重なりの島を作る",
+        "margin collapse — 隣接して潰れる",
+        "container query — 親の幅で切り替え",
+        "subgrid — 親の線をそのまま使う"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "css-selectors",
+      "name": "CSS Selectors",
+      "emoji": "🧷",
+      "description": "The selectors you look up every single time",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "css",
+        "selector",
+        "frontend",
+        "study"
+      ],
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors",
+      "i18n": {
+        "ja": {
+          "description": "毎回引き直しているセレクタ"
+        }
+      },
+      "verbs": [
+        ":has() — 子を条件に親を選ぶ",
+        ":is() — まとめても詳細度は最強",
+        ":where() — まとめて詳細度ゼロ",
+        ":not() — 除くが詳細度は上がる",
+        ":nth-child(2n+1) — 奇数番目",
+        ":nth-of-type — 同じ要素名で数える",
+        ":nth-last-child — 後ろから数える",
+        ":first-of-type — その型の最初",
+        ":only-child — 兄弟が居ない時だけ",
+        ":empty — 中身が全く無い要素",
+        "A > B — 直下の子だけ",
+        "A + B — 直後の兄弟だけ",
+        "A ~ B — 後ろの兄弟すべて",
+        "[attr^=v] — 前方一致",
+        "[attr$=v] — 後方一致",
+        "[attr*=v] — 部分一致",
+        "[attr~=v] — 空白区切りの一語",
+        "[attr=v i] — 大文字小文字を無視",
+        "::before — 中身の前に生やす",
+        "::marker — リストの印を飾る",
+        "::selection — 選択中の見た目",
+        ":focus-visible — 鍵盤操作の時だけ",
+        ":target — URLの断片が指す先",
+        "詳細度 — id > class > 要素の順"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "datetime-pitfalls",
+      "name": "Date and Time",
+      "emoji": "⏰",
+      "description": "Every way a timestamp can ruin your week",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "datetime",
+        "timezone",
+        "iso8601",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "日時実装が壊れる道筋を先に知る"
+        }
+      },
+      "verbs": [
+        "UTC で保存 — 表示だけ現地に直す",
+        "タイムゾーン — 場所ではなく規則",
+        "Asia/Tokyo — 地名で持つ、+09 は不可",
+        "DST — 存在しない時刻が生まれる",
+        "DST の戻り — 同じ時刻が二度来る",
+        "うるう秒 — 61秒目がある日",
+        "うるう年 — 400年に一度の例外",
+        "ISO 8601 — 2026-08-21T12:00:00Z",
+        "RFC 3339 — ISO のうち厳しい方",
+        "epoch秒 — 1970年からの通算",
+        "ミリ秒とマイクロ秒 — 桁を間違える",
+        "2038年問題 — 32bit の秒が溢れる",
+        "月末加算 — 1月31日 + 1月は何日か",
+        "毎日9時の予定 — 実時間ではずれる",
+        "期間と時刻 — 足せる物と足せない物",
+        "壁時計と単調時計 — 計測は後者で",
+        "NTP の巻き戻り — 時間が逆流する",
+        "12AM — 正午ではなく深夜のこと",
+        "週の始まり — 日曜か月曜かで変わる",
+        "ISO 週番号 — 年をまたぐ週がある",
+        "和暦の改元 — 境界の日を跨ぐ",
+        "オフセット履歴 — 過去の規則も要る",
+        "文字列で並べる — ゼロ埋めが前提",
+        "tzdata 更新 — 規則は政治で変わる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "deep-sea",
+      "name": "Deep Sea Life",
+      "emoji": "🐙",
+      "description": "What lives where the light does not reach",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "biology",
+        "ocean",
+        "deep-sea",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "光の届かない所に何が住んでいるか"
+        }
+      },
+      "verbs": [
+        "熱水噴出孔 — 光の要らない生態系",
+        "チューブワーム — 硫化水素で生きる",
+        "ダイオウイカ — 眼は直径 25cm",
+        "ダイオウホウズキイカ — 更に重い",
+        "チョウチンアンコウ — 光で誘い込む",
+        "デメニギス — 頭が透け、眼は上向き",
+        "ラブカ — 六対の鰓を持つ古い鮫",
+        "ミツクリザメ — 顎が飛び出して咬む",
+        "オオグチボヤ — 口を開けて待つだけ",
+        "コウモリダコ — 吸血鬼の名を持つ",
+        "クラゲノミ — 宿主を乗っ取って進む",
+        "ユメナマコ — 半透明で泳ぐナマコ",
+        "センジュエビ — 深海の岩場に潜む",
+        "ダンボオクトパス — 耳のような鰭",
+        "シンカイクサウオ — 8000m に居る",
+        "ダイオウグソクムシ — 数年食べない",
+        "マリアナスネイルフィッシュ — 最深",
+        "生物発光 — 深海では光が言葉になる",
+        "対向発光 — 腹を光らせて影を消す",
+        "マリンスノー — 上から降ってくる糧",
+        "鯨骨群集 — 骨一つで何十年も続く",
+        "巨大化 — 冷たく深いほど大きくなる",
+        "圧力適応 — TMAO で蛋白を守る",
+        "無光層 — 200m より下はもう暗い"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "design-patterns",
+      "name": "Design Patterns",
+      "emoji": "🧩",
+      "description": "GoF and the patterns that outlived it",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "design-pattern",
+        "gof",
+        "architecture",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "GoFと、その後も生き残ったパターン"
+        }
+      },
+      "verbs": [
+        "Strategy — 差分だけ差し替える",
+        "Adapter — 形の違いを吸収する",
+        "Facade — 複雑さの前に一枚置く",
+        "Decorator — 包んで機能を足す",
+        "Proxy — 手前で受けて代理する",
+        "Composite — 木も葉も同じ扱いに",
+        "Observer — 変化を購読者に配る",
+        "Command — 操作を物として渡す",
+        "Template Method — 骨組みを継がせる",
+        "State — 状態ごとに振る舞いを持つ",
+        "Visitor — 型ごとの処理を外に出す",
+        "Iterator — 内部構造を隠して回す",
+        "Builder — 段階を追って組み立てる",
+        "Factory Method — 生成を子に任せる",
+        "Abstract Factory — 一族ごと替える",
+        "Singleton — 一つに絞る、試験は困る",
+        "Flyweight — 同じ物を共有して軽く",
+        "Memento — 状態を保存して戻す",
+        "Chain of Responsibility — 順に投げる",
+        "Mediator — 相互参照を仲介に寄せる",
+        "Null Object — 何もしない実装を置く",
+        "Repository — 永続化を境界の外へ",
+        "Dependency Injection — 外から渡す",
+        "依存性逆転 — 抽象に向けて依存する"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "dinosaurs",
+      "name": "Dinosaurs",
+      "emoji": "🦕",
+      "description": "What each one actually was, once the fossils spoke",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "dinosaur",
+        "paleontology",
+        "science",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "化石が語った、本当の姿"
+        }
+      },
+      "verbs": [
+        "Deinonychus — 温血説の出発点",
+        "Velociraptor — 実物は七面鳥ほど",
+        "Tyrannosaurus — 咬む力が桁違い",
+        "Spinosaurus — 半水生だった可能性",
+        "Allosaurus — ジュラ紀の主な捕食者",
+        "Brachiosaurus — 前肢が後肢より長い",
+        "Argentinosaurus — 最も重い候補",
+        "Diplodocus — 尾を鞭のように振る",
+        "Triceratops — 角と襟飾りで身を守る",
+        "Stegosaurus — 背の板で熱を逃がす",
+        "Ankylosaurus — 尾の棍棒で殴る",
+        "Parasaurolophus — 管で低い音を出す",
+        "Iguanodon — 最初に見つかった一群",
+        "Archaeopteryx — 羽毛と歯を併せ持つ",
+        "Microraptor — 四枚の翼で滑空する",
+        "Therizinosaurus — 最も長い爪を持つ",
+        "Oviraptor — 卵泥棒は誤解だった",
+        "Maiasaura — 巣で子を育てた証拠",
+        "Sinosauropteryx — 羽毛の色が判った",
+        "Pachycephalosaurus — 頭で押し合う",
+        "Gigantoraptor — 巨大な羽毛の獣脚類",
+        "Mosasaurus — 恐竜ではなく海の爬虫",
+        "Pteranodon — 恐竜ではなく翼竜",
+        "K-Pg境界 — 6600万年前の、ある一日"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "distributed-systems",
+      "name": "Distributed Systems",
+      "emoji": "🔗",
+      "description": "The inconvenient truths of more than one machine",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "distributed",
+        "consensus",
+        "cap",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "台数が増えた瞬間に始まる不都合"
+        }
+      },
+      "verbs": [
+        "CAP — 分断時に一貫性か可用性か",
+        "quorum — 過半数で決める",
+        "R + W > N — 読み書きを重ねる",
+        "split brain — 双方が主だと思う",
+        "リーダー選出 — 一人に決めて進む",
+        "Raft — 任期と多数決で合意する",
+        "Paxos — まず提案番号を確保する",
+        "2PC — 全員の同意を待って確定",
+        "3PC — 待ちは減るが完全ではない",
+        "Saga — 補償取引で巻き戻す",
+        "冪等性 — 何度来ても同じ結果に",
+        "at-least-once — 重複はあり得る",
+        "at-most-once — 落ちる事はある",
+        "exactly-once — 端まで含めれば幻",
+        "結果整合性 — いつかは揃う",
+        "read-your-writes — 自分の書きは見える",
+        "線形化可能性 — 一列に並べて語れる",
+        "ベクタークロック — 前後関係を残す",
+        "Lamport clock — 順序だけを付ける",
+        "一貫ハッシュ — 増減の影響を狭める",
+        "ハートビート — 生存を周期で確かめる",
+        "分断 — 遅いのと死んだのは同じ顔",
+        "背圧 — 詰まりを上流に返す",
+        "指数バックオフ — 間隔を広げて再試"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "dns-records",
+      "name": "DNS Records",
+      "emoji": "📡",
+      "description": "Record types and why propagation takes so long",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "dns",
+        "network",
+        "record",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "レコード種別と、伝播が遅い理由"
+        }
+      },
+      "verbs": [
+        "A — 名前をIPv4に対応させる",
+        "AAAA — 名前をIPv6に対応させる",
+        "CNAME — 別名、頂点には置けない",
+        "ALIAS — 頂点でも別名を張れる",
+        "NS — 権限を下位に委譲する",
+        "SOA — ゾーンの起点と更新間隔",
+        "MX — メールの宛先と優先度",
+        "TXT — 任意の文字列を置く",
+        "SPF — 送ってよい元を宣言する",
+        "DKIM — 署名の検証鍵を置く",
+        "DMARC — 失敗時の扱いを決める",
+        "SRV — サービスの host と port",
+        "PTR — IPから名前を逆に引く",
+        "CAA — 発行できるCAを限る",
+        "TTL — キャッシュが残る秒数",
+        "negative TTL — 不在も覚えられる",
+        "glue record — 委譲先のIPを添える",
+        "再帰問い合わせ — 代わりに辿らせる",
+        "権威サーバ — 答えを持っている側",
+        "ゾーン転送 — AXFRで丸ごと写す",
+        "DNSSEC — 応答に署名して守る",
+        "ワイルドカード — *.example の受け皿",
+        "split horizon — 内と外で別の答え",
+        "dig +trace — 根から順に辿らせる"
       ]
     },
     {
@@ -96,6 +836,52 @@
     },
     {
       "$schema": "../schema/verb-set.schema.json",
+      "id": "en-code-review",
+      "name": "Code Review English",
+      "emoji": "📝",
+      "description": "What reviewers actually type, and what it means",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "english",
+        "code-review",
+        "phrase",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "レビューで実際に打たれる言い回し"
+        }
+      },
+      "verbs": [
+        "nit: — 些細だが気になる点",
+        "Not blocking, but — 止めはしない",
+        "LGTM — 見た、これで問題ない",
+        "LGTM with a caveat — 一点だけ留保",
+        "Could we — 提案の柔らかい形",
+        "Have you considered — 検討したか",
+        "What's the reasoning — 意図を訊く",
+        "This is out of scope — 別のPRで",
+        "Let's punt on this — 今回は見送る",
+        "I'd lean toward — どちらかと言えば",
+        "Feel free to ignore — 無視して良い",
+        "Just to be clear — 念のため確かめる",
+        "Correct me if I'm wrong — 違えば訂正",
+        "As discussed offline — 別途話した通り",
+        "Following up on — 前回の続きとして",
+        "Good catch — よく気付いてくれた",
+        "TIL — 知らなかった、勉強になった",
+        "Fair enough — 納得した、それで良い",
+        "Let's revisit later — 後で見直そう",
+        "Blocking: — これは直してから通す",
+        "Can you add a test — 試験を足せるか",
+        "This will bite us later — 後で刺される",
+        "Nice cleanup — 綺麗になった",
+        "Ship it — もう出してしまおう"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
       "id": "en-cyberpunk",
       "name": "Cyberpunk",
       "emoji": "🌃",
@@ -135,6 +921,179 @@
         "Fading into the crowd",
         "Reading the neon",
         "Rebooting the implant"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-dnd",
+      "name": "Tabletop RPG",
+      "emoji": "🎲",
+      "description": "Dice, rules arguments, and one very long session",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "dnd",
+        "tabletop",
+        "rpg",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ダイスと判定、そして長い一晩"
+        }
+      },
+      "verbs": [
+        "Rolling for initiative",
+        "Nat 20 on the refactor",
+        "That's a critical fail, sorry",
+        "Rolling perception on the diff",
+        "Advantage: you read the docs",
+        "Disadvantage: it is Friday",
+        "The DM is checking a rule",
+        "Are you sure you want to do that",
+        "Everyone roll a saving throw",
+        "The rogue went off on their own",
+        "You hear something in the logs",
+        "Marking off one spell slot",
+        "It's a trap. Obviously a trap",
+        "Rolling to disbelieve the output",
+        "The party is arguing again",
+        "Taking a short rest here",
+        "Long rest. We continue Tuesday",
+        "The bard tries to talk to it",
+        "That's not how the spell works",
+        "Add your proficiency bonus",
+        "You gain a level. Barely",
+        "Session ends on a cliffhanger"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-er",
+      "name": "Emergency Room",
+      "emoji": "🩺",
+      "description": "The order the room actually works in",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "medical",
+        "emergency",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "初療室が実際に動く順序"
+        }
+      },
+      "verbs": [
+        "Two large-bore lines in",
+        "Vitals holding for now",
+        "Pressure is eighty over forty",
+        "Push a litre, wide open",
+        "Get me a gas and a lactate",
+        "Airway first. Always first",
+        "Bag them, twelve a minute",
+        "Sats coming up, ninety four",
+        "Cross-match four units",
+        "Where is the ultrasound",
+        "Stop compressions. Check rhythm",
+        "Resume. Two minutes on the clock",
+        "Charging to two hundred",
+        "Clear. Everybody clear",
+        "We have a rhythm back",
+        "Get the family, quietly",
+        "Call the surgeon now",
+        "They're going to theatre",
+        "Next patient. Bay four",
+        "Somebody chart all of that",
+        "Nice work. Everyone breathe",
+        "Twelve hours down, six to go"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-f1-pit",
+      "name": "F1 Pit Wall",
+      "emoji": "🏁",
+      "description": "Team radio, clipped and urgent",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "f1",
+        "motorsport",
+        "radio",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "短く、切迫しているチーム無線"
+        }
+      },
+      "verbs": [
+        "Box this lap, box box",
+        "Tyres are coming to you",
+        "Push now, push now",
+        "Gap to the car ahead: two four",
+        "You are clear to overtake",
+        "Mode push, mode push",
+        "Lift and coast into turn one",
+        "We are managing the tyres",
+        "Front left is going off",
+        "Yellow flag, sector three",
+        "Safety car deployed",
+        "Stay out. Repeat, stay out",
+        "Plan B. Confirm plan B",
+        "Delta positive, keep it there",
+        "Watch the traffic ahead",
+        "That is a strong lap",
+        "Purple in sector two",
+        "Fuel is on target",
+        "Brake bias two clicks back",
+        "Check the mirrors, they're close",
+        "Bring it home now",
+        "Well done. Great job everyone"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-golf-whisper",
+      "name": "Golf Commentary",
+      "emoji": "⛳",
+      "description": "Hushed, reverent, occasionally devastating",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "golf",
+        "commentary",
+        "calm",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "小声で、敬虔で、時々辛辣な中継"
+        }
+      },
+      "verbs": [
+        "A delicate lie, this one",
+        "They'll want to lay up here",
+        "Quiet, please. They're over it",
+        "That is a big ask from there",
+        "Just short. Just short",
+        "Oh, that is lovely",
+        "They won't like that at all",
+        "A little draw into the slope",
+        "The wind is off the left",
+        "Downhill, and quick",
+        "Taking their time now",
+        "Straight up the hill, this",
+        "It's got a chance, you know",
+        "Never a doubt",
+        "That'll do. That'll do nicely",
+        "Two putts from here, surely",
+        "Oh dear. Oh dear me",
+        "Found the bunker again",
+        "A tidy up and down",
+        "And that is the tournament"
       ]
     },
     {
@@ -185,6 +1144,359 @@
     },
     {
       "$schema": "../schema/verb-set.schema.json",
+      "id": "en-heist",
+      "name": "Heist",
+      "emoji": "💼",
+      "description": "Casing it, cutting the line, and improvising",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "heist",
+        "crime",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "下見、線を切る、そして即興"
+        }
+      },
+      "verbs": [
+        "Casing the vault, quietly",
+        "The inside man is late",
+        "Walking the route once more",
+        "Copying the keycard tonight",
+        "The camera loops every ninety",
+        "Two minutes on the alarm",
+        "The safe is older than the file",
+        "Drilling on the second mark",
+        "Nobody moves until the lights",
+        "Cutting the line now",
+        "Guard change in forty seconds",
+        "We are inside. Start the clock",
+        "This was not in the blueprints",
+        "Improvising. Stay with me",
+        "Bag it. Leave the rest",
+        "Someone tripped the second one",
+        "Out the service corridor",
+        "The driver is circling",
+        "Split up. Meet at the boat",
+        "Nobody knows anybody here",
+        "Burn the plans, all of them",
+        "One last job, they always say"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-kitchen",
+      "name": "Restaurant Kitchen",
+      "emoji": "🔪",
+      "description": "Service, called out across a hot line",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "kitchen",
+        "chef",
+        "food",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "熱い厨房で飛び交う掛け声"
+        }
+      },
+      "verbs": [
+        "Yes chef, two minutes out",
+        "Firing table nine",
+        "Ordering three, away two",
+        "Behind you, hot pan",
+        "Corner. Coming through",
+        "How long on the sauce",
+        "That plate is going out cold",
+        "Wipe the rim. Every time",
+        "Taste it before it leaves",
+        "Reduce it by half, no more",
+        "Rest the meat. Do not cut yet",
+        "Season in layers, not at once",
+        "Mise is not ready. Fix it",
+        "Sharpen it, then come back",
+        "One in, one out. Keep moving",
+        "Re-fire the fish, all day two",
+        "Walk in the special",
+        "Hands. I need hands here",
+        "Heard. Two minutes",
+        "All day: six covers, one veg",
+        "Service is done. Clean down",
+        "Same time tomorrow, chef"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-latin-phrases",
+      "name": "Latin in English",
+      "emoji": "📜",
+      "description": "The Latin that never left English prose",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "english",
+        "latin",
+        "vocabulary",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "英文に残り続けているラテン語"
+        }
+      },
+      "verbs": [
+        "de facto — 事実上の",
+        "de jure — 法律上の",
+        "ad hoc — その場しのぎの",
+        "ad hominem — 論ではなく人を攻める",
+        "a priori — 経験に先立って",
+        "a posteriori — 経験を経た後から",
+        "prima facie — 一見したところでは",
+        "caveat — 但し書き、留保",
+        "caveat emptor — 買主の責任で",
+        "status quo — 現状のまま",
+        "quid pro quo — 見返りとして",
+        "per se — それ自体としては",
+        "vice versa — 逆もまた同じ",
+        "ergo — したがって",
+        "et al. — 他の著者たち",
+        "ibid. — 前掲書の同じ箇所",
+        "i.e. — すなわち、言い換えれば",
+        "e.g. — 例えば",
+        "sic — 原文のまま、誤りも含め",
+        "bona fide — 誠実な、正真の",
+        "carte blanche — 白紙のまま委ねる",
+        "modus operandi — やり口、手口",
+        "non sequitur — 話が繋がっていない",
+        "in situ — 元の場所のままで"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-lovecraft",
+      "name": "Eldritch",
+      "emoji": "🌑",
+      "description": "Some code was not meant to be read",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "lovecraft",
+        "horror",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "読んではいけないものを読んでいる"
+        }
+      },
+      "verbs": [
+        "The schema was not meant to be read",
+        "Something recurses far below",
+        "The comments have been changed",
+        "It was already here in 1987",
+        "The names are wrong on purpose",
+        "There are more tables than before",
+        "The migration has no author",
+        "Do not open the vendored folder",
+        "The tests pass. That is the problem",
+        "It answers when nothing is called",
+        "The stack goes deeper than the code",
+        "A file that was not there yesterday",
+        "The cursor moves on its own",
+        "Something in the logs is watching",
+        "The dependency has no version",
+        "It compiled. It should not have",
+        "The old maintainer left a note",
+        "Reading it changes the reader",
+        "There is a seventh nested loop",
+        "The build succeeds too easily",
+        "I have seen the final commit",
+        "Do not read the changelog aloud"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-mission-control",
+      "name": "Mission Control",
+      "emoji": "🚀",
+      "description": "Launch control radio traffic, calm to the last second",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "space",
+        "nasa",
+        "radio",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "最後まで淡々としている打ち上げ管制"
+        }
+      },
+      "verbs": [
+        "Go for main engine start",
+        "Telemetry is nominal",
+        "T minus ten and counting",
+        "All stations, report status",
+        "Guidance, go. Propulsion, go",
+        "We are go for the sequence",
+        "Holding at T minus four",
+        "Recycling the count",
+        "Stand by for separation",
+        "Confirming a good burn",
+        "Trajectory looks clean",
+        "We have acquisition of signal",
+        "Loss of signal, as expected",
+        "Standing by to reacquire",
+        "Flight, we have a caution",
+        "Working the checklist now",
+        "That is one for the books",
+        "Copy that, we see it too",
+        "Say again your last",
+        "Everything is in the green",
+        "Handing over to the next shift",
+        "Nominal. Repeat, nominal"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-nature-doc",
+      "name": "Nature Documentary",
+      "emoji": "🦒",
+      "description": "Narrated slowly, over footage of something waiting",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "documentary",
+        "nature",
+        "calm",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "何かが待っている映像に、静かな語り"
+        }
+      },
+      "verbs": [
+        "The process waits, patiently",
+        "Here, the loop must feed",
+        "Few survive the first pass",
+        "It has done this before",
+        "The season of merges begins",
+        "One by one, they return home",
+        "The older one watches, and waits",
+        "Nothing moves. Then, everything",
+        "This is the only chance it gets",
+        "The young one tries again",
+        "Instinct, not understanding",
+        "Deep in the dependency tree",
+        "It will not eat again for days",
+        "The colony has its own logic",
+        "A thousand of them. One survives",
+        "Remarkably, it still works",
+        "For now, the balance holds",
+        "The rains are coming",
+        "It leaves no trace behind",
+        "And so the cycle begins again",
+        "Life, it seems, finds a way",
+        "But that is another story"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-noir",
+      "name": "Hardboiled Noir",
+      "emoji": "🚬",
+      "description": "First person, raining, nobody is clean",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "noir",
+        "english",
+        "detective"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "雨の街、一人称、誰も潔白ではない"
+        }
+      },
+      "verbs": [
+        "The stack trace smelled like rain",
+        "Somebody lied in this diff",
+        "It was a Tuesday kind of bug",
+        "The logs kept their mouths shut",
+        "Every function had an alibi",
+        "The nil came in through the back",
+        "Nobody in this repo is clean",
+        "I lit a cigarette and waited",
+        "They said the build was fine",
+        "The tests were paid to look away",
+        "I followed the pointer downtown",
+        "It dead-ended in a null",
+        "The cache had been wiped clean",
+        "Third floor, no lift, no docs",
+        "Somebody's been here before me",
+        "The commit message was a lie",
+        "Money always leaves a trace",
+        "I knew the type - a singleton",
+        "The city never frees its memory",
+        "Rain on the window, no signal",
+        "I found it where I left it",
+        "Case closed. Nobody thanked me"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-phrasal-verbs",
+      "name": "Phrasal Verbs",
+      "emoji": "📘",
+      "description": "The phrasal verbs that carry business English",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "english",
+        "phrasal-verb",
+        "vocabulary",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ビジネス英語を支えている句動詞"
+        }
+      },
+      "verbs": [
+        "iron out — 問題を平らにならす",
+        "bank on — 当てにする、頼りにする",
+        "pin down — 特定してはっきりさせる",
+        "put off — 延期する、後回しにする",
+        "call off — 中止する、取り消す",
+        "carry out — 実行する、遂行する",
+        "come up with — 思い付く、考え出す",
+        "figure out — 理解する、解き明かす",
+        "hold off — 見送る、しばらく待つ",
+        "rule out — 除外する、可能性を消す",
+        "roll out — 段階を追って世に出す",
+        "back up — 支持する、裏付ける",
+        "break down — 内訳に分ける、壊れる",
+        "narrow down — 候補を絞り込む",
+        "sort out — 整理して片を付ける",
+        "get around to — ようやく着手する",
+        "look into — 調査する、調べてみる",
+        "take on — 引き受ける、抱え込む",
+        "stand out — 目立つ、際立つ",
+        "wind down — 徐々に終わらせる",
+        "follow up on — 後を追って確かめる",
+        "weigh in on — 意見を差し込む",
+        "gloss over — 都合の悪い所を流す",
+        "sign off on — 承認して判を押す"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
       "id": "en-pirate",
       "name": "Pirate",
       "emoji": "🦜",
@@ -225,6 +1537,187 @@
         "Findin' the X",
         "Yo-ho-hoin'",
         "Dividin' the spoils"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-quiet",
+      "name": "Quiet English",
+      "emoji": "🌙",
+      "description": "Plain English that stays out of the way",
+      "language": "en",
+      "category": "classic",
+      "tags": [
+        "english",
+        "calm",
+        "general",
+        "classic"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "邪魔をしない、静かな英語"
+        }
+      },
+      "verbs": [
+        "Settling",
+        "Working through it",
+        "Reading carefully",
+        "Turning it over",
+        "Following the thread",
+        "Laying it out",
+        "Filling in the gaps",
+        "Checking the edges",
+        "Holding the shape",
+        "Trimming it down",
+        "Letting it rest",
+        "Going back a step",
+        "Trying the other way",
+        "Lining things up",
+        "Weighing two options",
+        "Naming things properly",
+        "Tidying as I go",
+        "Making it smaller",
+        "Looking once more",
+        "Nearly there",
+        "Keeping it simple",
+        "Piecing it together",
+        "Retracing the steps",
+        "Sitting with it",
+        "Writing it out",
+        "Reading it back",
+        "Closing the loop",
+        "Putting it in order",
+        "Smoothing the seams",
+        "Almost done"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-shakespeare",
+      "name": "Shakespearean",
+      "emoji": "🎭",
+      "description": "Blank verse and a great deal of drama",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "shakespeare",
+        "english",
+        "theatre"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "韻文まじりの、大芝居がかった口調"
+        }
+      },
+      "verbs": [
+        "Hark, the compiler doth complain",
+        "Anon, the tests shall speak",
+        "What light through yonder log breaks",
+        "Alas, the branch hath diverged",
+        "Prithee, hold whilst I ponder",
+        "The lady doth protest the diff",
+        "Something is rotten in this module",
+        "To merge, or not to merge",
+        "Now is the winter of our build",
+        "A plague upon both your branches",
+        "Cry havoc, and let slip the tests",
+        "Once more unto the stack trace",
+        "Beware the ides of refactor",
+        "The fault, dear user, is not mine",
+        "Thus with a keystroke I die",
+        "Lord, what fools these mortals type",
+        "All the world's a staging area",
+        "Brevity is the soul of commit",
+        "This above all: to thine own test",
+        "The rest is silence, and a lock",
+        "Full of sound and fury, no output",
+        "Exit, pursued by a segfault"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-speedrun",
+      "name": "Speedrun",
+      "emoji": "🎮",
+      "description": "Splits, resets, and one more attempt",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "speedrun",
+        "gaming",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "スプリットとリセット、そしてもう一回"
+        }
+      },
+      "verbs": [
+        "Skipping the cutscene",
+        "Frame-perfect, barely",
+        "That's a two second loss",
+        "Resetting. Bad first split",
+        "Ahead of pace by four",
+        "Buffering the next input",
+        "Clipping through the wall",
+        "Sequence break confirmed",
+        "PB pace. Do not choke now",
+        "The RNG finally cooperated",
+        "Menuing as fast as possible",
+        "Death abuse saves eight frames",
+        "Holding forward the whole way",
+        "That trick works once per run",
+        "Gold split in chapter three",
+        "Practising the same jump again",
+        "Route change. Trust the notes",
+        "Splits are green all the way",
+        "Final boss. Hands are shaking",
+        "Timer stops on the last hit",
+        "New personal best. Barely",
+        "One more attempt. Just one"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-submarine",
+      "name": "Submarine",
+      "emoji": "🫧",
+      "description": "Running silent, one order at a time",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "submarine",
+        "navy",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "静粛航行、命令を一つずつ"
+        }
+      },
+      "verbs": [
+        "Rig for ultra quiet",
+        "Conn, sonar, new contact",
+        "Bearing zero three zero",
+        "Make your depth two hundred",
+        "All ahead one third",
+        "Right full rudder",
+        "Level off. Hold this depth",
+        "Passive only. No pinging",
+        "Classify that contact",
+        "Contact is merchant, not warship",
+        "Secure all loud machinery",
+        "Take her up to periscope depth",
+        "Up scope. Quick look around",
+        "Down scope. Nothing in sight",
+        "Flooding tube one",
+        "Solution set on the target",
+        "Hold fire. Say again, hold",
+        "We are being pinged",
+        "Rig for depth charge",
+        "Damage report, all stations",
+        "Trim the boat. Slowly",
+        "Surface. Blow all ballast"
       ]
     },
     {
@@ -319,6 +1812,137 @@
     },
     {
       "$schema": "../schema/verb-set.schema.json",
+      "id": "en-wizard",
+      "name": "Wizardry",
+      "emoji": "🪄",
+      "description": "Long preparations, uncertain results",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "wizard",
+        "fantasy",
+        "english"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "長い準備と、当てにならない結果"
+        }
+      },
+      "verbs": [
+        "Inscribing the third sigil",
+        "The ward holds, barely",
+        "Consulting the older grimoire",
+        "Chalking the circle again",
+        "The candles gutter, but hold",
+        "Reciting the longer form",
+        "A component is missing",
+        "Substituting a lesser reagent",
+        "The mixture refuses to settle",
+        "Something answered, too quickly",
+        "Sealing the name inside the jar",
+        "The runes have shifted overnight",
+        "Reading by the light it gives off",
+        "The familiar has opinions",
+        "Nine hours of preparation left",
+        "The binding takes, then loosens",
+        "Adding salt, out of habit",
+        "The apprentice is asking again",
+        "Tracing it back to the source",
+        "The tower does not approve",
+        "Closing the circle carefully",
+        "The spell is cast. Now we wait"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "en-zen-koan",
+      "name": "Zen Koans",
+      "emoji": "🪷",
+      "description": "Quiet, and in no hurry to answer",
+      "language": "en",
+      "category": "meme",
+      "tags": [
+        "zen",
+        "koan",
+        "english",
+        "calm"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "静かで、答えを急がない"
+        }
+      },
+      "verbs": [
+        "The empty diff still teaches",
+        "Before the test, no bug",
+        "Who is the one waiting",
+        "The log knows nothing of the log",
+        "One hand, no keyboard",
+        "The bug was never added",
+        "When you find it, you were it",
+        "The mountain does not compile",
+        "Sit with the failing case",
+        "What was your build before this",
+        "Not the code, not the coder",
+        "The answer arrives unasked",
+        "Wash your bowl. Then read it",
+        "Nothing was broken. Fix it",
+        "The path is the stack trace",
+        "Two branches, one tree",
+        "Speak, and the cache is stale",
+        "The gate has no lock at all",
+        "Ten thousand lines, one line",
+        "Where does the process go"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "explorers",
+      "name": "Explorers",
+      "emoji": "🧭",
+      "description": "Who went where, and whether they came back",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "history",
+        "exploration",
+        "geography",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "誰がどこへ行き、帰れたのか"
+        }
+      },
+      "verbs": [
+        "Zheng He — 七度の大艦隊で南海へ",
+        "Ibn Battuta — 三十年、陸を歩き続く",
+        "Marco Polo — 東方見聞録を残す",
+        "Bartolomeu Dias — 喜望峰を回る",
+        "Vasco da Gama — 海路でインドへ着く",
+        "Columbus — 西へ行き別大陸に着く",
+        "Magellan — 出発し、部下が周り切る",
+        "Cabral — 流されてブラジルに着く",
+        "Cortés — アステカを内から崩す",
+        "Cook — 三度太平洋を測り続ける",
+        "Bering — 二つの大陸の間を抜ける",
+        "Lewis and Clark — 大陸を横に歩く",
+        "Livingstone — 内陸を測り、消える",
+        "Stanley — 探して、見つけたと言う",
+        "Burton — 大湖の水源を探し争う",
+        "Nansen — 氷に船を任せて漂う",
+        "Amundsen — 犬橇で先に極点へ着く",
+        "Scott — 遅れて着き、帰路で死す",
+        "Shackleton — 全員を生きて連れ帰る",
+        "Hillary and Norgay — 頂に立つ",
+        "Piccard — 海溝の底まで降りていく",
+        "Heyerdahl — 筏で太平洋を渡る",
+        "Gagarin — 最初に地球を一周する",
+        "Armstrong — 別の天体に足を置く"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
       "id": "git-commands",
       "name": "Git Commands",
       "emoji": "🌿",
@@ -361,6 +1985,145 @@
         "git submodule — 別リポを入れ子に",
         "git shortlog -sn — 貢献者を集計",
         "git apply — patchを当てる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "go-concurrency",
+      "name": "Go Concurrency",
+      "emoji": "🐹",
+      "description": "goroutines and channels, learned by osmosis",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "go",
+        "golang",
+        "concurrency",
+        "study"
+      ],
+      "source": "https://go.dev/ref/mem",
+      "i18n": {
+        "ja": {
+          "description": "goroutineとchannelの作法を体に入れる"
+        }
+      },
+      "verbs": [
+        "goroutine — 軽量スレッドを起こす",
+        "chan — 値を渡して同期する",
+        "unbuffered — 送受が揃うまで止まる",
+        "buffered chan — 容量分は先に置ける",
+        "select — 複数チャネルを待つ",
+        "default — 待たずに諦める",
+        "close(ch) — もう来ないと伝える",
+        "for range ch — 閉じるまで受ける",
+        "sync.WaitGroup — 全員の完了を待つ",
+        "sync.Mutex — 一人ずつ触らせる",
+        "sync.RWMutex — 読みは同時、書きは単独",
+        "sync.Once — 初期化を一度だけ",
+        "context.WithCancel — 停止を伝播",
+        "context.WithTimeout — 期限で切る",
+        "ctx.Done() — 打ち切りを受け取る",
+        "errgroup — 最初のerrで全体を止める",
+        "atomic.AddInt64 — ロック無しで加算",
+        "race detector — 競合を実行時に暴く",
+        "goroutine leak — 受け手が消えて滞る",
+        "worker pool — 並列度に上限を敷く",
+        "fan-out — 一本を複数に散らす",
+        "fan-in — 複数の流れを一本に束ねる",
+        "happens-before — 見える順序の保証",
+        "GOMAXPROCS — 同時に走るPの数"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "greek-myth",
+      "name": "Greek Mythology",
+      "emoji": "🏺",
+      "description": "The gods and the mortals who learned the hard way",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "mythology",
+        "greek",
+        "humanities",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "神々と、痛い目を見た人間たち"
+        }
+      },
+      "verbs": [
+        "Zeus — 雷を持ち、誓いは守らない",
+        "Hera — 婚姻の神、報復も担う",
+        "Poseidon — 海と地震、恨みは長い",
+        "Hades — 冥府を治め、悪ではない",
+        "Athena — 知恵と戦、梟と盾",
+        "Apollo — 予言と音楽、疫病も放つ",
+        "Artemis — 狩りと月、覗く者を罰す",
+        "Hermes — 伝令と商い、盗みも司る",
+        "Hephaestus — 火と鍛冶、足を引く",
+        "Ares — 戦そのもの、勝敗は見ない",
+        "Aphrodite — 泡から生まれた美の神",
+        "Demeter — 実りと、娘を探す季節",
+        "Dionysus — 酒と忘我、外から来た神",
+        "Prometheus — 火を渡して罰を受ける",
+        "Pandora — 開けて、希望だけが残る",
+        "Sisyphus — 押し上げ、また転がる",
+        "Tantalus — 手が届かないまま渇く",
+        "Cassandra — 当たるが信じられない",
+        "Icarus — 高く飛びすぎて落ちる",
+        "Narcissus — 水面の自分に恋をする",
+        "Orpheus — 振り返って全てを失う",
+        "Medusa — 見た者を石に変える",
+        "Achilles — 踵だけが弱いままの英雄",
+        "Odysseus — 十年、帰る道を探し続く"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "haskell-monads",
+      "name": "Haskell Monads",
+      "emoji": "🎩",
+      "description": "Types that carry failure and effects, one law at a time",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "haskell",
+        "monad",
+        "functional",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "失敗と副作用を型で扱う語彙"
+        }
+      },
+      "verbs": [
+        "Maybe — 失敗を型で表す",
+        "Either — 失敗に理由を載せる",
+        "fmap — 中身だけを写す",
+        "<$> — fmap の中置版",
+        "<*> — 包まれた関数を適用する",
+        "pure — 最小の文脈に包む",
+        ">>= — 文脈を保ったまま繋ぐ",
+        ">> — 結果を捨てて次へ進む",
+        "do記法 — >>= を縦に書き直す",
+        "return — pure と同じもの",
+        "IO — 副作用を型に閉じ込める",
+        "State — 状態を隠して持ち回る",
+        "Reader — 読み取り環境を配る",
+        "Writer — ログを溜めながら進む",
+        "traverse — 写して外側を入れ替える",
+        "sequence — 内と外をひっくり返す",
+        "mapM_ — 走らせて結果は捨てる",
+        "Functor則 — 恒等と合成を保つ",
+        "Monad則 — 左右単位律と結合律",
+        "ExceptT — 失敗を積層に載せる",
+        "MonadTrans — 積み上げて混ぜる",
+        "newtype — 実行時費用ゼロの別名",
+        "遅延評価 — 要るまで作られない",
+        "seq — 評価を強いて先に進める"
       ]
     },
     {
@@ -411,6 +2174,133 @@
     },
     {
       "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-bonsai",
+      "name": "Bonsai",
+      "emoji": "🌲",
+      "description": "Decisions measured in decades",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "bonsai",
+        "japanese",
+        "garden"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "十年単位で枝を決めていく"
+        }
+      },
+      "verbs": [
+        "全体の流れを見ています",
+        "正面を決め直しています",
+        "来年の芽を見ています",
+        "不要な枝を選んでいます",
+        "一枝だけ落としました",
+        "針金を掛け直しました",
+        "食い込む前に外します",
+        "葉を数枚だけ摘みました",
+        "芽切りの時期を待ちます",
+        "根を三分の一切りました",
+        "鉢から抜いて土を落とします",
+        "用土を配合しています",
+        "水はけを確かめています",
+        "苔を貼り直しました",
+        "水を朝と夕に与えます",
+        "日の当たる向きを回します",
+        "十年後の姿を想像しています",
+        "先代の仕立てを読んでいます",
+        "触らずに眺めています",
+        "冬の骨格を確かめています"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-camp",
+      "name": "Camping",
+      "emoji": "⛺",
+      "description": "From picking the pitch to putting the fire out",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "camp",
+        "outdoor",
+        "japanese"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "区画選びから焚き火を消すまで"
+        }
+      },
+      "verbs": [
+        "区画を見て向きを決めています",
+        "地面の石をどけています",
+        "テントを広げました",
+        "ポールを通しています",
+        "ペグを打ち込んでいます",
+        "風上にロープを張りました",
+        "タープの角度を直しています",
+        "薪が湿っていました",
+        "細い枝から組んでいます",
+        "火吹き棒で息を送ります",
+        "煙が目に入りました",
+        "炭が落ち着くのを待ちます",
+        "網を熱しています",
+        "肉を置いて動かしません",
+        "湯を沸かしています",
+        "椅子を火の側に寄せました",
+        "上着を一枚足しました",
+        "星が見えてきました",
+        "火の番をしています",
+        "灰が冷えるのを待ちます",
+        "朝露でテントが濡れています",
+        "来た時より綺麗にしています"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-capybara",
+      "name": "Capybara",
+      "emoji": "🦫",
+      "description": "Nothing that happens is worth hurrying for",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "capybara",
+        "animal",
+        "japanese"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "何が起きても急がない一頭"
+        }
+      },
+      "verbs": [
+        "湯に浸かったままです",
+        "肩まで沈んでいます",
+        "ゆずのことは気にしません",
+        "隣に猿が乗ってきました",
+        "少しだけ目を開けました",
+        "湯から出る気配がありません",
+        "水面に鼻だけ出しています",
+        "草をゆっくり噛んでいます",
+        "誰かに寄りかかっています",
+        "毛が乾くのを待っています",
+        "順番待ちに気付いていません",
+        "同じ姿勢を続けています",
+        "また目を閉じました",
+        "呼ばれても振り向きません",
+        "餌より温度を選びました",
+        "石の上で乾かしています",
+        "群れの一番後ろに居ます",
+        "冬でも急いでいません",
+        "鼻先で他を押しています",
+        "湯気の中で沈黙しています",
+        "撫でられても動きません",
+        "夕方まで居るつもりです"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
       "id": "ja-cat",
       "name": "Cats",
       "emoji": "🐈",
@@ -453,6 +2343,140 @@
         "背中を丸めています",
         "撫でられています",
         "そっぽを向いています"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-classical",
+      "name": "Classical Japanese",
+      "emoji": "🎋",
+      "description": "The classical words whose modern meaning misleads you",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "japanese",
+        "classical",
+        "kobun",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "現代語に引きずられて誤る古文単語"
+        }
+      },
+      "verbs": [
+        "あさまし — 意外だ、驚くばかりだ",
+        "つれなし — そっけない、平然と",
+        "あぢきなし — 思うに任せず辛い",
+        "いとほし — 気の毒だ、かわいい",
+        "うつくし — かわいい、いとしい",
+        "をかし — 趣がある、心を引く",
+        "あはれ — しみじみと心に染みる",
+        "いみじ — 程度がはなはだしい",
+        "ゆかし — 心が引かれる、慕わしい",
+        "けし — 異様だ、普通ではない",
+        "つきづきし — よく似合っている",
+        "らうたし — いたわしく、かわいい",
+        "はかなし — 頼りない、あっけない",
+        "こころにくし — 憎いほどに見事だ",
+        "さうざうし — もの足りず寂しい",
+        "すさまじ — 荒れ果てて、恐ろしい",
+        "なつかし — 心が惹かれ側に居たい",
+        "おぼゆ — 思われる、覚えている",
+        "ののしる — 大声で騒ぎ立てる",
+        "かたはらいたし — 見ていて苦しい",
+        "びんなし — 都合が悪い、不便だ",
+        "つとめて — 早朝、その翌朝",
+        "やがて — すぐに、そのまま",
+        "げに — 本当に、いかにも"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-coffee",
+      "name": "Coffee",
+      "emoji": "☕",
+      "description": "From the beans to the cup, one pour at a time",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "coffee",
+        "drink",
+        "japanese"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "豆から一杯までの、注ぎ方の工程"
+        }
+      },
+      "verbs": [
+        "豆の色を見ています",
+        "焙煎度を選んでいます",
+        "挽き目を中細に合わせます",
+        "粉の量を量っています",
+        "湯を沸かして少し待ちます",
+        "湯温を92度に落としました",
+        "ドリッパーに紙を敷きます",
+        "紙を湯で濡らしました",
+        "中心から静かに注ぎます",
+        "蒸らしを待っています",
+        "粉が膨らんできました",
+        "の字を描いて注いでいます",
+        "泡が白く変わってきました",
+        "落ちきる前に外します",
+        "サーバーを軽く回しました",
+        "香りを確かめています",
+        "一口目を味見しています",
+        "次は少し粗くしてみます",
+        "湯を足して薄めました",
+        "二杯目を淹れはじめました",
+        "器具を洗って乾かします",
+        "豆を密閉して仕舞いました"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-dog",
+      "name": "Dog",
+      "emoji": "🐕",
+      "description": "One dog, from the leash coming out to getting home",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "dog",
+        "animal",
+        "japanese"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "リードを出してから帰るまでの一匹"
+        }
+      },
+      "verbs": [
+        "リードを見て跳ねています",
+        "玄関で待ち構えています",
+        "においを確認しています",
+        "電柱で足を止めました",
+        "先を急ごうとしています",
+        "他の犬と睨み合っています",
+        "尻尾だけ振っています",
+        "草を食べようとしています",
+        "水たまりに入りました",
+        "呼ばれても戻ってきません",
+        "落ち葉を追いかけています",
+        "自転車に吠えました",
+        "なぜか帰りたがりません",
+        "その場に座り込みました",
+        "足を拭かれています",
+        "水を飲み散らかしています",
+        "腹を見せて転がりました",
+        "撫でる手を追っています",
+        "おやつの音を聞き分けました",
+        "留守番の支度を察しました",
+        "扉の前で待っています",
+        "夢の中で足が動いています",
+        "日向で伸びきっています",
+        "帰りを玄関で嗅ぎ分けます"
       ]
     },
     {
@@ -517,6 +2541,225 @@
     },
     {
       "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-haiku",
+      "name": "Haiku",
+      "emoji": "🍁",
+      "description": "Every line is 5-7-5, season word included",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "haiku",
+        "japanese",
+        "poetry"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "全ての語が五七五、季語つき"
+        }
+      },
+      "verbs": [
+        "春の風 差分を読んで また戻る",
+        "夏の雲 型を見上げて 手が止まる",
+        "秋の暮 ログを追いかけ 日が落ちる",
+        "冬の月 待つ間に冷える 手のひらよ",
+        "梅雨の音 差し込む雨と 直す枝",
+        "初日の出 待ちの画面に 光さす",
+        "桜散る 積み上げてゆく 夜の差分",
+        "短夜に 蛍のごとく 灯を点す",
+        "秋の風 落ち葉のように 消える窓",
+        "雪解けて 詰まりが一つ 抜けてゆく",
+        "菜の花や 待つほど長き 昼の道",
+        "五月雨や 積みを辿りて 指の先",
+        "夕立や 走らせ直す 二度三度",
+        "秋の水 澄むまで待てと 教えられ",
+        "枯野ゆく 名前を付ける ためだけに",
+        "寒の水 一度冷えれば 早くなる",
+        "山笑ふ 直せば直る ものばかり",
+        "遠花火 待つ間に増える 為す事よ",
+        "月今宵 静かに回る 歯車よ",
+        "冬支度 消してよいもの 数えつつ"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-izakaya",
+      "name": "Izakaya",
+      "emoji": "🍺",
+      "description": "One evening, from the master's side of the counter",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "izakaya",
+        "food",
+        "japanese"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "カウンターの内側から見た一晩"
+        }
+      },
+      "verbs": [
+        "暖簾を出しました",
+        "氷を詰めています",
+        "お通しを盛っています",
+        "生を三つ注いでいます",
+        "泡の量を見ています",
+        "串を並べて焼いています",
+        "団扇で火を煽りました",
+        "タレを二度潜らせます",
+        "刺身を引いています",
+        "大根をかつらに剥いています",
+        "厚焼きを巻いています",
+        "揚げ油の温度を上げました",
+        "枝豆を茹でています",
+        "常連の好みを覚えています",
+        "熱燗をつけています",
+        "灰皿を替えました",
+        "追加の注文を通しています",
+        "満席で外に椅子を出します",
+        "締めの茶漬けを出しました",
+        "ラストオーダーを聞きます",
+        "暖簾を下げました",
+        "明日の仕込みを始めます"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-jidaigeki",
+      "name": "Jidaigeki",
+      "emoji": "🎌",
+      "description": "Claude, but speaking like a period drama",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "jidaigeki",
+        "japanese",
+        "samurai"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "一人称も語尾も時代劇のまま"
+        }
+      },
+      "verbs": [
+        "しばし待たれよ",
+        "委細承知いたした",
+        "いま調べておる",
+        "手筈は整っておる",
+        "これは異なこと",
+        "ぬかりはない",
+        "存分に働いておる",
+        "上意である",
+        "御意",
+        "しかと見届けた",
+        "御用改めである",
+        "神妙にいたせ",
+        "覚悟はよいか",
+        "そこまでじゃ",
+        "面を上げよ",
+        "訳あってのことか",
+        "策はある、案ずるな",
+        "斬らねばならぬか",
+        "夜が明けるまで待とう",
+        "手を出すな、まだ早い",
+        "首尾は上々",
+        "後は任せた"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-jlpt-n1",
+      "name": "JLPT N1 Grammar",
+      "emoji": "📕",
+      "description": "N1 grammar patterns for Japanese learners",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "japanese",
+        "jlpt",
+        "grammar",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "日本語学習者向けのN1文法パターン"
+        }
+      },
+      "verbs": [
+        "〜ずにはいられない — つい〜する",
+        "〜をものともせず — 屈しないで",
+        "〜であれ〜であれ — どちらでも",
+        "〜たりとも — たとえ一つでも",
+        "〜にひきかえ — それとは反対に",
+        "〜もさることながら — 勿論だが更に",
+        "〜を余儀なくされる — 仕方なくそう",
+        "〜に足る — その価値が十分にある",
+        "〜きらいがある — その傾向が強い",
+        "〜ならいざ知らず — なら別だが",
+        "〜てやまない — ずっとそう思う",
+        "〜の至り — 極めて〜である",
+        "〜にかこつけて — 理由にして",
+        "〜にもまして — それ以上に",
+        "〜をよそに — 気にもかけずに",
+        "〜が早いか — するとすぐに",
+        "〜そばから — したばかりなのに",
+        "〜ともなると — その段階になると",
+        "〜にあって — その状況において",
+        "〜としたところで — したとしても",
+        "〜べくもない — できるはずがない",
+        "〜まじき — 〜してはならない",
+        "〜んばかり — 今にも〜しそうな",
+        "〜ずくめ — 全部それで埋まる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-kanken",
+      "name": "Kanji You Cannot Write",
+      "emoji": "📖",
+      "description": "Kanji you can read but would never write by hand",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "japanese",
+        "kanji",
+        "kanken",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "読めるが手では書けない漢字"
+        }
+      },
+      "verbs": [
+        "逼迫 — ひっぱく、余裕が無くなる",
+        "払拭 — ふっしょく、拭い去る",
+        "曖昧 — あいまい、はっきりしない",
+        "斡旋 — あっせん、間を取り持つ",
+        "軋轢 — あつれき、仲がぎくしゃく",
+        "隠蔽 — いんぺい、覆って隠す",
+        "迂闊 — うかつ、注意が足りない",
+        "憂鬱 — ゆううつ、気が晴れない",
+        "婉曲 — えんきょく、遠回しに言う",
+        "億劫 — おっくう、気が進まない",
+        "瓦解 — がかい、崩れて壊れる",
+        "気概 — きがい、屈しない心持ち",
+        "忌憚 — きたん、遠慮すること",
+        "矜持 — きょうじ、自分への誇り",
+        "傀儡 — かいらい、操られる者",
+        "杞憂 — きゆう、無用の心配",
+        "更迭 — こうてつ、役目を替える",
+        "忖度 — そんたく、他人の心を推す",
+        "緻密 — ちみつ、細かく行き届く",
+        "杜撰 — ずさん、いい加減なさま",
+        "顛末 — てんまつ、事の始めと終わり",
+        "捏造 — ねつぞう、無い物を作る",
+        "剽窃 — ひょうせつ、盗んで使う",
+        "敷衍 — ふえん、押し広げて述べる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
       "id": "ja-kansai",
       "name": "Kansai Dialect",
       "emoji": "🐙",
@@ -554,6 +2797,181 @@
         "なんぼでも直すで",
         "どないしよか考えとる",
         "ようやく見えてきたわ"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-konbini",
+      "name": "Convenience Store",
+      "emoji": "🏪",
+      "description": "The night shift, one quiet task after another",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "konbini",
+        "japanese",
+        "work"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "深夜シフトの、淡々とした所作"
+        }
+      },
+      "verbs": [
+        "レジ前の床を拭いています",
+        "フェイスを前に出しました",
+        "期限の近い物を下げます",
+        "おでんの汁を足しました",
+        "中華まんの数を見ています",
+        "揚げ物を新しくしています",
+        "コーヒー機を洗いました",
+        "納品の台車を押しています",
+        "検品して棚に運びます",
+        "冷蔵ケースに補充しています",
+        "雑誌の紐を切りました",
+        "宅配の伝票を受け取ります",
+        "公共料金を通しています",
+        "年齢確認をお願いしました",
+        "レシートが切れました",
+        "袋をお付けするか伺います",
+        "落とした小銭を拾っています",
+        "外のごみ箱を替えました",
+        "駐車場の灰皿を片付けます",
+        "床を掃いて締めています",
+        "交代の人を待っています",
+        "朝の便が着きました"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-kotowaza",
+      "name": "Japanese Proverbs",
+      "emoji": "🍡",
+      "description": "Proverbs, and what they are actually warning you about",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "japanese",
+        "proverb",
+        "kotowaza",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ことわざが本当に警告している事"
+        }
+      },
+      "verbs": [
+        "急がば回れ — 遠回りが結局速い",
+        "石の上にも三年 — 続ければ実る",
+        "二兎を追う者は — 一兎をも得ず",
+        "捨てる神あれば — 拾う神もある",
+        "背に腹は代えられぬ — 選べない",
+        "灯台下暗し — 近いほど見えない",
+        "餅は餅屋 — 専門の者に任せる",
+        "船頭多くして — 船が山に上る",
+        "情けは人の為ならず — 自分に返る",
+        "覆水盆に返らず — もう戻せない",
+        "禍福は糾える縄の如し — 表裏一体",
+        "君子危うきに近寄らず — 避ける",
+        "虎穴に入らずんば — 虎子を得ず",
+        "五十歩百歩 — どちらも大差ない",
+        "一寸先は闇 — 先は誰も知らない",
+        "口は禍の門 — 言葉が身を焼く",
+        "後悔先に立たず — 済んでからでは",
+        "他山の石 — 他人の失敗から学ぶ",
+        "泣く子と地頭には — 勝てぬ相手",
+        "喉元過ぎれば — 熱さを忘れる",
+        "人事を尽くして — 天命を待つ",
+        "良薬は口に苦し — 忠言は耳に痛い",
+        "案ずるより産むが易し — やれば済む",
+        "笑う門には福来る — 機嫌よく居る"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-ninja",
+      "name": "Ninja",
+      "emoji": "🥷",
+      "description": "A job done without making a sound",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "ninja",
+        "japanese",
+        "stealth"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "音を立てずに任を果たす"
+        }
+      },
+      "verbs": [
+        "潜んで機を待っております",
+        "影を残して移ります",
+        "気配を消しました",
+        "軒下に張り付いています",
+        "床下に潜り込みました",
+        "足音を消して進みます",
+        "呼吸を細くしています",
+        "壁に同化しております",
+        "水面下で息を継ぎます",
+        "巻物を写しております",
+        "封を開けずに読みました",
+        "跡を残さず戻ります",
+        "撒菱を置きました",
+        "煙玉の頃合いを見ます",
+        "身代わりを置いてきました",
+        "合図を待っております",
+        "手裏剣を数え直しました",
+        "見張りの交代を待ちます",
+        "縄を垂らしております",
+        "月が雲に入るまで待ちます",
+        "報せは既に飛ばしました",
+        "名は残しません"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-penguin",
+      "name": "Penguin",
+      "emoji": "🐧",
+      "description": "Waddle, slide, dive, repeat",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "penguin",
+        "animal",
+        "japanese"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "よたよた歩き、滑り、潜る"
+        }
+      },
+      "verbs": [
+        "列の順番を待っています",
+        "隣に押されて揺れています",
+        "腹で滑って移動中です",
+        "岩場をよたよた登っています",
+        "翼で均衡を取っています",
+        "水際で誰かを押しています",
+        "一羽目が入るのを待ちます",
+        "覚悟を決めて飛び込みました",
+        "水中では急に速くなりました",
+        "泡を引いて曲がっています",
+        "魚を追い込んでいます",
+        "群れから離れてしまいました",
+        "岸に上がって毛を整えます",
+        "羽を替える時期に入りました",
+        "石を一つ運んでいます",
+        "巣の石を盗まれました",
+        "抱卵を交代しています",
+        "腹の下で温めています",
+        "雛の声を聞き分けています",
+        "餌を吐き戻して与えています",
+        "帰りの列に並び直しました",
+        "みんなで同じ方を見ています"
       ]
     },
     {
@@ -600,6 +3018,570 @@
         "全マシにしています",
         "スープを飲み干しています",
         "ごちそうさまと言っています"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-sauna",
+      "name": "Sauna",
+      "emoji": "🧖",
+      "description": "Heat, cold water, cool air - and around again",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "sauna",
+        "japanese",
+        "relax"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "サウナ、水風呂、外気浴の循環"
+        }
+      },
+      "verbs": [
+        "サウナ室の温度を見ています",
+        "上段に腰を下ろしました",
+        "8分を数えています",
+        "砂時計を裏返しました",
+        "ロウリュを待っています",
+        "汗が引くのを待っています",
+        "限界の一歩前で立ちました",
+        "掛け湯で汗を流しています",
+        "水風呂の縁で息を整えます",
+        "首まで沈めました",
+        "羽衣を壊さないでいます",
+        "1分で上がりました",
+        "外気浴の椅子へ向かいます",
+        "空を見上げて脱力しました",
+        "外気で整いはじめました",
+        "耳の奥が静かになりました",
+        "二セット目に入ります",
+        "水分を補給しています",
+        "三セットで仕上げます",
+        "館内着に着替えました",
+        "休憩室で寝落ちしました",
+        "また来ようと決めています"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-shitsuji",
+      "name": "Butler",
+      "emoji": "🔔",
+      "description": "Everything was already arranged before you asked",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "butler",
+        "japanese",
+        "service"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "訊かれる前に、既に済んでいる"
+        }
+      },
+      "verbs": [
+        "既に手配してございます",
+        "お目通しの支度が整いました",
+        "先に確かめてまいりました",
+        "お気付きの前に片付けます",
+        "そちらは済んでおります",
+        "御用は伺っております",
+        "差し出がましいようですが",
+        "お戻りの刻限に合わせます",
+        "念のため二通用意しました",
+        "先例を調べております",
+        "余計な事は申しません",
+        "御心配には及びません",
+        "既に代わりを立てました",
+        "私の落度でございます",
+        "静かに片を付けます",
+        "お召し替えをお持ちします",
+        "紅茶は三分蒸らしました",
+        "馬車を回してございます",
+        "客人はお通ししました",
+        "書斎を整えております",
+        "本日の予定は三件です",
+        "何もございませんでした"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-sushi",
+      "name": "Sushi",
+      "emoji": "🍣",
+      "description": "The prep work nobody sees, then two presses",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "sushi",
+        "food",
+        "japanese"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "誰も見ていない仕込みと、二度の握り"
+        }
+      },
+      "verbs": [
+        "今日の魚を見ています",
+        "氷を詰め替えています",
+        "包丁を研いでいます",
+        "三枚に下ろしました",
+        "血合いを丁寧に取ります",
+        "皮を引いています",
+        "柵に取り分けました",
+        "ヅケの時間を計っています",
+        "昆布を挟んで締めます",
+        "酢飯を切っています",
+        "うちわで粗熱を取ります",
+        "人肌に落ちるのを待ちます",
+        "海老の背を伸ばしました",
+        "穴子を煮詰めています",
+        "玉子を弱火で重ねます",
+        "軍艦の海苔を巻きました",
+        "山葵をおろしています",
+        "ネタを一枚ずつ切ります",
+        "手を湿らせました",
+        "二度で握り終えました",
+        "煮切りを刷いています",
+        "順に出す並びを決めます"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-tanpaku",
+      "name": "Japanese (Terse)",
+      "emoji": "🪶",
+      "description": "Short, flat Japanese nouns - no tone at all",
+      "language": "ja",
+      "category": "classic",
+      "tags": [
+        "japanese",
+        "terse",
+        "general",
+        "classic"
+      ],
+      "i18n": {
+        "ja": {
+          "name": "日本語（淡白）",
+          "description": "感情を出さない、短い体言止め"
+        }
+      },
+      "verbs": [
+        "解析中",
+        "照合",
+        "走査",
+        "収集",
+        "整列",
+        "抽出",
+        "分割",
+        "統合",
+        "検証",
+        "再試行",
+        "待機",
+        "計測",
+        "推定",
+        "選別",
+        "写像",
+        "再構成",
+        "巻き戻し",
+        "追跡",
+        "確定",
+        "遡行",
+        "縮約",
+        "展開",
+        "圧縮",
+        "書き出し",
+        "読み込み",
+        "突合",
+        "校正",
+        "点検",
+        "仕上げ",
+        "完了間近"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-teineigo",
+      "name": "Japanese (Polite)",
+      "emoji": "🍵",
+      "description": "Polite Japanese you would not mind a colleague reading",
+      "language": "ja",
+      "category": "classic",
+      "tags": [
+        "japanese",
+        "polite",
+        "general",
+        "classic"
+      ],
+      "i18n": {
+        "ja": {
+          "name": "日本語（丁寧）",
+          "description": "隣で見られても困らない敬体の日本語"
+        }
+      },
+      "verbs": [
+        "確認しております",
+        "整理を進めております",
+        "内容を読み込んでおります",
+        "順に当たっております",
+        "照らし合わせております",
+        "手順を組み立てております",
+        "見落としを探しております",
+        "前提を確かめております",
+        "案を練っております",
+        "書き進めております",
+        "書き直しております",
+        "整えております",
+        "組み替えております",
+        "詰めております",
+        "洗い出しております",
+        "絞り込んでおります",
+        "突き合わせております",
+        "裏を取っております",
+        "試しております",
+        "測っております",
+        "見直しております",
+        "仕上げに入っております",
+        "まとめております",
+        "報告を用意しております",
+        "少しお時間を頂いております",
+        "念のため確かめております",
+        "手を戻しております",
+        "別の道を探しております",
+        "残りを片付けております",
+        "最後の確認をしております"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-tsuri",
+      "name": "Fishing",
+      "emoji": "🎣",
+      "description": "Mostly the waiting, which is the point",
+      "language": "ja",
+      "category": "meme",
+      "tags": [
+        "fishing",
+        "outdoor",
+        "japanese"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "待っている時間こそが本体"
+        }
+      },
+      "verbs": [
+        "潮を見て場所を決めています",
+        "仕掛けを結んでいます",
+        "餌を付け替えました",
+        "第一投を投げました",
+        "まだ当たりがありません",
+        "風で糸が膨らんでいます",
+        "浮きを見つめています",
+        "隣の人が釣りました",
+        "棚を一メートル下げました",
+        "根掛かりを外しています",
+        "糸が切れました",
+        "結び直しています",
+        "餌だけ取られました",
+        "小さいので戻しました",
+        "潮が動きはじめました",
+        "合わせが早すぎました",
+        "竿が絞り込まれました",
+        "少しずつ寄せています",
+        "網を差し入れました",
+        "写真だけ撮って放しました",
+        "日が落ちるまで粘ります",
+        "帰り道で次を考えています"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ja-yojijukugo",
+      "name": "Yojijukugo",
+      "emoji": "📙",
+      "description": "Four-character Japanese idioms and what they mean",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "japanese",
+        "idiom",
+        "yojijukugo",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "四字熟語と、その意味"
+        }
+      },
+      "verbs": [
+        "臥薪嘗胆 — 苦労を重ねて期を待つ",
+        "呉越同舟 — 敵同士が同じ場に居る",
+        "画竜点睛 — 最後の一筆で仕上がる",
+        "捲土重来 — 敗れた者が勢いを戻す",
+        "深謀遠慮 — 遠くまで見据えて練る",
+        "君子豹変 — 過ちを直ちに改める",
+        "隔靴掻痒 — もどかしく手が届かぬ",
+        "曲学阿世 — 学を曲げて世に媚びる",
+        "軽挙妄動 — 考えずに動いて誤る",
+        "巧言令色 — 言葉と表情で取り入る",
+        "五里霧中 — 先が全く見通せない",
+        "自家撞着 — 自分の言に矛盾する",
+        "四面楚歌 — 周り全てが敵になる",
+        "首鼠両端 — どちらにも決めきれぬ",
+        "衆議一決 — 皆の議論で一つに決まる",
+        "杓子定規 — 型に当てて融通しない",
+        "切歯扼腕 — 悔しさに歯を噛みしめる",
+        "泰然自若 — 何が起きても動じない",
+        "朝三暮四 — 目先の違いに騙される",
+        "沈思黙考 — 黙って深く考え込む",
+        "電光石火 — 極めて素早いさま",
+        "馬耳東風 — 言われても聞き流す",
+        "岡目八目 — 他人の事はよく見える",
+        "臨機応変 — 場に応じて手を変える"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "java-streams",
+      "name": "Java Streams",
+      "emoji": "🌊",
+      "description": "The Stream API and Optional, absorbed while you wait",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "java",
+        "stream",
+        "optional",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "Stream APIとOptionalを待ち時間で覚える"
+        }
+      },
+      "verbs": [
+        "stream() — コレクションを流す",
+        "filter — 条件に合う物だけ通す",
+        "map — 一対一で写し替える",
+        "flatMap — 入れ子を平らにする",
+        "collect(toList) — 集めて戻す",
+        "groupingBy — キーで束ねる",
+        "partitioningBy — 真偽で二分する",
+        "joining — 区切りを挟んで繋ぐ",
+        "reduce — 畳み込んで一つにする",
+        "peek — 流れを覗くだけ",
+        "distinct — 重複を落とす",
+        "sorted(comparing) — 基準で並べる",
+        "limit / skip — 先頭を取る、捨てる",
+        "anyMatch — 一つでも合えば真",
+        "findFirst — 最初の一つを返す",
+        "takeWhile — 崩れるまで取り続ける",
+        "Optional.map — あれば写し替える",
+        "orElseGet — 無い時だけ作る",
+        "orElseThrow — 無ければ投げる",
+        "ifPresent — あれば実行する",
+        "遅延評価 — 終端操作まで動かない",
+        "parallelStream — 分割して並列に",
+        "Collectors.teeing — 二つ集めて合成",
+        "IntStream.range — 添字を流す"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "jp-eras",
+      "name": "Eras of Japan",
+      "emoji": "🏯",
+      "description": "Every era of Japanese history in one line each",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "history",
+        "japan",
+        "era",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "日本史の時代区分を一行ずつ"
+        }
+      },
+      "verbs": [
+        "縄文 — 土器と定住、狩猟と採集",
+        "弥生 — 水稲と金属器が渡来する",
+        "古墳 — 前方後円墳と豪族の連合",
+        "飛鳥 — 仏教伝来と律令の準備",
+        "大化の改新 — 公地公民へ舵を切る",
+        "奈良 — 平城京、律令国家の完成",
+        "平安 — 摂関政治と国風文化",
+        "院政 — 上皇が実権を握り続ける",
+        "鎌倉 — 武家政権、御恩と奉公",
+        "承久の乱 — 幕府が朝廷を抑える",
+        "元寇 — 二度の襲来、恩賞が足りぬ",
+        "建武の新政 — 天皇親政、二年で崩れる",
+        "南北朝 — 朝廷が二つに割れる",
+        "室町 — 守護大名と日明貿易",
+        "応仁の乱 — 京が焼け、下剋上へ",
+        "戦国 — 実力だけが物を言う",
+        "安土桃山 — 検地と刀狩で兵農分離",
+        "江戸 — 幕藩体制と参勤交代",
+        "鎖国 — 出島だけを窓に残す",
+        "享保の改革 — 吉宗、財政を締める",
+        "寛政の改革 — 定信、質素を強いる",
+        "天保の改革 — 忠邦、二年で失脚",
+        "明治 — 藩を県に、四民を平等に",
+        "大正 — 政党内閣と都市の文化"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "kafka-terms",
+      "name": "Kafka",
+      "emoji": "📬",
+      "description": "Partitions, offsets and the guarantees you actually get",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "kafka",
+        "messaging",
+        "streaming",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "区画とオフセット、そして本当の保証"
+        }
+      },
+      "verbs": [
+        "topic — 名前の付いた一本の流れ",
+        "partition — 並列度そのもの",
+        "offset — 区画ごとの位置番号",
+        "consumer group — 分担して読む",
+        "rebalance — 担当を組み替える",
+        "consumer lag — 読み遅れの量",
+        "key — 同じ鍵は同じ区画へ行く",
+        "順序保証 — 区画の中だけで成立つ",
+        "replication factor — 写しの本数",
+        "leader と follower — 書きは前者へ",
+        "ISR — 追いつけている写しの集合",
+        "acks=all — 全員に届いてから返す",
+        "acks=0 — 投げたら忘れる",
+        "min.insync.replicas — 最低本数",
+        "retention — いつまで残すか",
+        "log compaction — 鍵ごとに最新だけ",
+        "at-least-once — 重複を覚悟する",
+        "冪等プロデューサ — 重複を抑える",
+        "transaction — 読み書きを一括で",
+        "dead letter queue — 諦めた物の置場",
+        "poison pill — 一件で詰まらせる",
+        "背圧 — 詰まりを上流に返す",
+        "compression — 束ねて圧して送る",
+        "linger.ms — 少し待ってから束ねる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ko-general",
+      "name": "Korean (General)",
+      "emoji": "🌼",
+      "description": "A general-purpose Korean replacement",
+      "language": "ko",
+      "category": "classic",
+      "tags": [
+        "korean",
+        "general",
+        "classic"
+      ],
+      "i18n": {
+        "ja": {
+          "name": "한국어 기본",
+          "description": "汎用の韓国語置き換え"
+        },
+        "ko": {
+          "name": "한국어 기본",
+          "description": "두루 쓸 수 있는 한국어 동사 목록"
+        }
+      },
+      "verbs": [
+        "정리하고 있습니다",
+        "하나씩 맞춰봅니다",
+        "꼼꼼히 읽고 있습니다",
+        "다시 확인합니다",
+        "생각을 정리합니다",
+        "문제를 나눕니다",
+        "한 걸음씩 나아갑니다",
+        "단서를 찾습니다",
+        "차이를 비교합니다",
+        "빈 곳을 채웁니다",
+        "다시 짜고 있습니다",
+        "관점을 바꿔봅니다",
+        "한 발 물러나 봅니다",
+        "범위를 좁힙니다",
+        "가정을 검증합니다",
+        "요점을 적어둡니다",
+        "무엇을 버릴지 고릅니다",
+        "이름을 바로잡습니다",
+        "가는 길에 정리합니다",
+        "한 번 더 봅니다",
+        "거의 다 됐습니다",
+        "마무리하고 있습니다",
+        "이어 붙입니다",
+        "단계를 되짚습니다",
+        "잠시 가라앉힙니다",
+        "적어놓고 봅니다",
+        "되읽어 봅니다",
+        "고리를 닫습니다",
+        "순서를 맞춥니다",
+        "다듬고 있습니다"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ko-topik",
+      "name": "TOPIK Vocabulary",
+      "emoji": "🥟",
+      "description": "The Korean adverbs that change the whole sentence",
+      "language": "ko",
+      "category": "study",
+      "tags": [
+        "korean",
+        "topik",
+        "vocabulary",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "文全体の色を変える韓国語の副詞"
+        }
+      },
+      "verbs": [
+        "어차피 — どうせ",
+        "굳이 — わざわざ",
+        "하필 — よりによって",
+        "설마 — まさか",
+        "혹시 — もしかして",
+        "역시 — やはり",
+        "그나마 — それでもまだ",
+        "오히려 — むしろ、かえって",
+        "아무래도 — どうしても、やはり",
+        "어쩌면 — もしかすると",
+        "차라리 — むしろ、いっそ",
+        "무렵 — 〜頃、時分",
+        "덕분에 — 〜のおかげで",
+        "탓에 — 〜のせいで",
+        "김에 — 〜するついでに",
+        "만큼 — 〜ほど、〜くらい",
+        "뿐만 아니라 — 〜だけでなく",
+        "치고는 — 〜にしては",
+        "하마터면 — もう少しで危なく",
+        "간신히 — かろうじて",
+        "고작 — たかが、せいぜい",
+        "번번이 — 毎度、その度に",
+        "미처 — そこまでは、まだ",
+        "이왕 — せっかく、どうせなら"
       ]
     },
     {
@@ -697,6 +3679,656 @@
     },
     {
       "$schema": "../schema/verb-set.schema.json",
+      "id": "llm-terms",
+      "name": "LLM Internals",
+      "emoji": "🤖",
+      "description": "What is actually happening on the other side of the prompt",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "llm",
+        "transformer",
+        "ai",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "プロンプトの向こう側で起きている事"
+        }
+      },
+      "verbs": [
+        "token — 語より細かい入力の単位",
+        "tokenizer — 文字列を番号列に直す",
+        "embedding — 意味を座標に写す",
+        "attention — どこを見るかの重み",
+        "self-attention — 自分同士を見比べる",
+        "multi-head — 複数の観点で同時に",
+        "位置符号 — 順番の情報を足す",
+        "KV cache — 過去の鍵と値を残す",
+        "context window — 一度に見える幅",
+        "temperature — 分布の尖り具合",
+        "top-p — 上位の確率質量で切る",
+        "top-k — 上位 k 個から選ぶ",
+        "greedy — 常に最尤を選び続ける",
+        "beam search — 候補を並べて伸ばす",
+        "perplexity — 次の語への戸惑い",
+        "事前学習 — 大量の文で下地を作る",
+        "SFT — 指示と応答の対で仕上げる",
+        "RLHF — 人の好みで方向を絞る",
+        "LoRA — 小さな行列だけを学ぶ",
+        "量子化 — 精度を落として軽くする",
+        "RAG — 外から引いて根拠を渡す",
+        "幻覚 — 自信を持って間違える",
+        "prompt injection — 指示を乗っ取る",
+        "蒸留 — 大きい先生から受け継ぐ"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "ml-terms",
+      "name": "Machine Learning",
+      "emoji": "📊",
+      "description": "The vocabulary behind every model you did not train",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "machine-learning",
+        "statistics",
+        "ai",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "自分が訓練していないモデルの語彙"
+        }
+      },
+      "verbs": [
+        "教師あり学習 — 正解を与えて学ぶ",
+        "教師なし学習 — 構造だけを見つける",
+        "訓練・検証・試験 — 三つに分ける",
+        "overfitting — 訓練データを覚え込む",
+        "underfitting — そもそも学べていない",
+        "正則化 — 罰則を足して単純にする",
+        "L1 と L2 — 削ぐか、なだらかにか",
+        "dropout — わざと一部を落とす",
+        "早期打ち切り — 悪化した所で止める",
+        "交差検証 — 分け方を変えて確かめる",
+        "勾配降下法 — 傾きの逆に少し動く",
+        "学習率 — 一歩の大きさ",
+        "バッチサイズ — 一度に見る件数",
+        "epoch — 全件を一巡した回数",
+        "損失関数 — 何を悪いと定めるか",
+        "勾配消失 — 深いと信号が届かない",
+        "バッチ正規化 — 分布を揃えて進む",
+        "混同行列 — 当たり外れの内訳",
+        "適合率と再現率 — 取り違えやすい",
+        "F1 — 適合率と再現率の調和平均",
+        "AUC — 閾値に依らない良し悪し",
+        "不均衡データ — 正解率は当てにならぬ",
+        "特徴量漏洩 — 未来を混ぜてしまう",
+        "分布シフト — 本番で前提が変わる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "mushrooms",
+      "name": "Mushrooms",
+      "emoji": "🍄",
+      "description": "How to tell them apart, and which one not to touch",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "mushroom",
+        "fungi",
+        "nature",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "見分け方と、触ってはいけない方"
+        }
+      },
+      "verbs": [
+        "タマゴタケ — 赤いが食用、柄は黄",
+        "ドクツルタケ — 白く、少量で致死",
+        "テングタケ — 白い斑点、幻覚と毒",
+        "ベニテングタケ — 絵の通りの見た目",
+        "シイタケ — 榾木でも菌床でも育つ",
+        "マツタケ — 生きた松の根と組む",
+        "ホンシメジ — 香り松茸、味しめじ",
+        "ヒラタケ — 寒い時期に群れて出る",
+        "エノキタケ — 野生は褐色で粘る",
+        "ナメコ — 天然物は傘が大きい",
+        "マイタケ — 株で出て、重く育つ",
+        "ハナビラタケ — 波打つ白い塊",
+        "アミガサタケ — 生食は危険、要加熱",
+        "トリュフ — 地中に実り、犬が探す",
+        "ポルチーニ — 乾かすと香りが立つ",
+        "アンズタケ — 杏の香りがする",
+        "キクラゲ — 木に生え、乾けば縮む",
+        "サルノコシカケ — 硬く、薬用に扱う",
+        "カエンタケ — 触るだけでも危ない",
+        "クサウラベニタケ — 誤食が最も多い",
+        "ツキヨタケ — 暗い所で青白く光る",
+        "菌根 — 木の根と養分を交換する",
+        "胞子紋 — 傘を伏せて色を採る",
+        "子実体 — 見えている所は一部だけ"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "norse-myth",
+      "name": "Norse Mythology",
+      "emoji": "🔨",
+      "description": "Nine worlds, and an ending everyone already knows",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "mythology",
+        "norse",
+        "humanities",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "九つの世界と、予告された終わり"
+        }
+      },
+      "verbs": [
+        "Yggdrasil — 九つの世界を貫く樹",
+        "Odin — 片眼を渡して知を得る",
+        "Thor — 槌を振り、巨人を打つ",
+        "Loki — 味方でも敵でもある者",
+        "Frigg — 全ての運命を知る妃",
+        "Freyja — 愛と戦、猫の車に乗る",
+        "Freyr — 実りと平和、剣を手放す",
+        "Tyr — 誓いのために手を失う",
+        "Heimdall — 橋を守り、角笛を持つ",
+        "Baldr — 全てに守られ、宿り木で死ぬ",
+        "Hel — 死者の国を治める者",
+        "Fenrir — 縛られ、いずれ解かれる狼",
+        "Jörmungandr — 己の尾を咬む大蛇",
+        "Sleipnir — 八本足で世界を駆ける",
+        "Mjölnir — 柄が短いままの雷の槌",
+        "Gungnir — 外さないと定められた槍",
+        "Valhalla — 選ばれた戦士の広間",
+        "Valkyrie — 誰を連れて行くかを選ぶ",
+        "Bifröst — 燃える橋、渡れば神の国",
+        "Mímir — 泉の底で助言を続ける首",
+        "Ratatoskr — 樹を往復して悪口を運ぶ",
+        "Ragnarök — 終わりは既に告げられた",
+        "Norn — 運命を紡ぎ、切り分ける",
+        "Draupnir — 九日ごとに増える腕輪"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "observability",
+      "name": "Observability",
+      "emoji": "🔭",
+      "description": "Logs, metrics and traces - and what each one cannot tell you",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "observability",
+        "metrics",
+        "tracing",
+        "sre",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ログ・メトリクス・トレースの守備範囲"
+        }
+      },
+      "verbs": [
+        "ログ — 起きた事そのものの記録",
+        "メトリクス — 数に潰した時系列",
+        "トレース — 一つの依頼の道筋",
+        "span — トレースの一区間",
+        "trace context — 依頼のIDを継ぐ",
+        "sampling — 全部は残さず間引く",
+        "tail-based sampling — 遅い物を残す",
+        "cardinality — ラベルの組合せ数",
+        "高カーディナリティ — 保存費が爆ぜる",
+        "counter — 増える一方の値",
+        "gauge — 今この瞬間の値",
+        "histogram — 分布を階級で持つ",
+        "p99 — 100人のうち99人はこれ以内",
+        "平均は嘘をつく — 分布を見る",
+        "RED — 率、誤り、所要時間",
+        "USE — 使用率、飽和、誤り",
+        "構造化ログ — 後で機械が引ける形",
+        "相関ID — ログとトレースを繋ぐ",
+        "OpenTelemetry — 計測の共通規格",
+        "exemplar — 指標から実例へ跳ぶ",
+        "保持期間 — どこまで遡れるか",
+        "alert fatigue — 鳴りすぎて見ない",
+        "SLI — 利用者から見た良し悪し",
+        "黒箱と白箱 — 外から見るか中から"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "os-kernel",
+      "name": "OS Internals",
+      "emoji": "🧠",
+      "description": "Processes, scheduling and virtual memory",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "os",
+        "kernel",
+        "linux",
+        "memory",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "プロセス・スケジューラ・仮想記憶"
+        }
+      },
+      "verbs": [
+        "プロセス — 独立した住所空間",
+        "スレッド — 住所空間を共有する",
+        "copy-on-write — 書く時に複製する",
+        "fork — 写し取って分かれる",
+        "exec — 中身を別の像に入れ替える",
+        "page fault — 触った時に取り込む",
+        "スワップ — 使わない頁を追い出す",
+        "OOM killer — 一番の大食いを撃つ",
+        "TLB — 住所変換の覚え書き",
+        "huge page — 大きく取って変換を減らす",
+        "文脈切替 — 席を譲るための費用",
+        "CFS — 走った時間の少ない者から",
+        "nice値 — 譲る度合いを決める",
+        "実時間優先度 — 割り込んで先に走る",
+        "システムコール — 特権側へ頼み込む",
+        "利用者空間と核空間 — 境界を越える",
+        "割り込み — 今やっている事を止める",
+        "ソフト割り込み — 後で続きをやる",
+        "cgroup — 資源に上限を敷く",
+        "namespace — 見える世界を仕切る",
+        "inode — 実体を指す番号",
+        "ページキャッシュ — 読んだ物を残す",
+        "dirty page — まだ書き戻していない",
+        "D state — 割り込めない待ち、消せない"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "perf-tools",
+      "name": "Linux Perf Tools",
+      "emoji": "🔬",
+      "description": "Which command to reach for when it is slow",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "linux",
+        "performance",
+        "profiling",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "遅い時に、どれを叩くか"
+        }
+      },
+      "verbs": [
+        "top — まず全体の負荷を見る",
+        "htop — 木構造で見る top",
+        "vmstat 1 — 待ちとスワップを見る",
+        "iostat -x — 円盤の待ち行列を見る",
+        "mpstat -P ALL — コアごとの偏り",
+        "pidstat — プロセス単位で追う",
+        "free -h — 空きとキャッシュを分ける",
+        "sar — 過去に遡って眺める",
+        "strace -f — 子まで追って syscall",
+        "strace -c — 呼び出しを集計する",
+        "ltrace — ライブラリ呼びを追う",
+        "perf top — CPUを食う関数を見る",
+        "perf record — 標本を取って残す",
+        "perf stat — 命令数とキャッシュ",
+        "flame graph — 積み上げて幅を見る",
+        "bpftrace — 生きた系に一行差す",
+        "lsof -p — 開いている物を数える",
+        "ss -s — ソケットの総数を掴む",
+        "iotop — 誰が書いているかを見る",
+        "dstat — 複数の指標を一画面に",
+        "gdb -p — 止めて今の位置を見る",
+        "jstack — Javaの積みを吐かせる",
+        "numactl — 遠いメモリを掴まない",
+        "/proc/PID/status — 素の値を読む"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "periodic-table",
+      "name": "Periodic Table",
+      "emoji": "🧫",
+      "description": "Each element, and what it is actually used for",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "chemistry",
+        "element",
+        "science",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "元素と、それが実際に何に使われるか"
+        }
+      },
+      "verbs": [
+        "H — 最も軽く、宇宙で最も多い",
+        "He — 冷やすためだけに掘り出す",
+        "Li — 電池の中を往復している",
+        "Be — 軽く硬く、そして毒",
+        "C — 同じ元素で墨と金剛石",
+        "N — 空気の八割、肥料の元",
+        "O — 燃焼と呼吸、両方の相手",
+        "Na — 水に触れると火を噴く",
+        "Si — 砂から半導体を作り出す",
+        "P — マッチと骨、両方に居る",
+        "S — 加硫でゴムが強くなる",
+        "Cl — 消毒もするが毒でもある",
+        "Ti — 軽くて錆びず、骨に馴染む",
+        "Fe — 文明の骨組みそのもの",
+        "Cu — 電気と熱をよく通す",
+        "Zn — 鉄に被せて錆を引き受ける",
+        "Ga — 手の上で溶ける金属",
+        "Nb — ニオブ、超伝導線材に使う",
+        "In — インジウム、透明電極に",
+        "Nd — 極めて強い磁石を作る",
+        "W — 最も融けにくい金属",
+        "Pt — 触媒として反応を助ける",
+        "Au — 錆びず、延ばせば透ける",
+        "U — 核分裂、そして年代測定"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "philosophers",
+      "name": "Philosophers",
+      "emoji": "🦉",
+      "description": "One philosopher, one idea you can carry around",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "philosophy",
+        "thinker",
+        "humanities",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "哲学者一人につき、持ち歩ける一言"
+        }
+      },
+      "verbs": [
+        "Socrates — 知らない事を知っている",
+        "Plato — 影ではなく形の方を見よ",
+        "Aristotle — 中庸と、四つの原因",
+        "Epicurus — 快とは痛みの無い状態",
+        "Zeno — 制御できる物だけを見る",
+        "Augustine — 時間は心の中で伸びる",
+        "Aquinas — 信と理は衝突しない",
+        "Descartes — 疑い切って一つ残る",
+        "Spinoza — 神と自然は同じもの",
+        "Locke — 心は白紙、経験が書く",
+        "Berkeley — 在るとは知覚される事",
+        "Hume — 因果は習慣が作った期待",
+        "Kant — 見え方の枠が先にある",
+        "Hegel — 対立を含んで先へ進む",
+        "Schopenhauer — 意志は満たされぬ",
+        "Mill — 危害が無ければ放っておけ",
+        "Kierkegaard — 跳ぶしかない時が来る",
+        "Nietzsche — 価値は自分で作り直す",
+        "Husserl — 判断を止めて現れを見る",
+        "Heidegger — 死を前にして本気になる",
+        "Wittgenstein — 語り得ぬ事は黙る",
+        "Popper — 反証できてこそ科学",
+        "Arendt — 悪は凡庸な形でやって来る",
+        "Rawls — 自分の席を知らずに決める"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "postgres-features",
+      "name": "PostgreSQL",
+      "emoji": "🐘",
+      "description": "Postgres-specific features and query plans, next to sql",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "postgres",
+        "sql",
+        "database",
+        "study"
+      ],
+      "source": "https://www.postgresql.org/docs/",
+      "i18n": {
+        "ja": {
+          "description": "Postgres固有の機能と実行計画"
+        }
+      },
+      "verbs": [
+        "EXPLAIN ANALYZE — 実測して見る",
+        "Seq Scan — 全件読む、小表なら速い",
+        "Index Scan — 索引を辿って引く",
+        "Bitmap Scan — 件数次第で選ばれる",
+        "Hash Join — 片方を表に載せる",
+        "Nested Loop — 少件数向けの入れ子",
+        "Merge Join — 整列済みなら速い",
+        "VACUUM — 死んだ行を回収する",
+        "autovacuum — 溜まると勝手に走る",
+        "bloat — 削除跡で膨らんだ領域",
+        "MVCC — 読みは書きを待たない",
+        "xid 周回 — 使い切ると停止する",
+        "GIN — 配列や全文検索のための索引",
+        "GiST — 幾何や範囲型のための索引",
+        "BRIN — 巨大な表を粗く飛ばす",
+        "部分索引 — 条件付きで小さく作る",
+        "式索引 — lower(col) にも張れる",
+        "CONCURRENTLY — 止めずに索引を作る",
+        "JSONB — 構造を保ち索引も張れる",
+        "generate_series — 連番を生む",
+        "CTE — MATERIALIZED で実体化を指定",
+        "LATERAL — 左の行ごとに評価する",
+        "UPSERT — ON CONFLICT で決める",
+        "pg_stat_statements — 重い問合せ"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "py-idioms",
+      "name": "Python Idioms",
+      "emoji": "🐍",
+      "description": "The Pythonic way to write it, one idiom at a time",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "python",
+        "idiom",
+        "language",
+        "study"
+      ],
+      "source": "https://docs.python.org/3/",
+      "i18n": {
+        "ja": {
+          "description": "Pythonらしい書き方を一つずつ"
+        }
+      },
+      "verbs": [
+        "enumerate() — indexと値を同時に",
+        "zip(*rows) — 行と列を入れ替える",
+        "dict.get(k, d) — 無ければ既定値",
+        "setdefault — 無ければ入れて返す",
+        "collections.Counter — 数える",
+        "defaultdict — 初期値を自動で作る",
+        "itertools.chain — 連結して流す",
+        "any() / all() — 短絡して判定する",
+        "内包表記 — ループより短く読める",
+        "walrus := — 代入しつつ評価する",
+        "f'{x=}' — 変数名ごと出力する",
+        "*args / **kwargs — 可変長で受ける",
+        "with — 抜ける時に必ず後始末",
+        "contextlib.suppress — 例外を捨てる",
+        "dataclass — __init__を自動生成",
+        "__slots__ — 属性を固定して軽く",
+        "@cache — 呼び出し結果を覚える",
+        "yield — 遅延して一つずつ返す",
+        "yield from — 委譲して流し込む",
+        "pathlib.Path — / で連結する",
+        "sorted(key=) — 基準を渡して並べる",
+        "try / else — 例外が無い時だけ走る",
+        "is None — Noneは == で比べない",
+        "EAFP — 許可より謝罪、まず試す"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "rb-blocks",
+      "name": "Ruby Blocks",
+      "emoji": "💎",
+      "description": "Blocks, Enumerable and just enough metaprogramming",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "ruby",
+        "block",
+        "enumerable",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ブロックとEnumerable、そして少しのメタプロ"
+        }
+      },
+      "verbs": [
+        "each_with_object — 器を持ち回す",
+        "inject — 畳み込んで一つにする",
+        "map(&:to_s) — メソッドを渡す",
+        "tap — 素通りしつつ中を覗く",
+        "then — 値をそのまま次の式へ",
+        "select / reject — 残すと捨てる",
+        "group_by — キーで束ねる",
+        "partition — 真偽で二つに割る",
+        "each_slice — n個ずつ切り出す",
+        "each_cons — 隣同士を並べて見る",
+        "flat_map — 写してから平らにする",
+        "tally — 出現回数を数え上げる",
+        "lazy — 無限列から必要分だけ",
+        "yield — 渡されたブロックを呼ぶ",
+        "block_given? — 渡されたか確かめる",
+        "&block — ブロックをProcで受ける",
+        "define_method — 動的に生やす",
+        "method_missing — 無い呼びを拾う",
+        "respond_to? — 応えられるかを訊く",
+        "Comparable — <=> だけで比較を得る",
+        "Enumerable — each だけで全部使う",
+        "freeze — 以後の変更を禁じる",
+        "dup / clone — 浅い複製、凍結も継ぐ",
+        "&. — レシーバがnilなら止まる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "react-hooks",
+      "name": "React Hooks",
+      "emoji": "🪝",
+      "description": "Which hook, and why that one",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "react",
+        "hooks",
+        "frontend",
+        "study"
+      ],
+      "source": "https://react.dev/reference/react",
+      "i18n": {
+        "ja": {
+          "description": "どのHookを、なぜ選ぶのか"
+        }
+      },
+      "verbs": [
+        "useState — 再描画を伴う値を持つ",
+        "useReducer — 遷移を一箇所に集める",
+        "useEffect — 描画後に外と同期する",
+        "cleanup — 次の実行前に片付ける",
+        "依存配列 — 変わった時だけ再実行",
+        "useLayoutEffect — 描画前に走る",
+        "useMemo — 計算結果を記憶する",
+        "useCallback — 関数の同一性を保つ",
+        "useRef — 再描画を起こさず持つ",
+        "forwardRef — 子のDOMを親へ渡す",
+        "useContext — 遠い親から受け取る",
+        "useId — SSRでも一致するidを得る",
+        "useSyncExternalStore — 外部を購読",
+        "useTransition — 遅い更新を後回し",
+        "useDeferredValue — 古い値で先に描く",
+        "useOptimistic — 成功を先に見せる",
+        "useActionState — 送信結果を持つ",
+        "StrictMode — 二度実行して粗を出す",
+        "Rules of Hooks — 条件分岐で呼ばない",
+        "custom hook — use で始めて切り出す",
+        "key — 同一性の宣言、添字は避ける",
+        "遅延初期化 — useState に関数を渡す",
+        "stale closure — 古い値を掴み続ける",
+        "flushSync — 同期で描画を確定する"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "refactoring-catalog",
+      "name": "Refactoring",
+      "emoji": "🧹",
+      "description": "Fowler's catalogue, one move at a time",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "refactoring",
+        "fowler",
+        "design",
+        "study"
+      ],
+      "source": "https://refactoring.com/catalog/",
+      "i18n": {
+        "ja": {
+          "description": "Fowlerのカタログを一手ずつ"
+        }
+      },
+      "verbs": [
+        "Extract Function — 名前を与える",
+        "Inline Function — 名前を消す",
+        "Extract Variable — 式に名を付ける",
+        "Inline Variable — 式そのものに戻す",
+        "Rename Variable — 名前を正す",
+        "Encapsulate Variable — 窓口を作る",
+        "Introduce Parameter Object — 束ねる",
+        "Preserve Whole Object — 丸ごと渡す",
+        "Split Phase — 段に分けて考える",
+        "Move Function — 属すべき所へ移す",
+        "Move Field — 持ち主を変える",
+        "Extract Class — 責務を切り出す",
+        "Inline Class — 分けた意味が無い時",
+        "Hide Delegate — 中継を隠す",
+        "Replace Temp with Query — 問い直す",
+        "Split Loop — 一周で二つやらない",
+        "Replace Loop with Pipeline — 流す",
+        "Remove Dead Code — 消す勇気を持つ",
+        "Decompose Conditional — 条件に名前",
+        "Replace Nested Conditional — 早く返す",
+        "Introduce Special Case — 例外を型に",
+        "Replace Conditional — 多態に寄せる",
+        "Pull Up / Push Down — 継承を整える",
+        "Parameterize Function — 引数で束ねる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
       "id": "regex",
       "name": "Regular Expressions",
       "emoji": "🔍",
@@ -737,6 +4369,52 @@
         "\\p{L} — Unicode の文字種で選ぶ",
         "catastrophic backtracking — 破滅的後戻り",
         "atomic group — 後戻りを禁じる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "roman-emperors",
+      "name": "Roman Emperors",
+      "emoji": "🦅",
+      "description": "Every emperor worth remembering, judged in one line",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "history",
+        "rome",
+        "emperor",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ローマ皇帝を一行の評で覚える"
+        }
+      },
+      "verbs": [
+        "Augustus — 共和を装って帝政を敷く",
+        "Tiberius — 島に退き、疑いを深める",
+        "Caligula — 逸話が先に立つ短い治世",
+        "Claudius — ブリタニアを併合する",
+        "Nero — 大火の後、責を他に転じる",
+        "Vespasian — 内乱を収め、税を集める",
+        "Titus — コロッセオを完成させる",
+        "Domitian — 統治は堅く、記憶は削られ",
+        "Trajan — 版図を最大まで広げる",
+        "Hadrian — 拡張をやめ、壁を築く",
+        "Antoninus Pius — 平穏を保ち続ける",
+        "Marcus Aurelius — 陣中で自省録を書く",
+        "Commodus — 闘技場に立ち、絞められる",
+        "Septimius Severus — 軍に厚く報いる",
+        "Caracalla — 全自由民に市民権を与う",
+        "Aurelian — 分裂を繋ぎ直し壁を築く",
+        "Diocletian — 帝国を四つに分けて治む",
+        "Constantine — キリスト教を公認する",
+        "Julian — 旧来の神々に戻そうとする",
+        "Valens — アドリアノープルで敗死",
+        "Theodosius I — 最後に一人で統べる",
+        "Romulus Augustulus — 西の最後の帝",
+        "Justinian — 法を集め、東で再興を図る",
+        "Elagabalus — 東方の神を持ち込む"
       ]
     },
     {
@@ -785,6 +4463,192 @@
     },
     {
       "$schema": "../schema/verb-set.schema.json",
+      "id": "sekki",
+      "name": "24 Solar Terms",
+      "emoji": "🌸",
+      "description": "The 24 solar terms, exactly as the calendar has them",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "japanese",
+        "calendar",
+        "season",
+        "sekki",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "二十四節気を、暦の順のまま"
+        }
+      },
+      "verbs": [
+        "立春 — 暦の上で春が始まる",
+        "雨水 — 雪が雨に変わり始める",
+        "啓蟄 — 虫が土から出てくる",
+        "春分 — 昼と夜の長さが並ぶ",
+        "清明 — 全てが清く明るくなる",
+        "穀雨 — 穀物を育てる雨が降る",
+        "立夏 — 夏の気配が立ち始める",
+        "小満 — 草木が満ち始めていく",
+        "芒種 — 芒のある穀を蒔く頃",
+        "夏至 — 昼が最も長くなる",
+        "小暑 — 暑さが本格化していく",
+        "大暑 — 一年で最も暑い頃",
+        "立秋 — 暦の上で秋に入る",
+        "処暑 — 暑さが折り返していく",
+        "白露 — 草に露が白く宿る",
+        "秋分 — 再び昼と夜が並ぶ",
+        "寒露 — 露が冷たさを帯びてくる",
+        "霜降 — 霜が降り始める",
+        "立冬 — 冬の気配が立ち始める",
+        "小雪 — わずかに雪が降り出す",
+        "大雪 — 本格的に雪が積もる",
+        "冬至 — 夜が最も長くなる",
+        "小寒 — 寒さがいよいよ厳しく",
+        "大寒 — 一年で最も寒い頃"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "semver-commits",
+      "name": "SemVer and Commits",
+      "emoji": "🔖",
+      "description": "Version ranges and Conventional Commits",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "semver",
+        "git",
+        "conventional-commits",
+        "study"
+      ],
+      "source": "https://semver.org/",
+      "i18n": {
+        "ja": {
+          "description": "バージョン範囲とコミット規約"
+        }
+      },
+      "verbs": [
+        "MAJOR — 壊れる変更を入れた印",
+        "MINOR — 後方互換のまま増えた",
+        "PATCH — 直しただけ",
+        "0.y.z — まだ何をしても許される",
+        "^1.2.3 — マイナーまで許す",
+        "~1.2.3 — パッチまで許す",
+        "1.x — マイナーは自由に上がる",
+        ">=1.2 <2 — 範囲で書き下す",
+        "prerelease — 1.0.0-rc.1 は前",
+        "build metadata — +sha は比較外",
+        "lockfile — 実際に入れた版を固定",
+        "feat: — 機能を足した",
+        "fix: — 不具合を直した",
+        "refactor: — 挙動は変えていない",
+        "perf: — 速さのための変更",
+        "docs: — 文書だけを触った",
+        "chore: — 雑務、依存更新など",
+        "test: — 試験だけを触った",
+        "build: と ci: — 仕組み側の変更",
+        "feat!: — 破壊的変更を含む印",
+        "BREAKING CHANGE: — 本文で宣言する",
+        "scope — feat(api): のように絞る",
+        "件名は命令法 — fix ではなく直す",
+        "件名は72字まで — 本文は空行の後"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "sengoku-warlords",
+      "name": "Sengoku Warlords",
+      "emoji": "🐎",
+      "description": "One warlord, one move that defined him",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "history",
+        "japan",
+        "sengoku",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "武将一人につき、決め手を一つ"
+        }
+      },
+      "verbs": [
+        "織田信長 — 桶狭間で今川を破る",
+        "豊臣秀吉 — 中国大返しで先を取る",
+        "徳川家康 — 待って、関ヶ原で決める",
+        "武田信玄 — 騎馬と信濃の平定",
+        "上杉謙信 — 川中島で五度相まみえる",
+        "毛利元就 — 厳島で陶晴賢を討つ",
+        "北条氏康 — 小田原を守り抜く",
+        "今川義元 — 東海を束ね、桶狭間に散る",
+        "斎藤道三 — 美濃を一代で奪い取る",
+        "浅井長政 — 姉川で信長に背を向ける",
+        "朝倉義景 — 一乗谷ごと焼かれる",
+        "松永久秀 — 平蜘蛛と共に果てる",
+        "明智光秀 — 本能寺、そして十三日",
+        "柴田勝家 — 賤ヶ岳で秀吉に敗れる",
+        "島津義弘 — 関ヶ原を突き抜けて退く",
+        "長宗我部元親 — 四国をほぼ統べる",
+        "伊達政宗 — 遅れて来た奥州の雄",
+        "真田昌幸 — 上田城で二度退ける",
+        "真田信繁 — 大坂夏の陣で突き進む",
+        "立花宗茂 — 改易され、旧領に戻る",
+        "黒田官兵衛 — 中国と九州で謀る",
+        "竹中半兵衛 — 稲葉山を少数で奪う",
+        "太原雪斎 — 今川の外交を支える",
+        "尼子経久 — 出雲から山陰を握る"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "shell-expansion",
+      "name": "Bash Expansion",
+      "emoji": "🐚",
+      "description": "Parameter expansion and quoting, next to linux-commands",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "bash",
+        "shell",
+        "expansion",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "パラメータ展開とクォートの作法"
+        }
+      },
+      "verbs": [
+        "\"$@\" — 引数を個別に保つ",
+        "\"$*\" — 一つに繋げてしまう",
+        "${var:-def} — 未設定なら既定値",
+        "${var:=def} — 未設定なら代入する",
+        "${var:?msg} — 未設定なら止まる",
+        "${var:+alt} — 設定済みの時だけ",
+        "${#var} — 文字数を数える",
+        "${var#pat} — 前から最短で削る",
+        "${var##pat} — 前から最長で削る",
+        "${var%pat} — 後ろから最短で削る",
+        "${var%%pat} — 後ろから最長で削る",
+        "${var/a/b} — 最初の一つを置換",
+        "${var//a/b} — 全部を置換する",
+        "${arr[@]} — 配列を要素ごとに展開",
+        "${!var} — 変数名の中身を引く",
+        "$(cmd) — 出力を値として使う",
+        "$(( )) — 算術として評価する",
+        "<(cmd) — 出力をファイルに見せる",
+        "{a,b} — brace展開で並べる",
+        "IFS — 分割に使う区切り文字",
+        "set -euo pipefail — 早く失敗する",
+        "shift — 引数を一つずつ食う",
+        "trap — 終了時に必ず片付ける",
+        "'単引用符' — 一切展開しない"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
       "id": "sisyphus",
       "name": "Sisyphus",
       "emoji": "🪨",
@@ -815,6 +4679,52 @@
         "不屈の意志で格闘しています",
         "岩と格闘しています",
         "運命に立ち向かっています"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "space-probes",
+      "name": "Space Probes",
+      "emoji": "🪐",
+      "description": "Which probe went where, and what it brought back",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "space",
+        "probe",
+        "astronomy",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "どの探査機が、何を持ち帰ったか"
+        }
+      },
+      "verbs": [
+        "Sputnik 1 — 最初の人工衛星",
+        "Luna 3 — 月の裏側を初めて写す",
+        "Mariner 4 — 火星を初めて近くで見る",
+        "Venera 7 — 金星の地表から送信する",
+        "Pioneer 10 — 小惑星帯を初めて抜く",
+        "Voyager 1 — 太陽圏の外へ出て行く",
+        "Voyager 2 — 四つの巨惑星を回る",
+        "Viking 1 — 火星に降りて生命を探す",
+        "Galileo — 木星を周り、最後は落ちる",
+        "Cassini — 土星を十三年観測する",
+        "Huygens — タイタンの地表に降りる",
+        "Hubble — 鏡を直して見え方が変わる",
+        "SOHO — 太陽をずっと見続けている",
+        "NEAR — 小惑星に初めて着陸する",
+        "Spirit と Opportunity — 予定を超え走る",
+        "Curiosity — 原子力で火星を掘る",
+        "Perseverance — 試料を残して置く",
+        "Rosetta — 十年かけて彗星に追いつく",
+        "Philae — 彗星に降り、跳ねて止まる",
+        "New Horizons — 冥王星を通り抜ける",
+        "はやぶさ — 満身創痍で還ってくる",
+        "はやぶさ2 — 人工クレーターを作る",
+        "Parker Solar Probe — 最も太陽に近い",
+        "JWST — 赤外で最も古い光を見る"
       ]
     },
     {
@@ -860,6 +4770,330 @@
         "Merge Join — 整列済みを噛み合わせ",
         "N+1 — 一件ずつ問い合わせる罠",
         "ACID — 原子性一貫性隔離永続性"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "statistics",
+      "name": "Statistics",
+      "emoji": "📈",
+      "description": "The words that keep you from fooling yourself",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "statistics",
+        "probability",
+        "data",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "自分を騙さないための言葉"
+        }
+      },
+      "verbs": [
+        "母集団と標本 — 全部と、その一部",
+        "平均・中央値・最頻値 — 別の代表",
+        "分散と標準偏差 — 散らばりの尺度",
+        "正規分布 — 68 / 95 / 99.7%",
+        "中心極限定理 — 平均は正規に寄る",
+        "標準誤差 — 平均そのものの揺れ",
+        "信頼区間 — 手続きが当たる割合",
+        "帰無仮説 — 差が無いという仮定",
+        "p値 — 帰無仮説の下での希少さ",
+        "有意水準 — どこで驚くかの約束",
+        "第一種の誤り — 無いのに有ると言う",
+        "第二種の誤り — 有るのに見逃す",
+        "検定力 — 有る差を見つける確率",
+        "多重比較 — 試すほど偶然が出る",
+        "Bonferroni — 水準を回数で割る",
+        "効果量 — 差の大きさそのもの",
+        "相関は因果でない — 順序も要る",
+        "交絡 — 第三の要因が化けている",
+        "選択バイアス — 集め方で歪む",
+        "生存者バイアス — 消えた者は語らぬ",
+        "平均への回帰 — 極端は戻っていく",
+        "Simpson のパラドックス — 層別で逆転",
+        "ベイズ更新 — 事前を証拠で直す",
+        "外れ値 — 捨てる前に理由を探す"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "swift-modern",
+      "name": "Swift",
+      "emoji": "🐦",
+      "description": "Optionals, actors and the async world after them",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "swift",
+        "optional",
+        "concurrency",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "Optionalとactor、そしてasync/await"
+        }
+      },
+      "verbs": [
+        "Optional — 無いかもしれない値の型",
+        "guard let — 早期returnで剥がす",
+        "if let — 束縛できた時だけ入る",
+        "?? — nilなら既定値を使う",
+        "optional chaining — 途中で止まる",
+        "! 強制解除 — 落ちる時は落ちる",
+        "async / await — 待つが塞がない",
+        "Task — 非同期の仕事を起こす",
+        "TaskGroup — 子をまとめて待つ",
+        "actor — 状態を隔離して守る",
+        "@MainActor — UIは必ずこの上で",
+        "Sendable — 越境しても安全な型",
+        "struct — 値型、代入で複製される",
+        "class — 参照型、共有されていく",
+        "weak — 循環参照を切る",
+        "unowned — 弱いが解除はされない",
+        "defer — 抜ける時に必ず走る",
+        "some / any — 具体か存在かの違い",
+        "Result — 成功と失敗を型で持つ",
+        "throws / try — 投げて、受け止める",
+        "protocol extension — 既定実装を配る",
+        "enum + 値 — 状態を型で分ける",
+        "lazy var — 初回参照まで作らない",
+        "@escaping — 呼び出しより長生きする"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "tcpip-layers",
+      "name": "TCP/IP",
+      "emoji": "🧵",
+      "description": "The vocabulary you need when the network is the suspect",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "tcp",
+        "network",
+        "protocol",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ネットワークを疑う時に要る語彙"
+        }
+      },
+      "verbs": [
+        "3-way handshake — SYN, SYN-ACK, ACK",
+        "FIN と RST — 閉じると叩き切る",
+        "TIME_WAIT — 残響を待つ 2MSL",
+        "スロースタート — 少しずつ窓を開く",
+        "輻輳制御 — 詰まりを見て緩める",
+        "受信窓 — 相手が受け取れる量",
+        "Nagle — 小片を溜めてから送る",
+        "遅延ACK — 少し待ってまとめる",
+        "MTU — 分割せず運べる上限",
+        "MSS — TCPが一度に載せる量",
+        "パスMTU探索 — 途中の最小に合わせる",
+        "フラグメント — 途中で分割される",
+        "TTL — 経由できるルータの数",
+        "ARP — 同一セグメント内の解決",
+        "NAT — 住所を書き換えて共有する",
+        "CIDR /24 — 前 24bit が網の部分",
+        "デフォルト経路 — 外への出口",
+        "UDP — 届く保証を捨てて速く",
+        "QUIC — UDPの上で作り直した",
+        "SYN flood — 半開きで席を埋める",
+        "tcpdump — 線の上を直に覗く",
+        "ss -tan — 今の接続状態を並べる",
+        "ephemeral port — 送る側の一時港",
+        "keepalive — 生きているか確かめる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "terraform-hcl",
+      "name": "Terraform",
+      "emoji": "🧰",
+      "description": "HCL and the state file, learned while Claude works",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "terraform",
+        "hcl",
+        "iac",
+        "study"
+      ],
+      "source": "https://developer.hashicorp.com/terraform/docs",
+      "i18n": {
+        "ja": {
+          "description": "HCLとstateの語彙をClaudeが働く間に"
+        }
+      },
+      "verbs": [
+        "terraform plan — 差分を先に見る",
+        "terraform apply — 差分を適用する",
+        "terraform import — 既存を取り込む",
+        "terraform state mv — 追跡先を移す",
+        "terraform state rm — 追跡から外す",
+        "terraform refresh — 実体を読み直す",
+        "terraform fmt — 書式を揃える",
+        "terraform validate — 構文を検める",
+        "terraform output — 値を取り出す",
+        "terraform workspace — 環境を分ける",
+        "-replace= — 次回に作り直させる",
+        "-target — 一部だけに絞って適用",
+        "lifecycle — 置換や破棄の作法を決める",
+        "prevent_destroy — 消させない",
+        "create_before_destroy — 先に作る",
+        "depends_on — 順序を明示する",
+        "for_each — キーごとに資源を作る",
+        "count — 添字で並べ、消すとずれる",
+        "dynamic — ブロックを繰り返す",
+        "locals — 式に名前を付ける",
+        "data — 既存を読むだけの参照",
+        "moved block — 名前替えを宣言する",
+        "backend — stateの置き場所",
+        "sensitive — 出力から値を隠す"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "testing-terms",
+      "name": "Testing Vocabulary",
+      "emoji": "🧪",
+      "description": "mock, stub, fake - and which one you actually meant",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "testing",
+        "mock",
+        "quality",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "mockとstubとfake、本当はどれか"
+        }
+      },
+      "verbs": [
+        "test double — 本物の代わり全般",
+        "dummy — 渡すだけ、使われない",
+        "stub — 決まった値を返すだけ",
+        "spy — 呼ばれ方を記録しておく",
+        "mock — 期待した呼びを検証する",
+        "fake — 動くが軽い実装",
+        "flaky — 同じ入力で結果が揺れる",
+        "AAA — 整えて、動かして、確かめる",
+        "テストピラミッド — 下を厚くする",
+        "単体・結合・E2E — 範囲が広がる",
+        "回帰テスト — 直した所が壊れない",
+        "特性化テスト — 今の挙動を写し取る",
+        "境界値 — 端と、その一つ外",
+        "同値分割 — 代表を一つだけ選ぶ",
+        "テーブル駆動 — 表で入出力を並べる",
+        "性質ベース — 満たすべき性質を書く",
+        "スナップショット — 差分だけを見る",
+        "ゴールデンファイル — 期待値を置く",
+        "カバレッジ — 通った行、質ではない",
+        "変異テスト — 壊してみて気付くか",
+        "モックの過剰 — 実装を写して硬直",
+        "fixture — 前提を整えて配る",
+        "時刻の固定 — 現在時刻を注入する",
+        "hermetic — 外に依存させない"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "three-kingdoms",
+      "name": "Three Kingdoms",
+      "emoji": "🐲",
+      "description": "Who did what, in the wars that made the novel",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "history",
+        "china",
+        "three-kingdoms",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "三国志の人物と、その一手"
+        }
+      },
+      "verbs": [
+        "曹操 — 屯田で兵を養い、北を握る",
+        "劉備 — 三度訪ねて諸葛亮を得る",
+        "孫権 — 江東を継ぎ、赤壁で守る",
+        "諸葛亮 — 天下三分を説いて出る",
+        "関羽 — 荊州を守り、麦城に落ちる",
+        "張飛 — 長坂橋で追撃を止める",
+        "趙雲 — 単騎で阿斗を抱えて還る",
+        "呂布 — 最強にして、最も裏切る",
+        "董卓 — 洛陽を焼き、都を移す",
+        "袁紹 — 官渡で足踏みして崩れる",
+        "荀彧 — 官渡で退くなと説く",
+        "郭嘉 — 早く読み、早く世を去る",
+        "司馬懿 — 待ち続け、最後に残る",
+        "周瑜 — 火を放って赤壁を決める",
+        "魯粛 — 同盟の綱を握り続ける",
+        "陸遜 — 夷陵で火計を用いる",
+        "呂蒙 — 白衣で荊州を奪い取る",
+        "黄蓋 — 偽って降り、船に火を積む",
+        "馬超 — 潼関で曹操を追い詰める",
+        "姜維 — 諸葛亮の志を継いで北へ",
+        "鄧艾 — 陰平の険を越えて成都へ",
+        "鍾会 — 蜀を取り、自らも滅ぶ",
+        "劉禅 — 降り、蜀は四十三年で終る",
+        "貂蝉 — 演義が生んだ離間の駒"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "tls-certs",
+      "name": "TLS and Certificates",
+      "emoji": "🔐",
+      "description": "Handshakes, chains and the expiry that took prod down",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "tls",
+        "ssl",
+        "security",
+        "certificate",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "握手と証明書、そして期限切れ"
+        }
+      },
+      "verbs": [
+        "ClientHello — 名乗って候補を出す",
+        "SNI — 接続先名を平文で伝える",
+        "ALPN — h2 か http/1.1 を決める",
+        "cipher suite — 使う暗号の組合せ",
+        "ECDHE — 鍵を毎回捨てて守る",
+        "PFS — 後で鍵が漏れても守れる",
+        "TLS 1.3 — 往復を一回に縮めた",
+        "0-RTT — 速いが再送の危険がある",
+        "証明書チェーン — 中間まで送る",
+        "ルートCA — 端末が最初から信じる",
+        "SAN — 名乗れる名前の一覧",
+        "CN — もう見られない古い欄",
+        "CSR — 署名してくれと頼む書式",
+        "自己署名 — 誰も保証していない",
+        "有効期限切れ — 最も多い原因",
+        "OCSP — 失効したかを問い合わせる",
+        "OCSP stapling — 答えを同梱する",
+        "CRL — 失効一覧をまとめて配る",
+        "mTLS — 客側も証明書を差し出す",
+        "HSTS — 次から https を強制する",
+        "証明書の透明性 — 発行を公開記録に",
+        "PEM と DER — 文字と生バイト",
+        "openssl s_client — 手で握手する",
+        "秘密鍵は 600 — 他人に読ませない"
       ]
     },
     {
@@ -910,6 +5144,100 @@
     },
     {
       "$schema": "../schema/verb-set.schema.json",
+      "id": "unicode-encoding",
+      "name": "Unicode",
+      "emoji": "🔤",
+      "description": "Learn the name of every way text breaks",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "unicode",
+        "encoding",
+        "utf8",
+        "text",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "文字化けの原因に名前を付けていく"
+        }
+      },
+      "verbs": [
+        "コードポイント — 文字に振った番号",
+        "UTF-8 — 1〜4バイトの可変長",
+        "UTF-16 — 2または4バイト",
+        "サロゲートペア — 2つで1文字",
+        "BOM — 先頭に付く見えない印",
+        "BMP — 最初の65536個の面",
+        "絵文字は面外 — 4バイトになる",
+        "結合文字 — 後ろから重ねて飾る",
+        "NFC — 合成済みの形に正規化する",
+        "NFD — 分解した形に正規化する",
+        "NFKC — 互換文字まで畳んで潰す",
+        "全角と半角 — 見た目が近い別文字",
+        "grapheme cluster — 人が見る1文字",
+        "長さの三種類 — バイト、点、字",
+        "East Asian Width — 端末での桁数",
+        "ZWJ — 繋いで一つの絵文字にする",
+        "異体字セレクタ — 字形を選び直す",
+        "Latin-1 と UTF-8 — 混ぜると化ける",
+        "二重変換 — 化けた物をまた変える",
+        "正規化の非等価 — 同じに見えて別",
+        "casefold — 大小を畳んで比べる",
+        "トルコ語の i — 大文字化が例外",
+        "collation — 並び順は言語で違う",
+        "検査の順序 — 正規化を先に済ます"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "unix-history",
+      "name": "Unix History",
+      "emoji": "💻",
+      "description": "The family tree behind the shell you are typing in",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "history",
+        "unix",
+        "bsd",
+        "linux",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "今叩いているシェルの系譜"
+        }
+      },
+      "verbs": [
+        "Multics — 大きすぎた先行研究",
+        "Bell Labs — 反省から小さく作り直す",
+        "Ken Thompson — 一ヶ月で骨格を書く",
+        "Dennis Ritchie — Cを作って移植する",
+        "PDP-11 — Unixが育った機械",
+        "Version 6 — 教科書として広まる",
+        "Version 7 — 商用化の分かれ目",
+        "BSD — バークレーが枝を伸ばす",
+        "4.2BSD — ソケットが入ってくる",
+        "System V — AT&T側の系統",
+        "Unix戦争 — BSDとSystem Vが割れる",
+        "POSIX — 分裂の上に規格を敷く",
+        "GNU — 自由な部品を先に揃える",
+        "MINIX — 教育用に書き直した核",
+        "Linux — 核だけ足して噛み合う",
+        "386BSD — PCへ移した系統",
+        "USL訴訟 — Linuxが伸びる隙になる",
+        "FreeBSD — 一つの完成した系統",
+        "NetBSD — どこにでも移植する",
+        "OpenBSD — 安全側に振り切る",
+        "Solaris — Sun の System V 系",
+        "NeXTSTEP — Machの上にUnixを載す",
+        "Darwin — macOS の中の Unix",
+        "パイプ — 小さな道具を繋ぐ思想"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
       "id": "vim-keys",
       "name": "Vim Keybindings",
       "emoji": "📝",
@@ -951,6 +5279,246 @@
         "= — 選択範囲を整形する",
         "gq — 段落を折り返す",
         "m + ' — 印を打って戻る"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "weather-terms",
+      "name": "Weather",
+      "emoji": "🌈",
+      "description": "The words the forecast uses without explaining",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "weather",
+        "meteorology",
+        "science",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "予報が説明せずに使う言葉"
+        }
+      },
+      "verbs": [
+        "ダウンバースト — 下へ吹き降ろす",
+        "ガストフロント — 冷気の先端が来る",
+        "フェーン — 山を越えて乾き暖まる",
+        "やまじ風 — 四国で吹き下ろす局地風",
+        "からっ風 — 冬に関東へ吹き下りる",
+        "線状降水帯 — 同じ所で降り続ける",
+        "バックビルディング — 後ろで作り直す",
+        "大気の川 — 水蒸気が帯で流れ込む",
+        "温帯低気圧 — 前線を持って発達する",
+        "爆弾低気圧 — 一日で急激に深まる",
+        "寒冷渦 — 上空の冷気が居座る",
+        "ブロッキング高気圧 — 流れを止める",
+        "エルニーニョ — 東太平洋が暖まる",
+        "ラニーニャ — その逆、東が冷える",
+        "偏西風の蛇行 — 天候が長く固まる",
+        "梅雨前線 — 二つの気団が押し合う",
+        "秋雨前線 — 台風と組むと大雨に",
+        "台風の眼 — 中心は静かで晴れる",
+        "危険半円 — 進路の右側が強くなる",
+        "高潮 — 気圧が下がり海面が上がる",
+        "フラッシュフラッド — 短時間で溢れる",
+        "放射冷却 — 晴れた夜ほど冷え込む",
+        "雲底高度 — 気温と露点の差で決まる",
+        "湿舌 — 暖かく湿った空気の帯"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "world-battles",
+      "name": "Decisive Battles",
+      "emoji": "🏹",
+      "description": "The battle, the year, and what it settled",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "history",
+        "battle",
+        "world-history",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "会戦と、そこで決まったこと"
+        }
+      },
+      "verbs": [
+        "Marathon 490 BC — ペルシアを退ける",
+        "Thermopylae 480 BC — 隘路で足止め",
+        "Salamis 480 BC — 狭い海で艦を潰す",
+        "Gaugamela 331 BC — 東方遠征が決まる",
+        "Cannae 216 BC — 包囲殲滅の教科書",
+        "Zama 202 BC — 象を退け、ローマ勝つ",
+        "Alesia 52 BC — 二重の壁で囲み切る",
+        "Actium 31 BC — 帝政への道が開く",
+        "Adrianople 378 — 重騎兵の時代へ",
+        "Tours 732 — 西への進出が止まる",
+        "Hastings 1066 — 英の言葉が変わる",
+        "Manzikert 1071 — 東ローマが傾く",
+        "Agincourt 1415 — 長弓が騎士を破る",
+        "Constantinople 1453 — 大砲が壁を崩す",
+        "Lepanto 1571 — 地中海の潮目が変わる",
+        "Armada 1588 — 海の主役が入れ替わる",
+        "Breitenfeld 1631 — 線陣が縦深を破る",
+        "Blenheim 1704 — 大同盟が仏を抑える",
+        "Trafalgar 1805 — 上陸の望みが絶える",
+        "Austerlitz 1805 — 中央を割って勝つ",
+        "Waterloo 1815 — 百日天下が終わる",
+        "Gettysburg 1863 — 北への侵攻が挫く",
+        "Tsushima 1905 — 艦隊が一日で消える",
+        "Midway 1942 — 空母四隻を一日で失う"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "zh-chengyu",
+      "name": "Chengyu",
+      "emoji": "🐉",
+      "description": "Four-character idioms, each with its story compressed",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "chinese",
+        "chengyu",
+        "idiom",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "物語が四文字に畳まれた成語"
+        }
+      },
+      "verbs": [
+        "画蛇添足 — 余計な物を足して損なう",
+        "塞翁失马 — 災いが福に転じる",
+        "守株待兔 — 古い方法に頼り続ける",
+        "杯弓蛇影 — 疑えば影も蛇に見える",
+        "刻舟求剑 — 状況の変化を無視する",
+        "掩耳盗铃 — 自分だけ気付かぬふり",
+        "对牛弹琴 — 通じない相手に説く",
+        "亡羊补牢 — 遅れてでも手を打つ",
+        "拔苗助长 — 急かして台無しにする",
+        "买椟还珠 — 本質を捨て飾りを取る",
+        "叶公好龙 — 口では好き、実は怖い",
+        "邯郸学步 — 真似て自分を見失う",
+        "南辕北辙 — 目的と手段が逆を向く",
+        "自相矛盾 — 言う事が食い違う",
+        "滥竽充数 — 数だけ揃えて紛れ込む",
+        "班门弄斧 — 専門家の前で腕を誇る",
+        "青出于蓝 — 弟子が師を超える",
+        "水滴石穿 — 続ければ石も貫く",
+        "厚积薄发 — 蓄えてから一気に出す",
+        "循序渐进 — 順を追って進める",
+        "举一反三 — 一つから多くを悟る",
+        "触类旁通 — 一つ分かれば他も通る",
+        "事半功倍 — 半分の労で倍の成果",
+        "画龙点睛 — 最後の一筆で生きる"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "zh-general",
+      "name": "Chinese (General)",
+      "emoji": "🈶",
+      "description": "A general-purpose Simplified Chinese replacement",
+      "language": "zh-Hans",
+      "category": "classic",
+      "tags": [
+        "chinese",
+        "general",
+        "classic"
+      ],
+      "i18n": {
+        "ja": {
+          "name": "中文通用",
+          "description": "汎用の中国語（簡体字）置き換え"
+        },
+        "zh-Hans": {
+          "name": "中文通用",
+          "description": "通用的简体中文替换词表"
+        }
+      },
+      "verbs": [
+        "正在梳理",
+        "逐一核对",
+        "仔细阅读",
+        "反复确认",
+        "整理思路",
+        "拆解问题",
+        "逐步推进",
+        "查找线索",
+        "比对差异",
+        "补齐缺口",
+        "重新组织",
+        "换个角度",
+        "退一步看",
+        "缩小范围",
+        "验证假设",
+        "记录要点",
+        "权衡取舍",
+        "统一命名",
+        "顺手整理",
+        "再看一遍",
+        "接近完成",
+        "收尾整理",
+        "串联起来",
+        "回溯步骤",
+        "静下心来",
+        "写出来看",
+        "读回一遍",
+        "闭合回路",
+        "排好顺序",
+        "打磨细节"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "zh-hsk",
+      "name": "HSK Vocabulary",
+      "emoji": "🀄",
+      "description": "Chinese adverbs and connectives that carry the sentence",
+      "language": "ja",
+      "category": "study",
+      "tags": [
+        "chinese",
+        "hsk",
+        "vocabulary",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "文を支える中国語の副詞と接続語"
+        }
+      },
+      "verbs": [
+        "顺便 — ついでに",
+        "难免 — 避けられない",
+        "毕竟 — 何といっても、結局",
+        "反正 — どうせ、いずれにしても",
+        "干脆 — きっぱりと、いっそ",
+        "居然 — 意外にも、なんと",
+        "简直 — まったく、まるで",
+        "尽量 — できるだけ",
+        "宁可 — むしろ〜する方がよい",
+        "何必 — わざわざする必要はない",
+        "不见得 — 必ずしもそうではない",
+        "说不定 — もしかしたら",
+        "恐怕 — おそらく、残念ながら",
+        "至于 — 〜に関しては",
+        "以免 — 〜しないように",
+        "免得 — 〜せずに済むように",
+        "哪怕 — たとえ〜としても",
+        "既然 — 〜である以上は",
+        "不料 — 思いがけず",
+        "总算 — ようやく、やっと",
+        "多亏 — 〜のおかげで",
+        "偏偏 — よりによって",
+        "本来 — もともと、元は",
+        "赶紧 — 急いで、すぐに"
       ]
     }
   ]

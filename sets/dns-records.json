@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "dns-records",
+  "name": "DNS Records",
+  "emoji": "📡",
+  "description": "Record types and why propagation takes so long",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "dns",
+    "network",
+    "record",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "レコード種別と、伝播が遅い理由"
+    }
+  },
+  "verbs": [
+    "A — 名前をIPv4に対応させる",
+    "AAAA — 名前をIPv6に対応させる",
+    "CNAME — 別名、頂点には置けない",
+    "ALIAS — 頂点でも別名を張れる",
+    "NS — 権限を下位に委譲する",
+    "SOA — ゾーンの起点と更新間隔",
+    "MX — メールの宛先と優先度",
+    "TXT — 任意の文字列を置く",
+    "SPF — 送ってよい元を宣言する",
+    "DKIM — 署名の検証鍵を置く",
+    "DMARC — 失敗時の扱いを決める",
+    "SRV — サービスの host と port",
+    "PTR — IPから名前を逆に引く",
+    "CAA — 発行できるCAを限る",
+    "TTL — キャッシュが残る秒数",
+    "negative TTL — 不在も覚えられる",
+    "glue record — 委譲先のIPを添える",
+    "再帰問い合わせ — 代わりに辿らせる",
+    "権威サーバ — 答えを持っている側",
+    "ゾーン転送 — AXFRで丸ごと写す",
+    "DNSSEC — 応答に署名して守る",
+    "ワイルドカード — *.example の受け皿",
+    "split horizon — 内と外で別の答え",
+    "dig +trace — 根から順に辿らせる"
+  ]
+}

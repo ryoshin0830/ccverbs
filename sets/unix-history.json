@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "unix-history",
+  "name": "Unix History",
+  "emoji": "💻",
+  "description": "The family tree behind the shell you are typing in",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "history",
+    "unix",
+    "bsd",
+    "linux",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "今叩いているシェルの系譜"
+    }
+  },
+  "verbs": [
+    "Multics — 大きすぎた先行研究",
+    "Bell Labs — 反省から小さく作り直す",
+    "Ken Thompson — 一ヶ月で骨格を書く",
+    "Dennis Ritchie — Cを作って移植する",
+    "PDP-11 — Unixが育った機械",
+    "Version 6 — 教科書として広まる",
+    "Version 7 — 商用化の分かれ目",
+    "BSD — バークレーが枝を伸ばす",
+    "4.2BSD — ソケットが入ってくる",
+    "System V — AT&T側の系統",
+    "Unix戦争 — BSDとSystem Vが割れる",
+    "POSIX — 分裂の上に規格を敷く",
+    "GNU — 自由な部品を先に揃える",
+    "MINIX — 教育用に書き直した核",
+    "Linux — 核だけ足して噛み合う",
+    "386BSD — PCへ移した系統",
+    "USL訴訟 — Linuxが伸びる隙になる",
+    "FreeBSD — 一つの完成した系統",
+    "NetBSD — どこにでも移植する",
+    "OpenBSD — 安全側に振り切る",
+    "Solaris — Sun の System V 系",
+    "NeXTSTEP — Machの上にUnixを載す",
+    "Darwin — macOS の中の Unix",
+    "パイプ — 小さな道具を繋ぐ思想"
+  ]
+}

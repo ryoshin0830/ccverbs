@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "roman-emperors",
+  "name": "Roman Emperors",
+  "emoji": "🦅",
+  "description": "Every emperor worth remembering, judged in one line",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "history",
+    "rome",
+    "emperor",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "ローマ皇帝を一行の評で覚える"
+    }
+  },
+  "verbs": [
+    "Augustus — 共和を装って帝政を敷く",
+    "Tiberius — 島に退き、疑いを深める",
+    "Caligula — 逸話が先に立つ短い治世",
+    "Claudius — ブリタニアを併合する",
+    "Nero — 大火の後、責を他に転じる",
+    "Vespasian — 内乱を収め、税を集める",
+    "Titus — コロッセオを完成させる",
+    "Domitian — 統治は堅く、記憶は削られ",
+    "Trajan — 版図を最大まで広げる",
+    "Hadrian — 拡張をやめ、壁を築く",
+    "Antoninus Pius — 平穏を保ち続ける",
+    "Marcus Aurelius — 陣中で自省録を書く",
+    "Commodus — 闘技場に立ち、絞められる",
+    "Septimius Severus — 軍に厚く報いる",
+    "Caracalla — 全自由民に市民権を与う",
+    "Aurelian — 分裂を繋ぎ直し壁を築く",
+    "Diocletian — 帝国を四つに分けて治む",
+    "Constantine — キリスト教を公認する",
+    "Julian — 旧来の神々に戻そうとする",
+    "Valens — アドリアノープルで敗死",
+    "Theodosius I — 最後に一人で統べる",
+    "Romulus Augustulus — 西の最後の帝",
+    "Justinian — 法を集め、東で再興を図る",
+    "Elagabalus — 東方の神を持ち込む"
+  ]
+}

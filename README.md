@@ -251,38 +251,192 @@ Verb *content* is never translated — a Japanese set is Japanese. Sets in your 
 ## Verb sets
 
 
-21 sets, 496 verbs.
+121 sets, 2,860 verbs.
 
 ### Just for fun
+
+**Animals and daily life**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🐈 `ja-cat` | 25 | What the cat is doing while Claude works |
+| 🐕 `ja-dog` | 24 | One dog, from the leash coming out to getting home |
+| 🦫 `ja-capybara` | 22 | Nothing that happens is worth hurrying for |
+| 🐧 `ja-penguin` | 22 | Waddle, slide, dive, repeat |
+| 🧖 `ja-sauna` | 22 | Heat, cold water, cool air - and around again |
+| ⛺ `ja-camp` | 22 | From picking the pitch to putting the fire out |
+| 🎣 `ja-tsuri` | 22 | Mostly the waiting, which is the point |
+| 🌲 `ja-bonsai` | 20 | Decisions measured in decades |
+| ☕ `ja-coffee` | 22 | From the beans to the cup, one pour at a time |
+| 🍜 `ja-ramen` | 25 | A bowl of ramen coming together, one step at a time |
+| 🍣 `ja-sushi` | 22 | The prep work nobody sees, then two presses |
+| 🍺 `ja-izakaya` | 22 | One evening, from the master's side of the counter |
+| 🏪 `ja-konbini` | 22 | The night shift, one quiet task after another |
+
+**Voices and worlds**
 
 | Set | Verbs | What it is |
 | --- | --- | --- |
 | 🪨 `sisyphus` | 10 | The myth of Sisyphus, in Japanese. The set that started this project |
-| 🗾 `ja-general` | 40 | A general-purpose Japanese stand-in for all 186 defaults |
-| 🐈 `ja-cat` | 25 | What the cat is doing while Claude works |
-| 🍜 `ja-ramen` | 25 | A bowl of ramen coming together, one step at a time |
 | 🐙 `ja-kansai` | 20 | Claude, but in Kansai dialect |
+| 🎌 `ja-jidaigeki` | 22 | Claude, but speaking like a period drama |
+| 🥷 `ja-ninja` | 22 | A job done without making a sound |
+| 🔔 `ja-shitsuji` | 22 | Everything was already arranged before you asked |
+| 🍁 `ja-haiku` | 20 | Every line is 5-7-5, season word included |
 | 🦜 `en-pirate` | 24 | Arrr |
 | 🌃 `en-cyberpunk` | 22 | Neon, rain, and ICE |
+| 🎭 `en-shakespeare` | 22 | Blank verse and a great deal of drama |
+| 🚬 `en-noir` | 22 | First person, raining, nobody is clean |
+| 🪄 `en-wizard` | 22 | Long preparations, uncertain results |
+| 🌑 `en-lovecraft` | 22 | Some code was not meant to be read |
+| 🎲 `en-dnd` | 22 | Dice, rules arguments, and one very long session |
+| 🪷 `en-zen-koan` | 20 | Quiet, and in no hurry to answer |
+
+**Radio and commentary**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🚀 `en-mission-control` | 22 | Launch control radio traffic, calm to the last second |
+| 🏁 `en-f1-pit` | 22 | Team radio, clipped and urgent |
+| 🫧 `en-submarine` | 22 | Running silent, one order at a time |
+| 🔪 `en-kitchen` | 22 | Service, called out across a hot line |
+| 🩺 `en-er` | 22 | The order the room actually works in |
+| 🦒 `en-nature-doc` | 22 | Narrated slowly, over footage of something waiting |
+| ⛳ `en-golf-whisper` | 20 | Hushed, reverent, occasionally devastating |
+| 💼 `en-heist` | 22 | Casing it, cutting the line, and improvising |
+| 🎮 `en-speedrun` | 22 | Splits, resets, and one more attempt |
 
 ### Study sets — the spinner as a flashcard
 
-| Set | Verbs | What it teaches |
+**Languages and frameworks**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🐍 `py-idioms` | 24 | The Pythonic way to write it, one idiom at a time |
+| 🐹 `go-concurrency` | 24 | goroutines and channels, learned by osmosis |
+| 💎 `rb-blocks` | 24 | Blocks, Enumerable and just enough metaprogramming |
+| 🌊 `java-streams` | 24 | The Stream API and Optional, absorbed while you wait |
+| 📌 `c-pointers` | 24 | Pointers and the undefined behaviour that follows them |
+| 🎩 `haskell-monads` | 24 | Types that carry failure and effects, one law at a time |
+| 🐦 `swift-modern` | 24 | Optionals, actors and the async world after them |
+| 🔷 `ts-types` | 24 | `Awaited<T>`, `satisfies`, `infer`, variance |
+| 🦀 `rust-ownership` | 22 | Borrows, lifetimes, `Cow<T>`, `Pin`, NLL |
+| 🪝 `react-hooks` | 24 | Which hook, and why that one |
+| 🎨 `css-layout` | 24 | The Flexbox and Grid values you actually reach for |
+| 🧷 `css-selectors` | 24 | The selectors you look up every single time |
+| 🐚 `shell-expansion` | 24 | Parameter expansion and quoting, next to linux-commands |
+| 🔍 `regex` | 24 | Lookaround, atomic groups, catastrophic backtracking |
+
+**Commands and tools**
+
+| Set | Verbs | What it is |
 | --- | --- | --- |
 | 🌿 `git-commands` | 24 | `git bisect`, `git reflog`, `git rebase --onto` |
 | 🎡 `kubectl-commands` | 24 | `kubectl drain`, `kubectl debug`, `kubectl auth can-i` |
 | 🐳 `docker-commands` | 22 | `docker buildx`, `docker history`, `docker system prune` |
 | 🐧 `linux-commands` | 24 | `strace`, `lsof -i`, `flock`, `ncdu` |
 | 📝 `vim-keys` | 24 | `ciw`, `:g/pat/d`, `:norm`, `C-v I` |
+| 🔬 `perf-tools` | 24 | Which command to reach for when it is slow |
+
+**Infrastructure and networking**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🧰 `terraform-hcl` | 24 | HCL and the state file, learned while Claude works |
+| 🌐 `aws-services` | 24 | What each service is actually for, in one line |
+| 📡 `dns-records` | 24 | Record types and why propagation takes so long |
+| 🧵 `tcpip-layers` | 24 | The vocabulary you need when the network is the suspect |
+| 🔐 `tls-certs` | 24 | Handshakes, chains and the expiry that took prod down |
+| 🔭 `observability` | 24 | Logs, metrics and traces - and what each one cannot tell you |
+| 🌐 `http-status` | 24 | `303` vs `307`, `409`, `422`, `502` vs `504` |
+
+**Computer science and design**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🧩 `design-patterns` | 24 | GoF and the patterns that outlived it |
+| 🧹 `refactoring-catalog` | 24 | Fowler's catalogue, one move at a time |
+| 🧠 `os-kernel` | 24 | Processes, scheduling and virtual memory |
+| ⚡ `cpu-cache` | 24 | Why the same code runs ten times faster |
+| 🏭 `compiler-phases` | 24 | From characters to machine code, phase by phase |
+| 🔗 `distributed-systems` | 24 | The inconvenient truths of more than one machine |
+| 🧪 `testing-terms` | 24 | mock, stub, fake - and which one you actually meant |
+| 🔤 `unicode-encoding` | 24 | Learn the name of every way text breaks |
+| ⏰ `datetime-pitfalls` | 24 | Every way a timestamp can ruin your week |
+| 🔖 `semver-commits` | 24 | Version ranges and Conventional Commits |
+| 📈 `bigo` | 24 | Complexity classes and the algorithms that hit them |
+
+**Data and AI**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🧮 `sql` | 24 | Window functions, `DISTINCT ON`, join strategies |
+| 🐘 `postgres-features` | 24 | Postgres-specific features and query plans, next to sql |
+| 📬 `kafka-terms` | 24 | Partitions, offsets and the guarantees you actually get |
+| 📊 `ml-terms` | 24 | The vocabulary behind every model you did not train |
+| 🤖 `llm-terms` | 24 | What is actually happening on the other side of the prompt |
+| 📈 `statistics` | 24 | The words that keep you from fooling yourself |
+
+**Languages, human ones**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
 | 📘 `en-toeic` | 24 | Business English: `reimburse`, `in lieu of`, `contingent on` |
 | 🎓 `en-gre` | 24 | The hard words: `ephemeral`, `recalcitrant`, `perfunctory` |
 | 💬 `en-tech-phrases` | 22 | `yak shaving`, `load-bearing`, `bus factor` |
-| 🔷 `ts-types` | 24 | `Awaited<T>`, `satisfies`, `infer`, variance |
-| 🦀 `rust-ownership` | 22 | Borrows, lifetimes, `Cow<T>`, `Pin`, NLL |
-| 🧮 `sql` | 24 | Window functions, `DISTINCT ON`, join strategies |
-| 🔍 `regex` | 24 | Lookaround, atomic groups, catastrophic backtracking |
-| 🌐 `http-status` | 24 | `303` vs `307`, `409`, `422`, `502` vs `504` |
-| 📈 `bigo` | 24 | Complexity classes and the algorithms that hit them |
+| 📘 `en-phrasal-verbs` | 24 | The phrasal verbs that carry business English |
+| 📝 `en-code-review` | 24 | What reviewers actually type, and what it means |
+| 📜 `en-latin-phrases` | 24 | The Latin that never left English prose |
+| 🀄 `zh-hsk` | 24 | Chinese adverbs and connectives that carry the sentence |
+| 🐉 `zh-chengyu` | 24 | Four-character idioms, each with its story compressed |
+| 🥟 `ko-topik` | 24 | The Korean adverbs that change the whole sentence |
+| 📕 `ja-jlpt-n1` | 24 | N1 grammar patterns for Japanese learners |
+| 📙 `ja-yojijukugo` | 24 | Four-character Japanese idioms and what they mean |
+| 📖 `ja-kanken` | 24 | Kanji you can read but would never write by hand |
+| 🍡 `ja-kotowaza` | 24 | Proverbs, and what they are actually warning you about |
+| 🎋 `ja-classical` | 24 | The classical words whose modern meaning misleads you |
+
+**History**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🏯 `jp-eras` | 24 | Every era of Japanese history in one line each |
+| 🐎 `sengoku-warlords` | 24 | One warlord, one move that defined him |
+| 🌅 `bakumatsu` | 24 | The people who moved the last years of the shogunate |
+| 🦅 `roman-emperors` | 24 | Every emperor worth remembering, judged in one line |
+| 🐲 `three-kingdoms` | 24 | Who did what, in the wars that made the novel |
+| 🏹 `world-battles` | 24 | The battle, the year, and what it settled |
+| ⛵ `age-of-sail` | 24 | How the world was crossed before engines |
+| 💾 `computing-history` | 24 | The milestones your whole stack is standing on |
+| 💻 `unix-history` | 24 | The family tree behind the shell you are typing in |
+| 🧭 `explorers` | 24 | Who went where, and whether they came back |
+
+**Science and general knowledge**
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🦉 `philosophers` | 24 | One philosopher, one idea you can carry around |
+| 🏺 `greek-myth` | 24 | The gods and the mortals who learned the hard way |
+| 🔨 `norse-myth` | 24 | Nine worlds, and an ending everyone already knows |
+| 🧫 `periodic-table` | 24 | Each element, and what it is actually used for |
+| ✨ `constellations` | 24 | Which star to look for, and where it points |
+| 🪐 `space-probes` | 24 | Which probe went where, and what it brought back |
+| 🐙 `deep-sea` | 24 | What lives where the light does not reach |
+| 🦕 `dinosaurs` | 24 | What each one actually was, once the fossils spoke |
+| 🍄 `mushrooms` | 24 | How to tell them apart, and which one not to touch |
+| 🌈 `weather-terms` | 24 | The words the forecast uses without explaining |
+| 🌸 `sekki` | 24 | The 24 solar terms, exactly as the calendar has them |
+
+### General-purpose replacements
+
+| Set | Verbs | What it is |
+| --- | --- | --- |
+| 🗾 `ja-general` | 40 | A general-purpose Japanese stand-in for all 186 defaults |
+| 🍵 `ja-teineigo` | 30 | Polite Japanese you would not mind a colleague reading |
+| 🪶 `ja-tanpaku` | 30 | Short, flat Japanese nouns - no tone at all |
+| 🌙 `en-quiet` | 30 | Plain English that stays out of the way |
+| 🈶 `zh-general` | 30 | A general-purpose Simplified Chinese replacement |
+| 🌼 `ko-general` | 30 | A general-purpose Korean replacement |
 
 Run `ccverbs list` for the live list — it's always ahead of this README.
 
@@ -313,7 +467,7 @@ guide](docs/ai-agents.md) and the [contribution skill](.claude/skills/ccverbs-co
 
 ```console
 $ ccverbs list --json
-{"ok":true,"totalSets":21,"totalVerbs":496,"registryTotalSets":21,"sets":[{"id":"bigo","name":"Big-O and Algorithms","emoji":"📈","description":"…","language":"mixed","category":"study","tags":["algorithm","complexity","study"],"count":24}, …]}
+{"ok":true,"totalSets":121,"totalVerbs":2860,"registryTotalSets":121,"sets":[{"id":"bigo","name":"Big-O and Algorithms","emoji":"📈","description":"…","language":"mixed","category":"study","tags":["algorithm","complexity","study"],"count":24}, …]}
 
 $ ccverbs show sisyphus --json
 {"ok":true,"set":{"id":"sisyphus","name":"Sisyphus", …,"verbs":["岩を押し上げています", …]}}

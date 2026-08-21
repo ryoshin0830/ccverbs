@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-heist",
+  "name": "Heist",
+  "emoji": "💼",
+  "description": "Casing it, cutting the line, and improvising",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "heist",
+    "crime",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "下見、線を切る、そして即興"
+    }
+  },
+  "verbs": [
+    "Casing the vault, quietly",
+    "The inside man is late",
+    "Walking the route once more",
+    "Copying the keycard tonight",
+    "The camera loops every ninety",
+    "Two minutes on the alarm",
+    "The safe is older than the file",
+    "Drilling on the second mark",
+    "Nobody moves until the lights",
+    "Cutting the line now",
+    "Guard change in forty seconds",
+    "We are inside. Start the clock",
+    "This was not in the blueprints",
+    "Improvising. Stay with me",
+    "Bag it. Leave the rest",
+    "Someone tripped the second one",
+    "Out the service corridor",
+    "The driver is circling",
+    "Split up. Meet at the boat",
+    "Nobody knows anybody here",
+    "Burn the plans, all of them",
+    "One last job, they always say"
+  ]
+}

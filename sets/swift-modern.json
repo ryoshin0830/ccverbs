@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "swift-modern",
+  "name": "Swift",
+  "emoji": "🐦",
+  "description": "Optionals, actors and the async world after them",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "swift",
+    "optional",
+    "concurrency",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "Optionalとactor、そしてasync/await"
+    }
+  },
+  "verbs": [
+    "Optional — 無いかもしれない値の型",
+    "guard let — 早期returnで剥がす",
+    "if let — 束縛できた時だけ入る",
+    "?? — nilなら既定値を使う",
+    "optional chaining — 途中で止まる",
+    "! 強制解除 — 落ちる時は落ちる",
+    "async / await — 待つが塞がない",
+    "Task — 非同期の仕事を起こす",
+    "TaskGroup — 子をまとめて待つ",
+    "actor — 状態を隔離して守る",
+    "@MainActor — UIは必ずこの上で",
+    "Sendable — 越境しても安全な型",
+    "struct — 値型、代入で複製される",
+    "class — 参照型、共有されていく",
+    "weak — 循環参照を切る",
+    "unowned — 弱いが解除はされない",
+    "defer — 抜ける時に必ず走る",
+    "some / any — 具体か存在かの違い",
+    "Result — 成功と失敗を型で持つ",
+    "throws / try — 投げて、受け止める",
+    "protocol extension — 既定実装を配る",
+    "enum + 値 — 状態を型で分ける",
+    "lazy var — 初回参照まで作らない",
+    "@escaping — 呼び出しより長生きする"
+  ]
+}

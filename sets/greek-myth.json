@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "greek-myth",
+  "name": "Greek Mythology",
+  "emoji": "🏺",
+  "description": "The gods and the mortals who learned the hard way",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "mythology",
+    "greek",
+    "humanities",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "神々と、痛い目を見た人間たち"
+    }
+  },
+  "verbs": [
+    "Zeus — 雷を持ち、誓いは守らない",
+    "Hera — 婚姻の神、報復も担う",
+    "Poseidon — 海と地震、恨みは長い",
+    "Hades — 冥府を治め、悪ではない",
+    "Athena — 知恵と戦、梟と盾",
+    "Apollo — 予言と音楽、疫病も放つ",
+    "Artemis — 狩りと月、覗く者を罰す",
+    "Hermes — 伝令と商い、盗みも司る",
+    "Hephaestus — 火と鍛冶、足を引く",
+    "Ares — 戦そのもの、勝敗は見ない",
+    "Aphrodite — 泡から生まれた美の神",
+    "Demeter — 実りと、娘を探す季節",
+    "Dionysus — 酒と忘我、外から来た神",
+    "Prometheus — 火を渡して罰を受ける",
+    "Pandora — 開けて、希望だけが残る",
+    "Sisyphus — 押し上げ、また転がる",
+    "Tantalus — 手が届かないまま渇く",
+    "Cassandra — 当たるが信じられない",
+    "Icarus — 高く飛びすぎて落ちる",
+    "Narcissus — 水面の自分に恋をする",
+    "Orpheus — 振り返って全てを失う",
+    "Medusa — 見た者を石に変える",
+    "Achilles — 踵だけが弱いままの英雄",
+    "Odysseus — 十年、帰る道を探し続く"
+  ]
+}

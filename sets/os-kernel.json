@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "os-kernel",
+  "name": "OS Internals",
+  "emoji": "🧠",
+  "description": "Processes, scheduling and virtual memory",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "os",
+    "kernel",
+    "linux",
+    "memory",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "プロセス・スケジューラ・仮想記憶"
+    }
+  },
+  "verbs": [
+    "プロセス — 独立した住所空間",
+    "スレッド — 住所空間を共有する",
+    "copy-on-write — 書く時に複製する",
+    "fork — 写し取って分かれる",
+    "exec — 中身を別の像に入れ替える",
+    "page fault — 触った時に取り込む",
+    "スワップ — 使わない頁を追い出す",
+    "OOM killer — 一番の大食いを撃つ",
+    "TLB — 住所変換の覚え書き",
+    "huge page — 大きく取って変換を減らす",
+    "文脈切替 — 席を譲るための費用",
+    "CFS — 走った時間の少ない者から",
+    "nice値 — 譲る度合いを決める",
+    "実時間優先度 — 割り込んで先に走る",
+    "システムコール — 特権側へ頼み込む",
+    "利用者空間と核空間 — 境界を越える",
+    "割り込み — 今やっている事を止める",
+    "ソフト割り込み — 後で続きをやる",
+    "cgroup — 資源に上限を敷く",
+    "namespace — 見える世界を仕切る",
+    "inode — 実体を指す番号",
+    "ページキャッシュ — 読んだ物を残す",
+    "dirty page — まだ書き戻していない",
+    "D state — 割り込めない待ち、消せない"
+  ]
+}

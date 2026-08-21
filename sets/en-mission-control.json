@@ -1,0 +1,44 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-mission-control",
+  "name": "Mission Control",
+  "emoji": "🚀",
+  "description": "Launch control radio traffic, calm to the last second",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "space",
+    "nasa",
+    "radio",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "最後まで淡々としている打ち上げ管制"
+    }
+  },
+  "verbs": [
+    "Go for main engine start",
+    "Telemetry is nominal",
+    "T minus ten and counting",
+    "All stations, report status",
+    "Guidance, go. Propulsion, go",
+    "We are go for the sequence",
+    "Holding at T minus four",
+    "Recycling the count",
+    "Stand by for separation",
+    "Confirming a good burn",
+    "Trajectory looks clean",
+    "We have acquisition of signal",
+    "Loss of signal, as expected",
+    "Standing by to reacquire",
+    "Flight, we have a caution",
+    "Working the checklist now",
+    "That is one for the books",
+    "Copy that, we see it too",
+    "Say again your last",
+    "Everything is in the green",
+    "Handing over to the next shift",
+    "Nominal. Repeat, nominal"
+  ]
+}

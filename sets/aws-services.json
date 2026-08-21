@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "aws-services",
+  "name": "AWS Services",
+  "emoji": "🌐",
+  "description": "What each service is actually for, in one line",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "aws",
+    "cloud",
+    "infra",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "AWSの各サービスが何のためにあるか"
+    }
+  },
+  "verbs": [
+    "S3 — 容量無制限の物置き場",
+    "EC2 — 仮想サーバを時間で借りる",
+    "Lambda — 関数だけ置いて動かす",
+    "ECS Fargate — 容器だけ動かす",
+    "EKS — managed な Kubernetes",
+    "RDS — 運用込みの関係データベース",
+    "Aurora — 分離設計のMySQL互換",
+    "DynamoDB — キーで引く、結合はしない",
+    "ElastiCache — RedisやMemcached",
+    "SQS — 順不同で確実に届ける",
+    "SNS — 一斉に配信して回る",
+    "EventBridge — 出来事で繋ぐ",
+    "Step Functions — 手順を状態機械に",
+    "Kinesis — 流れ続けるデータを捌く",
+    "API Gateway — 入口と認可を担う",
+    "CloudFront — 端末に近い所で配る",
+    "Route 53 — DNSと重み付き振り分け",
+    "ALB — L7で経路を振り分ける",
+    "NLB — L4のまま高速に流す",
+    "NAT Gateway — 外向きだけを通す",
+    "VPC Endpoint — 外に出ずに繋ぐ",
+    "IAM Role — 鍵を持たず権限を得る",
+    "KMS — 鍵を預けて封をする",
+    "Athena — S3にSQLを投げる"
+  ]
+}

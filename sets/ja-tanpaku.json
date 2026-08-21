@@ -1,0 +1,53 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "ja-tanpaku",
+  "name": "Japanese (Terse)",
+  "emoji": "🪶",
+  "description": "Short, flat Japanese nouns - no tone at all",
+  "language": "ja",
+  "category": "classic",
+  "tags": [
+    "japanese",
+    "terse",
+    "general",
+    "classic"
+  ],
+  "i18n": {
+    "ja": {
+      "name": "日本語（淡白）",
+      "description": "感情を出さない、短い体言止め"
+    }
+  },
+  "verbs": [
+    "解析中",
+    "照合",
+    "走査",
+    "収集",
+    "整列",
+    "抽出",
+    "分割",
+    "統合",
+    "検証",
+    "再試行",
+    "待機",
+    "計測",
+    "推定",
+    "選別",
+    "写像",
+    "再構成",
+    "巻き戻し",
+    "追跡",
+    "確定",
+    "遡行",
+    "縮約",
+    "展開",
+    "圧縮",
+    "書き出し",
+    "読み込み",
+    "突合",
+    "校正",
+    "点検",
+    "仕上げ",
+    "完了間近"
+  ]
+}

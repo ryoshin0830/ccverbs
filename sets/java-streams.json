@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "java-streams",
+  "name": "Java Streams",
+  "emoji": "🌊",
+  "description": "The Stream API and Optional, absorbed while you wait",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "java",
+    "stream",
+    "optional",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "Stream APIとOptionalを待ち時間で覚える"
+    }
+  },
+  "verbs": [
+    "stream() — コレクションを流す",
+    "filter — 条件に合う物だけ通す",
+    "map — 一対一で写し替える",
+    "flatMap — 入れ子を平らにする",
+    "collect(toList) — 集めて戻す",
+    "groupingBy — キーで束ねる",
+    "partitioningBy — 真偽で二分する",
+    "joining — 区切りを挟んで繋ぐ",
+    "reduce — 畳み込んで一つにする",
+    "peek — 流れを覗くだけ",
+    "distinct — 重複を落とす",
+    "sorted(comparing) — 基準で並べる",
+    "limit / skip — 先頭を取る、捨てる",
+    "anyMatch — 一つでも合えば真",
+    "findFirst — 最初の一つを返す",
+    "takeWhile — 崩れるまで取り続ける",
+    "Optional.map — あれば写し替える",
+    "orElseGet — 無い時だけ作る",
+    "orElseThrow — 無ければ投げる",
+    "ifPresent — あれば実行する",
+    "遅延評価 — 終端操作まで動かない",
+    "parallelStream — 分割して並列に",
+    "Collectors.teeing — 二つ集めて合成",
+    "IntStream.range — 添字を流す"
+  ]
+}

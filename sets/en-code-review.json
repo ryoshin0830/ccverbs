@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-code-review",
+  "name": "Code Review English",
+  "emoji": "📝",
+  "description": "What reviewers actually type, and what it means",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "english",
+    "code-review",
+    "phrase",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "レビューで実際に打たれる言い回し"
+    }
+  },
+  "verbs": [
+    "nit: — 些細だが気になる点",
+    "Not blocking, but — 止めはしない",
+    "LGTM — 見た、これで問題ない",
+    "LGTM with a caveat — 一点だけ留保",
+    "Could we — 提案の柔らかい形",
+    "Have you considered — 検討したか",
+    "What's the reasoning — 意図を訊く",
+    "This is out of scope — 別のPRで",
+    "Let's punt on this — 今回は見送る",
+    "I'd lean toward — どちらかと言えば",
+    "Feel free to ignore — 無視して良い",
+    "Just to be clear — 念のため確かめる",
+    "Correct me if I'm wrong — 違えば訂正",
+    "As discussed offline — 別途話した通り",
+    "Following up on — 前回の続きとして",
+    "Good catch — よく気付いてくれた",
+    "TIL — 知らなかった、勉強になった",
+    "Fair enough — 納得した、それで良い",
+    "Let's revisit later — 後で見直そう",
+    "Blocking: — これは直してから通す",
+    "Can you add a test — 試験を足せるか",
+    "This will bite us later — 後で刺される",
+    "Nice cleanup — 綺麗になった",
+    "Ship it — もう出してしまおう"
+  ]
+}

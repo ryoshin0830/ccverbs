@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "terraform-hcl",
+  "name": "Terraform",
+  "emoji": "🧰",
+  "description": "HCL and the state file, learned while Claude works",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "terraform",
+    "hcl",
+    "iac",
+    "study"
+  ],
+  "source": "https://developer.hashicorp.com/terraform/docs",
+  "i18n": {
+    "ja": {
+      "description": "HCLとstateの語彙をClaudeが働く間に"
+    }
+  },
+  "verbs": [
+    "terraform plan — 差分を先に見る",
+    "terraform apply — 差分を適用する",
+    "terraform import — 既存を取り込む",
+    "terraform state mv — 追跡先を移す",
+    "terraform state rm — 追跡から外す",
+    "terraform refresh — 実体を読み直す",
+    "terraform fmt — 書式を揃える",
+    "terraform validate — 構文を検める",
+    "terraform output — 値を取り出す",
+    "terraform workspace — 環境を分ける",
+    "-replace= — 次回に作り直させる",
+    "-target — 一部だけに絞って適用",
+    "lifecycle — 置換や破棄の作法を決める",
+    "prevent_destroy — 消させない",
+    "create_before_destroy — 先に作る",
+    "depends_on — 順序を明示する",
+    "for_each — キーごとに資源を作る",
+    "count — 添字で並べ、消すとずれる",
+    "dynamic — ブロックを繰り返す",
+    "locals — 式に名前を付ける",
+    "data — 既存を読むだけの参照",
+    "moved block — 名前替えを宣言する",
+    "backend — stateの置き場所",
+    "sensitive — 出力から値を隠す"
+  ]
+}

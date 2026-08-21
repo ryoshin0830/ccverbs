@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "perf-tools",
+  "name": "Linux Perf Tools",
+  "emoji": "🔬",
+  "description": "Which command to reach for when it is slow",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "linux",
+    "performance",
+    "profiling",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "遅い時に、どれを叩くか"
+    }
+  },
+  "verbs": [
+    "top — まず全体の負荷を見る",
+    "htop — 木構造で見る top",
+    "vmstat 1 — 待ちとスワップを見る",
+    "iostat -x — 円盤の待ち行列を見る",
+    "mpstat -P ALL — コアごとの偏り",
+    "pidstat — プロセス単位で追う",
+    "free -h — 空きとキャッシュを分ける",
+    "sar — 過去に遡って眺める",
+    "strace -f — 子まで追って syscall",
+    "strace -c — 呼び出しを集計する",
+    "ltrace — ライブラリ呼びを追う",
+    "perf top — CPUを食う関数を見る",
+    "perf record — 標本を取って残す",
+    "perf stat — 命令数とキャッシュ",
+    "flame graph — 積み上げて幅を見る",
+    "bpftrace — 生きた系に一行差す",
+    "lsof -p — 開いている物を数える",
+    "ss -s — ソケットの総数を掴む",
+    "iotop — 誰が書いているかを見る",
+    "dstat — 複数の指標を一画面に",
+    "gdb -p — 止めて今の位置を見る",
+    "jstack — Javaの積みを吐かせる",
+    "numactl — 遠いメモリを掴まない",
+    "/proc/PID/status — 素の値を読む"
+  ]
+}

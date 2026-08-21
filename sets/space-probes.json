@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "space-probes",
+  "name": "Space Probes",
+  "emoji": "🪐",
+  "description": "Which probe went where, and what it brought back",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "space",
+    "probe",
+    "astronomy",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "どの探査機が、何を持ち帰ったか"
+    }
+  },
+  "verbs": [
+    "Sputnik 1 — 最初の人工衛星",
+    "Luna 3 — 月の裏側を初めて写す",
+    "Mariner 4 — 火星を初めて近くで見る",
+    "Venera 7 — 金星の地表から送信する",
+    "Pioneer 10 — 小惑星帯を初めて抜く",
+    "Voyager 1 — 太陽圏の外へ出て行く",
+    "Voyager 2 — 四つの巨惑星を回る",
+    "Viking 1 — 火星に降りて生命を探す",
+    "Galileo — 木星を周り、最後は落ちる",
+    "Cassini — 土星を十三年観測する",
+    "Huygens — タイタンの地表に降りる",
+    "Hubble — 鏡を直して見え方が変わる",
+    "SOHO — 太陽をずっと見続けている",
+    "NEAR — 小惑星に初めて着陸する",
+    "Spirit と Opportunity — 予定を超え走る",
+    "Curiosity — 原子力で火星を掘る",
+    "Perseverance — 試料を残して置く",
+    "Rosetta — 十年かけて彗星に追いつく",
+    "Philae — 彗星に降り、跳ねて止まる",
+    "New Horizons — 冥王星を通り抜ける",
+    "はやぶさ — 満身創痍で還ってくる",
+    "はやぶさ2 — 人工クレーターを作る",
+    "Parker Solar Probe — 最も太陽に近い",
+    "JWST — 赤外で最も古い光を見る"
+  ]
+}

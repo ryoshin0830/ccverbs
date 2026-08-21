@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "react-hooks",
+  "name": "React Hooks",
+  "emoji": "🪝",
+  "description": "Which hook, and why that one",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "react",
+    "hooks",
+    "frontend",
+    "study"
+  ],
+  "source": "https://react.dev/reference/react",
+  "i18n": {
+    "ja": {
+      "description": "どのHookを、なぜ選ぶのか"
+    }
+  },
+  "verbs": [
+    "useState — 再描画を伴う値を持つ",
+    "useReducer — 遷移を一箇所に集める",
+    "useEffect — 描画後に外と同期する",
+    "cleanup — 次の実行前に片付ける",
+    "依存配列 — 変わった時だけ再実行",
+    "useLayoutEffect — 描画前に走る",
+    "useMemo — 計算結果を記憶する",
+    "useCallback — 関数の同一性を保つ",
+    "useRef — 再描画を起こさず持つ",
+    "forwardRef — 子のDOMを親へ渡す",
+    "useContext — 遠い親から受け取る",
+    "useId — SSRでも一致するidを得る",
+    "useSyncExternalStore — 外部を購読",
+    "useTransition — 遅い更新を後回し",
+    "useDeferredValue — 古い値で先に描く",
+    "useOptimistic — 成功を先に見せる",
+    "useActionState — 送信結果を持つ",
+    "StrictMode — 二度実行して粗を出す",
+    "Rules of Hooks — 条件分岐で呼ばない",
+    "custom hook — use で始めて切り出す",
+    "key — 同一性の宣言、添字は避ける",
+    "遅延初期化 — useState に関数を渡す",
+    "stale closure — 古い値を掴み続ける",
+    "flushSync — 同期で描画を確定する"
+  ]
+}

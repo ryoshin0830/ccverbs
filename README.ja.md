@@ -247,38 +247,192 @@ UI は **English・日本語・简体中文・繁體中文・한국어** の 5 �
 ## 単語セット一覧
 
 
-21 セット、496 語。
+121 セット、2,860 語。
 
 ### ネタ系
+
+**動物と暮らし**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🐈 `ja-cat` | 25 | Claude が働いている間、猫がしていること |
+| 🐕 `ja-dog` | 24 | リードを出してから帰るまでの一匹 |
+| 🦫 `ja-capybara` | 22 | 何が起きても急がない一頭 |
+| 🐧 `ja-penguin` | 22 | よたよた歩き、滑り、潜る |
+| 🧖 `ja-sauna` | 22 | サウナ、水風呂、外気浴の循環 |
+| ⛺ `ja-camp` | 22 | 区画選びから焚き火を消すまで |
+| 🎣 `ja-tsuri` | 22 | 待っている時間こそが本体 |
+| 🌲 `ja-bonsai` | 20 | 十年単位で枝を決めていく |
+| ☕ `ja-coffee` | 22 | 豆から一杯までの、注ぎ方の工程 |
+| 🍜 `ja-ramen` | 25 | 一杯のラーメンが組み上がっていく工程 |
+| 🍣 `ja-sushi` | 22 | 誰も見ていない仕込みと、二度の握り |
+| 🍺 `ja-izakaya` | 22 | カウンターの内側から見た一晩 |
+| 🏪 `ja-konbini` | 22 | 深夜シフトの、淡々とした所作 |
+
+**声と世界観**
 
 | セット | 語数 | 内容 |
 | --- | --- | --- |
 | 🪨 `sisyphus` | 10 | シーシュポスの神話。このプロジェクトの原点 |
-| 🗾 `ja-general` | 40 | 標準 186 語の日本語版に相当する汎用セット |
-| 🐈 `ja-cat` | 25 | Claude が働いている間、猫がしていること |
-| 🍜 `ja-ramen` | 25 | 一杯のラーメンが組み上がっていく工程 |
 | 🐙 `ja-kansai` | 20 | 関西弁の Claude |
+| 🎌 `ja-jidaigeki` | 22 | 一人称も語尾も時代劇のまま |
+| 🥷 `ja-ninja` | 22 | 音を立てずに任を果たす |
+| 🔔 `ja-shitsuji` | 22 | 訊かれる前に、既に済んでいる |
+| 🍁 `ja-haiku` | 20 | 全ての語が五七五、季語つき |
 | 🦜 `en-pirate` | 24 | 海賊 |
 | 🌃 `en-cyberpunk` | 22 | ネオンと雨と ICE |
+| 🎭 `en-shakespeare` | 22 | 韻文まじりの、大芝居がかった口調 |
+| 🚬 `en-noir` | 22 | 雨の街、一人称、誰も潔白ではない |
+| 🪄 `en-wizard` | 22 | 長い準備と、当てにならない結果 |
+| 🌑 `en-lovecraft` | 22 | 読んではいけないものを読んでいる |
+| 🎲 `en-dnd` | 22 | ダイスと判定、そして長い一晩 |
+| 🪷 `en-zen-koan` | 20 | 静かで、答えを急がない |
+
+**現場と実況**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🚀 `en-mission-control` | 22 | 最後まで淡々としている打ち上げ管制 |
+| 🏁 `en-f1-pit` | 22 | 短く、切迫しているチーム無線 |
+| 🫧 `en-submarine` | 22 | 静粛航行、命令を一つずつ |
+| 🔪 `en-kitchen` | 22 | 熱い厨房で飛び交う掛け声 |
+| 🩺 `en-er` | 22 | 初療室が実際に動く順序 |
+| 🦒 `en-nature-doc` | 22 | 何かが待っている映像に、静かな語り |
+| ⛳ `en-golf-whisper` | 20 | 小声で、敬虔で、時々辛辣な中継 |
+| 💼 `en-heist` | 22 | 下見、線を切る、そして即興 |
+| 🎮 `en-speedrun` | 22 | スプリットとリセット、そしてもう一回 |
 
 ### 学習系 — スピナーを単語帳にする
 
-| セット | 語数 | 覚えられるもの |
+**言語とフレームワーク**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🐍 `py-idioms` | 24 | Pythonらしい書き方を一つずつ |
+| 🐹 `go-concurrency` | 24 | goroutineとchannelの作法を体に入れる |
+| 💎 `rb-blocks` | 24 | ブロックとEnumerable、そして少しのメタプロ |
+| 🌊 `java-streams` | 24 | Stream APIとOptionalを待ち時間で覚える |
+| 📌 `c-pointers` | 24 | ポインタと、その先にある未定義動作 |
+| 🎩 `haskell-monads` | 24 | 失敗と副作用を型で扱う語彙 |
+| 🐦 `swift-modern` | 24 | Optionalとactor、そしてasync/await |
+| 🔷 `ts-types` | 24 | `Awaited<T>`、`satisfies`、`infer`、共変と反変 |
+| 🦀 `rust-ownership` | 22 | 借用、ライフタイム、`Cow<T>`、`Pin`、NLL |
+| 🪝 `react-hooks` | 24 | どのHookを、なぜ選ぶのか |
+| 🎨 `css-layout` | 24 | 実際に手が伸びるFlexboxとGridの値 |
+| 🧷 `css-selectors` | 24 | 毎回引き直しているセレクタ |
+| 🐚 `shell-expansion` | 24 | パラメータ展開とクォートの作法 |
+| 🔍 `regex` | 24 | 先読み後読み、atomic group、破滅的後戻り |
+
+**コマンドとツール**
+
+| セット | 語数 | 内容 |
 | --- | --- | --- |
 | 🌿 `git-commands` | 24 | `git bisect`、`git reflog`、`git rebase --onto` |
 | 🎡 `kubectl-commands` | 24 | `kubectl drain`、`kubectl debug`、`kubectl auth can-i` |
 | 🐳 `docker-commands` | 22 | `docker buildx`、`docker history`、`docker system prune` |
 | 🐧 `linux-commands` | 24 | `strace`、`lsof -i`、`flock`、`ncdu` |
 | 📝 `vim-keys` | 24 | `ciw`、`:g/pat/d`、`:norm`、`C-v I` |
+| 🔬 `perf-tools` | 24 | 遅い時に、どれを叩くか |
+
+**インフラとネットワーク**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🧰 `terraform-hcl` | 24 | HCLとstateの語彙をClaudeが働く間に |
+| 🌐 `aws-services` | 24 | AWSの各サービスが何のためにあるか |
+| 📡 `dns-records` | 24 | レコード種別と、伝播が遅い理由 |
+| 🧵 `tcpip-layers` | 24 | ネットワークを疑う時に要る語彙 |
+| 🔐 `tls-certs` | 24 | 握手と証明書、そして期限切れ |
+| 🔭 `observability` | 24 | ログ・メトリクス・トレースの守備範囲 |
+| 🌐 `http-status` | 24 | `303` と `307` の違い、`409`、`422`、`502` と `504` |
+
+**CS基礎と設計**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🧩 `design-patterns` | 24 | GoFと、その後も生き残ったパターン |
+| 🧹 `refactoring-catalog` | 24 | Fowlerのカタログを一手ずつ |
+| 🧠 `os-kernel` | 24 | プロセス・スケジューラ・仮想記憶 |
+| ⚡ `cpu-cache` | 24 | 同じコードが10倍速くなる理由 |
+| 🏭 `compiler-phases` | 24 | 文字から機械語まで、段ごとに |
+| 🔗 `distributed-systems` | 24 | 台数が増えた瞬間に始まる不都合 |
+| 🧪 `testing-terms` | 24 | mockとstubとfake、本当はどれか |
+| 🔤 `unicode-encoding` | 24 | 文字化けの原因に名前を付けていく |
+| ⏰ `datetime-pitfalls` | 24 | 日時実装が壊れる道筋を先に知る |
+| 🔖 `semver-commits` | 24 | バージョン範囲とコミット規約 |
+| 📈 `bigo` | 24 | 計算量のクラスと、それに当たるアルゴリズム |
+
+**データとAI**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🧮 `sql` | 24 | ウィンドウ関数、`DISTINCT ON`、結合戦略 |
+| 🐘 `postgres-features` | 24 | Postgres固有の機能と実行計画 |
+| 📬 `kafka-terms` | 24 | 区画とオフセット、そして本当の保証 |
+| 📊 `ml-terms` | 24 | 自分が訓練していないモデルの語彙 |
+| 🤖 `llm-terms` | 24 | プロンプトの向こう側で起きている事 |
+| 📈 `statistics` | 24 | 自分を騙さないための言葉 |
+
+**語学**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
 | 📘 `en-toeic` | 24 | ビジネス英語: `reimburse`、`in lieu of`、`contingent on` |
 | 🎓 `en-gre` | 24 | 本気の難単語: `ephemeral`、`recalcitrant`、`perfunctory` |
 | 💬 `en-tech-phrases` | 22 | `yak shaving`、`load-bearing`、`bus factor` |
-| 🔷 `ts-types` | 24 | `Awaited<T>`、`satisfies`、`infer`、共変と反変 |
-| 🦀 `rust-ownership` | 22 | 借用、ライフタイム、`Cow<T>`、`Pin`、NLL |
-| 🧮 `sql` | 24 | ウィンドウ関数、`DISTINCT ON`、結合戦略 |
-| 🔍 `regex` | 24 | 先読み後読み、atomic group、破滅的後戻り |
-| 🌐 `http-status` | 24 | `303` と `307` の違い、`409`、`422`、`502` と `504` |
-| 📈 `bigo` | 24 | 計算量のクラスと、それに当たるアルゴリズム |
+| 📘 `en-phrasal-verbs` | 24 | ビジネス英語を支えている句動詞 |
+| 📝 `en-code-review` | 24 | レビューで実際に打たれる言い回し |
+| 📜 `en-latin-phrases` | 24 | 英文に残り続けているラテン語 |
+| 🀄 `zh-hsk` | 24 | 文を支える中国語の副詞と接続語 |
+| 🐉 `zh-chengyu` | 24 | 物語が四文字に畳まれた成語 |
+| 🥟 `ko-topik` | 24 | 文全体の色を変える韓国語の副詞 |
+| 📕 `ja-jlpt-n1` | 24 | 日本語学習者向けのN1文法パターン |
+| 📙 `ja-yojijukugo` | 24 | 四字熟語と、その意味 |
+| 📖 `ja-kanken` | 24 | 読めるが手では書けない漢字 |
+| 🍡 `ja-kotowaza` | 24 | ことわざが本当に警告している事 |
+| 🎋 `ja-classical` | 24 | 現代語に引きずられて誤る古文単語 |
+
+**歴史**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🏯 `jp-eras` | 24 | 日本史の時代区分を一行ずつ |
+| 🐎 `sengoku-warlords` | 24 | 武将一人につき、決め手を一つ |
+| 🌅 `bakumatsu` | 24 | 幕末を動かした面々 |
+| 🦅 `roman-emperors` | 24 | ローマ皇帝を一行の評で覚える |
+| 🐲 `three-kingdoms` | 24 | 三国志の人物と、その一手 |
+| 🏹 `world-battles` | 24 | 会戦と、そこで決まったこと |
+| ⛵ `age-of-sail` | 24 | 機関の前、世界はどう渡られたか |
+| 💾 `computing-history` | 24 | 今のスタックが立っている土台の歴史 |
+| 💻 `unix-history` | 24 | 今叩いているシェルの系譜 |
+| 🧭 `explorers` | 24 | 誰がどこへ行き、帰れたのか |
+
+**教養と自然科学**
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🦉 `philosophers` | 24 | 哲学者一人につき、持ち歩ける一言 |
+| 🏺 `greek-myth` | 24 | 神々と、痛い目を見た人間たち |
+| 🔨 `norse-myth` | 24 | 九つの世界と、予告された終わり |
+| 🧫 `periodic-table` | 24 | 元素と、それが実際に何に使われるか |
+| ✨ `constellations` | 24 | どの星を探すか、それが何を指すか |
+| 🪐 `space-probes` | 24 | どの探査機が、何を持ち帰ったか |
+| 🐙 `deep-sea` | 24 | 光の届かない所に何が住んでいるか |
+| 🦕 `dinosaurs` | 24 | 化石が語った、本当の姿 |
+| 🍄 `mushrooms` | 24 | 見分け方と、触ってはいけない方 |
+| 🌈 `weather-terms` | 24 | 予報が説明せずに使う言葉 |
+| 🌸 `sekki` | 24 | 二十四節気を、暦の順のまま |
+
+### 汎用の置き換え
+
+| セット | 語数 | 内容 |
+| --- | --- | --- |
+| 🗾 `ja-general` | 40 | 標準 186 語の日本語版に相当する汎用セット |
+| 🍵 `ja-teineigo` | 30 | 隣で見られても困らない敬体の日本語 |
+| 🪶 `ja-tanpaku` | 30 | 感情を出さない、短い体言止め |
+| 🌙 `en-quiet` | 30 | 邪魔をしない、静かな英語 |
+| 🈶 `zh-general` | 30 | 汎用の中国語（簡体字）置き換え |
+| 🌼 `ko-general` | 30 | 汎用の韓国語置き換え |
 
 最新の一覧は `ccverbs list` で見られます（この README より常に新しい）。
 
@@ -309,7 +463,7 @@ $ cat set.json | ccverbs new --input - --pr --json
 
 ```console
 $ ccverbs list --json
-{"ok":true,"totalSets":21,"totalVerbs":496,"registryTotalSets":21,"sets":[…]}
+{"ok":true,"totalSets":121,"totalVerbs":2860,"registryTotalSets":121,"sets":[…]}
 
 $ ccverbs set git-commands --yes --json
 {"ok":true,"applied":{"id":"git-commands","mode":"replace","count":24},"settingsPath":"…","backupPath":"…","previous":null,"effectiveVerbCount":24}

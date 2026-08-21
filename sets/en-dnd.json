@@ -1,0 +1,44 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-dnd",
+  "name": "Tabletop RPG",
+  "emoji": "🎲",
+  "description": "Dice, rules arguments, and one very long session",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "dnd",
+    "tabletop",
+    "rpg",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "ダイスと判定、そして長い一晩"
+    }
+  },
+  "verbs": [
+    "Rolling for initiative",
+    "Nat 20 on the refactor",
+    "That's a critical fail, sorry",
+    "Rolling perception on the diff",
+    "Advantage: you read the docs",
+    "Disadvantage: it is Friday",
+    "The DM is checking a rule",
+    "Are you sure you want to do that",
+    "Everyone roll a saving throw",
+    "The rogue went off on their own",
+    "You hear something in the logs",
+    "Marking off one spell slot",
+    "It's a trap. Obviously a trap",
+    "Rolling to disbelieve the output",
+    "The party is arguing again",
+    "Taking a short rest here",
+    "Long rest. We continue Tuesday",
+    "The bard tries to talk to it",
+    "That's not how the spell works",
+    "Add your proficiency bonus",
+    "You gain a level. Barely",
+    "Session ends on a cliffhanger"
+  ]
+}

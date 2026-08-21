@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-phrasal-verbs",
+  "name": "Phrasal Verbs",
+  "emoji": "📘",
+  "description": "The phrasal verbs that carry business English",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "english",
+    "phrasal-verb",
+    "vocabulary",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "ビジネス英語を支えている句動詞"
+    }
+  },
+  "verbs": [
+    "iron out — 問題を平らにならす",
+    "bank on — 当てにする、頼りにする",
+    "pin down — 特定してはっきりさせる",
+    "put off — 延期する、後回しにする",
+    "call off — 中止する、取り消す",
+    "carry out — 実行する、遂行する",
+    "come up with — 思い付く、考え出す",
+    "figure out — 理解する、解き明かす",
+    "hold off — 見送る、しばらく待つ",
+    "rule out — 除外する、可能性を消す",
+    "roll out — 段階を追って世に出す",
+    "back up — 支持する、裏付ける",
+    "break down — 内訳に分ける、壊れる",
+    "narrow down — 候補を絞り込む",
+    "sort out — 整理して片を付ける",
+    "get around to — ようやく着手する",
+    "look into — 調査する、調べてみる",
+    "take on — 引き受ける、抱え込む",
+    "stand out — 目立つ、際立つ",
+    "wind down — 徐々に終わらせる",
+    "follow up on — 後を追って確かめる",
+    "weigh in on — 意見を差し込む",
+    "gloss over — 都合の悪い所を流す",
+    "sign off on — 承認して判を押す"
+  ]
+}

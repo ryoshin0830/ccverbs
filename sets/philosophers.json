@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "philosophers",
+  "name": "Philosophers",
+  "emoji": "🦉",
+  "description": "One philosopher, one idea you can carry around",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "philosophy",
+    "thinker",
+    "humanities",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "哲学者一人につき、持ち歩ける一言"
+    }
+  },
+  "verbs": [
+    "Socrates — 知らない事を知っている",
+    "Plato — 影ではなく形の方を見よ",
+    "Aristotle — 中庸と、四つの原因",
+    "Epicurus — 快とは痛みの無い状態",
+    "Zeno — 制御できる物だけを見る",
+    "Augustine — 時間は心の中で伸びる",
+    "Aquinas — 信と理は衝突しない",
+    "Descartes — 疑い切って一つ残る",
+    "Spinoza — 神と自然は同じもの",
+    "Locke — 心は白紙、経験が書く",
+    "Berkeley — 在るとは知覚される事",
+    "Hume — 因果は習慣が作った期待",
+    "Kant — 見え方の枠が先にある",
+    "Hegel — 対立を含んで先へ進む",
+    "Schopenhauer — 意志は満たされぬ",
+    "Mill — 危害が無ければ放っておけ",
+    "Kierkegaard — 跳ぶしかない時が来る",
+    "Nietzsche — 価値は自分で作り直す",
+    "Husserl — 判断を止めて現れを見る",
+    "Heidegger — 死を前にして本気になる",
+    "Wittgenstein — 語り得ぬ事は黙る",
+    "Popper — 反証できてこそ科学",
+    "Arendt — 悪は凡庸な形でやって来る",
+    "Rawls — 自分の席を知らずに決める"
+  ]
+}

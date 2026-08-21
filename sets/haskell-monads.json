@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "haskell-monads",
+  "name": "Haskell Monads",
+  "emoji": "🎩",
+  "description": "Types that carry failure and effects, one law at a time",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "haskell",
+    "monad",
+    "functional",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "失敗と副作用を型で扱う語彙"
+    }
+  },
+  "verbs": [
+    "Maybe — 失敗を型で表す",
+    "Either — 失敗に理由を載せる",
+    "fmap — 中身だけを写す",
+    "<$> — fmap の中置版",
+    "<*> — 包まれた関数を適用する",
+    "pure — 最小の文脈に包む",
+    ">>= — 文脈を保ったまま繋ぐ",
+    ">> — 結果を捨てて次へ進む",
+    "do記法 — >>= を縦に書き直す",
+    "return — pure と同じもの",
+    "IO — 副作用を型に閉じ込める",
+    "State — 状態を隠して持ち回る",
+    "Reader — 読み取り環境を配る",
+    "Writer — ログを溜めながら進む",
+    "traverse — 写して外側を入れ替える",
+    "sequence — 内と外をひっくり返す",
+    "mapM_ — 走らせて結果は捨てる",
+    "Functor則 — 恒等と合成を保つ",
+    "Monad則 — 左右単位律と結合律",
+    "ExceptT — 失敗を積層に載せる",
+    "MonadTrans — 積み上げて混ぜる",
+    "newtype — 実行時費用ゼロの別名",
+    "遅延評価 — 要るまで作られない",
+    "seq — 評価を強いて先に進める"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "rb-blocks",
+  "name": "Ruby Blocks",
+  "emoji": "💎",
+  "description": "Blocks, Enumerable and just enough metaprogramming",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "ruby",
+    "block",
+    "enumerable",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "ブロックとEnumerable、そして少しのメタプロ"
+    }
+  },
+  "verbs": [
+    "each_with_object — 器を持ち回す",
+    "inject — 畳み込んで一つにする",
+    "map(&:to_s) — メソッドを渡す",
+    "tap — 素通りしつつ中を覗く",
+    "then — 値をそのまま次の式へ",
+    "select / reject — 残すと捨てる",
+    "group_by — キーで束ねる",
+    "partition — 真偽で二つに割る",
+    "each_slice — n個ずつ切り出す",
+    "each_cons — 隣同士を並べて見る",
+    "flat_map — 写してから平らにする",
+    "tally — 出現回数を数え上げる",
+    "lazy — 無限列から必要分だけ",
+    "yield — 渡されたブロックを呼ぶ",
+    "block_given? — 渡されたか確かめる",
+    "&block — ブロックをProcで受ける",
+    "define_method — 動的に生やす",
+    "method_missing — 無い呼びを拾う",
+    "respond_to? — 応えられるかを訊く",
+    "Comparable — <=> だけで比較を得る",
+    "Enumerable — each だけで全部使う",
+    "freeze — 以後の変更を禁じる",
+    "dup / clone — 浅い複製、凍結も継ぐ",
+    "&. — レシーバがnilなら止まる"
+  ]
+}

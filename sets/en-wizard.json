@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-wizard",
+  "name": "Wizardry",
+  "emoji": "🪄",
+  "description": "Long preparations, uncertain results",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "wizard",
+    "fantasy",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "長い準備と、当てにならない結果"
+    }
+  },
+  "verbs": [
+    "Inscribing the third sigil",
+    "The ward holds, barely",
+    "Consulting the older grimoire",
+    "Chalking the circle again",
+    "The candles gutter, but hold",
+    "Reciting the longer form",
+    "A component is missing",
+    "Substituting a lesser reagent",
+    "The mixture refuses to settle",
+    "Something answered, too quickly",
+    "Sealing the name inside the jar",
+    "The runes have shifted overnight",
+    "Reading by the light it gives off",
+    "The familiar has opinions",
+    "Nine hours of preparation left",
+    "The binding takes, then loosens",
+    "Adding salt, out of habit",
+    "The apprentice is asking again",
+    "Tracing it back to the source",
+    "The tower does not approve",
+    "Closing the circle carefully",
+    "The spell is cast. Now we wait"
+  ]
+}

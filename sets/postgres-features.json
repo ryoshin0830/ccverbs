@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "postgres-features",
+  "name": "PostgreSQL",
+  "emoji": "🐘",
+  "description": "Postgres-specific features and query plans, next to sql",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "postgres",
+    "sql",
+    "database",
+    "study"
+  ],
+  "source": "https://www.postgresql.org/docs/",
+  "i18n": {
+    "ja": {
+      "description": "Postgres固有の機能と実行計画"
+    }
+  },
+  "verbs": [
+    "EXPLAIN ANALYZE — 実測して見る",
+    "Seq Scan — 全件読む、小表なら速い",
+    "Index Scan — 索引を辿って引く",
+    "Bitmap Scan — 件数次第で選ばれる",
+    "Hash Join — 片方を表に載せる",
+    "Nested Loop — 少件数向けの入れ子",
+    "Merge Join — 整列済みなら速い",
+    "VACUUM — 死んだ行を回収する",
+    "autovacuum — 溜まると勝手に走る",
+    "bloat — 削除跡で膨らんだ領域",
+    "MVCC — 読みは書きを待たない",
+    "xid 周回 — 使い切ると停止する",
+    "GIN — 配列や全文検索のための索引",
+    "GiST — 幾何や範囲型のための索引",
+    "BRIN — 巨大な表を粗く飛ばす",
+    "部分索引 — 条件付きで小さく作る",
+    "式索引 — lower(col) にも張れる",
+    "CONCURRENTLY — 止めずに索引を作る",
+    "JSONB — 構造を保ち索引も張れる",
+    "generate_series — 連番を生む",
+    "CTE — MATERIALIZED で実体化を指定",
+    "LATERAL — 左の行ごとに評価する",
+    "UPSERT — ON CONFLICT で決める",
+    "pg_stat_statements — 重い問合せ"
+  ]
+}

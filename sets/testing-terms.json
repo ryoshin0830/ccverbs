@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "testing-terms",
+  "name": "Testing Vocabulary",
+  "emoji": "🧪",
+  "description": "mock, stub, fake - and which one you actually meant",
+  "language": "ja",
+  "category": "study",
+  "tags": [
+    "testing",
+    "mock",
+    "quality",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "mockとstubとfake、本当はどれか"
+    }
+  },
+  "verbs": [
+    "test double — 本物の代わり全般",
+    "dummy — 渡すだけ、使われない",
+    "stub — 決まった値を返すだけ",
+    "spy — 呼ばれ方を記録しておく",
+    "mock — 期待した呼びを検証する",
+    "fake — 動くが軽い実装",
+    "flaky — 同じ入力で結果が揺れる",
+    "AAA — 整えて、動かして、確かめる",
+    "テストピラミッド — 下を厚くする",
+    "単体・結合・E2E — 範囲が広がる",
+    "回帰テスト — 直した所が壊れない",
+    "特性化テスト — 今の挙動を写し取る",
+    "境界値 — 端と、その一つ外",
+    "同値分割 — 代表を一つだけ選ぶ",
+    "テーブル駆動 — 表で入出力を並べる",
+    "性質ベース — 満たすべき性質を書く",
+    "スナップショット — 差分だけを見る",
+    "ゴールデンファイル — 期待値を置く",
+    "カバレッジ — 通った行、質ではない",
+    "変異テスト — 壊してみて気付くか",
+    "モックの過剰 — 実装を写して硬直",
+    "fixture — 前提を整えて配る",
+    "時刻の固定 — 現在時刻を注入する",
+    "hermetic — 外に依存させない"
+  ]
+}

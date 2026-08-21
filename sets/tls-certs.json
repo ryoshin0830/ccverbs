@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "tls-certs",
+  "name": "TLS and Certificates",
+  "emoji": "🔐",
+  "description": "Handshakes, chains and the expiry that took prod down",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "tls",
+    "ssl",
+    "security",
+    "certificate",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "握手と証明書、そして期限切れ"
+    }
+  },
+  "verbs": [
+    "ClientHello — 名乗って候補を出す",
+    "SNI — 接続先名を平文で伝える",
+    "ALPN — h2 か http/1.1 を決める",
+    "cipher suite — 使う暗号の組合せ",
+    "ECDHE — 鍵を毎回捨てて守る",
+    "PFS — 後で鍵が漏れても守れる",
+    "TLS 1.3 — 往復を一回に縮めた",
+    "0-RTT — 速いが再送の危険がある",
+    "証明書チェーン — 中間まで送る",
+    "ルートCA — 端末が最初から信じる",
+    "SAN — 名乗れる名前の一覧",
+    "CN — もう見られない古い欄",
+    "CSR — 署名してくれと頼む書式",
+    "自己署名 — 誰も保証していない",
+    "有効期限切れ — 最も多い原因",
+    "OCSP — 失効したかを問い合わせる",
+    "OCSP stapling — 答えを同梱する",
+    "CRL — 失効一覧をまとめて配る",
+    "mTLS — 客側も証明書を差し出す",
+    "HSTS — 次から https を強制する",
+    "証明書の透明性 — 発行を公開記録に",
+    "PEM と DER — 文字と生バイト",
+    "openssl s_client — 手で握手する",
+    "秘密鍵は 600 — 他人に読ませない"
+  ]
+}

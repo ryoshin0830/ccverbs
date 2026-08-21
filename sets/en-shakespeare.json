@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-shakespeare",
+  "name": "Shakespearean",
+  "emoji": "🎭",
+  "description": "Blank verse and a great deal of drama",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "shakespeare",
+    "english",
+    "theatre"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "韻文まじりの、大芝居がかった口調"
+    }
+  },
+  "verbs": [
+    "Hark, the compiler doth complain",
+    "Anon, the tests shall speak",
+    "What light through yonder log breaks",
+    "Alas, the branch hath diverged",
+    "Prithee, hold whilst I ponder",
+    "The lady doth protest the diff",
+    "Something is rotten in this module",
+    "To merge, or not to merge",
+    "Now is the winter of our build",
+    "A plague upon both your branches",
+    "Cry havoc, and let slip the tests",
+    "Once more unto the stack trace",
+    "Beware the ides of refactor",
+    "The fault, dear user, is not mine",
+    "Thus with a keystroke I die",
+    "Lord, what fools these mortals type",
+    "All the world's a staging area",
+    "Brevity is the soul of commit",
+    "This above all: to thine own test",
+    "The rest is silence, and a lock",
+    "Full of sound and fury, no output",
+    "Exit, pursued by a segfault"
+  ]
+}

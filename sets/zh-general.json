@@ -1,0 +1,56 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "zh-general",
+  "name": "Chinese (General)",
+  "emoji": "🈶",
+  "description": "A general-purpose Simplified Chinese replacement",
+  "language": "zh-Hans",
+  "category": "classic",
+  "tags": [
+    "chinese",
+    "general",
+    "classic"
+  ],
+  "i18n": {
+    "ja": {
+      "name": "中文通用",
+      "description": "汎用の中国語（簡体字）置き換え"
+    },
+    "zh-Hans": {
+      "name": "中文通用",
+      "description": "通用的简体中文替换词表"
+    }
+  },
+  "verbs": [
+    "正在梳理",
+    "逐一核对",
+    "仔细阅读",
+    "反复确认",
+    "整理思路",
+    "拆解问题",
+    "逐步推进",
+    "查找线索",
+    "比对差异",
+    "补齐缺口",
+    "重新组织",
+    "换个角度",
+    "退一步看",
+    "缩小范围",
+    "验证假设",
+    "记录要点",
+    "权衡取舍",
+    "统一命名",
+    "顺手整理",
+    "再看一遍",
+    "接近完成",
+    "收尾整理",
+    "串联起来",
+    "回溯步骤",
+    "静下心来",
+    "写出来看",
+    "读回一遍",
+    "闭合回路",
+    "排好顺序",
+    "打磨细节"
+  ]
+}

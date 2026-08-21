@@ -1,0 +1,42 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-zen-koan",
+  "name": "Zen Koans",
+  "emoji": "🪷",
+  "description": "Quiet, and in no hurry to answer",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "zen",
+    "koan",
+    "english",
+    "calm"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "静かで、答えを急がない"
+    }
+  },
+  "verbs": [
+    "The empty diff still teaches",
+    "Before the test, no bug",
+    "Who is the one waiting",
+    "The log knows nothing of the log",
+    "One hand, no keyboard",
+    "The bug was never added",
+    "When you find it, you were it",
+    "The mountain does not compile",
+    "Sit with the failing case",
+    "What was your build before this",
+    "Not the code, not the coder",
+    "The answer arrives unasked",
+    "Wash your bowl. Then read it",
+    "Nothing was broken. Fix it",
+    "The path is the stack trace",
+    "Two branches, one tree",
+    "Speak, and the cache is stale",
+    "The gate has no lock at all",
+    "Ten thousand lines, one line",
+    "Where does the process go"
+  ]
+}

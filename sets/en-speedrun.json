@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-speedrun",
+  "name": "Speedrun",
+  "emoji": "🎮",
+  "description": "Splits, resets, and one more attempt",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "speedrun",
+    "gaming",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "スプリットとリセット、そしてもう一回"
+    }
+  },
+  "verbs": [
+    "Skipping the cutscene",
+    "Frame-perfect, barely",
+    "That's a two second loss",
+    "Resetting. Bad first split",
+    "Ahead of pace by four",
+    "Buffering the next input",
+    "Clipping through the wall",
+    "Sequence break confirmed",
+    "PB pace. Do not choke now",
+    "The RNG finally cooperated",
+    "Menuing as fast as possible",
+    "Death abuse saves eight frames",
+    "Holding forward the whole way",
+    "That trick works once per run",
+    "Gold split in chapter three",
+    "Practising the same jump again",
+    "Route change. Trust the notes",
+    "Splits are green all the way",
+    "Final boss. Hands are shaking",
+    "Timer stops on the last hit",
+    "New personal best. Barely",
+    "One more attempt. Just one"
+  ]
+}

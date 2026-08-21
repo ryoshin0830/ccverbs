@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "norse-myth",
+  "name": "Norse Mythology",
+  "emoji": "🔨",
+  "description": "Nine worlds, and an ending everyone already knows",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "mythology",
+    "norse",
+    "humanities",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "九つの世界と、予告された終わり"
+    }
+  },
+  "verbs": [
+    "Yggdrasil — 九つの世界を貫く樹",
+    "Odin — 片眼を渡して知を得る",
+    "Thor — 槌を振り、巨人を打つ",
+    "Loki — 味方でも敵でもある者",
+    "Frigg — 全ての運命を知る妃",
+    "Freyja — 愛と戦、猫の車に乗る",
+    "Freyr — 実りと平和、剣を手放す",
+    "Tyr — 誓いのために手を失う",
+    "Heimdall — 橋を守り、角笛を持つ",
+    "Baldr — 全てに守られ、宿り木で死ぬ",
+    "Hel — 死者の国を治める者",
+    "Fenrir — 縛られ、いずれ解かれる狼",
+    "Jörmungandr — 己の尾を咬む大蛇",
+    "Sleipnir — 八本足で世界を駆ける",
+    "Mjölnir — 柄が短いままの雷の槌",
+    "Gungnir — 外さないと定められた槍",
+    "Valhalla — 選ばれた戦士の広間",
+    "Valkyrie — 誰を連れて行くかを選ぶ",
+    "Bifröst — 燃える橋、渡れば神の国",
+    "Mímir — 泉の底で助言を続ける首",
+    "Ratatoskr — 樹を往復して悪口を運ぶ",
+    "Ragnarök — 終わりは既に告げられた",
+    "Norn — 運命を紡ぎ、切り分ける",
+    "Draupnir — 九日ごとに増える腕輪"
+  ]
+}
