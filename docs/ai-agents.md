@@ -17,7 +17,8 @@ ccverbs new --input <path|-> --pr [--branch <name>] --json
 For the complete command-local contract, start with:
 
 ```console
-ccverbs new --help
+ccverbs --help      # ends with "For AI agents" and "Adding a verb set"
+ccverbs new --help  # the full contract for authoring and submitting a set
 ```
 
 If a human wants to build the set interactively, `npx ccverbs` opens the picker.

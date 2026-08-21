@@ -14,7 +14,9 @@ rules, canonical JSON, and the optional GitHub workflow.
 Read [docs/ai-agents.md](../../../docs/ai-agents.md) for the machine-readable
 contract and [CONTRIBUTING.md](../../../CONTRIBUTING.md) for editorial rules.
 Then run `ccverbs new --help` (or `npx ccverbs new --help`) for the command-local
-input, output, repair, and safety contract. For a human-facing workflow, run
+input, output, repair, and safety contract. `npx ccverbs --help` carries the
+short version of the same workflow, so it is a safe starting point when this
+skill is not loaded. For a human-facing workflow, run
 `npx ccverbs` and choose **Create a new set**; that opens the hosted builder.
 Before choosing a theme, inspect the live catalog:
 

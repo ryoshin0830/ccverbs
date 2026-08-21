@@ -291,6 +291,7 @@ Run `ccverbs list` for the live list — it's always ahead of this README.
 
 ## For AI agents
 
+The CLI carries this contract itself: `npx ccverbs --help` ends with a **For AI agents** section and an **Adding a verb set** checklist, and `npx ccverbs new --help` is the full command-local page. An agent that only reads `--help` still gets the whole workflow.
 
 Every command takes `--json` and prints a **single-line JSON object** whose first key is `ok`. Pair it with `--yes` to skip the prompt. No TUI is ever launched by a subcommand, and running bare `ccverbs` without a TTY exits `2` with the help text rather than hanging.
 

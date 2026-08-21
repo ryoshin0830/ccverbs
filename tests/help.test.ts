@@ -58,6 +58,50 @@ describe("renderHelp", () => {
     expect(renderHelp(getCatalog("en"))).toContain("Exit codes:");
   });
 
+  it.each(SUPPORTED_LOCALES)("tells an agent how to drive the CLI in %s", (locale) => {
+    const out = renderHelp(getCatalog(locale));
+    for (const token of [
+      "ccverbs list --json",
+      "ccverbs show <id> --json",
+      "ccverbs set <id> --json",
+      "ccverbs set <id> --yes --json",
+      "ccverbs current --json",
+    ]) {
+      expect(out, token).toContain(token);
+    }
+  });
+
+  it.each(SUPPORTED_LOCALES)("tells an agent how to add a verb set in %s", (locale) => {
+    const out = renderHelp(getCatalog(locale));
+    for (const token of [
+      "cat set.json | ccverbs new --input - --json",
+      "error.issues",
+      "--pr",
+      "ccverbs new --help",
+      "docs/ai-agents.md",
+      "Create a new set",
+    ]) {
+      expect(out, token).toContain(token);
+    }
+  });
+
+  it("puts the two agent sections between the examples and the exit codes", () => {
+    const out = renderHelp(getCatalog("en"));
+    const at = (heading: string) => out.indexOf(heading);
+    expect(at("For AI agents:")).toBeGreaterThan(at("Examples:"));
+    expect(at("Adding a verb set (for AI agents):")).toBeGreaterThan(at("For AI agents:"));
+    expect(at("Adding a verb set (for AI agents):")).toBeLessThan(at("Exit codes:"));
+  });
+
+  it("translates the agent headings away from English", () => {
+    for (const locale of SUPPORTED_LOCALES.filter((l) => l !== "en")) {
+      expect(getCatalog(locale).help.agentsHeading).not.toBe(getCatalog("en").help.agentsHeading);
+      expect(getCatalog(locale).help.contributeHeading).not.toBe(
+        getCatalog("en").help.contributeHeading,
+      );
+    }
+  });
+
   it("renders an agent-friendly page for ccverbs new --help", () => {
     const out = renderHelp(getCatalog("en"), "new");
     expect(out).toContain("Usage: ccverbs new --input <path|->");

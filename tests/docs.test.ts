@@ -9,8 +9,8 @@ const contributionSkill = readFileSync(".claude/skills/ccverbs-contribute/SKILL.
 const pkg = JSON.parse(readFileSync("package.json", "utf8"));
 
 describe("version", () => {
-  it("is 0.4.1", () => {
-    expect(pkg.version).toBe("0.4.1");
+  it("is 0.5.0", () => {
+    expect(pkg.version).toBe("0.5.0");
   });
 });
 
@@ -92,6 +92,12 @@ describe("README", () => {
     expect(readme).toContain("npx ccverbs new --help");
     expect(readme).toContain("https://ccverbs.lolipop-now.app");
   });
+
+  it("says the top-level help carries the agent contract too", () => {
+    expect(readme).toContain("npx ccverbs --help");
+    expect(readme).toContain("For AI agents");
+    expect(readmeJa).toContain("npx ccverbs --help");
+  });
 });
 
 describe("AI contribution documentation", () => {
@@ -105,6 +111,7 @@ describe("AI contribution documentation", () => {
       "validated",
       "manual",
       "sets/index.json",
+      "ccverbs --help",
       "ccverbs new --help",
       "Create a new set",
     ]) {
