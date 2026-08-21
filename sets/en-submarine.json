@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-submarine",
+  "name": "Submarine",
+  "emoji": "🫧",
+  "description": "Running silent, one order at a time",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "submarine",
+    "navy",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "静粛航行、命令を一つずつ"
+    }
+  },
+  "verbs": [
+    "Rig for ultra quiet",
+    "Conn, sonar, new contact",
+    "Bearing zero three zero",
+    "Make your depth two hundred",
+    "All ahead one third",
+    "Right full rudder",
+    "Level off. Hold this depth",
+    "Passive only. No pinging",
+    "Classify that contact",
+    "Contact is merchant, not warship",
+    "Secure all loud machinery",
+    "Take her up to periscope depth",
+    "Up scope. Quick look around",
+    "Down scope. Nothing in sight",
+    "Flooding tube one",
+    "Solution set on the target",
+    "Hold fire. Say again, hold",
+    "We are being pinged",
+    "Rig for depth charge",
+    "Damage report, all stations",
+    "Trim the boat. Slowly",
+    "Surface. Blow all ballast"
+  ]
+}

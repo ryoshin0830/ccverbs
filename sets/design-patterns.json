@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "design-patterns",
+  "name": "Design Patterns",
+  "emoji": "🧩",
+  "description": "GoF and the patterns that outlived it",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "design-pattern",
+    "gof",
+    "architecture",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "GoFと、その後も生き残ったパターン"
+    }
+  },
+  "verbs": [
+    "Strategy — 差分だけ差し替える",
+    "Adapter — 形の違いを吸収する",
+    "Facade — 複雑さの前に一枚置く",
+    "Decorator — 包んで機能を足す",
+    "Proxy — 手前で受けて代理する",
+    "Composite — 木も葉も同じ扱いに",
+    "Observer — 変化を購読者に配る",
+    "Command — 操作を物として渡す",
+    "Template Method — 骨組みを継がせる",
+    "State — 状態ごとに振る舞いを持つ",
+    "Visitor — 型ごとの処理を外に出す",
+    "Iterator — 内部構造を隠して回す",
+    "Builder — 段階を追って組み立てる",
+    "Factory Method — 生成を子に任せる",
+    "Abstract Factory — 一族ごと替える",
+    "Singleton — 一つに絞る、試験は困る",
+    "Flyweight — 同じ物を共有して軽く",
+    "Memento — 状態を保存して戻す",
+    "Chain of Responsibility — 順に投げる",
+    "Mediator — 相互参照を仲介に寄せる",
+    "Null Object — 何もしない実装を置く",
+    "Repository — 永続化を境界の外へ",
+    "Dependency Injection — 外から渡す",
+    "依存性逆転 — 抽象に向けて依存する"
+  ]
+}

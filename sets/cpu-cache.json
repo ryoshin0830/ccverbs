@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "cpu-cache",
+  "name": "CPU and Cache",
+  "emoji": "⚡",
+  "description": "Why the same code runs ten times faster",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "cpu",
+    "cache",
+    "performance",
+    "architecture",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "同じコードが10倍速くなる理由"
+    }
+  },
+  "verbs": [
+    "L1 / L2 / L3 — 近いほど速く小さい",
+    "cache line — 64バイト単位で運ぶ",
+    "空間的局所性 — 隣も一緒に来る",
+    "時間的局所性 — さっき触った物は速い",
+    "cache miss — 主記憶まで取りに行く",
+    "false sharing — 同じ行を取り合う",
+    "prefetch — 先に運んでおく",
+    "分岐予測 — 先に進んでおく",
+    "予測ミス — 巻き戻して数十サイクル",
+    "投機実行 — 確定する前に走らせる",
+    "パイプライン — 段に分けて重ねる",
+    "スーパースカラ — 同時に複数を出す",
+    "順序外実行 — 順を入れ替えて詰める",
+    "SIMD — 一命令で複数を計算する",
+    "NUMA — 遠いメモリは目に見えて遅い",
+    "メモリ帯域 — 運べる量の上限",
+    "遅延と処理量 — 別々に効く指標",
+    "AoS と SoA — 並べ方で速さが変わる",
+    "アライメント — 境界に揃えて置く",
+    "atomic — バス上で不可分に行う",
+    "memory barrier — 順序を強制する",
+    "store buffer — 書きを溜めて流す",
+    "MESI — 行の状態で一貫性を保つ",
+    "IPC — 1サイクルで何命令進むか"
+  ]
+}

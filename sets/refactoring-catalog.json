@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "refactoring-catalog",
+  "name": "Refactoring",
+  "emoji": "🧹",
+  "description": "Fowler's catalogue, one move at a time",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "refactoring",
+    "fowler",
+    "design",
+    "study"
+  ],
+  "source": "https://refactoring.com/catalog/",
+  "i18n": {
+    "ja": {
+      "description": "Fowlerのカタログを一手ずつ"
+    }
+  },
+  "verbs": [
+    "Extract Function — 名前を与える",
+    "Inline Function — 名前を消す",
+    "Extract Variable — 式に名を付ける",
+    "Inline Variable — 式そのものに戻す",
+    "Rename Variable — 名前を正す",
+    "Encapsulate Variable — 窓口を作る",
+    "Introduce Parameter Object — 束ねる",
+    "Preserve Whole Object — 丸ごと渡す",
+    "Split Phase — 段に分けて考える",
+    "Move Function — 属すべき所へ移す",
+    "Move Field — 持ち主を変える",
+    "Extract Class — 責務を切り出す",
+    "Inline Class — 分けた意味が無い時",
+    "Hide Delegate — 中継を隠す",
+    "Replace Temp with Query — 問い直す",
+    "Split Loop — 一周で二つやらない",
+    "Replace Loop with Pipeline — 流す",
+    "Remove Dead Code — 消す勇気を持つ",
+    "Decompose Conditional — 条件に名前",
+    "Replace Nested Conditional — 早く返す",
+    "Introduce Special Case — 例外を型に",
+    "Replace Conditional — 多態に寄せる",
+    "Pull Up / Push Down — 継承を整える",
+    "Parameterize Function — 引数で束ねる"
+  ]
+}

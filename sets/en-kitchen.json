@@ -1,0 +1,44 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-kitchen",
+  "name": "Restaurant Kitchen",
+  "emoji": "🔪",
+  "description": "Service, called out across a hot line",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "kitchen",
+    "chef",
+    "food",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "熱い厨房で飛び交う掛け声"
+    }
+  },
+  "verbs": [
+    "Yes chef, two minutes out",
+    "Firing table nine",
+    "Ordering three, away two",
+    "Behind you, hot pan",
+    "Corner. Coming through",
+    "How long on the sauce",
+    "That plate is going out cold",
+    "Wipe the rim. Every time",
+    "Taste it before it leaves",
+    "Reduce it by half, no more",
+    "Rest the meat. Do not cut yet",
+    "Season in layers, not at once",
+    "Mise is not ready. Fix it",
+    "Sharpen it, then come back",
+    "One in, one out. Keep moving",
+    "Re-fire the fish, all day two",
+    "Walk in the special",
+    "Hands. I need hands here",
+    "Heard. Two minutes",
+    "All day: six covers, one veg",
+    "Service is done. Clean down",
+    "Same time tomorrow, chef"
+  ]
+}

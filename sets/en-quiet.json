@@ -1,0 +1,52 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-quiet",
+  "name": "Quiet English",
+  "emoji": "🌙",
+  "description": "Plain English that stays out of the way",
+  "language": "en",
+  "category": "classic",
+  "tags": [
+    "english",
+    "calm",
+    "general",
+    "classic"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "邪魔をしない、静かな英語"
+    }
+  },
+  "verbs": [
+    "Settling",
+    "Working through it",
+    "Reading carefully",
+    "Turning it over",
+    "Following the thread",
+    "Laying it out",
+    "Filling in the gaps",
+    "Checking the edges",
+    "Holding the shape",
+    "Trimming it down",
+    "Letting it rest",
+    "Going back a step",
+    "Trying the other way",
+    "Lining things up",
+    "Weighing two options",
+    "Naming things properly",
+    "Tidying as I go",
+    "Making it smaller",
+    "Looking once more",
+    "Nearly there",
+    "Keeping it simple",
+    "Piecing it together",
+    "Retracing the steps",
+    "Sitting with it",
+    "Writing it out",
+    "Reading it back",
+    "Closing the loop",
+    "Putting it in order",
+    "Smoothing the seams",
+    "Almost done"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "css-layout",
+  "name": "CSS Layout",
+  "emoji": "🎨",
+  "description": "The Flexbox and Grid values you actually reach for",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "css",
+    "flexbox",
+    "grid",
+    "layout",
+    "study"
+  ],
+  "source": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+  "i18n": {
+    "ja": {
+      "description": "実際に手が伸びるFlexboxとGridの値"
+    }
+  },
+  "verbs": [
+    "display: flex — 主軸に一列で並ぶ",
+    "flex: 1 1 0 — 均等に伸び縮みする",
+    "flex-basis — 伸縮前の基準サイズ",
+    "flex-shrink: 0 — 縮ませない",
+    "gap — 隙間だけを与える",
+    "align-items — 交差軸で揃える",
+    "justify-content — 主軸に配る",
+    "align-self — 一つだけ例外にする",
+    "flex-wrap — 溢れたら折り返す",
+    "min-width: 0 — 縮まない事故を直す",
+    "grid-template-columns — 列を決める",
+    "repeat(auto-fill, minmax()) — 自動列",
+    "1fr — 余りを分け合う単位",
+    "grid-template-areas — 名前で配置",
+    "grid-auto-flow: dense — 隙間を埋める",
+    "place-items — 縦横まとめて中央",
+    "aspect-ratio — 比率で高さを決める",
+    "position: sticky — 端で貼り付く",
+    "inset — 上下左右をまとめて指定",
+    "z-index — 重なりは文脈の中だけ",
+    "stacking context — 重なりの島を作る",
+    "margin collapse — 隣接して潰れる",
+    "container query — 親の幅で切り替え",
+    "subgrid — 親の線をそのまま使う"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-f1-pit",
+  "name": "F1 Pit Wall",
+  "emoji": "🏁",
+  "description": "Team radio, clipped and urgent",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "f1",
+    "motorsport",
+    "radio",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "短く、切迫しているチーム無線"
+    }
+  },
+  "verbs": [
+    "Box this lap, box box",
+    "Tyres are coming to you",
+    "Push now, push now",
+    "Gap to the car ahead: two four",
+    "You are clear to overtake",
+    "Mode push, mode push",
+    "Lift and coast into turn one",
+    "We are managing the tyres",
+    "Front left is going off",
+    "Yellow flag, sector three",
+    "Safety car deployed",
+    "Stay out. Repeat, stay out",
+    "Plan B. Confirm plan B",
+    "Delta positive, keep it there",
+    "Watch the traffic ahead",
+    "That is a strong lap",
+    "Purple in sector two",
+    "Fuel is on target",
+    "Brake bias two clicks back",
+    "Check the mirrors, they're close",
+    "Bring it home now",
+    "Well done. Great job everyone"
+  ]
+}

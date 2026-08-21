@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "periodic-table",
+  "name": "Periodic Table",
+  "emoji": "🧫",
+  "description": "Each element, and what it is actually used for",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "chemistry",
+    "element",
+    "science",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "元素と、それが実際に何に使われるか"
+    }
+  },
+  "verbs": [
+    "H — 最も軽く、宇宙で最も多い",
+    "He — 冷やすためだけに掘り出す",
+    "Li — 電池の中を往復している",
+    "Be — 軽く硬く、そして毒",
+    "C — 同じ元素で墨と金剛石",
+    "N — 空気の八割、肥料の元",
+    "O — 燃焼と呼吸、両方の相手",
+    "Na — 水に触れると火を噴く",
+    "Si — 砂から半導体を作り出す",
+    "P — マッチと骨、両方に居る",
+    "S — 加硫でゴムが強くなる",
+    "Cl — 消毒もするが毒でもある",
+    "Ti — 軽くて錆びず、骨に馴染む",
+    "Fe — 文明の骨組みそのもの",
+    "Cu — 電気と熱をよく通す",
+    "Zn — 鉄に被せて錆を引き受ける",
+    "Ga — 手の上で溶ける金属",
+    "Nb — ニオブ、超伝導線材に使う",
+    "In — インジウム、透明電極に",
+    "Nd — 極めて強い磁石を作る",
+    "W — 最も融けにくい金属",
+    "Pt — 触媒として反応を助ける",
+    "Au — 錆びず、延ばせば透ける",
+    "U — 核分裂、そして年代測定"
+  ]
+}

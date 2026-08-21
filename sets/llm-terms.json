@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "llm-terms",
+  "name": "LLM Internals",
+  "emoji": "🤖",
+  "description": "What is actually happening on the other side of the prompt",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "llm",
+    "transformer",
+    "ai",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "プロンプトの向こう側で起きている事"
+    }
+  },
+  "verbs": [
+    "token — 語より細かい入力の単位",
+    "tokenizer — 文字列を番号列に直す",
+    "embedding — 意味を座標に写す",
+    "attention — どこを見るかの重み",
+    "self-attention — 自分同士を見比べる",
+    "multi-head — 複数の観点で同時に",
+    "位置符号 — 順番の情報を足す",
+    "KV cache — 過去の鍵と値を残す",
+    "context window — 一度に見える幅",
+    "temperature — 分布の尖り具合",
+    "top-p — 上位の確率質量で切る",
+    "top-k — 上位 k 個から選ぶ",
+    "greedy — 常に最尤を選び続ける",
+    "beam search — 候補を並べて伸ばす",
+    "perplexity — 次の語への戸惑い",
+    "事前学習 — 大量の文で下地を作る",
+    "SFT — 指示と応答の対で仕上げる",
+    "RLHF — 人の好みで方向を絞る",
+    "LoRA — 小さな行列だけを学ぶ",
+    "量子化 — 精度を落として軽くする",
+    "RAG — 外から引いて根拠を渡す",
+    "幻覚 — 自信を持って間違える",
+    "prompt injection — 指示を乗っ取る",
+    "蒸留 — 大きい先生から受け継ぐ"
+  ]
+}

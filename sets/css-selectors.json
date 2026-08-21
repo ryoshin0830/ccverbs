@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "css-selectors",
+  "name": "CSS Selectors",
+  "emoji": "🧷",
+  "description": "The selectors you look up every single time",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "css",
+    "selector",
+    "frontend",
+    "study"
+  ],
+  "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors",
+  "i18n": {
+    "ja": {
+      "description": "毎回引き直しているセレクタ"
+    }
+  },
+  "verbs": [
+    ":has() — 子を条件に親を選ぶ",
+    ":is() — まとめても詳細度は最強",
+    ":where() — まとめて詳細度ゼロ",
+    ":not() — 除くが詳細度は上がる",
+    ":nth-child(2n+1) — 奇数番目",
+    ":nth-of-type — 同じ要素名で数える",
+    ":nth-last-child — 後ろから数える",
+    ":first-of-type — その型の最初",
+    ":only-child — 兄弟が居ない時だけ",
+    ":empty — 中身が全く無い要素",
+    "A > B — 直下の子だけ",
+    "A + B — 直後の兄弟だけ",
+    "A ~ B — 後ろの兄弟すべて",
+    "[attr^=v] — 前方一致",
+    "[attr$=v] — 後方一致",
+    "[attr*=v] — 部分一致",
+    "[attr~=v] — 空白区切りの一語",
+    "[attr=v i] — 大文字小文字を無視",
+    "::before — 中身の前に生やす",
+    "::marker — リストの印を飾る",
+    "::selection — 選択中の見た目",
+    ":focus-visible — 鍵盤操作の時だけ",
+    ":target — URLの断片が指す先",
+    "詳細度 — id > class > 要素の順"
+  ]
+}

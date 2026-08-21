@@ -112,6 +112,6 @@ export const ko: Catalog = {
 
   footer: {
     cli: "쓰고 싶은 세트가 정해졌다면 CLI로 바로 적용할 수 있습니다:",
-    repo: "소스와 기본 제공되는 21개 세트",
+    repo: "소스와 기본 제공되는 121개 세트",
   },
 };

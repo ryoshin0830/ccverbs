@@ -118,7 +118,7 @@ export const en = {
 
   footer: {
     cli: "Already have a set in mind? The CLI applies any of them:",
-    repo: "Source and the 21 sets that ship",
+    repo: "Source and the 121 sets that ship",
   },
 };
 

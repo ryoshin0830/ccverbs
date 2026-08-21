@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-er",
+  "name": "Emergency Room",
+  "emoji": "🩺",
+  "description": "The order the room actually works in",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "medical",
+    "emergency",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "初療室が実際に動く順序"
+    }
+  },
+  "verbs": [
+    "Two large-bore lines in",
+    "Vitals holding for now",
+    "Pressure is eighty over forty",
+    "Push a litre, wide open",
+    "Get me a gas and a lactate",
+    "Airway first. Always first",
+    "Bag them, twelve a minute",
+    "Sats coming up, ninety four",
+    "Cross-match four units",
+    "Where is the ultrasound",
+    "Stop compressions. Check rhythm",
+    "Resume. Two minutes on the clock",
+    "Charging to two hundred",
+    "Clear. Everybody clear",
+    "We have a rhythm back",
+    "Get the family, quietly",
+    "Call the surgeon now",
+    "They're going to theatre",
+    "Next patient. Bay four",
+    "Somebody chart all of that",
+    "Nice work. Everyone breathe",
+    "Twelve hours down, six to go"
+  ]
+}

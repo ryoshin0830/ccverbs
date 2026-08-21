@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "c-pointers",
+  "name": "C Pointers",
+  "emoji": "📌",
+  "description": "Pointers and the undefined behaviour that follows them",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "c",
+    "pointer",
+    "memory",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "ポインタと、その先にある未定義動作"
+    }
+  },
+  "verbs": [
+    "char *p — 指す先は誰のものか",
+    "*p — 参照して中身を取り出す",
+    "&x — 変数の住所を取る",
+    "p + 1 — 型のサイズ分だけ進む",
+    "p[i] — *(p + i) の別表記",
+    "const char *p — 中身は変えない",
+    "char *const p — 指す先を変えない",
+    "void * — 型を忘れた住所",
+    "NULL参照 — 未定義動作、即座に死ぬ",
+    "dangling pointer — 死んだ先を指す",
+    "use after free — 解放後に触る",
+    "double free — 二度解放して壊れる",
+    "malloc — 確保、中身は不定のまま",
+    "calloc — 確保してゼロで埋める",
+    "realloc — 移る事があるので再代入",
+    "sizeof(p) — 配列ではなく住所の幅",
+    "配列の減退 — 渡すと住所に成り下がる",
+    "strncpy — 終端が付かない事がある",
+    "restrict — 別名は無いと約束する",
+    "alignment — 境界を跨ぐと壊れる",
+    "strict aliasing — 型を偽ると壊れる",
+    "関数ポインタ — 呼び先を差し替える",
+    "flexible array member — 末尾に伸ばす",
+    "valgrind — 触れない所を触ると鳴る"
+  ]
+}

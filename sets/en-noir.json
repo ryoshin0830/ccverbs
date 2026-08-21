@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-noir",
+  "name": "Hardboiled Noir",
+  "emoji": "🚬",
+  "description": "First person, raining, nobody is clean",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "noir",
+    "english",
+    "detective"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "雨の街、一人称、誰も潔白ではない"
+    }
+  },
+  "verbs": [
+    "The stack trace smelled like rain",
+    "Somebody lied in this diff",
+    "It was a Tuesday kind of bug",
+    "The logs kept their mouths shut",
+    "Every function had an alibi",
+    "The nil came in through the back",
+    "Nobody in this repo is clean",
+    "I lit a cigarette and waited",
+    "They said the build was fine",
+    "The tests were paid to look away",
+    "I followed the pointer downtown",
+    "It dead-ended in a null",
+    "The cache had been wiped clean",
+    "Third floor, no lift, no docs",
+    "Somebody's been here before me",
+    "The commit message was a lie",
+    "Money always leaves a trace",
+    "I knew the type - a singleton",
+    "The city never frees its memory",
+    "Rain on the window, no signal",
+    "I found it where I left it",
+    "Case closed. Nobody thanked me"
+  ]
+}

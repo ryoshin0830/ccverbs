@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "tcpip-layers",
+  "name": "TCP/IP",
+  "emoji": "🧵",
+  "description": "The vocabulary you need when the network is the suspect",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "tcp",
+    "network",
+    "protocol",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "ネットワークを疑う時に要る語彙"
+    }
+  },
+  "verbs": [
+    "3-way handshake — SYN, SYN-ACK, ACK",
+    "FIN と RST — 閉じると叩き切る",
+    "TIME_WAIT — 残響を待つ 2MSL",
+    "スロースタート — 少しずつ窓を開く",
+    "輻輳制御 — 詰まりを見て緩める",
+    "受信窓 — 相手が受け取れる量",
+    "Nagle — 小片を溜めてから送る",
+    "遅延ACK — 少し待ってまとめる",
+    "MTU — 分割せず運べる上限",
+    "MSS — TCPが一度に載せる量",
+    "パスMTU探索 — 途中の最小に合わせる",
+    "フラグメント — 途中で分割される",
+    "TTL — 経由できるルータの数",
+    "ARP — 同一セグメント内の解決",
+    "NAT — 住所を書き換えて共有する",
+    "CIDR /24 — 前 24bit が網の部分",
+    "デフォルト経路 — 外への出口",
+    "UDP — 届く保証を捨てて速く",
+    "QUIC — UDPの上で作り直した",
+    "SYN flood — 半開きで席を埋める",
+    "tcpdump — 線の上を直に覗く",
+    "ss -tan — 今の接続状態を並べる",
+    "ephemeral port — 送る側の一時港",
+    "keepalive — 生きているか確かめる"
+  ]
+}

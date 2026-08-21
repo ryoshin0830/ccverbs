@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "go-concurrency",
+  "name": "Go Concurrency",
+  "emoji": "🐹",
+  "description": "goroutines and channels, learned by osmosis",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "go",
+    "golang",
+    "concurrency",
+    "study"
+  ],
+  "source": "https://go.dev/ref/mem",
+  "i18n": {
+    "ja": {
+      "description": "goroutineとchannelの作法を体に入れる"
+    }
+  },
+  "verbs": [
+    "goroutine — 軽量スレッドを起こす",
+    "chan — 値を渡して同期する",
+    "unbuffered — 送受が揃うまで止まる",
+    "buffered chan — 容量分は先に置ける",
+    "select — 複数チャネルを待つ",
+    "default — 待たずに諦める",
+    "close(ch) — もう来ないと伝える",
+    "for range ch — 閉じるまで受ける",
+    "sync.WaitGroup — 全員の完了を待つ",
+    "sync.Mutex — 一人ずつ触らせる",
+    "sync.RWMutex — 読みは同時、書きは単独",
+    "sync.Once — 初期化を一度だけ",
+    "context.WithCancel — 停止を伝播",
+    "context.WithTimeout — 期限で切る",
+    "ctx.Done() — 打ち切りを受け取る",
+    "errgroup — 最初のerrで全体を止める",
+    "atomic.AddInt64 — ロック無しで加算",
+    "race detector — 競合を実行時に暴く",
+    "goroutine leak — 受け手が消えて滞る",
+    "worker pool — 並列度に上限を敷く",
+    "fan-out — 一本を複数に散らす",
+    "fan-in — 複数の流れを一本に束ねる",
+    "happens-before — 見える順序の保証",
+    "GOMAXPROCS — 同時に走るPの数"
+  ]
+}

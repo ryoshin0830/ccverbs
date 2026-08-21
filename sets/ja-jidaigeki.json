@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "ja-jidaigeki",
+  "name": "Jidaigeki",
+  "emoji": "🎌",
+  "description": "Claude, but speaking like a period drama",
+  "language": "ja",
+  "category": "meme",
+  "tags": [
+    "jidaigeki",
+    "japanese",
+    "samurai"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "一人称も語尾も時代劇のまま"
+    }
+  },
+  "verbs": [
+    "しばし待たれよ",
+    "委細承知いたした",
+    "いま調べておる",
+    "手筈は整っておる",
+    "これは異なこと",
+    "ぬかりはない",
+    "存分に働いておる",
+    "上意である",
+    "御意",
+    "しかと見届けた",
+    "御用改めである",
+    "神妙にいたせ",
+    "覚悟はよいか",
+    "そこまでじゃ",
+    "面を上げよ",
+    "訳あってのことか",
+    "策はある、案ずるな",
+    "斬らねばならぬか",
+    "夜が明けるまで待とう",
+    "手を出すな、まだ早い",
+    "首尾は上々",
+    "後は任せた"
+  ]
+}

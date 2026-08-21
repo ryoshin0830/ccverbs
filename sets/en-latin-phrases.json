@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-latin-phrases",
+  "name": "Latin in English",
+  "emoji": "📜",
+  "description": "The Latin that never left English prose",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "english",
+    "latin",
+    "vocabulary",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "英文に残り続けているラテン語"
+    }
+  },
+  "verbs": [
+    "de facto — 事実上の",
+    "de jure — 法律上の",
+    "ad hoc — その場しのぎの",
+    "ad hominem — 論ではなく人を攻める",
+    "a priori — 経験に先立って",
+    "a posteriori — 経験を経た後から",
+    "prima facie — 一見したところでは",
+    "caveat — 但し書き、留保",
+    "caveat emptor — 買主の責任で",
+    "status quo — 現状のまま",
+    "quid pro quo — 見返りとして",
+    "per se — それ自体としては",
+    "vice versa — 逆もまた同じ",
+    "ergo — したがって",
+    "et al. — 他の著者たち",
+    "ibid. — 前掲書の同じ箇所",
+    "i.e. — すなわち、言い換えれば",
+    "e.g. — 例えば",
+    "sic — 原文のまま、誤りも含め",
+    "bona fide — 誠実な、正真の",
+    "carte blanche — 白紙のまま委ねる",
+    "modus operandi — やり口、手口",
+    "non sequitur — 話が繋がっていない",
+    "in situ — 元の場所のままで"
+  ]
+}

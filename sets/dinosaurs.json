@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "dinosaurs",
+  "name": "Dinosaurs",
+  "emoji": "🦕",
+  "description": "What each one actually was, once the fossils spoke",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "dinosaur",
+    "paleontology",
+    "science",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "化石が語った、本当の姿"
+    }
+  },
+  "verbs": [
+    "Deinonychus — 温血説の出発点",
+    "Velociraptor — 実物は七面鳥ほど",
+    "Tyrannosaurus — 咬む力が桁違い",
+    "Spinosaurus — 半水生だった可能性",
+    "Allosaurus — ジュラ紀の主な捕食者",
+    "Brachiosaurus — 前肢が後肢より長い",
+    "Argentinosaurus — 最も重い候補",
+    "Diplodocus — 尾を鞭のように振る",
+    "Triceratops — 角と襟飾りで身を守る",
+    "Stegosaurus — 背の板で熱を逃がす",
+    "Ankylosaurus — 尾の棍棒で殴る",
+    "Parasaurolophus — 管で低い音を出す",
+    "Iguanodon — 最初に見つかった一群",
+    "Archaeopteryx — 羽毛と歯を併せ持つ",
+    "Microraptor — 四枚の翼で滑空する",
+    "Therizinosaurus — 最も長い爪を持つ",
+    "Oviraptor — 卵泥棒は誤解だった",
+    "Maiasaura — 巣で子を育てた証拠",
+    "Sinosauropteryx — 羽毛の色が判った",
+    "Pachycephalosaurus — 頭で押し合う",
+    "Gigantoraptor — 巨大な羽毛の獣脚類",
+    "Mosasaurus — 恐竜ではなく海の爬虫",
+    "Pteranodon — 恐竜ではなく翼竜",
+    "K-Pg境界 — 6600万年前の、ある一日"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "unicode-encoding",
+  "name": "Unicode",
+  "emoji": "🔤",
+  "description": "Learn the name of every way text breaks",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "unicode",
+    "encoding",
+    "utf8",
+    "text",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "文字化けの原因に名前を付けていく"
+    }
+  },
+  "verbs": [
+    "コードポイント — 文字に振った番号",
+    "UTF-8 — 1〜4バイトの可変長",
+    "UTF-16 — 2または4バイト",
+    "サロゲートペア — 2つで1文字",
+    "BOM — 先頭に付く見えない印",
+    "BMP — 最初の65536個の面",
+    "絵文字は面外 — 4バイトになる",
+    "結合文字 — 後ろから重ねて飾る",
+    "NFC — 合成済みの形に正規化する",
+    "NFD — 分解した形に正規化する",
+    "NFKC — 互換文字まで畳んで潰す",
+    "全角と半角 — 見た目が近い別文字",
+    "grapheme cluster — 人が見る1文字",
+    "長さの三種類 — バイト、点、字",
+    "East Asian Width — 端末での桁数",
+    "ZWJ — 繋いで一つの絵文字にする",
+    "異体字セレクタ — 字形を選び直す",
+    "Latin-1 と UTF-8 — 混ぜると化ける",
+    "二重変換 — 化けた物をまた変える",
+    "正規化の非等価 — 同じに見えて別",
+    "casefold — 大小を畳んで比べる",
+    "トルコ語の i — 大文字化が例外",
+    "collation — 並び順は言語で違う",
+    "検査の順序 — 正規化を先に済ます"
+  ]
+}

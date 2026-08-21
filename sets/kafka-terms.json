@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "kafka-terms",
+  "name": "Kafka",
+  "emoji": "📬",
+  "description": "Partitions, offsets and the guarantees you actually get",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "kafka",
+    "messaging",
+    "streaming",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "区画とオフセット、そして本当の保証"
+    }
+  },
+  "verbs": [
+    "topic — 名前の付いた一本の流れ",
+    "partition — 並列度そのもの",
+    "offset — 区画ごとの位置番号",
+    "consumer group — 分担して読む",
+    "rebalance — 担当を組み替える",
+    "consumer lag — 読み遅れの量",
+    "key — 同じ鍵は同じ区画へ行く",
+    "順序保証 — 区画の中だけで成立つ",
+    "replication factor — 写しの本数",
+    "leader と follower — 書きは前者へ",
+    "ISR — 追いつけている写しの集合",
+    "acks=all — 全員に届いてから返す",
+    "acks=0 — 投げたら忘れる",
+    "min.insync.replicas — 最低本数",
+    "retention — いつまで残すか",
+    "log compaction — 鍵ごとに最新だけ",
+    "at-least-once — 重複を覚悟する",
+    "冪等プロデューサ — 重複を抑える",
+    "transaction — 読み書きを一括で",
+    "dead letter queue — 諦めた物の置場",
+    "poison pill — 一件で詰まらせる",
+    "背圧 — 詰まりを上流に返す",
+    "compression — 束ねて圧して送る",
+    "linger.ms — 少し待ってから束ねる"
+  ]
+}

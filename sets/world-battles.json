@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "world-battles",
+  "name": "Decisive Battles",
+  "emoji": "🏹",
+  "description": "The battle, the year, and what it settled",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "history",
+    "battle",
+    "world-history",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "会戦と、そこで決まったこと"
+    }
+  },
+  "verbs": [
+    "Marathon 490 BC — ペルシアを退ける",
+    "Thermopylae 480 BC — 隘路で足止め",
+    "Salamis 480 BC — 狭い海で艦を潰す",
+    "Gaugamela 331 BC — 東方遠征が決まる",
+    "Cannae 216 BC — 包囲殲滅の教科書",
+    "Zama 202 BC — 象を退け、ローマ勝つ",
+    "Alesia 52 BC — 二重の壁で囲み切る",
+    "Actium 31 BC — 帝政への道が開く",
+    "Adrianople 378 — 重騎兵の時代へ",
+    "Tours 732 — 西への進出が止まる",
+    "Hastings 1066 — 英の言葉が変わる",
+    "Manzikert 1071 — 東ローマが傾く",
+    "Agincourt 1415 — 長弓が騎士を破る",
+    "Constantinople 1453 — 大砲が壁を崩す",
+    "Lepanto 1571 — 地中海の潮目が変わる",
+    "Armada 1588 — 海の主役が入れ替わる",
+    "Breitenfeld 1631 — 線陣が縦深を破る",
+    "Blenheim 1704 — 大同盟が仏を抑える",
+    "Trafalgar 1805 — 上陸の望みが絶える",
+    "Austerlitz 1805 — 中央を割って勝つ",
+    "Waterloo 1815 — 百日天下が終わる",
+    "Gettysburg 1863 — 北への侵攻が挫く",
+    "Tsushima 1905 — 艦隊が一日で消える",
+    "Midway 1942 — 空母四隻を一日で失う"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "explorers",
+  "name": "Explorers",
+  "emoji": "🧭",
+  "description": "Who went where, and whether they came back",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "history",
+    "exploration",
+    "geography",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "誰がどこへ行き、帰れたのか"
+    }
+  },
+  "verbs": [
+    "Zheng He — 七度の大艦隊で南海へ",
+    "Ibn Battuta — 三十年、陸を歩き続く",
+    "Marco Polo — 東方見聞録を残す",
+    "Bartolomeu Dias — 喜望峰を回る",
+    "Vasco da Gama — 海路でインドへ着く",
+    "Columbus — 西へ行き別大陸に着く",
+    "Magellan — 出発し、部下が周り切る",
+    "Cabral — 流されてブラジルに着く",
+    "Cortés — アステカを内から崩す",
+    "Cook — 三度太平洋を測り続ける",
+    "Bering — 二つの大陸の間を抜ける",
+    "Lewis and Clark — 大陸を横に歩く",
+    "Livingstone — 内陸を測り、消える",
+    "Stanley — 探して、見つけたと言う",
+    "Burton — 大湖の水源を探し争う",
+    "Nansen — 氷に船を任せて漂う",
+    "Amundsen — 犬橇で先に極点へ着く",
+    "Scott — 遅れて着き、帰路で死す",
+    "Shackleton — 全員を生きて連れ帰る",
+    "Hillary and Norgay — 頂に立つ",
+    "Piccard — 海溝の底まで降りていく",
+    "Heyerdahl — 筏で太平洋を渡る",
+    "Gagarin — 最初に地球を一周する",
+    "Armstrong — 別の天体に足を置く"
+  ]
+}

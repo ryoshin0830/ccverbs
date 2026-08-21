@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "constellations",
+  "name": "Constellations",
+  "emoji": "✨",
+  "description": "Which star to look for, and where it points",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "astronomy",
+    "star",
+    "constellation",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "どの星を探すか、それが何を指すか"
+    }
+  },
+  "verbs": [
+    "Ursa Major — 北斗七星を含む大熊",
+    "Ursa Minor — Polaris が尾の先",
+    "Cassiopeia — W の形で北を指す",
+    "Cygnus — 白鳥、Deneb が尾にある",
+    "Lyra — 琴、Vega が夏の頂点",
+    "Aquila — 鷲、Altair が明るい",
+    "夏の大三角 — Vega, Deneb, Altair",
+    "Orion — Betelgeuse と Rigel",
+    "冬の大三角 — Sirius を含む三つ",
+    "Canis Major — Sirius が最も明るい",
+    "Taurus — Aldebaran と昴の群れ",
+    "Pleiades — 六つ見えれば目は良い",
+    "Gemini — Castor と Pollux が並ぶ",
+    "Leo — Regulus、獅子の心臓",
+    "Virgo — Spica、真珠の白い星",
+    "Scorpius — Antares は赤く脈打つ",
+    "Sagittarius — 銀河の中心を向く",
+    "Crux — 南天の十字、南極を指す",
+    "Centaurus — 最も近い恒星がある",
+    "Andromeda — 隣の銀河が肉眼で見え",
+    "Draco — 昔の北極星はここに居た",
+    "Cepheus — 周期と明るさの関係",
+    "Perseus — 八月に流星が集まる",
+    "Corona Borealis — 半円に並ぶ冠"
+  ]
+}

@@ -113,6 +113,6 @@ export const ja: Catalog = {
 
   footer: {
     cli: "使いたいセットが決まっているなら、CLI から適用できます:",
-    repo: "ソースと、同梱の21セット",
+    repo: "ソースと、同梱の121セット",
   },
 };

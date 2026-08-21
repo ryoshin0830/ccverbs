@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "computing-history",
+  "name": "Computing History",
+  "emoji": "💾",
+  "description": "The milestones your whole stack is standing on",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "history",
+    "computing",
+    "technology",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "今のスタックが立っている土台の歴史"
+    }
+  },
+  "verbs": [
+    "Analytical Engine — 構想だけで終わる",
+    "Ada Lovelace — 最初の算法を書く",
+    "Hollerith — 穿孔カードで国勢調査",
+    "Turing machine — 計算とは何かの定義",
+    "Colossus — 暗号解読のための電子機",
+    "ENIAC — 配線を差し替えて組んだ",
+    "von Neumann型 — 命令もデータも記憶",
+    "トランジスタ — 真空管を置き換える",
+    "IC — 一枚に回路を詰め込む",
+    "COBOL — 事務処理を英語風に書く",
+    "FORTRAN — 数値計算のための最初",
+    "LISP — 括弧と再帰で世界を作る",
+    "IBM System/360 — 互換の系列を作る",
+    "Moore の法則 — 二年で二倍に増える",
+    "ARPANET — 4ノードから始まる",
+    "TCP/IP — 網と網を繋ぐための約束",
+    "Ethernet — 同じ線を皆で使い合う",
+    "Alto — 窓と鼠を先に見せた機械",
+    "Apple II — 家庭に計算機が入る",
+    "IBM PC — 互換機が市場を作る",
+    "WWW — 文書を繋ぐだけの発明",
+    "Mosaic — 絵の出る閲覧器が広める",
+    "Linux 0.01 — 趣味として公開される",
+    "iPhone — 電話が計算機に替わる"
+  ]
+}

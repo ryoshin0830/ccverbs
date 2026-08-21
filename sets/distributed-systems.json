@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "distributed-systems",
+  "name": "Distributed Systems",
+  "emoji": "🔗",
+  "description": "The inconvenient truths of more than one machine",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "distributed",
+    "consensus",
+    "cap",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "台数が増えた瞬間に始まる不都合"
+    }
+  },
+  "verbs": [
+    "CAP — 分断時に一貫性か可用性か",
+    "quorum — 過半数で決める",
+    "R + W > N — 読み書きを重ねる",
+    "split brain — 双方が主だと思う",
+    "リーダー選出 — 一人に決めて進む",
+    "Raft — 任期と多数決で合意する",
+    "Paxos — まず提案番号を確保する",
+    "2PC — 全員の同意を待って確定",
+    "3PC — 待ちは減るが完全ではない",
+    "Saga — 補償取引で巻き戻す",
+    "冪等性 — 何度来ても同じ結果に",
+    "at-least-once — 重複はあり得る",
+    "at-most-once — 落ちる事はある",
+    "exactly-once — 端まで含めれば幻",
+    "結果整合性 — いつかは揃う",
+    "read-your-writes — 自分の書きは見える",
+    "線形化可能性 — 一列に並べて語れる",
+    "ベクタークロック — 前後関係を残す",
+    "Lamport clock — 順序だけを付ける",
+    "一貫ハッシュ — 増減の影響を狭める",
+    "ハートビート — 生存を周期で確かめる",
+    "分断 — 遅いのと死んだのは同じ顔",
+    "背圧 — 詰まりを上流に返す",
+    "指数バックオフ — 間隔を広げて再試"
+  ]
+}

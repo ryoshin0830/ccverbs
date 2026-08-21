@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "shell-expansion",
+  "name": "Bash Expansion",
+  "emoji": "🐚",
+  "description": "Parameter expansion and quoting, next to linux-commands",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "bash",
+    "shell",
+    "expansion",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "パラメータ展開とクォートの作法"
+    }
+  },
+  "verbs": [
+    "\"$@\" — 引数を個別に保つ",
+    "\"$*\" — 一つに繋げてしまう",
+    "${var:-def} — 未設定なら既定値",
+    "${var:=def} — 未設定なら代入する",
+    "${var:?msg} — 未設定なら止まる",
+    "${var:+alt} — 設定済みの時だけ",
+    "${#var} — 文字数を数える",
+    "${var#pat} — 前から最短で削る",
+    "${var##pat} — 前から最長で削る",
+    "${var%pat} — 後ろから最短で削る",
+    "${var%%pat} — 後ろから最長で削る",
+    "${var/a/b} — 最初の一つを置換",
+    "${var//a/b} — 全部を置換する",
+    "${arr[@]} — 配列を要素ごとに展開",
+    "${!var} — 変数名の中身を引く",
+    "$(cmd) — 出力を値として使う",
+    "$(( )) — 算術として評価する",
+    "<(cmd) — 出力をファイルに見せる",
+    "{a,b} — brace展開で並べる",
+    "IFS — 分割に使う区切り文字",
+    "set -euo pipefail — 早く失敗する",
+    "shift — 引数を一つずつ食う",
+    "trap — 終了時に必ず片付ける",
+    "'単引用符' — 一切展開しない"
+  ]
+}

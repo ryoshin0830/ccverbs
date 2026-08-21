@@ -1,0 +1,44 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-nature-doc",
+  "name": "Nature Documentary",
+  "emoji": "🦒",
+  "description": "Narrated slowly, over footage of something waiting",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "documentary",
+    "nature",
+    "calm",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "何かが待っている映像に、静かな語り"
+    }
+  },
+  "verbs": [
+    "The process waits, patiently",
+    "Here, the loop must feed",
+    "Few survive the first pass",
+    "It has done this before",
+    "The season of merges begins",
+    "One by one, they return home",
+    "The older one watches, and waits",
+    "Nothing moves. Then, everything",
+    "This is the only chance it gets",
+    "The young one tries again",
+    "Instinct, not understanding",
+    "Deep in the dependency tree",
+    "It will not eat again for days",
+    "The colony has its own logic",
+    "A thousand of them. One survives",
+    "Remarkably, it still works",
+    "For now, the balance holds",
+    "The rains are coming",
+    "It leaves no trace behind",
+    "And so the cycle begins again",
+    "Life, it seems, finds a way",
+    "But that is another story"
+  ]
+}

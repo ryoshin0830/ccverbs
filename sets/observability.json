@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "observability",
+  "name": "Observability",
+  "emoji": "🔭",
+  "description": "Logs, metrics and traces - and what each one cannot tell you",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "observability",
+    "metrics",
+    "tracing",
+    "sre",
+    "study"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "ログ・メトリクス・トレースの守備範囲"
+    }
+  },
+  "verbs": [
+    "ログ — 起きた事そのものの記録",
+    "メトリクス — 数に潰した時系列",
+    "トレース — 一つの依頼の道筋",
+    "span — トレースの一区間",
+    "trace context — 依頼のIDを継ぐ",
+    "sampling — 全部は残さず間引く",
+    "tail-based sampling — 遅い物を残す",
+    "cardinality — ラベルの組合せ数",
+    "高カーディナリティ — 保存費が爆ぜる",
+    "counter — 増える一方の値",
+    "gauge — 今この瞬間の値",
+    "histogram — 分布を階級で持つ",
+    "p99 — 100人のうち99人はこれ以内",
+    "平均は嘘をつく — 分布を見る",
+    "RED — 率、誤り、所要時間",
+    "USE — 使用率、飽和、誤り",
+    "構造化ログ — 後で機械が引ける形",
+    "相関ID — ログとトレースを繋ぐ",
+    "OpenTelemetry — 計測の共通規格",
+    "exemplar — 指標から実例へ跳ぶ",
+    "保持期間 — どこまで遡れるか",
+    "alert fatigue — 鳴りすぎて見ない",
+    "SLI — 利用者から見た良し悪し",
+    "黒箱と白箱 — 外から見るか中から"
+  ]
+}

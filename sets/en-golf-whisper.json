@@ -1,0 +1,42 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "en-golf-whisper",
+  "name": "Golf Commentary",
+  "emoji": "⛳",
+  "description": "Hushed, reverent, occasionally devastating",
+  "language": "en",
+  "category": "meme",
+  "tags": [
+    "golf",
+    "commentary",
+    "calm",
+    "english"
+  ],
+  "i18n": {
+    "ja": {
+      "description": "小声で、敬虔で、時々辛辣な中継"
+    }
+  },
+  "verbs": [
+    "A delicate lie, this one",
+    "They'll want to lay up here",
+    "Quiet, please. They're over it",
+    "That is a big ask from there",
+    "Just short. Just short",
+    "Oh, that is lovely",
+    "They won't like that at all",
+    "A little draw into the slope",
+    "The wind is off the left",
+    "Downhill, and quick",
+    "Taking their time now",
+    "Straight up the hill, this",
+    "It's got a chance, you know",
+    "Never a doubt",
+    "That'll do. That'll do nicely",
+    "Two putts from here, surely",
+    "Oh dear. Oh dear me",
+    "Found the bunker again",
+    "A tidy up and down",
+    "And that is the tournament"
+  ]
+}

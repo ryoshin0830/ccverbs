@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "semver-commits",
+  "name": "SemVer and Commits",
+  "emoji": "🔖",
+  "description": "Version ranges and Conventional Commits",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "semver",
+    "git",
+    "conventional-commits",
+    "study"
+  ],
+  "source": "https://semver.org/",
+  "i18n": {
+    "ja": {
+      "description": "バージョン範囲とコミット規約"
+    }
+  },
+  "verbs": [
+    "MAJOR — 壊れる変更を入れた印",
+    "MINOR — 後方互換のまま増えた",
+    "PATCH — 直しただけ",
+    "0.y.z — まだ何をしても許される",
+    "^1.2.3 — マイナーまで許す",
+    "~1.2.3 — パッチまで許す",
+    "1.x — マイナーは自由に上がる",
+    ">=1.2 <2 — 範囲で書き下す",
+    "prerelease — 1.0.0-rc.1 は前",
+    "build metadata — +sha は比較外",
+    "lockfile — 実際に入れた版を固定",
+    "feat: — 機能を足した",
+    "fix: — 不具合を直した",
+    "refactor: — 挙動は変えていない",
+    "perf: — 速さのための変更",
+    "docs: — 文書だけを触った",
+    "chore: — 雑務、依存更新など",
+    "test: — 試験だけを触った",
+    "build: と ci: — 仕組み側の変更",
+    "feat!: — 破壊的変更を含む印",
+    "BREAKING CHANGE: — 本文で宣言する",
+    "scope — feat(api): のように絞る",
+    "件名は命令法 — fix ではなく直す",
+    "件名は72字まで — 本文は空行の後"
+  ]
+}

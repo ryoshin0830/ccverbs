@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema/verb-set.schema.json",
+  "id": "py-idioms",
+  "name": "Python Idioms",
+  "emoji": "🐍",
+  "description": "The Pythonic way to write it, one idiom at a time",
+  "language": "mixed",
+  "category": "study",
+  "tags": [
+    "python",
+    "idiom",
+    "language",
+    "study"
+  ],
+  "source": "https://docs.python.org/3/",
+  "i18n": {
+    "ja": {
+      "description": "Pythonらしい書き方を一つずつ"
+    }
+  },
+  "verbs": [
+    "enumerate() — indexと値を同時に",
+    "zip(*rows) — 行と列を入れ替える",
+    "dict.get(k, d) — 無ければ既定値",
+    "setdefault — 無ければ入れて返す",
+    "collections.Counter — 数える",
+    "defaultdict — 初期値を自動で作る",
+    "itertools.chain — 連結して流す",
+    "any() / all() — 短絡して判定する",
+    "内包表記 — ループより短く読める",
+    "walrus := — 代入しつつ評価する",
+    "f'{x=}' — 変数名ごと出力する",
+    "*args / **kwargs — 可変長で受ける",
+    "with — 抜ける時に必ず後始末",
+    "contextlib.suppress — 例外を捨てる",
+    "dataclass — __init__を自動生成",
+    "__slots__ — 属性を固定して軽く",
+    "@cache — 呼び出し結果を覚える",
+    "yield — 遅延して一つずつ返す",
+    "yield from — 委譲して流し込む",
+    "pathlib.Path — / で連結する",
+    "sorted(key=) — 基準を渡して並べる",
+    "try / else — 例外が無い時だけ走る",
+    "is None — Noneは == で比べない",
+    "EAFP — 許可より謝罪、まず試す"
+  ]
+}
