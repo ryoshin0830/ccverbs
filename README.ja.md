@@ -247,7 +247,7 @@ UI は **English・日本語・简体中文・繁體中文・한국어** の 5 �
 ## 単語セット一覧
 
 
-23 セット、502 語。
+21 セット、496 語。
 
 ### ネタ系
 
@@ -260,7 +260,6 @@ UI は **English・日本語・简体中文・繁體中文・한국어** の 5 �
 | 🐙 `ja-kansai` | 20 | 関西弁の Claude |
 | 🦜 `en-pirate` | 24 | 海賊 |
 | 🌃 `en-cyberpunk` | 22 | ネオンと雨と ICE |
-| 🌸 `tougekou` | 2 | 登下校の様子 |
 
 ### 学習系 — スピナーを単語帳にする
 
@@ -310,7 +309,7 @@ $ cat set.json | ccverbs new --input - --pr --json
 
 ```console
 $ ccverbs list --json
-{"ok":true,"totalSets":23,"totalVerbs":502,"registryTotalSets":23,"sets":[…]}
+{"ok":true,"totalSets":21,"totalVerbs":496,"registryTotalSets":21,"sets":[…]}
 
 $ ccverbs set git-commands --yes --json
 {"ok":true,"applied":{"id":"git-commands","mode":"replace","count":24},"settingsPath":"…","backupPath":"…","previous":null,"effectiveVerbCount":24}

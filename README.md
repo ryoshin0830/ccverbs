@@ -251,7 +251,7 @@ Verb *content* is never translated — a Japanese set is Japanese. Sets in your 
 ## Verb sets
 
 
-23 sets, 502 verbs.
+21 sets, 496 verbs.
 
 ### Just for fun
 
@@ -264,7 +264,6 @@ Verb *content* is never translated — a Japanese set is Japanese. Sets in your 
 | 🐙 `ja-kansai` | 20 | Claude, but in Kansai dialect |
 | 🦜 `en-pirate` | 24 | Arrr |
 | 🌃 `en-cyberpunk` | 22 | Neon, rain, and ICE |
-| 🌸 `tougekou` | 2 | Going to and from school |
 
 ### Study sets — the spinner as a flashcard
 
@@ -314,7 +313,7 @@ guide](docs/ai-agents.md) and the [contribution skill](.claude/skills/ccverbs-co
 
 ```console
 $ ccverbs list --json
-{"ok":true,"totalSets":23,"totalVerbs":502,"registryTotalSets":23,"sets":[{"id":"bigo","name":"Big-O and Algorithms","emoji":"📈","description":"…","language":"mixed","category":"study","tags":["algorithm","complexity","study"],"count":24}, …]}
+{"ok":true,"totalSets":21,"totalVerbs":496,"registryTotalSets":21,"sets":[{"id":"bigo","name":"Big-O and Algorithms","emoji":"📈","description":"…","language":"mixed","category":"study","tags":["algorithm","complexity","study"],"count":24}, …]}
 
 $ ccverbs show sisyphus --json
 {"ok":true,"set":{"id":"sisyphus","name":"Sisyphus", …,"verbs":["岩を押し上げています", …]}}
