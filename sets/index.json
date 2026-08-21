@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedAt": "1970-01-01T00:00:00.000Z",
-  "totalSets": 121,
-  "totalVerbs": 2860,
+  "totalSets": 122,
+  "totalVerbs": 2905,
   "sets": [
     {
       "$schema": "../schema/verb-set.schema.json",
@@ -1893,6 +1893,73 @@
         "The gate has no lock at all",
         "Ten thousand lines, one line",
         "Where does the process go"
+      ]
+    },
+    {
+      "$schema": "../schema/verb-set.schema.json",
+      "id": "europe-countries",
+      "name": "Countries of Europe",
+      "emoji": "🌍",
+      "description": "Every country in Europe, one line each",
+      "language": "mixed",
+      "category": "study",
+      "tags": [
+        "geography",
+        "europe",
+        "country",
+        "study"
+      ],
+      "i18n": {
+        "ja": {
+          "description": "ヨーロッパの国を、一行の紹介つきで"
+        }
+      },
+      "verbs": [
+        "Iceland — 火山と氷河、暖房はほぼ地熱",
+        "Norway — フィヨルドと北海の油田",
+        "Sweden — 中立をやめ NATO に加わる",
+        "Finland — 森と湖、長いロシア国境",
+        "Denmark — 自治領にグリーンランドを持つ",
+        "Estonia — 行政をほぼ電子化した国",
+        "Latvia — 首都リガはバルトの要港",
+        "Lithuania — かつて欧州最大の大公国",
+        "Ireland — 低い法人税で企業を集める",
+        "United Kingdom — EU を離脱した島国",
+        "Netherlands — 国土の四分の一が海面下",
+        "Belgium — EU と NATO の本部を置く",
+        "Luxembourg — 一人当たり GDP が世界一",
+        "France — EU の中核、首都はパリ",
+        "Germany — 欧州最大の経済を持つ連邦国",
+        "Switzerland — 永世中立で EU に入らない",
+        "Liechtenstein — 人口四万の小さな公国",
+        "Austria — 内陸の連邦国、旧帝国の中心",
+        "Poland — 分割で地図から消えた過去",
+        "Czechia — ビロード革命で体制が変わる",
+        "Slovakia — 1993年にチェコと分かれる",
+        "Hungary — 言語がウラル系で周りと違う",
+        "Slovenia — 国土の六割が森に覆われる",
+        "Croatia — アドリア海沿いに細長い",
+        "Bosnia and Herzegovina — 大統領が三人",
+        "Serbia — 内陸国、EU 加盟を交渉中",
+        "Montenegro — 2006年に平和的に独立",
+        "Kosovo — 独立の承認は国により割れる",
+        "North Macedonia — 国名で長く揉めた国",
+        "Albania — かつて欧州で最も閉じた国",
+        "Greece — 民主政と哲学の生まれた地",
+        "Bulgaria — キリル文字が生まれた地",
+        "Romania — 周囲と違いラテン系の言語",
+        "Moldova — ワイン産地、内陸の小国",
+        "Ukraine — 黒海に面した欧州の穀倉",
+        "Belarus — 森と湿地の広がる内陸国",
+        "Italy — 統一は1861年、地方色が濃い",
+        "San Marino — 現存する最古の共和国",
+        "Vatican City — 人口千人未満の独立国",
+        "Malta — EU で最も小さな加盟国",
+        "Monaco — 世界で二番目に小さい国",
+        "Andorra — 元首が二人いる小さな国",
+        "Spain — 州ごとに言語も文化も違う",
+        "Portugal — 大航海時代の口火を切る",
+        "Cyprus — 島は南北に分かれたまま"
       ]
     },
     {
